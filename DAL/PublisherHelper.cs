@@ -9,7 +9,7 @@ namespace DAL
 {
     public class PublisherHelper
     {
-        public static DataTable GetPublishedBooksList(string id)
+        public static DataTable GetPublishedBooksList(int id)
         {
             string sql = $"SELECT bookID, bookName, bookCoverPic FROM Books WHERE publisherID = '{id}'";
             //get all books from booksread table where the publisher id is the parameter

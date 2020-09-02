@@ -67,10 +67,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Controllers\BookList.ascx" />
+    <Content Include="Controllers\BookPreview.ascx" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\BookList.ascx.cs">
+      <DependentUpon>BookList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controllers\BookList.ascx.designer.cs">
+      <DependentUpon>BookList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\BookPreview.ascx.cs">
+      <DependentUpon>BookPreview.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controllers\BookPreview.ascx.designer.cs">
+      <DependentUpon>BookPreview.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

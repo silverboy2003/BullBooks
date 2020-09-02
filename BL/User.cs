@@ -5,7 +5,7 @@ namespace BL
 {
     public class User
     {
-        protected string id;
+        protected int id;
         protected string username;
         protected DateTime date;
         protected int gender; //1- male, 2- female, 3- other
@@ -15,7 +15,7 @@ namespace BL
          
         public User(DataRow userDataRow)
         {
-            id = (string)userDataRow["userID"];
+            id = (int)userDataRow["userID"];
             username = (string)userDataRow["username"];
             date = (DateTime)userDataRow["creationDate"];
             gender = (int)userDataRow["gender"];
@@ -23,10 +23,8 @@ namespace BL
             banner = (string)userDataRow["bannerPic"];
             profile = (string)userDataRow["profilePic"];
         }
-        public static User GetUser(string id)//return a type corresponding the the user type in the database. returns null if no user exists with such an id
+        public static User GetUser(int id)//return a type corresponding the the user type in the database. returns null if no user exists with such an id
         {
-            if(id == null)
-                return null;
             DataRow user = DAL.UserHelper.GetUser(id);
             if(user != null)
             {

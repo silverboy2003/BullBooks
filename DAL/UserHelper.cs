@@ -9,7 +9,7 @@ namespace DAL
 {
     public class UserHelper
     {
-        public static DataRow GetUser(string id)
+        public static DataRow GetUser(int id)
         {
             string sql = $"SELECT * FROM Users WHERE userID = '{id}'";
             DataTable user = DBHelper.GetDataTable(sql);
@@ -17,7 +17,7 @@ namespace DAL
                 return user.Rows[0];
             return null;
         }
-        public static DataTable GetReadBooksList(string id)
+        public static DataTable GetReadBooksList(int id)
         {
             string sql = $"SELECT Books.bookID, Books.bookName, Books.bookCoverPic FROM Books INNER JOIN BooksRead ON BooksRead.bookID = Books.bookID WHERE BooksRead.userID = '{id}'";
             //get all books from booksread table where the user id is the parameter
