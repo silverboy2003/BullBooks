@@ -60,6 +60,25 @@ namespace DAL
                 return null;
             }
         }
+        public static OleDbDataReader ReadData(string sql, string text)//sanitized
+        {
+            try
+            {
+                if (!connOpen)
+                {
+                    if (!OpenConnection())
+                        return null;
+                }
+                OleDbCommand cmd = new OleDbCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@Text", text);
+                OleDbDataReader rd = cmd.ExecuteReader();
+                return rd;
+            }
+            catch
+            {
+                return null;
+            }
+        }
         public static int WriteData(string sql)
         {
             try
@@ -125,6 +144,24 @@ namespace DAL
                 string query = sql;
                 DataTable dataTable = new DataTable();
                 OleDbDataReader reader = ReadData(sql);
+                if (reader == null)
+                    return null;
+                dataTable.Load(reader);
+
+                return dataTable;
+            }
+            catch (OleDbException e)
+            {
+                return null;
+            }
+        }
+        public static DataTable GetDataTable(string sql, string text)//sanitized
+        {
+            try
+            {
+                string query = sql;
+                DataTable dataTable = new DataTable();
+                OleDbDataReader reader = ReadData(sql, text);
                 if (reader == null)
                     return null;
                 dataTable.Load(reader);

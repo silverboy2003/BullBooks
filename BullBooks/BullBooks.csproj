@@ -67,33 +67,49 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Controllers\BookList.ascx" />
-    <Content Include="Controllers\BookPreview.ascx" />
+    <Content Include="BookPage.aspx" />
+    <Content Include="Controls\BookList.ascx" />
+    <Content Include="Controls\BookPreview.ascx" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\BookList.ascx.cs">
+    <Compile Include="BookPage.aspx.cs">
+      <DependentUpon>BookPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BookPage.aspx.designer.cs">
+      <DependentUpon>BookPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BookList.ascx.cs">
       <DependentUpon>BookList.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Controllers\BookList.ascx.designer.cs">
+    <Compile Include="Controls\BookList.ascx.designer.cs">
       <DependentUpon>BookList.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\BookPreview.ascx.cs">
+    <Compile Include="Controls\BookPreview.ascx.cs">
       <DependentUpon>BookPreview.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Controllers\BookPreview.ascx.designer.cs">
+    <Compile Include="Controls\BookPreview.ascx.designer.cs">
       <DependentUpon>BookPreview.ascx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Toolbar.Master.cs">
+      <DependentUpon>Toolbar.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Toolbar.Master.designer.cs">
+      <DependentUpon>Toolbar.Master</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Toolbar.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -106,6 +122,9 @@
       <Project>{fc435d81-27cc-4c48-8536-4c8e2951c358}</Project>
       <Name>BL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -11,7 +11,7 @@ namespace DAL
     {
         public static DataTable GetTable(string table)
         {
-            string sql = $"SELECT & FROM {table}";
+            string sql = $"SELECT * FROM {table}";
             DataTable dt = DBHelper.GetDataTable(sql);
             return dt;
         }

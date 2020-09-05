@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BullBooks.Controllers
+namespace BullBooks
 {
 
 
-    public partial class BookList
+    public partial class BookPage
     {
     }
 }
