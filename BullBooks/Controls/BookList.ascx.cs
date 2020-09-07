@@ -13,20 +13,20 @@ namespace BullBooks.Controllers
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
-        protected void LoadBooks(string bookName, List<string> genres)
+        public void LoadBooks(string bookName, List<int> genres)
         {
+            
             List<BL.Book> books = BL.Book.GetBooksBySearch(bookName, genres);
             foreach(BL.Book b in books)
             {
                 BookPreview bp = new BookPreview();
+                listBox.Controls.Add(bp);
                 bp.BookID = b.ID;
                 bp.Name = b.BookName;
                 bp.Author = b.BookAuthor;
                 bp.Cover = b.BookCover;
-                bp.LoadBook();
-                listBox.Controls.Add(bp);
             }
         }
     }

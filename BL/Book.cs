@@ -67,13 +67,13 @@ namespace BL
             this.BookAuthor = author;
             this.BookCover = cover;
         }
-        public static List<Book> GetBooksBySearch(string bookName, List<string> genres)//function that gets a search term and a list of genres that were picked and returns a list of books containing their id, name, author and cover photo path
+        public static List<Book> GetBooksBySearch(string bookName, List<int> genres)//function that gets a search term and a list of genres that were picked and returns a list of books containing their id, name, author and cover photo path
         {
             DataTable books = DAL.BookHelper.GetBookSearch(bookName, genres);//Books.BookID, bookName, bookAuthor, BookCoverPic
             List<Book> previews = new List<Book>();
             foreach(DataRow book in books.Rows)
             {
-                int id = (int)book["Books.bookID"];
+                int id = (int)book["bookID"];
                 string name = (string)book["bookName"];
                 string author = (string)book["bookAuthor"];
                 string cover = (string)book["bookCoverPic"];

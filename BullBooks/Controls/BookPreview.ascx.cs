@@ -31,17 +31,18 @@ namespace BullBooks.Controllers
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            Image.Click += Redirect;
+            LoadBook();
+            CoverImage.Click += Redirect;
         }
         protected void Redirect(object sender, System.EventArgs e)
         {
-            Response.Redirect("BookPage.aspx");
             var client = new WebClient();
             client.QueryString.Add("id", ID);
+            Response.Redirect("BookPage.aspx");
         }
         public void LoadBook()
         {
-            Image.ImageUrl = Cover;
+            CoverImage.ImageUrl = Cover;
             BookName.Text = Name;
             BookAuthor.Text = Author;
         }
