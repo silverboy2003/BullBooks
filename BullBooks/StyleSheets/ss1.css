@@ -1,0 +1,29 @@
+﻿body {
+
+}
+.PreviewClass {
+    display: block;
+    margin: 100px;
+    height:10vh;
+    width: 10vw;
+}
+.ListClass{
+    display:flex;
+}
+.DetailClass{
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+}
+.DetailClass .Detail{
+    color:red;
+    width: 100vw;
+    text-overflow:clip; 
+    display:block;
+    
+}
+.CoverImage{
+    width:100%;
+    height: 32vh;   
+    background-size:contain;
+}

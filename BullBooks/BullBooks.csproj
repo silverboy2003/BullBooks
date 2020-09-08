@@ -68,8 +68,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BookPage.aspx" />
-    <Content Include="Controls\BookList.ascx" />
-    <Content Include="Controls\BookPreview.ascx" />
+    <Content Include="StyleSheets\ss1.css" />
+    <Content Include="UserControls\BookList.ascx" />
+    <Content Include="UserControls\BookPreview.ascx" />
     <Content Include="Global.asax" />
     <Content Include="SearchResults.aspx" />
     <Content Include="Web.config" />
@@ -82,18 +83,18 @@
     <Compile Include="BookPage.aspx.designer.cs">
       <DependentUpon>BookPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Controls\BookList.ascx.cs">
+    <Compile Include="UserControls\BookList.ascx.cs">
       <DependentUpon>BookList.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Controls\BookList.ascx.designer.cs">
+    <Compile Include="UserControls\BookList.ascx.designer.cs">
       <DependentUpon>BookList.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Controls\BookPreview.ascx.cs">
+    <Compile Include="UserControls\BookPreview.ascx.cs">
       <DependentUpon>BookPreview.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Controls\BookPreview.ascx.designer.cs">
+    <Compile Include="UserControls\BookPreview.ascx.designer.cs">
       <DependentUpon>BookPreview.ascx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">

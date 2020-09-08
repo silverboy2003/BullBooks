@@ -39,7 +39,7 @@ namespace BullBooks.Controllers
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton CoverImage;
+        protected global::System.Web.UI.WebControls.Image CoverImage;
 
         /// <summary>
         /// DetailPanel control.
@@ -57,7 +57,7 @@ namespace BullBooks.Controllers
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox BookAuthor;
+        protected global::System.Web.UI.WebControls.Label BookAuthor;
 
         /// <summary>
         /// BookName control.
@@ -66,6 +66,6 @@ namespace BullBooks.Controllers
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox BookName;
+        protected global::System.Web.UI.WebControls.Label BookName;
     }
 }

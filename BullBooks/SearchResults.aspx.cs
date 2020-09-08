@@ -13,7 +13,6 @@ namespace BullBooks
         protected List<int> genres;
         protected void Page_Load(object sender, EventArgs e)
         {
-            name = "rev";
             genres = new List<int>();
             genres.Add(1);
             genres.Add(2);

@@ -21,7 +21,7 @@ namespace BullBooks.Controllers
             List<BL.Book> books = BL.Book.GetBooksBySearch(bookName, genres);
             foreach(BL.Book b in books)
             {
-                BookPreview bp = new BookPreview();
+                BookPreview bp = (BookPreview)Page.LoadControl("~/UserControls/BookPreview.ascx");
                 listBox.Controls.Add(bp);
                 bp.BookID = b.ID;
                 bp.Name = b.BookName;
