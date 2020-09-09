@@ -26,6 +26,7 @@ namespace BullBooks
             {
                 Load_Radio();
             }
+            Blist.LoadBooks(name, Genre.ConvertStringToList(genreIDs));
         }
         protected string CreateQuery()//generates query string
         {

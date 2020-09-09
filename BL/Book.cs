@@ -71,6 +71,7 @@ namespace BL
         {
             DataTable books = DAL.BookHelper.GetBookSearch(bookName, genres);//Books.BookID, bookName, bookAuthor, BookCoverPic
             List<Book> previews = new List<Book>();
+            if (books != null) 
             foreach(DataRow book in books.Rows)
             {
                 int id = (int)book["bookID"];

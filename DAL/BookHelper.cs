@@ -11,12 +11,10 @@ namespace DAL
     {
         public static DataTable GetBookSearch(string bookName, List<int> genres)
         {
-            if (bookName == null && genres == null)
-                return null;
-            string genresSQL = $"SELECT Books.BookID, bookName, bookAuthor, BookCoverPic FROM (Books INNER JOIN GenreToBook ON Books.bookID = GenreToBook.bookID)";
+            string genresSQL = @"SELECT Books.BookID, bookName, bookAuthor, BookCoverPic FROM (Books INNER JOIN GenreToBook ON Books.bookID = GenreToBook.bookID)";
             if (bookName != null) 
-                genresSQL += " WHERE Books.bookName LIKE '%rev%' ";
-            if(genres != null)
+                genresSQL += @" WHERE Books.bookName LIKE @Text ";
+            if (genres != null)
             {
                 if (bookName != null)
                     genresSQL += "AND genreID IN (";
@@ -28,6 +26,8 @@ namespace DAL
                 }
                 genresSQL += $") GROUP BY Books.bookID, bookName, bookAuthor, BookCoverPic HAVING COUNT(Books.bookID) ={genres.Count}";
             }
+            else
+                genresSQL += " GROUP BY Books.bookID, bookName, bookAuthor, BookCoverPic";
             DataTable books = DBHelper.GetDataTable(genresSQL, bookName);//Books.BookID, bookName, bookAuthor, BookCoverPic
             return books;
         }

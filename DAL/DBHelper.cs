@@ -70,7 +70,7 @@ namespace DAL
                         return null;
                 }
                 OleDbCommand cmd = new OleDbCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@Text", text);
+                cmd.Parameters.AddWithValue("@Text", '%' + text + '%');
                 OleDbDataReader rd = cmd.ExecuteReader();
                 return rd;
             }
