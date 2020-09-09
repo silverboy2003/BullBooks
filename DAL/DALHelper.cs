@@ -7,7 +7,7 @@ using System.Data;
 
 namespace DAL
 {
-    class DALHelper
+    public class DALHelper
     {
         public static DataTable GetTable(string table)
         {
