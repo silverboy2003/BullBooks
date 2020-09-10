@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BookPage.aspx" />
+    <Content Include="MainPage.aspx" />
     <Content Include="StyleSheets\ss1.css" />
     <Content Include="UserControls\BookList.ascx" />
     <Content Include="UserControls\BookPreview.ascx" />
@@ -82,6 +83,13 @@
     </Compile>
     <Compile Include="BookPage.aspx.designer.cs">
       <DependentUpon>BookPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.aspx.cs">
+      <DependentUpon>MainPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MainPage.aspx.designer.cs">
+      <DependentUpon>MainPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\BookList.ascx.cs">
       <DependentUpon>BookList.ascx</DependentUpon>
