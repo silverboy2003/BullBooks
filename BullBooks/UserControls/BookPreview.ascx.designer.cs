@@ -15,15 +15,6 @@ namespace BullBooks.Controllers
     {
 
         /// <summary>
-        /// OuterPanel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel OuterPanel;
-
-        /// <summary>
         /// ImagePanel control.
         /// </summary>
         /// <remarks>
@@ -39,16 +30,7 @@ namespace BullBooks.Controllers
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image CoverImage;
-
-        /// <summary>
-        /// DetailPanel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel DetailPanel;
+        protected global::System.Web.UI.WebControls.ImageButton CoverImage;
 
         /// <summary>
         /// BookAuthor control.

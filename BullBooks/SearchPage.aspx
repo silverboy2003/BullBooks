@@ -9,5 +9,5 @@
         </asp:CheckBoxList>
         <asp:Button ID="Submit" runat="server" Text="Button" OnClick="SendSearch"/>
     </div>
-    <ASS:BookList ID="Blist" runat="server"/>
+    <ASS:BookList ID="Blist" runat="server" OnLoad="Blist_Load"/>
 </asp:Content>

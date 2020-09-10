@@ -3,27 +3,30 @@
 }
 .PreviewClass {
     display: block;
-    margin: 100px;
-    height:10vh;
-    width: 10vw;
+    margin: 1vw;
+    height:100%;
+    width: 12vw;
+    border: solid black 2px;
+    padding-top: 5px;
 }
 .ListClass{
     display:flex;
 }
-.DetailClass{
-    display:flex;
-    flex-direction:column;
-    overflow:hidden;
+.DetailClass {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    width: 100%;
 }
-.DetailClass .Detail{
-    color:red;
-    width: 100vw;
-    text-overflow:clip; 
-    display:block;
-    
-}
+    .DetailClass .Detail {
+        color: red;
+        text-overflow: clip;
+        display: block;
+        text-align: center;
+        white-space: nowrap;
+    }
 .CoverImage{
     width:100%;
-    height: 32vh;   
-    background-size:contain;
+    height: 100%;   
+    background-size: contain;
 }

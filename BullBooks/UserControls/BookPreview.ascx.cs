@@ -32,7 +32,7 @@ namespace BullBooks.Controllers
         protected void Page_Load(object sender, EventArgs e)
         {
             LoadBook();
-            //CoverImage.Click += Redirect;
+            CoverImage.Click += Redirect;
         }
         protected void Redirect(object sender, System.EventArgs e)
         {
@@ -42,6 +42,7 @@ namespace BullBooks.Controllers
         }
         public void LoadBook()
         {
+            Cover = "../" + Cover;
             CoverImage.ImageUrl = Cover;
             BookName.Text = Name;
             BookAuthor.Text = Author;

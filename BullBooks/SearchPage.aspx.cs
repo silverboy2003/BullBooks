@@ -17,8 +17,6 @@ namespace BullBooks
         protected string genreIDs;
         private void Page_PreInit(object sender, EventArgs e)
         {
-            name = Request.QueryString.Get("bName");
-            genreIDs = Request.QueryString.Get("genres");
         }
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -26,7 +24,6 @@ namespace BullBooks
             {
                 Load_Radio();
             }
-            Blist.LoadBooks(name, Genre.ConvertStringToList(genreIDs));
         }
         protected string CreateQuery()//generates query string
         {
@@ -72,6 +69,13 @@ namespace BullBooks
         protected void SendSearch(object sender, EventArgs e)
         {
             RedirectSearch();
+        }
+
+        protected void Blist_Load(object sender, EventArgs e)
+        {
+            name = Request.QueryString["input"];
+            genreIDs = Request.QueryString["genres"];
+            Blist.LoadBooks(name, Genre.ConvertStringToList(genreIDs));
         }
     }
 }
