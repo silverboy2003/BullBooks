@@ -30,7 +30,7 @@ namespace BullBooks.Controllers
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton CoverImage;
+        protected global::System.Web.UI.WebControls.Button CoverImage;
 
         /// <summary>
         /// BookAuthor control.

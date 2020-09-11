@@ -43,7 +43,7 @@ namespace BullBooks.Controllers
         public void LoadBook()
         {
             Cover = "../" + Cover;
-            CoverImage.ImageUrl = Cover;
+            CoverImage.Style.Add("Background-Image", Cover);
             BookName.Text = Name;
             BookAuthor.Text = Author;
         }

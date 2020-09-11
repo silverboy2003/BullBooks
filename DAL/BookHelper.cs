@@ -11,9 +11,15 @@ namespace DAL
     {
         public static DataTable GetBookSearch(string bookName, List<int> genres)
         {
-            string genresSQL = @"SELECT Books.BookID, bookName, bookAuthor, BookCoverPic FROM (Books INNER JOIN GenreToBook ON Books.bookID = GenreToBook.bookID)";
+            string genresSQL = @"SELECT Books.BookID, bookName, bookAuthor, BookCoverPic FROM";
+            if (genres == null)
+                genresSQL += " Books";
+            else
+                genresSQL += "(Books INNER JOIN GenreToBook ON Books.bookID = GenreToBook.bookID)";
+
             if (bookName != null) 
                 genresSQL += @" WHERE Books.bookName LIKE @Text ";
+
             if (genres != null)
             {
                 if (bookName != null)
@@ -28,7 +34,11 @@ namespace DAL
             }
             else
                 genresSQL += " GROUP BY Books.bookID, bookName, bookAuthor, BookCoverPic";
-            DataTable books = DBHelper.GetDataTable(genresSQL, bookName);//Books.BookID, bookName, bookAuthor, BookCoverPic
+            DataTable books;
+            if (bookName != null)
+                books = DBHelper.GetDataTable(genresSQL, bookName);//Books.BookID, bookName, bookAuthor, BookCoverPic
+            else
+                books = DBHelper.GetDataTable(genresSQL);
             return books;
         }
     }

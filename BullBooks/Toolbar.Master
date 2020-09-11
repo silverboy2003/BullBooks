@@ -10,15 +10,15 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-                <div class="ToolBar">
-                    <button></button>
-                </div>
+                
     <form id="form1" runat="server">
         <div class="OuterBox">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
-
         </div>
+        <div class="ToolBar">
+                    <button></button>
+                </div>
     </form>
 </body>
 </html>

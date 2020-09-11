@@ -1,4 +1,9 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="BookList.ascx.cs" Inherits="BullBooks.Controllers.BookList" %>
-<asp:Panel ID="listBox" runat="server" CssClass="ListClass">
+<div Class="ListClass">
+    <div class="CenterBox">
+    <asp:Panel ID="listBox" runat="server" CssClass="InnerBook">
 
-</asp:Panel>
+    </asp:Panel>
+
+    </div>
+</div>
