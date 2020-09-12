@@ -74,6 +74,7 @@
     <Content Include="UserControls\BookPreview.ascx" />
     <Content Include="Global.asax" />
     <Content Include="SearchPage.aspx" />
+    <Content Include="UserControls\Login.ascx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -122,6 +123,13 @@
     </Compile>
     <Compile Include="Toolbar.Master.designer.cs">
       <DependentUpon>Toolbar.Master</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Login.ascx.cs">
+      <DependentUpon>Login.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Login.ascx.designer.cs">
+      <DependentUpon>Login.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

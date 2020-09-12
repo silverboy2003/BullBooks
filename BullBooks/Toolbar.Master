@@ -8,17 +8,23 @@
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <script>
+    </script>
 </head>
-<body>
-                
-    <form id="form1" runat="server">
-        <div class="OuterBox">
+<body>  
+    
+    <form id="MainForm" runat="server">
+
+        <div id="Bar" class="ToolBar">
+            <asp:Button ID="LoginButton" runat="server" OnClick="LoadLogin" CssClass="LoginButton"/>
+        </div>
+
+        <div id="Outer" class="OuterBox">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
-        <div class="ToolBar">
-                    <button></button>
-                </div>
+
+
     </form>
 </body>
 </html>

@@ -1,4 +1,8 @@
-﻿body {
+﻿@import url(https://fonts.googleapis.com/css2?family=Roboto&display=swap);
+*{
+    font-family: Roboto;
+}
+body {
     background-color: #B4A06E;
 }
 .Search .TextInClass{
@@ -32,9 +36,14 @@
     height: 15em;
     width: 10em;
     background: #C4C4C4;
-    position: inherit;  
+    position: inherit;
     margin: 20px;
+    transition: all 0.2s;
 }
+    .PreviewClass:hover {
+        transform: scale(1.1);
+        transition: all 0.2s;
+    }
 .OuterBox{
     height: 100%;
 }
@@ -81,14 +90,14 @@
     left: 50%;
     transform: translateX(-50%);
 }
-.ToolBar button {
+.ToolBar .LoginButton{
     background-image: url("../ControlImages/Login.png");    
-    position: relative;
-    right: 1px;
+    position: inherit;
+    right: 3%;
     top: 50%;
     transform: translateY(-50%);
-    width: 2em;
-    height: 2em;
+    width: 2.2em;
+    height: 2.2em;
     background-size:contain;
     background-repeat: no-repeat;
     background-color: transparent;
@@ -97,10 +106,47 @@
 .ToolBar {
     background-color: #2C433B;
     margin: 10px;
-    height: 2.5em;
+    height: 50px;
     border-radius: 2px;
     width: 70%;
     position: absolute;
     right: 0px;
     top: 0px;
+}
+.LoginDiv {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+    background: white;
+    border: solid black 2px;
+    height: 64%;
+    width: 20%;
+    align-items: center;
+}
+.LoginDiv p{
+    text-align: center;
+    font-family: 'roboto';
+}
+    .LoginDiv input {
+        border: none;
+        background-color: #C4C4C4;
+        height: 1.6em;
+        margin-top: 10px;
+    }
+.LoginIn{
+    width: 80%;
+    transform:translate(0%,50%);
+    position: inherit;
+    bottom: 69%;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.InputBox{
+    margin-top: 1.4em;
+    display:flex;
+    flex-direction:column;
 }
