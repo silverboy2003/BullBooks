@@ -24,5 +24,13 @@ namespace DAL
             DataTable books = DBHelper.GetDataTable(sql);
             return books;
         }
+        public static DataRow Login(string email, string password)
+        {
+            string sql = "SELECT * FROM Users WHERE email = @Text1 AND password = @Text2";
+            List<string> values = new List<string>();
+            values.Add(email);
+            values.Add(password);
+            DataTable user = DBHelper.GetDataTable(email, values);
+        }
     }
 }

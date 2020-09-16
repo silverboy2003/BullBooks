@@ -23,6 +23,12 @@ namespace BL
             banner = (string)userDataRow["bannerPic"];
             profile = (string)userDataRow["profilePic"];
         }
+        public static bool Login(string email, string password)
+        {
+            string hashed = BCrypt.Net.BCrypt.HashPassword(password);
+            DAL.UserHelper.Login(email, hashed);
+
+        }
         public static User GetUser(int id)//return a type corresponding the the user type in the database. returns null if no user exists with such an id
         {
             DataRow user = DAL.UserHelper.GetUser(id);

@@ -14,6 +14,9 @@
             <asp:TextBox ID="PasswordIn" runat="server" CssClass="In"></asp:TextBox>
         </div>
 
+        <div>
+            <asp:Button ID="LoginButton" runat="server" Text="Log In" OnClick="SendLogin" />
+        </div>
     </div>
 
 </div>

@@ -36,7 +36,10 @@ namespace DAL
                 genresSQL += " GROUP BY Books.bookID, bookName, bookAuthor, BookCoverPic";
             DataTable books;
             if (bookName != null)
+            {
+                bookName = '%' + bookName + '%'; //Like operator
                 books = DBHelper.GetDataTable(genresSQL, bookName);//Books.BookID, bookName, bookAuthor, BookCoverPic
+            }
             else
                 books = DBHelper.GetDataTable(genresSQL);
             return books;

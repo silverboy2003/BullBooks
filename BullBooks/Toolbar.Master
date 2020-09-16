@@ -14,16 +14,15 @@
 <body>  
     
     <form id="MainForm" runat="server">
-
-        <div id="Bar" class="ToolBar">
-            <asp:Button ID="LoginButton" runat="server" OnClick="LoadLogin" CssClass="LoginButton"/>
-        </div>
-
+        
         <div id="Outer" class="OuterBox">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
 
+        <div id="Bar" class="ToolBar">
+            <asp:Button ID="LoginButton" runat="server" OnClick="LoadLogin" CssClass="LoginButton"/>
+        </div>
 
     </form>
 </body>

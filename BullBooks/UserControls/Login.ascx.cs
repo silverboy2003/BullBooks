@@ -13,5 +13,12 @@ namespace BullBooks.UserControls
         {
 
         }
+
+        protected void SendLogin(object sender, EventArgs e)
+        {
+            string username = TextIn.Text;
+            string password = PasswordIn.Text;
+
+        }
     }
 }
