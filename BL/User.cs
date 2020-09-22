@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using DAL;
 
 namespace BL
 {
@@ -12,6 +13,8 @@ namespace BL
         protected string email;
         protected string banner;//banner picture directory
         protected string profile;//profile picture directory
+
+        //there is no need for isAdmin and Is Publisher because there are special classes for these
          
         public User(DataRow userDataRow)
         {
@@ -23,18 +26,30 @@ namespace BL
             banner = (string)userDataRow["bannerPic"];
             profile = (string)userDataRow["profilePic"];
         }
+        public static User Login(string username, string password)
+        {
+            DataRow result = UserHelper.DoLogin(username, password);
+            if (result == null)
+                return null;
+            User user = CreateUserByDataRow(result);
+            return user;
+        } 
         public static User GetUser(int id)//return a type corresponding the the user type in the database. returns null if no user exists with such an id
         {
             DataRow user = DAL.UserHelper.GetUser(id);
-            if(user != null)
-            {
-                if ((bool)user["isAdmin"])
-                    return new Admin(user);
-                if ((bool)user["isPublisher"])
-                    return new Publisher(user);
-                return new User(user);
-            }
-            return null;
+            return CreateUserByDataRow(user);
+        }
+        public static User CreateUserByDataRow(DataRow user)
+        {
+            if (user == null)
+                return null;
+            bool isAdmin = (bool)user["isAdmin"];
+            bool isPublisher = (bool)user["isPublisher"];
+            if (isAdmin && isPublisher)
+                return new AdminPublisher(user);
+            if (isAdmin)
+                return new Admin(user);
+            return new Publisher(user);
         }
         protected virtual DataTable GetAssociatedBooks()
         {

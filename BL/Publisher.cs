@@ -8,7 +8,7 @@ using DAL;
 
 namespace BL
 {
-    class Publisher: User
+    public class Publisher: User
     {
         public Publisher(DataRow userDataRow) : base(userDataRow)
         {

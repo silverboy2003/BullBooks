@@ -8,7 +8,7 @@ using DAL;
 
 namespace BL
 {
-    class Admin: User
+    public class Admin: User
     {
         public Admin(DataRow userDataRow) : base(userDataRow)
         {

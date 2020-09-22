@@ -9,6 +9,10 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <script>
+        function HideLogin() {
+            var login = document.getElementById("LoginID")
+            login.remove();
+        }
     </script>
 </head>
 <body>  

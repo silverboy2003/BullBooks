@@ -70,7 +70,29 @@ namespace DAL
                         return null;
                 }
                 OleDbCommand cmd = new OleDbCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@Text", '%' + text + '%');
+                cmd.Parameters.AddWithValue("@Text", text);
+                OleDbDataReader rd = cmd.ExecuteReader();
+                return rd;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+        public static OleDbDataReader ReadData(string sql, List<string> text)//sanitized for multiple
+        {
+            try
+            {
+                if (!connOpen)
+                {
+                    if (!OpenConnection())
+                        return null;
+                }
+                OleDbCommand cmd = new OleDbCommand(sql, conn);
+                for(int i = 1; i <= text.Count; i++)
+                {
+                    cmd.Parameters.AddWithValue($"@Text{i}", text[i-1]);
+                }
                 OleDbDataReader rd = cmd.ExecuteReader();
                 return rd;
             }
@@ -156,6 +178,24 @@ namespace DAL
             }
         }
         public static DataTable GetDataTable(string sql, string text)//sanitized
+        {
+            try
+            {
+                string query = sql;
+                DataTable dataTable = new DataTable();
+                OleDbDataReader reader = ReadData(sql, text);
+                if (reader == null)
+                    return null;
+                dataTable.Load(reader);
+
+                return dataTable;
+            }
+            catch (OleDbException e)
+            {
+                return null;
+            }
+        }
+        public static DataTable GetDataTable(string sql, List<string> text)//sanitized for multiple
         {
             try
             {

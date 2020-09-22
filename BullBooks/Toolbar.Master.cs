@@ -16,6 +16,7 @@ namespace BullBooks
         protected void LoadLogin(object sender, EventArgs e)
         {
             UserControls.Login lg = (UserControls.Login)Page.LoadControl("UserControls/Login.ascx");
+            lg.ID = "loginID";
             MainForm.Controls.Add(lg);
         }
     }

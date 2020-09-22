@@ -92,7 +92,7 @@ body {
 }
 .ToolBar .LoginButton{
     background-image: url("../ControlImages/Login.png");    
-    position: inherit;
+    position: relative;
     right: 3%;
     top: 50%;
     transform: translateY(-50%);
@@ -116,7 +116,7 @@ body {
 .LoginDiv {
     display: flex;
     flex-direction: column;
-    position: absolute;
+    position: fixed;
     transform: translate(-50%,-50%);
     left: 50%;
     top: 50%;
@@ -125,6 +125,7 @@ body {
     height: 64%;
     width: 20%;
     align-items: center;
+    z-index: 10;
 }
 .LoginDiv p{
     text-align: center;
@@ -149,4 +150,19 @@ body {
     margin-top: 1.4em;
     display:flex;
     flex-direction:column;
+}
+.ScreenCover{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 1, 0.3);
+    position:fixed;
+    top:0;
+    left:0;
+}
+.LoginButton{
+    top: 10px;
+    width:40%;
+    position:relative;
+    left:50%;
+    transform: translate(-50%,50%);
 }
