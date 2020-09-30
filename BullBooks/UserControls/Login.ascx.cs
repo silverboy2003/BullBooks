@@ -10,11 +10,11 @@ namespace BullBooks.UserControls
 {
     public partial class Login : System.Web.UI.UserControl
     {
+        private string referrer;
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
-        protected void LoginUser()
+        protected void LoginUser(object sender, EventArgs e)
         {
             string username = TextIn.Text;
             string password = PasswordIn.Text;
@@ -25,8 +25,27 @@ namespace BullBooks.UserControls
             }
             else
             {
-                Session["User"] = user;
+                try
+                {
+                    Session["User"] = user;
+                    HttpCookie hc = new HttpCookie("nigga");
+                    hc["name"] = user.GetUsername();
+                    hc.Expires.Add(new TimeSpan(0, 1, 0));
+                    Response.Cookies.Add(hc);
+
+                    Response.Redirect("MainPage.aspx");
+                }
+                catch
+                {
+                    //do something...
+                }
             }
+
+        }
+
+        protected void LoadRegister(object sender, EventArgs e)
+        {
+
         }
     }
 }

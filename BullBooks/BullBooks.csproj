@@ -68,13 +68,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BookPage.aspx" />
+    <Content Include="LoginPage.aspx" />
     <Content Include="MainPage.aspx" />
+    <Content Include="RegisterPage.aspx" />
     <Content Include="StyleSheets\ss1.css" />
     <Content Include="UserControls\BookList.ascx" />
     <Content Include="UserControls\BookPreview.ascx" />
     <Content Include="Global.asax" />
     <Content Include="SearchPage.aspx" />
     <Content Include="UserControls\Login.ascx" />
+    <Content Include="UserControls\Register.ascx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -85,12 +88,26 @@
     <Compile Include="BookPage.aspx.designer.cs">
       <DependentUpon>BookPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="LoginPage.aspx.cs">
+      <DependentUpon>LoginPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginPage.aspx.designer.cs">
+      <DependentUpon>LoginPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.aspx.cs">
       <DependentUpon>MainPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="MainPage.aspx.designer.cs">
       <DependentUpon>MainPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegisterPage.aspx.cs">
+      <DependentUpon>RegisterPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegisterPage.aspx.designer.cs">
+      <DependentUpon>RegisterPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\BookList.ascx.cs">
       <DependentUpon>BookList.ascx</DependentUpon>
@@ -130,6 +147,13 @@
     </Compile>
     <Compile Include="UserControls\Login.ascx.designer.cs">
       <DependentUpon>Login.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Register.ascx.cs">
+      <DependentUpon>Register.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Register.ascx.designer.cs">
+      <DependentUpon>Register.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

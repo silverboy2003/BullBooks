@@ -1,4 +1,8 @@
 ﻿@import url(https://fonts.googleapis.com/css2?family=Roboto&display=swap);
+:root {
+    --LoginButton: url(".. / ControlImages / Login.png");
+    --UserpageButton: url(".. / ControlImages / Userpage.png");
+}
 *{
     font-family: Roboto;
 }
@@ -90,23 +94,10 @@ body {
     left: 50%;
     transform: translateX(-50%);
 }
-.ToolBar .LoginButton{
-    background-image: url("../ControlImages/Login.png");    
-    position: relative;
-    right: 3%;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 2.2em;
-    height: 2.2em;
-    background-size:contain;
-    background-repeat: no-repeat;
-    background-color: transparent;
-    border: none;
-}
 .ToolBar {
     background-color: #2C433B;
     margin: 10px;
-    height: 50px;
+    height: 5vh;
     border-radius: 2px;
     width: 70%;
     position: absolute;
@@ -121,11 +112,12 @@ body {
     left: 50%;
     top: 50%;
     background: white;
-    border: solid black 2px;
-    height: 64%;
-    width: 20%;
+    border: solid black 0.1vh;
+    height: 50%;
+    width: 35vh;
     align-items: center;
     z-index: 10;
+    font-size: 1.8vh;
 }
 .LoginDiv p{
     text-align: center;
@@ -134,8 +126,9 @@ body {
     .LoginDiv input {
         border: none;
         background-color: #C4C4C4;
-        height: 1.6em;
-        margin-top: 10px;
+        margin-top: 1vh;
+        height: 2.5vh;
+        font-size: 1.8vh;
     }
 .LoginIn{
     width: 80%;
@@ -145,6 +138,7 @@ body {
     margin: 10px;
     display: flex;
     flex-direction: column;
+    font-size: 1.8vh;
 }
 .InputBox{
     margin-top: 1.4em;
@@ -161,8 +155,61 @@ body {
 }
 .LoginButton{
     top: 10px;
-    width:40%;
+    width:30%;
+    height: 3vh;
+    font-size:1.5vh;
     position:relative;
     left:50%;
     transform: translate(-50%,50%);
+    text-align:center;
+}
+
+.ToolBar .UserpageButton {
+    background-image: url("../ControlImages/Userpage.png");
+    position: inherit;
+    right: 3%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2.2em;
+    height: 2.2em;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+}
+.RedirectDiv p{
+    padding-bottom: 20px;
+    font-size: 2vh;
+}
+
+.RedirectDiv {
+    display: flex;
+    flex-direction: column;
+    position: inherit;
+    bottom: 30%;
+    transform: translateY(50%);
+}
+.RegisterHref{
+    text-align:center;
+    font-size: 1.5vh;
+}
+.PasswordHref{
+    position: inherit;
+    font-size: 1.2vh;
+    left: 3%;
+    bottom: 3%;
+}
+.LoginpageButton {
+    background-image: url("../ControlImages/Login.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    position: inherit;
+    right: 3%;
+    top: 50%;
+    height:70%;
+    width: auto; 
+    transform: translateY(-50%);
+    padding: 0;
 }

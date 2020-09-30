@@ -10,7 +10,7 @@
     </asp:ContentPlaceHolder>
     <script>
         function HideLogin() {
-            var login = document.getElementById("LoginID")
+            var login = document.getElementById("loginID")
             login.remove();
         }
     </script>
@@ -20,7 +20,9 @@
     <form id="MainForm" runat="server">
 
         <div id="Bar" class="ToolBar">
-            <asp:Button ID="LoginButton" runat="server" OnClick="LoadLogin" CssClass="LoginButton"/>
+
+                <asp:Button ID="UserButton" runat="server" CssClass="LoginpageButton" OnClick="RedirectLogin" /> <%--will be used for either login, or redirecting to user page--%>
+            
         </div>
 
         <div id="Outer" class="OuterBox">

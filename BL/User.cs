@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using DAL;
+using System.Reflection;
 
 namespace BL
 {
@@ -14,18 +15,27 @@ namespace BL
         protected string banner;//banner picture directory
         protected string profile;//profile picture directory
 
+
         //there is no need for isAdmin and Is Publisher because there are special classes for these
-         
+
         public User(DataRow userDataRow)
         {
-            id = (int)userDataRow["userID"];
-            username = (string)userDataRow["username"];
-            date = (DateTime)userDataRow["creationDate"];
-            gender = (int)userDataRow["gender"];
-            email = (string)userDataRow["email"];
-            banner = (string)userDataRow["bannerPic"];
-            profile = (string)userDataRow["profilePic"];
+            try
+            {
+                id = (int)userDataRow["userID"];
+                username = (string)userDataRow["username"];
+                date = (DateTime)userDataRow["creationDate"];
+                gender = (int)userDataRow["gender"];
+                email = (string)userDataRow["email"];
+                banner = (string)userDataRow["bannerPic"];
+                profile = (string)userDataRow["profilePic"];
+            }
+            catch
+            {
+                //do something
+            }
         }
+        public string GetUsername() => username;
         public static User Login(string username, string password)
         {
             DataRow result = UserHelper.DoLogin(username, password);

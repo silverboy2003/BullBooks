@@ -33,7 +33,8 @@ namespace DAL
                 return null;
             DataRow user = results.Rows[0];
             string hashed = (string)(user["password"]);
-            if (BCrypt.Net.BCrypt.Verify(password, hashed))
+            //if (BCrypt.Net.BCrypt.Verify(password, hashed))
+            if(password == hashed)
                 return user;
             return null;
         }
