@@ -9,8 +9,8 @@
         <div class="LoginIn">
         
             <div class="InputBox">
-                <label for="TextIn">Email</label>
-                <asp:TextBox ID="TextIn" runat="server" CssClass="In"></asp:TextBox>
+                <label for="EmailIn">Email</label>
+                <asp:TextBox ID="EmailIn" runat="server" CssClass="In"></asp:TextBox>
             </div>
 
             <div class="InputBox">

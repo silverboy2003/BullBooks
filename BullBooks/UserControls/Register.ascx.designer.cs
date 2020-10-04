@@ -15,13 +15,22 @@ namespace BullBooks.UserControls
     {
 
         /// <summary>
-        /// TextIn control.
+        /// EmailIn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextIn;
+        protected global::System.Web.UI.WebControls.TextBox EmailIn;
+
+        /// <summary>
+        /// UsernameIn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox UsernameIn;
 
         /// <summary>
         /// PasswordIn control.
@@ -31,6 +40,33 @@ namespace BullBooks.UserControls
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox PasswordIn;
+
+        /// <summary>
+        /// ConPasswordIn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ConPasswordIn;
+
+        /// <summary>
+        /// CalendarIn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl CalendarIn;
+
+        /// <summary>
+        /// GenderIn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList GenderIn;
 
         /// <summary>
         /// LoginButton control.

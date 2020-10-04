@@ -15,7 +15,6 @@ namespace BullBooks.UserControls
         }
         protected void RegisterUser(object sender, EventArgs e)
         {
-
         }
     }
 }

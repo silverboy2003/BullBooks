@@ -10,13 +10,14 @@ namespace BullBooks.UserControls
 {
     public partial class Login : System.Web.UI.UserControl
     {
-        private string referrer;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["User"] != null)
+                Response.Redirect("MainPage.aspx");
         }
         protected void LoginUser(object sender, EventArgs e)
         {
-            string username = TextIn.Text;
+            string username = EmailIn.Text;
             string password = PasswordIn.Text;
             User user = User.Login(username, password);
             if(user == null)

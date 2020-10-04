@@ -15,13 +15,13 @@ namespace BullBooks.UserControls
     {
 
         /// <summary>
-        /// TextIn control.
+        /// EmailIn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextIn;
+        protected global::System.Web.UI.WebControls.TextBox EmailIn;
 
         /// <summary>
         /// PasswordIn control.
