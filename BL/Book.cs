@@ -19,11 +19,19 @@ namespace BL
         {
             get; set;
         }
-        public string BookAuthor
+        public string AuthorName
         {
             get; set;
         }
+        public string PublisherName
+        {
+            get;set;
+        }
         public int PublisherID
+        {
+            get; set;
+        }
+        public int AuthorID
         {
             get; set;
         }
@@ -35,11 +43,11 @@ namespace BL
         {
             get; set;
         }
-        public int BookRating
+        public double BookRating
         {
             get; set;
         }
-        public int Numviews
+        public int NumReviews
         {
             get; set;
         }
@@ -64,8 +72,25 @@ namespace BL
         {
             this.ID = id;
             this.BookName = name;
-            this.BookAuthor = author;
+            this.AuthorName = author;
             this.BookCover = cover;
+        }
+        public Book(DataRow book)
+        {
+            this.ID = (int)book["bookID"];
+            this.BookName = (string)book["bookName"];
+            this.AuthorID = (int)book["authorID"];
+            this.PublisherID = (int)book["publisherID"];
+            this.BookSynopsis = (string)book["bookSynopsis"];
+            this.BookCover = (string)book["bookCoverPic"];
+            this.NumPages = (int)book["numPages"];
+            this.NumChapters = (int)book["numChapters"];
+            this.BookRelease = (DateTime)book["bookRelease"];
+            this.ISBN = (string)book["ISBN"];
+            this.AuthorName = (string)book["authorName"];
+            this.PublisherName = (string)book["publisherName"];
+            this.BookRating = (double)book["Rating"];
+            this.NumReviews = (int)book["NumReviews"]; 
         }
         public static List<Book> GetBooksBySearch(string bookName, List<int> genres)//function that gets a search term and a list of genres that were picked and returns a list of books containing their id, name, author and cover photo path
         {
@@ -83,6 +108,17 @@ namespace BL
                 previews.Add(temp);
             }
             return previews;
+        }
+        public static void LoadBooks()
+        {
+            DataTable books = BookHelper.GetAllBooks();
+            if (books != null)
+            {
+                foreach(DataRow bookRow in books.Rows)
+                {
+                    Book book = new Book(bookRow); //save these in Application
+                }
+            }
         }
     }
 }

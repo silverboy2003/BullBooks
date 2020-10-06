@@ -12,5 +12,9 @@ namespace BL
         {
             DAL.DBHelper.SetConnString(conn);
         }
+        public static List<Book> GetAllBooks()
+        {
+            
+        }
     }
 }
