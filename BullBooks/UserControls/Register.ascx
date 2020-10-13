@@ -5,13 +5,19 @@
         <div class="RegisterIn">
         
             <div class="InputBox">
-                <label for="EmailIn">Email</label>
-                <asp:TextBox ID="EmailIn" runat="server" CssClass="In"></asp:TextBox>
+                <label for="EmailIn" class="InputLabel">Email</label>
+                <asp:CustomValidator ID="EmailValidator" runat="server" ControlToValidate="EmailIn" CssClass="Validator" OnServerValidate="EmailVal"></asp:CustomValidator>
+                <asp:TextBox ID="EmailIn" runat="server" CssClass="In"></asp:TextBox> 
             </div>
-
+            
             <div class="InputBox">
                 <label for="UsernameIn">Username</label>
                 <asp:TextBox ID="UsernameIn" runat="server" CssClass="In"></asp:TextBox>
+            </div>
+
+            <div class="InputBox">
+                <label for="AliasIn">Alias</label>
+                <asp:TextBox ID="AliasIn" runat="server" CssClass="In"></asp:TextBox>
             </div>
 
             <div class="InputBox">
@@ -31,9 +37,9 @@
             <div class="InputBox">
                 <label for="GenderIn">Gender</label>
                 <asp:DropDownList ID="GenderIn" runat="server">
-                    <asp:ListItem>Male</asp:ListItem>
-                    <asp:ListItem>Female</asp:ListItem>
-                    <asp:ListItem>Other</asp:ListItem>
+                    <asp:ListItem Value="0">Male</asp:ListItem>
+                    <asp:ListItem Value="1">Female</asp:ListItem>
+                    <asp:ListItem Value="2">Other</asp:ListItem>
                 </asp:DropDownList>
             </div>
             <asp:Button ID="LoginButton" runat="server" Text="Register" CssClass="LoginButton" OnClick="RegisterUser"/>

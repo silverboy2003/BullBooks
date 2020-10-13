@@ -30,7 +30,7 @@ namespace BullBooks.UserControls
                 {
                     Session["User"] = user;
                     HttpCookie hc = new HttpCookie("nigga");
-                    hc["name"] = user.GetUsername();
+                    hc["name"] = user.Username;
                     hc.Expires.Add(new TimeSpan(0, 1, 0));
                     Response.Cookies.Add(hc);
 

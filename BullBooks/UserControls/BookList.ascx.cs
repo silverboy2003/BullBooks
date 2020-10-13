@@ -25,7 +25,7 @@ namespace BullBooks.Controllers
                 listBox.Controls.Add(bp);
                 bp.BookID = b.ID;
                 bp.Name = b.BookName;
-                bp.Author = b.BookAuthor;
+                bp.Author = b.AuthorName;
                 bp.Cover = b.BookCover;
             }
         }

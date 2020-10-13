@@ -33,10 +33,15 @@ namespace DAL
                 return null;
             DataRow user = results.Rows[0];
             string hashed = (string)(user["password"]);
-            //if (BCrypt.Net.BCrypt.Verify(password, hashed))
-            if(password == hashed)
+            if (BCrypt.Net.BCrypt.Verify(password, hashed))
                 return user;
             return null;
+        }
+        public static int DoRegister<T>(List<T> inputs)
+        {
+            string sql = "INSERT INTO Users ( email, username, gender, birthDate, [password], creationDate, alias) VALUES(@Text1, @Text2, @Text3, @Text4, @Text5, @Text6, @Text7)";
+            int newID = DBHelper.InsertWithAutoNumKey(sql, inputs);
+            return newID;
         }
     }
 }

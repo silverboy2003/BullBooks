@@ -119,6 +119,47 @@ namespace DAL
                 return WRITEDATA_ERROR;
             }
         }
+        public static int WriteData(string sql, string input)//sanitized for single string
+        {
+            try
+            {
+                if (!connOpen)
+                {
+                    if (!OpenConnection())
+                        return WRITEDATA_ERROR;
+                }
+                OleDbCommand cmd = new OleDbCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@Text", input);
+                OleDbDataReader rd = cmd.ExecuteReader();
+                return rd.RecordsAffected;
+            }
+            catch (OleDbException e)
+            {
+                return WRITEDATA_ERROR;
+            }
+        }
+        public static int WriteData(string sql, List<string> inputs)//sanitized for multiple inputs
+        {
+            try
+            {
+                if (!connOpen)
+                {
+                    if (!OpenConnection())
+                        return WRITEDATA_ERROR;
+                }
+                OleDbCommand cmd = new OleDbCommand(sql, conn);
+                for (int i = 1; i <= inputs.Count; i++)
+                {
+                    cmd.Parameters.AddWithValue($"@Text{i}", inputs[i - 1]);
+                }
+                OleDbDataReader rd = cmd.ExecuteReader();
+                return rd.RecordsAffected;
+            }
+            catch (OleDbException e)
+            {
+                return WRITEDATA_ERROR;
+            }
+        }
         public static int InsertWithAutoNumKey(string sql)
         {
             if (!connOpen)
@@ -129,6 +170,76 @@ namespace DAL
             try
             {
                 OleDbCommand cmd = new OleDbCommand(sql, conn);
+                OleDbDataReader rd = cmd.ExecuteReader();
+
+                if (rd != null && rd.RecordsAffected == 1)
+                {
+                    //Create a new command for retrieving the new ID
+                    //It MUST use the SAME connection!!!!
+                    cmd = new OleDbCommand(@"SELECT @@Identity", conn);
+                    rd = cmd.ExecuteReader();
+
+                    while (rd.Read())
+                    {
+                        //The new ID will be on the first (and only) column
+                        return (int)rd[0];
+                    }
+                }
+            }
+            catch
+            {
+                return WRITEDATA_ERROR;
+            }
+            return WRITEDATA_ERROR;
+        }
+        public static int InsertWithAutoNumKey<T>(string sql, List<T> inputs)//sanitized for multiple inputs
+        {
+            if (!connOpen)
+            {
+                if (!OpenConnection())
+                    return WRITEDATA_ERROR;
+            }
+            try
+            {
+                OleDbCommand cmd = new OleDbCommand(sql, conn);
+                for (int i = 1; i <= inputs.Count; i++)
+                {
+                    cmd.Parameters.AddWithValue($"@Text{i}", inputs[i - 1]);
+                }
+                OleDbDataReader rd = cmd.ExecuteReader();
+
+                if (rd != null && rd.RecordsAffected == 1)
+                {
+                    //Create a new command for retrieving the new ID
+                    //It MUST use the SAME connection!!!!
+                    cmd = new OleDbCommand(@"SELECT @@Identity", conn);
+                    rd = cmd.ExecuteReader();
+
+                    while (rd.Read())
+                    {
+                        //The new ID will be on the first (and only) column
+                        return (int)rd[0];
+                    }
+                }
+            }
+            
+            catch(Exception e)
+            {
+                return WRITEDATA_ERROR;
+            }
+            return WRITEDATA_ERROR;
+        }
+        public static int InsertWithAutoNumKey(string sql, string input)//sanitized for single input
+        {
+            if (!connOpen)
+            {
+                if (!OpenConnection())
+                    return WRITEDATA_ERROR;
+            }
+            try
+            {
+                OleDbCommand cmd = new OleDbCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@Text", input);
                 OleDbDataReader rd = cmd.ExecuteReader();
 
                 if (rd != null && rd.RecordsAffected == 1)

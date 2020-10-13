@@ -243,3 +243,10 @@ body {
     margin-left: 1vw;
     left: 0px;
 }
+.Validator{
+    position: relative;
+    background-color: red;
+}
+.InputLabel{
+    position: relative !important;
+}

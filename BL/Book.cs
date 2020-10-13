@@ -84,8 +84,8 @@ namespace BL
             this.BookSynopsis = (string)book["bookSynopsis"];
             this.BookCover = (string)book["bookCoverPic"];
             this.NumPages = (int)book["numPages"];
-            this.NumChapters = (int)book["numChapters"];
-            this.BookRelease = (DateTime)book["bookRelease"];
+                this.NumChapters = (int)book["numChapters"];
+            this.BookRelease = (DateTime)book["bookReleaseDate"];
             this.ISBN = (string)book["ISBN"];
             this.AuthorName = (string)book["authorName"];
             this.PublisherName = (string)book["publisherName"];
@@ -94,7 +94,8 @@ namespace BL
         }
         public static List<Book> GetBooksBySearch(string bookName, List<int> genres)//function that gets a search term and a list of genres that were picked and returns a list of books containing their id, name, author and cover photo path
         {
-            bookName = '%' + bookName + '%';
+            if(bookName != null)
+                bookName = '%' + bookName + '%';
             DataTable books = DAL.BookHelper.GetBookSearch(bookName, genres);//Books.BookID, bookName, bookAuthor, BookCoverPic
             List<Book> previews = new List<Book>();
             if (books != null) 
@@ -109,16 +110,20 @@ namespace BL
             }
             return previews;
         }
-        public static void LoadBooks()
+        public static List<Book> LoadBooks()
         {
             DataTable books = BookHelper.GetAllBooks();
+            List<Book> bookList = null;
             if (books != null)
             {
+                bookList = new List<Book>();
                 foreach(DataRow bookRow in books.Rows)
                 {
                     Book book = new Book(bookRow); //save these in Application
+                    bookList.Add(book);
                 }
             }
+            return bookList;
         }
     }
 }

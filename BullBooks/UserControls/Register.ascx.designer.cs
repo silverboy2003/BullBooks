@@ -15,6 +15,15 @@ namespace BullBooks.UserControls
     {
 
         /// <summary>
+        /// EmailValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator EmailValidator;
+
+        /// <summary>
         /// EmailIn control.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace BullBooks.UserControls
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox UsernameIn;
+
+        /// <summary>
+        /// AliasIn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox AliasIn;
 
         /// <summary>
         /// PasswordIn control.
