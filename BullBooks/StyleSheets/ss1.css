@@ -244,8 +244,10 @@ body {
     left: 0px;
 }
 .Validator{
-    position: relative;
-    background-color: red;
+    position: absolute;
+    color:red;
+    right:0;
+    text-align: left;
 }
 .InputLabel{
     position: relative !important;

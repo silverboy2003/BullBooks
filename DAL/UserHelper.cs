@@ -27,7 +27,7 @@ namespace DAL
         }
         public static DataRow DoLogin(string username, string password)
         {
-            string sql = "SELECT * FROM Users WHERE username = @Text1";
+            string sql = "SELECT * FROM Users WHERE UCASE(username) = UCASE(@Text)";
             DataTable results = DBHelper.GetDataTable(sql, username);
             if (results == null)
                 return null;
@@ -42,6 +42,12 @@ namespace DAL
             string sql = "INSERT INTO Users ( email, username, gender, birthDate, [password], creationDate, alias) VALUES(@Text1, @Text2, @Text3, @Text4, @Text5, @Text6, @Text7)";
             int newID = DBHelper.InsertWithAutoNumKey(sql, inputs);
             return newID;
+        }
+        public static bool ChcekAvailability(string input, string type)
+        {
+            string sql = $"SELECT {type} FROM Users WHERE {type} = @Text";
+            DataTable result = DBHelper.GetDataTable(sql, input);
+            return result == null;
         }
     }
 }

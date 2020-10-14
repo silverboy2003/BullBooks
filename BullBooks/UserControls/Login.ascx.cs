@@ -17,28 +17,31 @@ namespace BullBooks.UserControls
         }
         protected void LoginUser(object sender, EventArgs e)
         {
-            string username = EmailIn.Text;
-            string password = PasswordIn.Text;
-            User user = User.Login(username, password);
-            if(user == null)
+            if (Page.IsValid)
             {
-                //do something to alert wrong username or password
-            }
-            else
-            {
-                try
+                string username = UsernameIn.Text;
+                string password = PasswordIn.Text;
+                User user = User.Login(username, password);
+                if (user == null)
                 {
-                    Session["User"] = user;
-                    HttpCookie hc = new HttpCookie("nigga");
-                    hc["name"] = user.Username;
-                    hc.Expires.Add(new TimeSpan(0, 1, 0));
-                    Response.Cookies.Add(hc);
-
-                    Response.Redirect("MainPage.aspx");
+                    //do something to alert wrong username or password
                 }
-                catch
+                else
                 {
-                    //do something...
+                    try
+                    {
+                        Session["User"] = user;
+                        HttpCookie hc = new HttpCookie("nigga");
+                        hc["name"] = user.Username;
+                        hc.Expires.Add(new TimeSpan(0, 1, 0));
+                        Response.Cookies.Add(hc);
+
+                        Response.Redirect("MainPage.aspx");
+                    }
+                    catch
+                    {
+                        //do something...
+                    }
                 }
             }
 

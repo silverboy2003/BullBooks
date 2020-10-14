@@ -100,5 +100,9 @@ namespace BL
         {
             return DAL.UserHelper.GetReadBooksList(id);
         }
+        public static bool IsAvailable(string input, string type)
+        {
+            return UserHelper.ChcekAvailability(input, type);
+        }
     }
 }

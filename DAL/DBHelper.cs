@@ -295,7 +295,7 @@ namespace DAL
                 string query = sql;
                 DataTable dataTable = new DataTable();
                 OleDbDataReader reader = ReadData(sql, text);
-                if (reader == null)
+                if (reader == null || !reader.HasRows)
                     return null;
                 dataTable.Load(reader);
 

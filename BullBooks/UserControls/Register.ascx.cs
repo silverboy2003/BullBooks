@@ -16,7 +16,8 @@ namespace BullBooks.UserControls
         }
         protected void RegisterUser(object sender, EventArgs e)
         {
-            if (Page.IsValid)
+            Page.Validate("Register");
+            if(Page.IsValid)
             {
                 string email = this.EmailIn.Text;
                 string username = this.UsernameIn.Text;
@@ -25,7 +26,8 @@ namespace BullBooks.UserControls
                 DateTime birthDate = DateTime.Parse(this.CalendarIn.Value);
                 int gender = int.Parse(this.GenderIn.SelectedValue);
                 DateTime creationDate = DateTime.Now;
-
+                if (string.IsNullOrEmpty(alias))
+                    alias = username;
                 User user = new User(email, username, gender, birthDate, password, creationDate, alias);
                 int newID = user.Register();
                 if (newID == -1)
@@ -39,15 +41,23 @@ namespace BullBooks.UserControls
             }
             else
             {
-                //do something to say page is not valid
+
             }
         }
-        protected void EmailVal()
+
+        protected void EmailCheck(object source, ServerValidateEventArgs args)
         {
-            string email = this.EmailIn.Text;
-            Regex emailRegex = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
-            bool isMatch = emailRegex.Match(email).Success;
-            EmailValidator.IsValid = false;
+            string email = EmailIn.Text;
+            bool isAvailable = User.IsAvailable(email, "email");
+            if (!isAvailable)
+                args.IsValid = false;
+        }
+        protected void UsernameCheck(object source, ServerValidateEventArgs args)
+        {
+            string username = UsernameIn.Text;
+            bool isAvailable = User.IsAvailable(username, "username");
+            if (!isAvailable)
+                args.IsValid = false;
         }
     }
 }
