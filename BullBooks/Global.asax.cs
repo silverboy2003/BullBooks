@@ -21,6 +21,10 @@ namespace BullBooks
 
             List<Book> books = Book.LoadBooks(); //Load all the books from Database and save them in Application
             Application["Books"] = books;
+            Dictionary<int, string> genres = Genre.GetAllGenresDictionary();
+            Application["Genres"] = genres;
+
+
         }
 
         protected void Session_Start(object sender, EventArgs e)

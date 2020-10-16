@@ -67,7 +67,28 @@ namespace BL
         {
             get; set;
         }
+        private List<int> genres;
+        public List<int> Genres
+        {
 
+            get
+            {
+                if(genres == null)
+                    genres = GetGenres();
+                return Genres;
+            }
+        }
+        private List<int> GetGenres()
+        {
+            DataTable genres = BookHelper.GetBookGenres(this.ID);
+            List<int> genresList = new List<int>();
+            foreach (DataRow genre in genres.Rows)
+            {
+                int genreID = (int)genre["Genres.genreID"];
+                genresList.Add(genreID);
+            }
+            return genresList;
+        }
         public Book(int id, string name, string author, string cover)
         {
             this.ID = id;
@@ -92,23 +113,27 @@ namespace BL
             this.BookRating = (double)book["Rating"];
             this.NumReviews = (int)book["NumReviews"]; 
         }
+        //public static List<Book> GetBooksBySearch(string bookName, List<int> genres)//function that gets a search term and a list of genres that were picked and returns a list of books containing their id, name, author and cover photo path
+        //{
+        //    if(bookName != null)
+        //        bookName = '%' + bookName + '%';
+        //    DataTable books = DAL.BookHelper.GetBookSearch(bookName, genres);//Books.BookID, bookName, bookAuthor, BookCoverPic
+        //    List<Book> previews = new List<Book>();
+        //    if (books != null) 
+        //    foreach(DataRow book in books.Rows)
+        //    {
+        //        int id = (int)book["bookID"];
+        //        string name = (string)book["bookName"];
+        //        string author = (string)book["bookAuthor"];
+        //        string cover = (string)book["bookCoverPic"];
+        //        Book temp = new Book(id, name, author, cover);
+        //        previews.Add(temp);
+        //    }
+        //    return previews;
+        //}
         public static List<Book> GetBooksBySearch(string bookName, List<int> genres)//function that gets a search term and a list of genres that were picked and returns a list of books containing their id, name, author and cover photo path
         {
-            if(bookName != null)
-                bookName = '%' + bookName + '%';
-            DataTable books = DAL.BookHelper.GetBookSearch(bookName, genres);//Books.BookID, bookName, bookAuthor, BookCoverPic
-            List<Book> previews = new List<Book>();
-            if (books != null) 
-            foreach(DataRow book in books.Rows)
-            {
-                int id = (int)book["bookID"];
-                string name = (string)book["bookName"];
-                string author = (string)book["bookAuthor"];
-                string cover = (string)book["bookCoverPic"];
-                Book temp = new Book(id, name, author, cover);
-                previews.Add(temp);
-            }
-            return previews;
+
         }
         public static List<Book> LoadBooks()
         {
@@ -120,6 +145,7 @@ namespace BL
                 foreach(DataRow bookRow in books.Rows)
                 {
                     Book book = new Book(bookRow); //save these in Application
+                    book.GetGenres();
                     bookList.Add(book);
                 }
             }

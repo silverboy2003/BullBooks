@@ -15,7 +15,7 @@ namespace DAL
             if (genres == null)
                 genresSQL += " Books";
             else
-                genresSQL += "(Books INNER JOIN GenreToBook ON Books.bookID = GenreToBook.bookID)";
+                genresSQL += "(Books INNER JOIN GenresToBooks ON Books.bookID = GenresToBooks.bookID)";
 
             if (bookName != null) 
                 genresSQL += @" WHERE Books.bookName LIKE @Text ";
@@ -46,6 +46,12 @@ namespace DAL
             string sql = "SELECT Books.*, Ratings.Rating, Ratings.NumReviews FROM (SELECT AuthorT.*, PublisherT.publisherName FROM (SELECT Books.*, alias AS authorName FROM Books INNER JOIN Users ON Books.authorID = Users.userID) AS AuthorT INNER JOIN (SELECT Books.bookID, alias AS publisherName FROM Books INNER JOIN Users ON Books.publisherID = Users.userID) AS PublisherT ON AuthorT.bookID = PublisherT.bookID) AS Books INNER JOIN(SELECT Reviews.bookID, SUM(Reviews.bookRating) / COUNT(*) AS Rating, COUNT(*) AS NumReviews FROM Books INNER JOIN Reviews ON Books.bookID = Reviews.bookID GROUP BY Reviews.bookID)  AS Ratings ON Ratings.bookID = Books.bookID;";
             DataTable Books = DBHelper.GetDataTable(sql);
             return Books;
+        }
+        public static DataTable GetBookGenres(int bookID)
+        {
+            string sql = $"SELECT * FROM (Genres INNER JOIN GenresToBooks ON GenresToBooks.genreID = Genres.genreID) WHERE Genres.genreID = {bookID}";
+            DataTable genres = DBHelper.GetDataTable(sql);
+            return genres;
         }
     }
 }

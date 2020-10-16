@@ -56,12 +56,12 @@ namespace BullBooks
         }
         protected void Load_Radio()
         {
-            List<Genre> gList = Genre.GetAllGenres();
-            foreach(Genre g in gList)
+            Dictionary<int, string> genres= (Dictionary<int, string>)Application["Genres"];
+            foreach(KeyValuePair<int, string> entry in genres)
             {
                 ListItem genre = new ListItem();
-                genre.Text = g.GenreName;
-                genre.Value = (g.GenreID).ToString();
+                genre.Text = entry.Value;
+                genre.Value = entry.Key.ToString();
                 ((CheckBoxList)Genres).Items.Add(genre);
             }
         }
@@ -75,7 +75,8 @@ namespace BullBooks
         {
             name = Request.QueryString["input"];
             genreIDs = Request.QueryString["genres"];
-            Blist.LoadBooks(name, Genre.ConvertStringToList(genreIDs));
+            if (!string.IsNullOrEmpty(name) || !genreIDs.Contains('1')) 
+                Blist.LoadBooks(name, Genre.ConvertStringToList(genreIDs));
         }
     }
 }
