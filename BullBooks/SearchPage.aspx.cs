@@ -75,8 +75,7 @@ namespace BullBooks
         {
             name = Request.QueryString["input"];
             genreIDs = Request.QueryString["genres"];
-            if (!string.IsNullOrEmpty(name) || !genreIDs.Contains('1')) 
-                Blist.LoadBooks(name, Genre.ConvertStringToList(genreIDs));
+            Blist.LoadBooks(name, Genre.ConvertStringToList(genreIDs));
         }
     }
 }

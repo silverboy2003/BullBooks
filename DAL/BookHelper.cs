@@ -43,7 +43,7 @@ namespace DAL
         }
         public static DataTable GetAllBooks()
         {
-            string sql = "SELECT Books.*, Ratings.Rating, Ratings.NumReviews FROM (SELECT AuthorT.*, PublisherT.publisherName FROM (SELECT Books.*, alias AS authorName FROM Books INNER JOIN Users ON Books.authorID = Users.userID) AS AuthorT INNER JOIN (SELECT Books.bookID, alias AS publisherName FROM Books INNER JOIN Users ON Books.publisherID = Users.userID) AS PublisherT ON AuthorT.bookID = PublisherT.bookID) AS Books INNER JOIN(SELECT Reviews.bookID, SUM(Reviews.bookRating) / COUNT(*) AS Rating, COUNT(*) AS NumReviews FROM Books INNER JOIN Reviews ON Books.bookID = Reviews.bookID GROUP BY Reviews.bookID)  AS Ratings ON Ratings.bookID = Books.bookID;";
+            string sql = "INNER JOIN(SELECT Reviews.bookID, SUM(Reviews.bookRating) / COUNT(*) AS Rating, COUNT(*) AS NumReviews FROM Books INNER JOIN Reviews ON Books.bookID = Reviews.bookID GROUP BY Reviews.bookID)  AS Ratings ON Ratings.bookID = Books.bookID;";
             DataTable Books = DBHelper.GetDataTable(sql);
             return Books;
         }

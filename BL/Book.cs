@@ -78,6 +78,19 @@ namespace BL
                 return Genres;
             }
         }
+
+
+        private List<Review> reviews;
+        internal List<Review> Reviews
+        {
+            get
+            {
+                if (reviews == null)
+                    LoadReviews();
+                return reviews;
+            }
+        }
+        
         private List<int> GetGenres()
         {
             DataTable genres = BookHelper.GetBookGenres(this.ID);
@@ -131,9 +144,22 @@ namespace BL
         //    }
         //    return previews;
         //}
-        public static List<Book> GetBooksBySearch(string bookName, List<int> genres)//function that gets a search term and a list of genres that were picked and returns a list of books containing their id, name, author and cover photo path
+        public static List<Book> GetBooksBySearch(string bookName, List<int> genres, List<Book> allBooks)//function that gets a search term and a list of genres that were picked and returns a list of books containing their id, name, author and cover photo path
         {
-
+            List<Book> books = new List<Book>(allBooks);
+            if(bookName != null)
+                foreach(Book book in books)//filter by name
+                {
+                    if (!book.BookName.StartsWith(bookName))
+                        books.Remove(book);
+                }
+            if (genres != null)
+                foreach(Book book in books)//filter by genres
+                {
+                    if (!genres.All(x => book.genres.Any(y => x == y)))
+                        books.Remove(book);
+                }
+            return books;
         }
         public static List<Book> LoadBooks()
         {
@@ -150,6 +176,11 @@ namespace BL
                 }
             }
             return bookList;
+        }
+        public int LoadReviews()
+        {
+            return Review.LoadReviews(this);
+
         }
     }
 }

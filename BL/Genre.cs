@@ -30,7 +30,7 @@ namespace BL
             foreach(DataRow item in genres.Rows)
             {
                 int id = (int)item["genreID"];
-                string genre = (string)item["genre"];
+                string genre = (string)item["`"];
                 Genre temp = new Genre(id, genre);
                 gList.Add(temp);
             }
@@ -38,14 +38,15 @@ namespace BL
         }
         public static Dictionary<int, string> GetAllGenresDictionary()
         {
-            DataTable genres = DALHelper.GetTable("Genre");
+            DataTable genres = DALHelper.GetTable("Genres");
             Dictionary<int, string> genresDic = new Dictionary<int, string>();
-            foreach (DataRow item in genres.Rows)
-            {
-                int id = (int)item["genreID"];
-                string genre = (string)item["genre"];
-                genresDic.Add(id, genre);
-            }
+            if(genres != null)
+                foreach (DataRow item in genres.Rows)
+                {
+                    int id = (int)item["genreID"];
+                    string genre = (string)item["genre"];
+                    genresDic.Add(id, genre);
+                }
             return genresDic;
         }
         public static List<int> ConvertStringToList(string genresBool)
