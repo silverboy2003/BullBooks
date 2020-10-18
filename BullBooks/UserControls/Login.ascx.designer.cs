@@ -15,12 +15,17 @@ namespace BullBooks.UserControls
     {
 
         /// <summary>
+<<<<<<< HEAD
         /// UsernameIn control.
+=======
+        /// TextIn control.
+>>>>>>> parent of 2b9368b... Designed Register
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.TextBox UsernameIn;
 
         /// <summary>
@@ -31,6 +36,9 @@ namespace BullBooks.UserControls
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredUsername;
+=======
+        protected global::System.Web.UI.WebControls.TextBox TextIn;
+>>>>>>> parent of 2b9368b... Designed Register
 
         /// <summary>
         /// PasswordIn control.

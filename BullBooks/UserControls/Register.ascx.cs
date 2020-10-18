@@ -16,6 +16,7 @@ namespace BullBooks.UserControls
         }
         protected void RegisterUser(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             Page.Validate("Register");
             if(Page.IsValid)
             {
@@ -58,6 +59,9 @@ namespace BullBooks.UserControls
             bool isAvailable = User.IsAvailable(username, "username");
             if (!isAvailable)
                 args.IsValid = false;
+=======
+
+>>>>>>> parent of 2b9368b... Designed Register
         }
     }
 }

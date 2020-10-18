@@ -13,14 +13,8 @@ namespace BullBooks
         {
             if (Session["User"] != null)
             {
-                UserButton.ImageUrl = "../ControlImages/Userpage.png";
-                LogoutButton.Visible = true;
-            }
-            else
-            {
-                UserButton.ImageUrl = "../ControlImages/Login.png";
-                LogoutButton.Visible = false;
-            }
+                this.UserButton.CssClass = "UserpageButton";
+            }       
         }
         protected void LoadLogin(object sender, EventArgs e)
         {
@@ -35,11 +29,6 @@ namespace BullBooks
             if (Session["User"] != null)
             { }
             Response.Redirect("LoginPage.aspx");
-        }
-        protected void Logout(object sender, EventArgs e)
-        {
-            Session["User"] = null;
-            Response.Redirect(Request.RawUrl);
         }
     }
 }

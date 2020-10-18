@@ -33,22 +33,13 @@ namespace BullBooks
         protected global::System.Web.UI.HtmlControls.HtmlForm MainForm;
 
         /// <summary>
-        /// LogoutButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton LogoutButton;
-
-        /// <summary>
         /// UserButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton UserButton;
+        protected global::System.Web.UI.WebControls.Button UserButton;
 
         /// <summary>
         /// ContentPlaceHolder1 control.

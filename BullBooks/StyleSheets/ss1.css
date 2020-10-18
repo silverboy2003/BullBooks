@@ -94,7 +94,16 @@ body {
     left: 50%;
     transform: translateX(-50%);
 }
-
+.ToolBar {
+    background-color: #2C433B;
+    margin: 10px;
+    height: 5vh;
+    border-radius: 2px;
+    width: 70%;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
 .LoginDiv {
     display: flex;
     flex-direction: column;
@@ -104,33 +113,17 @@ body {
     top: 50%;
     background: white;
     border: solid black 0.1vh;
-    height: 50vh;
+    height: 50%;
     width: 35vh;
     align-items: center;
     z-index: 10;
-    overflow: hidden;
+    font-size: 1.8vh;
 }
-.RegisterDiv {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    transform: translate(-50%,-50%);
-    left: 50%;
-    top: 50%;
-    background: white;
-    border: solid black 0.1vh;
-    height: 60vh;
-    width: 35vh;
-    align-items: center;
-    z-index: 10;
-    overflow:hidden;
+.LoginDiv p{
+    text-align: center;
+    font-family: 'roboto';
 }
-    .LoginDiv p, .RegisterDiv p {
-        text-align: center;
-        font-family: 'roboto';
-        font-size: 2vh;
-    }
-    .LoginDiv input, .RegisterDiv input {
+    .LoginDiv input {
         border: none;
         background-color: #C4C4C4;
         margin-top: 1vh;
@@ -147,18 +140,8 @@ body {
     flex-direction: column;
     font-size: 1.8vh;
 }
-.RegisterIn {
-    width: 80%;
-    transform: translate(0%,50%);
-    position: inherit;
-    bottom: 50%;
-    margin: 10px;
-    display: flex;
-    flex-direction: column;
-    font-size: 1.8vh;
-}
 .InputBox{
-    margin-top: 5%;
+    margin-top: 1.4em;
     display:flex;
     flex-direction:column;
 }
@@ -181,7 +164,19 @@ body {
     text-align:center;
 }
 
-
+.ToolBar .UserpageButton {
+    background-image: url("../ControlImages/Userpage.png");
+    position: inherit;
+    right: 3%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2.2em;
+    height: 2.2em;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+}
 .RedirectDiv p{
     padding-bottom: 20px;
     font-size: 2vh;
@@ -204,41 +199,20 @@ body {
     left: 3%;
     bottom: 3%;
 }
-.ToolbarButton {
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-color: transparent;
-    border: none;
-    position: relative;
-    top: 50%;
-    height: 70%;
-    transform: translateY(-50%);
-    padding: 0;
-    margin-right: 1vw;
-}
-.ToolBar {
-    background-color: #2C433B;
-    margin: 10px;
-    height: 5vh;
-    border-radius: 2px;
-    width: 70%;
-    position: absolute;
-    right: 0px;
-    top: 0px;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-}
-.LogoutButton {
+.LoginpageButton {
+    background-image: url("../ControlImages/Login.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-color: transparent;
     border: none;
     position: inherit;
+    right: 3%;
     top: 50%;
-    height: 70%;
+    height:70%;
+    width: auto; 
     transform: translateY(-50%);
     padding: 0;
+<<<<<<< HEAD
     margin-right: 1vw;
     margin-left: 1vw;
     left: 0px;
@@ -251,4 +225,6 @@ body {
 }
 .InputLabel{
     position: relative !important;
+=======
+>>>>>>> parent of 2b9368b... Designed Register
 }

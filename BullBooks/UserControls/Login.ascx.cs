@@ -10,14 +10,20 @@ namespace BullBooks.UserControls
 {
     public partial class Login : System.Web.UI.UserControl
     {
+        private string referrer;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["User"] != null)
-                Response.Redirect("MainPage.aspx");
         }
         protected void LoginUser(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             if (Page.IsValid)
+=======
+            string username = TextIn.Text;
+            string password = PasswordIn.Text;
+            User user = User.Login(username, password);
+            if(user == null)
+>>>>>>> parent of 2b9368b... Designed Register
             {
                 string username = UsernameIn.Text;
                 string password = PasswordIn.Text;

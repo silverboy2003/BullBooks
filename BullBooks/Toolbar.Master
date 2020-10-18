@@ -21,9 +21,8 @@
 
         <div id="Bar" class="ToolBar">
 
-                <asp:ImageButton ID="LogoutButton" runat="server" CssClass="LogoutButton" OnClick="Logout" ImageUrl="../ControlImages/Logout.png"/>
-                <asp:ImageButton ID="UserButton" runat="server" CssClass="ToolbarButton" OnClick="RedirectLogin" ImageUrl="../ControlImages/Login.png"/> <%--will be used for either login, or redirecting to user page--%>
-                
+                <asp:Button ID="UserButton" runat="server" CssClass="LoginpageButton" OnClick="RedirectLogin" /> <%--will be used for either login, or redirecting to user page--%>
+            
         </div>
 
         <div id="Outer" class="OuterBox">

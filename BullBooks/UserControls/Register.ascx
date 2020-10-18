@@ -1,10 +1,11 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Register.ascx.cs" Inherits="BullBooks.UserControls.Register" %>
-<div class="RegisterDiv">
-        <p>Register</p>
+<div class="LoginDiv">
+        <p>Login</p>
 
-        <div class="RegisterIn">
+        <div class="LoginIn">
         
             <div class="InputBox">
+<<<<<<< HEAD
                 <label for="EmailIn" class="InputLabel">Email</label>
                 <asp:TextBox ID="EmailIn" runat="server" CssClass="In"></asp:TextBox> 
                 <asp:RequiredFieldValidator ID="RequiredEmail" runat="server" ControlToValidate="EmailIn" CssClass="Validator" ValidationGroup="Register" ErrorMessage="*"></asp:RequiredFieldValidator>
@@ -24,6 +25,10 @@
                 <label for="AliasIn">Alias</label>
                 <asp:TextBox ID="AliasIn" runat="server" CssClass="In"></asp:TextBox>
                 <asp:RegularExpressionValidator ID="RegexAlias" runat="server" ControlToValidate="AliasIn" CssClass="Validator" ValidationGroup="Register" ErrorMessage="Alias invalid" ValidationExpression="^[A-Za-z0-9]+([ _-][A-Za-z0-9]+)*$"></asp:RegularExpressionValidator>
+=======
+                <label for="TextIn">Email</label>
+                <asp:TextBox ID="TextIn" runat="server" CssClass="In"></asp:TextBox>
+>>>>>>> parent of 2b9368b... Designed Register
             </div>
 
             <div class="InputBox">
@@ -33,6 +38,7 @@
                 <asp:CompareValidator ID="CompareValidator" runat="server" ControlToValidate="PasswordIn" ControlToCompare="ConPasswordIn" CssClass="Validator" ValidationGroup="Register" ErrorMessage="No match"></asp:CompareValidator>
             </div>
 
+<<<<<<< HEAD
             <div class="InputBox">
                 <label for="ConPasswordIn">Confirm Password</label>
                 <asp:TextBox ID="ConPasswordIn" runat="server" CssClass="In" TextMode="Password"></asp:TextBox>
@@ -54,8 +60,12 @@
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="GenderIn" CssClass="Validator" ValidationGroup="Register" ErrorMessage="*"></asp:RequiredFieldValidator>
             </div>
             <asp:Button ID="LoginButton" runat="server" Text="Register" CssClass="LoginButton" OnClick="RegisterUser" CausesValidation="false"/>
+=======
+            <asp:Button ID="LoginButton" runat="server" Text="Log In" CssClass="LoginButton" OnClick="RegisterUser"/>
+>>>>>>> parent of 2b9368b... Designed Register
 
         </div>
 
+        <a href="RegisterPage.aspx">Register</a>
 
     </div>
