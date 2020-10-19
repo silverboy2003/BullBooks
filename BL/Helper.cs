@@ -12,5 +12,20 @@ namespace BL
         {
             DAL.DBHelper.SetConnString(conn);
         }
+        public static void SetAllReviews(List<Book> books)
+        {
+            
+            LinkedListNode<Review> reviewNode = Review.LoadReviews();
+            foreach(Book book in books)
+            {
+                List<Review> bookReviews = new List<Review>();
+                while(reviewNode != null && reviewNode.Value.BookID == book.ID)
+                {
+                    bookReviews.Add(reviewNode.Value);
+                    reviewNode = reviewNode.Next;
+                }
+                book.Reviews = bookReviews;
+            }
+        }
     }
 }

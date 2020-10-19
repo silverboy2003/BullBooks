@@ -75,21 +75,22 @@ namespace BL
             {
                 if(genres == null)
                     genres = GetGenres();
-                return Genres;
+                return genres;
             }
         }
 
+        public List<Review> Reviews
+        {
+            get => reviews;
+            set
+            {
+                reviews = value;
+                NumReviews = reviews.Count;
+                CalculateReviews();
+            }
+        }
 
         private List<Review> reviews;
-        internal List<Review> Reviews
-        {
-            get
-            {
-                if (reviews == null)
-                    LoadReviews();
-                return reviews;
-            }
-        }
         
         private List<int> GetGenres()
         {
@@ -123,8 +124,6 @@ namespace BL
             this.ISBN = (string)book["ISBN"];
             this.AuthorName = (string)book["authorName"];
             this.PublisherName = (string)book["publisherName"];
-            this.BookRating = (double)book["Rating"];
-            this.NumReviews = (int)book["NumReviews"]; 
         }
         //public static List<Book> GetBooksBySearch(string bookName, List<int> genres)//function that gets a search term and a list of genres that were picked and returns a list of books containing their id, name, author and cover photo path
         //{
@@ -147,18 +146,11 @@ namespace BL
         public static List<Book> GetBooksBySearch(string bookName, List<int> genres, List<Book> allBooks)//function that gets a search term and a list of genres that were picked and returns a list of books containing their id, name, author and cover photo path
         {
             List<Book> books = new List<Book>(allBooks);
+
             if(bookName != null)
-                foreach(Book book in books)//filter by name
-                {
-                    if (!book.BookName.StartsWith(bookName))
-                        books.Remove(book);
-                }
+                    books.RemoveAll(i => !i.BookName.StartsWith(bookName));
             if (genres != null)
-                foreach(Book book in books)//filter by genres
-                {
-                    if (!genres.All(x => book.genres.Any(y => x == y)))
-                        books.Remove(book);
-                }
+                books.RemoveAll(i => i.genres != null && !genres.All(x => i.genres.Any(y => x == y)));
             return books;
         }
         public static List<Book> LoadBooks()
@@ -177,10 +169,16 @@ namespace BL
             }
             return bookList;
         }
-        public int LoadReviews()
+        private void CalculateReviews()//only call while setting review list
         {
-            return Review.LoadReviews(this);
-
+            List<Review> reviews = this.reviews;
+            double totalScore = 0;
+            foreach(Review bookReview in reviews)
+            {
+                totalScore += bookReview.Rating;
+            }
+            double calculatedScore = totalScore / NumReviews;
+            BookRating = calculatedScore;
         }
     }
 }
