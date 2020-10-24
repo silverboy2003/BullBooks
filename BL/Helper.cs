@@ -12,11 +12,11 @@ namespace BL
         {
             DAL.DBHelper.SetConnString(conn);
         }
-        public static void SetAllReviews(List<Book> books)
+        public static void SetAllReviews(Dictionary<int, Book> books)
         {
             
             LinkedListNode<Review> reviewNode = Review.LoadReviews();
-            foreach(Book book in books)
+            foreach(Book book in books.Values)
             {
                 List<Review> bookReviews = new List<Review>();
                 while(reviewNode != null && reviewNode.Value.BookID == book.ID)

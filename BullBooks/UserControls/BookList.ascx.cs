@@ -18,7 +18,7 @@ namespace BullBooks.Controllers
         public void LoadBooks(string bookName, List<int> genres)
         {
             
-            List<BL.Book> books = BL.Book.GetBooksBySearch(bookName, genres, (List<BL.Book>)Application["Books"]);
+            List<BL.Book> books = BL.Book.GetBooksBySearch(bookName, genres, (Dictionary<int, BL.Book>)Application["Books"]);
             foreach(BL.Book b in books)
             {
                 BookPreview bp = (BookPreview)Page.LoadControl("~/UserControls/BookPreview.ascx");

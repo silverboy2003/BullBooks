@@ -7,6 +7,9 @@ using System.Web.UI.WebControls;
 using System.Reflection;
 using System.IO;
 using System.Net;
+using System.Collections.Specialized;
+using System.Security.Policy;
+using System.Security.Principal;
 
 namespace BullBooks.Controllers
 {
@@ -36,9 +39,11 @@ namespace BullBooks.Controllers
         }
         protected void Redirect(object sender, System.EventArgs e)
         {
-            var client = new WebClient();
-            client.QueryString.Add("id", ID);
-            Response.Redirect("BookPage.aspx");
+            NameValueCollection queryString = System.Web.HttpUtility.ParseQueryString(string.Empty);
+            queryString.Add("id", BookID.ToString());
+            string query = queryString.ToString();
+            string newString = "BookPage.aspx" + '?' + query;
+            Response.Redirect(newString);
         }
         public void LoadBook()
         {

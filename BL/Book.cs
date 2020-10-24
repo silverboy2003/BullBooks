@@ -143,9 +143,9 @@ namespace BL
         //    }
         //    return previews;
         //}
-        public static List<Book> GetBooksBySearch(string bookName, List<int> genres, List<Book> allBooks)//function that gets a search term and a list of genres that were picked and returns a list of books containing their id, name, author and cover photo path
+        public static List<Book> GetBooksBySearch(string bookName, List<int> genres, Dictionary<int, Book> allBooks)//function that gets a search term and a list of genres that were picked and returns a list of books containing their id, name, author and cover photo path
         {
-            List<Book> books = new List<Book>(allBooks);
+            List<Book> books = new List<Book>(allBooks.Values);
 
             if(bookName != null)
                     books.RemoveAll(i => !i.BookName.StartsWith(bookName));
@@ -153,18 +153,34 @@ namespace BL
                 books.RemoveAll(i => i.genres != null && !genres.All(x => i.genres.Any(y => x == y)));
             return books;
         }
-        public static List<Book> LoadBooks()
+        //public static List<Book> LoadBooks()
+        //{
+        //    DataTable books = BookHelper.GetAllBooks();
+        //    List<Book> bookList = null;
+        //    if (books != null)
+        //    {
+        //        bookList = new List<Book>();
+        //        foreach(DataRow bookRow in books.Rows)
+        //        {
+        //            Book book = new Book(bookRow); //save these in Application
+        //            book.GetGenres();
+        //            bookList.Add(book);
+        //        }
+        //    }
+        //    return bookList;
+        //}
+        public static Dictionary<int, Book> LoadBooks()
         {
             DataTable books = BookHelper.GetAllBooks();
-            List<Book> bookList = null;
+            Dictionary<int, Book> bookList = null;
             if (books != null)
             {
-                bookList = new List<Book>();
-                foreach(DataRow bookRow in books.Rows)
+                bookList = new Dictionary<int, Book>();
+                foreach (DataRow bookRow in books.Rows)
                 {
                     Book book = new Book(bookRow); //save these in Application
                     book.GetGenres();
-                    bookList.Add(book);
+                    bookList.Add(book.ID, book);
                 }
             }
             return bookList;

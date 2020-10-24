@@ -50,8 +50,8 @@ namespace BullBooks
         protected void RedirectSearch()
         {
             string query = CreateQuery();
-            string currect = Request.Url.GetLeftPart(UriPartial.Path);
-            string newString = currect + '?' + query;
+            string current = Request.Url.GetLeftPart(UriPartial.Path);
+            string newString = current + '?' + query;
             Response.Redirect(newString);
         }
         protected void Load_Radio()

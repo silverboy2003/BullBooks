@@ -41,5 +41,9 @@ namespace BullBooks
             Session["User"] = null;
             Response.Redirect(Request.RawUrl);
         }
+        protected void RedirectSearch(object sender, EventArgs e)
+        {
+            Response.Redirect("SearchPage.aspx");
+        }
     }
 }

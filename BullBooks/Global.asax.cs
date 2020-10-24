@@ -19,7 +19,8 @@ namespace BullBooks
             string connString = WebConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
             BL.Helper.SetDBConnString(connString);
 
-            List<Book> books = Book.LoadBooks(); //Load all the books from Database and save them in Application
+            Dictionary<int, Book> books = Book.LoadBooks();
+            //List<Book> books = Book.LoadBooks(); //Load all the books from Database and save them in Application
             Helper.SetAllReviews(books);
             Application["Books"] = books;
             Dictionary<int, string> genres = Genre.GetAllGenresDictionary();
