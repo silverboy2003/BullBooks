@@ -253,8 +253,9 @@ body {
     position: relative !important;
 }
 
-.Rating span {
+.Rating > .Star {
     -webkit-text-fill-color: transparent;
+    background-clip: text;
     -webkit-background-clip: text;
 }
 
