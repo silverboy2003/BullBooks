@@ -39,7 +39,7 @@ namespace BullBooks
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox BookName;
+        protected global::System.Web.UI.WebControls.Label BookName;
 
         /// <summary>
         /// AuthorName control.
@@ -48,7 +48,7 @@ namespace BullBooks
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox AuthorName;
+        protected global::System.Web.UI.WebControls.Label AuthorName;
 
         /// <summary>
         /// PublisherName control.
@@ -57,7 +57,7 @@ namespace BullBooks
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox PublisherName;
+        protected global::System.Web.UI.WebControls.Label PublisherName;
 
         /// <summary>
         /// NumPages control.
@@ -66,7 +66,7 @@ namespace BullBooks
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NumPages;
+        protected global::System.Web.UI.WebControls.Label NumPages;
 
         /// <summary>
         /// NumChapters control.
@@ -75,7 +75,7 @@ namespace BullBooks
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NumChapters;
+        protected global::System.Web.UI.WebControls.Label NumChapters;
 
         /// <summary>
         /// ReleaseDate control.
@@ -84,7 +84,7 @@ namespace BullBooks
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ReleaseDate;
+        protected global::System.Web.UI.WebControls.Label ReleaseDate;
 
         /// <summary>
         /// ISBN control.
@@ -93,7 +93,7 @@ namespace BullBooks
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ISBN;
+        protected global::System.Web.UI.WebControls.Label ISBN;
 
         /// <summary>
         /// Genres control.
@@ -102,7 +102,7 @@ namespace BullBooks
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Genres;
+        protected global::System.Web.UI.WebControls.Label Genres;
 
         /// <summary>
         /// Synopsis control.
@@ -111,7 +111,7 @@ namespace BullBooks
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Synopsis;
+        protected global::System.Web.UI.WebControls.Label Synopsis;
 
         /// <summary>
         /// BookImage control.

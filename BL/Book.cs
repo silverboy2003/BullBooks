@@ -125,24 +125,6 @@ namespace BL
             this.AuthorName = (string)book["authorName"];
             this.PublisherName = (string)book["publisherName"];
         }
-        //public static List<Book> GetBooksBySearch(string bookName, List<int> genres)//function that gets a search term and a list of genres that were picked and returns a list of books containing their id, name, author and cover photo path
-        //{
-        //    if(bookName != null)
-        //        bookName = '%' + bookName + '%';
-        //    DataTable books = DAL.BookHelper.GetBookSearch(bookName, genres);//Books.BookID, bookName, bookAuthor, BookCoverPic
-        //    List<Book> previews = new List<Book>();
-        //    if (books != null) 
-        //    foreach(DataRow book in books.Rows)
-        //    {
-        //        int id = (int)book["bookID"];
-        //        string name = (string)book["bookName"];
-        //        string author = (string)book["bookAuthor"];
-        //        string cover = (string)book["bookCoverPic"];
-        //        Book temp = new Book(id, name, author, cover);
-        //        previews.Add(temp);
-        //    }
-        //    return previews;
-        //}
         public static List<Book> GetBooksBySearch(string bookName, List<int> genres, Dictionary<int, Book> allBooks)//function that gets a search term and a list of genres that were picked and returns a list of books containing their id, name, author and cover photo path
         {
             List<Book> books = new List<Book>(allBooks.Values);
@@ -150,25 +132,9 @@ namespace BL
             if(bookName != null)
                     books.RemoveAll(i => !i.BookName.StartsWith(bookName));
             if (genres != null)
-                books.RemoveAll(i => i.genres != null && !genres.All(x => i.genres.Any(y => x == y)));
+                books.RemoveAll(book => book.Genres != null && genres.Any(genre => !book.Genres.Contains(genre)));
             return books;
         }
-        //public static List<Book> LoadBooks()
-        //{
-        //    DataTable books = BookHelper.GetAllBooks();
-        //    List<Book> bookList = null;
-        //    if (books != null)
-        //    {
-        //        bookList = new List<Book>();
-        //        foreach(DataRow bookRow in books.Rows)
-        //        {
-        //            Book book = new Book(bookRow); //save these in Application
-        //            book.GetGenres();
-        //            bookList.Add(book);
-        //        }
-        //    }
-        //    return bookList;
-        //}
         public static Dictionary<int, Book> LoadBooks()
         {
             DataTable books = BookHelper.GetAllBooks();

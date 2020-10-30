@@ -22,11 +22,36 @@ namespace BullBooks
         }
         protected void CreateBookPage()
         {
+            BookName.Text = thisBook.BookName;
+            AuthorName.Text = thisBook.AuthorName;
+            PublisherName.Text = thisBook.PublisherName;
+            NumPages.Text = thisBook.NumPages.ToString();
+            NumChapters.Text = thisBook.NumChapters.ToString();
+            ReleaseDate.Text = thisBook.BookRelease.ToString("dd/MM/yyyy");
+            ISBN.Text = thisBook.ISBN.ToString();
+            Synopsis.Text = thisBook.BookSynopsis;
 
+            //now to load genres
+            List<int> genres = thisBook.Genres;
+            string bookGenres = "genres:";
+            if (genres.Count != 0)
+            {
+                Dictionary<int, string> genresDictionary = (Dictionary<int, string>)Application["Genres"];
+                for (int i = 0; i<genres.Count; i++)
+                {
+                    string genreName = ' ' + genresDictionary[genres[i]] + (i == genres.Count-1 ? '.' : ',');
+                    bookGenres += genreName;
+                }
+            }
+            Genres.Text = bookGenres;
+
+            BookImage.ImageUrl = thisBook.BookCover;
         }
         protected void GenerateStars()//★
         {
-            double score = 3.3; // change this back later
+            double score = thisBook.BookRating; // change this back later
+            if (double.IsNaN(score))
+                score = 0;
             int starsCreated = 0; //counts how many stars were created using the score, in order to generate the remaining stars gray
             while (score >= 1)
             {
@@ -52,7 +77,7 @@ namespace BullBooks
                 starsCreated++;
                 score = 0;
             }
-            for (int i = 5; i > starsCreated; i--)
+            while(starsCreated != 5)
             {
                 Label star = new Label();
                 star.Text = "★";
@@ -71,8 +96,10 @@ namespace BullBooks
                 if (allBooks.ContainsKey(id))
                     thisBook = allBooks[id];
                 else
-                    thisBook = null;
+                    Response.Redirect("MainPage.aspx");
             }
+            else
+                Response.Redirect("MainPage.aspx");
         }
     }
 }

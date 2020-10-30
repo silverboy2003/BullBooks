@@ -4,17 +4,18 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:Panel ID="BookPanel" runat="server" CssClass="InformationPanel">
         <asp:Panel runat="server" ID="InformationPanel" CssClass="InformationContainer">
-            <div class="BookInfoText">
-                <asp:TextBox ID="BookName" runat="server"></asp:TextBox>
-                <asp:TextBox ID="AuthorName" runat="server"></asp:TextBox>
-                <asp:TextBox ID="PublisherName" runat="server"></asp:TextBox>
-                <asp:TextBox ID="NumPages" runat="server"></asp:TextBox>
-                <asp:TextBox ID="NumChapters" runat="server"></asp:TextBox>
-                <asp:TextBox ID="ReleaseDate" runat="server"></asp:TextBox>
-                <asp:TextBox ID="ISBN" runat="server"></asp:TextBox>
-                <asp:TextBox ID="Genres" runat="server"></asp:TextBox>
+            <div class="BookInfoText" style="display:flex; flex-direction:column;">
 
-                <asp:TextBox ID="Synopsis" runat="server"></asp:TextBox>
+                <asp:Label ID="BookName" runat="server"></asp:Label>
+                <asp:Label ID="AuthorName" runat="server"></asp:Label>
+                <asp:Label ID="PublisherName" runat="server"></asp:Label>
+                <asp:Label ID="NumPages" runat="server"></asp:Label>
+                <asp:Label ID="NumChapters" runat="server"></asp:Label>
+                <asp:Label ID="ReleaseDate" runat="server"></asp:Label>
+                <asp:Label ID="ISBN" runat="server"></asp:Label>
+                <asp:Label ID="Genres" runat="server"></asp:Label>
+
+                <asp:Label ID="Synopsis" runat="server"></asp:Label>
             </div>
 
             <div class="CoverAndScore">
