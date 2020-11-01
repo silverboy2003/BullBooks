@@ -33,6 +33,24 @@ namespace BullBooks
         protected global::System.Web.UI.WebControls.Panel InformationPanel;
 
         /// <summary>
+        /// BookImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image BookImage;
+
+        /// <summary>
+        /// StarPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel StarPanel;
+
+        /// <summary>
         /// BookName control.
         /// </summary>
         /// <remarks>
@@ -112,23 +130,5 @@ namespace BullBooks
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Synopsis;
-
-        /// <summary>
-        /// BookImage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image BookImage;
-
-        /// <summary>
-        /// StarPanel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel StarPanel;
     }
 }

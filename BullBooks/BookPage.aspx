@@ -4,28 +4,40 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:Panel ID="BookPanel" runat="server" CssClass="InformationPanel">
         <asp:Panel runat="server" ID="InformationPanel" CssClass="InformationContainer">
-            <div class="BookInfoText" style="display:flex; flex-direction:column;">
-
-                <asp:Label ID="BookName" runat="server"></asp:Label>
-                <asp:Label ID="AuthorName" runat="server"></asp:Label>
-                <asp:Label ID="PublisherName" runat="server"></asp:Label>
-                <asp:Label ID="NumPages" runat="server"></asp:Label>
-                <asp:Label ID="NumChapters" runat="server"></asp:Label>
-                <asp:Label ID="ReleaseDate" runat="server"></asp:Label>
-                <asp:Label ID="ISBN" runat="server"></asp:Label>
-                <asp:Label ID="Genres" runat="server"></asp:Label>
-
-                <asp:Label ID="Synopsis" runat="server"></asp:Label>
-            </div>
 
             <div class="CoverAndScore">
-                <asp:Image runat="server" ID="BookImage" CssClass="BookImage"/>
+                <div class="BookImageContainer">
+                    <asp:Image runat="server" ID="BookImage" CssClass="BookImage"/>
+                </div>
 
                 <asp:Panel CssClass="Rating" runat="server" ID="StarPanel">
 
                 </asp:Panel>
-
             </div>
+
+            <div class="BookInfoText" style="display:flex; flex-direction:column;">
+
+                
+                <div><label for="BookName">Title: </label> <asp:Label ID="BookName" runat="server"></asp:Label></div>
+
+                <div><label for="AuthorName">Author: </label> <asp:Label ID="AuthorName" runat="server"></asp:Label></div>
+
+                <div><label for="PublisherName">Publisher: </label> <asp:Label ID="PublisherName" runat="server"></asp:Label></div>
+
+                <div><label for="NumPages">No. of pages: </label> <asp:Label ID="NumPages" runat="server"></asp:Label></div>
+
+                <div><label for="NumChapters">No. of chapters: </label> <asp:Label ID="NumChapters" runat="server"></asp:Label></div>
+
+                <div><label for="ReleaseDate">Release Date: </label> <asp:Label ID="ReleaseDate" runat="server"></asp:Label></div>
+
+                <div><label for="ISBN">ISBN: </label> <asp:Label ID="ISBN" runat="server"></asp:Label></div>
+
+                <div><label for="Genres">Genres: </label> <asp:Label ID="Genres" runat="server"></asp:Label></div>
+
+                <div><label for="Synopsis">Synopsis:</label><asp:Label ID="Synopsis" runat="server"></asp:Label></div>
+            </div>
+
+            
         </asp:Panel>
     </asp:Panel>
 </asp:Content>

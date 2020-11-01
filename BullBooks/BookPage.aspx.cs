@@ -33,7 +33,7 @@ namespace BullBooks
 
             //now to load genres
             List<int> genres = thisBook.Genres;
-            string bookGenres = "genres:";
+            string bookGenres = "";
             if (genres.Count != 0)
             {
                 Dictionary<int, string> genresDictionary = (Dictionary<int, string>)Application["Genres"];

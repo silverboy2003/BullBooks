@@ -25,6 +25,7 @@ body {
 .InnerBook{
     display:flex; 
     flex-flow: wrap;
+    justify-content: space-between; 
 }
 .SearchPage {
     margin-left: 200px;
@@ -253,12 +254,51 @@ body {
     position: relative !important;
 }
 
-.Rating > .Star {
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    -webkit-background-clip: text;
+.InformationContainer{
+    display:flex;
+    flex-direction:row;
+    position:absolute;
+    transform:translate(-50%, -50%);
+    top:50%;
+    left:50%;
+    width:80%;
+    background-color:white;
+    padding:30px;
 }
-
-
+.BookImageContainer{
+    background-color:gray;
+    height:32vw;
+    width:18vw;
+    overflow:hidden;
+    justify-content:center;
+}
+.BookImage{
+    max-width:100%;
+    max-height:100%;
+    position:relative;
+    top:50%;
+    transform:translateY(-50%);
+}
+.Rating span {
+    font-size: 2em;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+.Rating{
+    text-align:center;
+}
+.BookInfoText span, .BookInfoText div{
+    padding: 0.5em;
+}
+.BookInfoText{
+    position:relative;
+    padding-top:5%;
+    padding-left:5%;
+    width:50%;
+}
+    .BookInfoText label {
+        display: inline-block;
+        font-weight: bolder;
+    }
 
 
