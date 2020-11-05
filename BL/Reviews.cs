@@ -50,7 +50,7 @@ namespace BL
                 ReviewList.AddAfter(ReviewNode, review);
                 ReviewNode = ReviewNode.Next;
             }
-            return ReviewDummyNode.Next;
+            return ReviewDummyNode;
         }
     }
 }

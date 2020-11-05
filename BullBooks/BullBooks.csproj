@@ -78,6 +78,7 @@
     <Content Include="SearchPage.aspx" />
     <Content Include="UserControls\Login.ascx" />
     <Content Include="UserControls\Register.ascx" />
+    <Content Include="UserPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -154,6 +155,13 @@
     </Compile>
     <Compile Include="UserControls\Register.ascx.designer.cs">
       <DependentUpon>Register.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserPage.aspx.cs">
+      <DependentUpon>UserPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserPage.aspx.designer.cs">
+      <DependentUpon>UserPage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

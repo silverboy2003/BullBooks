@@ -15,7 +15,7 @@ namespace BL
         public static void SetAllReviews(Dictionary<int, Book> books)
         {
             
-            LinkedListNode<Review> reviewNode = Review.LoadReviews();
+            LinkedListNode<Review> reviewNode = Review.LoadReviews().Next;
             foreach(Book book in books.Values)
             {
                 List<Review> bookReviews = new List<Review>();

@@ -11,7 +11,7 @@ namespace DAL
     {
         public static DataTable GetAllReviews()//gets all reviews SORTED by book id for easy value assignemnt later
         {
-            string sql = "SELECT * FROM Reviews ORDER BY bookID DESC";
+            string sql = "SELECT * FROM Reviews ORDER BY bookID ASC";
             DataTable reviews = DBHelper.GetDataTable(sql);
             return reviews;
         }
