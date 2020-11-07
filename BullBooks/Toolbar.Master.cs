@@ -4,6 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using BL;
+using System.Collections.Specialized;
+using System.Security.Policy;
+using System.Security.Principal;
 
 namespace BullBooks
 {
@@ -15,6 +19,9 @@ namespace BullBooks
             {
                 UserButton.ImageUrl = "../ControlImages/Userpage.png";
                 LogoutButton.Visible = true;
+                NameValueCollection queryString = System.Web.HttpUtility.ParseQueryString(string.Empty);
+                queryString.Add("userId", ((User)Session["User"]).Id.ToString());
+                UserButton.PostBackUrl = "UserPage.aspx" + '?' + queryString.ToString();
             }
             else
             {

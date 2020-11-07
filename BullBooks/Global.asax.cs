@@ -23,10 +23,12 @@ namespace BullBooks
             //List<Book> books = Book.LoadBooks(); //Load all the books from Database and save them in Application
             Helper.SetAllReviews(books);
             Application["Books"] = books;
+
             Dictionary<int, string> genres = Genre.GetAllGenresDictionary();
             Application["Genres"] = genres;
-            
-            
+
+            Dictionary<int, User> users = BL.User.GetAllUsers();
+            Application["Users"] = users;
         }
 
         protected void Session_Start(object sender, EventArgs e)

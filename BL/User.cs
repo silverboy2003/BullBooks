@@ -96,13 +96,23 @@ namespace BL
             int newID = UserHelper.DoRegister(inputs);
             return newID;
         }
-        protected virtual DataTable GetAssociatedBooks()
-        {
-            return DAL.UserHelper.GetReadBooksList(id);
-        }
+        
         public static bool IsAvailable(string input, string type)
         {
             return UserHelper.ChcekAvailability(input, type);
+        }
+        public static Dictionary<int, User> GetAllUsers()
+        {
+            DataTable UsersTable = DALHelper.GetTable("Users");
+            if (UsersTable == null)
+                return null;
+            Dictionary<int, User> users = new Dictionary<int, User>();
+            foreach(DataRow dr in UsersTable.Rows)
+            {
+                User newUser = new User(dr);
+                users.Add(newUser.id, newUser);
+            }
+            return users;
         }
     }
 }

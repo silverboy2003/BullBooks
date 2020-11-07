@@ -54,8 +54,14 @@ body {
         transform: scale(1.1);
         transition: all 0.2s;
     }
-.OuterBox{
-    height: 100%;
+.OuterBox {
+    margin-top: 100px;
+    background: #2C433B;
+    border-radius: 10px;
+    width: 90vw;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
 }
 .ListClass{
     display:flex;
@@ -304,6 +310,18 @@ body {
     .BookInfoText label {
         display: inline-block;
         font-weight: bolder;
+    }
+    .UserBanner{
+        position:absolute;
+        height: 25vh;
+        width: 80vw;
+        top: 15vh;
+        left:50%;
+        transform: translateX(-50%);
+        border: 2px black solid;
+        background-repeat:no-repeat;
+        background-size: cover;
+        background-position: center;
     }
 
 
