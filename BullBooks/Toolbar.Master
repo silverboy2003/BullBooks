@@ -20,7 +20,7 @@
                 <asp:ImageButton ID="UserButton" runat="server" CssClass="ToolbarButton" OnClick="RedirectLogin" ImageUrl="../ControlImages/Login.png"/> <%--will be used for either login, or redirecting to user page--%>
         </div>
 
-        <div id="Outer" class="OuterBox">
+        
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,6 +15,19 @@ namespace BullBooks.Controllers
         protected void Page_Load(object sender, EventArgs e)
         {
             
+        }
+        public void LoadBooks(int id)
+        {
+            List<BL.Book> books = BL.Book.GetAssociatedBooks(id, (Dictionary<int, Book>)Application["Books"]);
+            foreach (BL.Book b in books)
+            {
+                BookPreview bp = (BookPreview)Page.LoadControl("~/UserControls/BookPreview.ascx");
+                listBox.Controls.Add(bp);
+                bp.BookID = b.ID;
+                bp.Name = b.BookName;
+                bp.Author = b.AuthorName;
+                bp.Cover = b.BookCover;
+            }
         }
         public void LoadBooks(string bookName, List<int> genres)
         {

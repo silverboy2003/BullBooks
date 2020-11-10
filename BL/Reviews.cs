@@ -52,5 +52,12 @@ namespace BL
             }
             return ReviewDummyNode;
         }
+        public static List<Review> GetAssociatedReviews(int id, Dictionary<int, Review> allReviews)
+        {
+            Dictionary<int, Review> copyReviews = new Dictionary<int, Review>(allReviews);
+            List<Review> reviews = copyReviews.Values.ToList();
+            reviews.RemoveAll(review => review.ReviewerID != id);
+            return reviews;
+        }
     }
 }

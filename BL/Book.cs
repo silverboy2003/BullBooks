@@ -162,5 +162,11 @@ namespace BL
             double calculatedScore = totalScore / NumReviews;
             BookRating = calculatedScore;
         }
+        public static List<Book> GetAssociatedBooks(int userID, Dictionary<int, Book> allBooks)
+        {
+            List<Book> books = new List<Book>(allBooks.Values.ToList());
+            books.RemoveAll(book => book.reviews != null && !book.reviews.Exists(review => review.ReviewerID == userID));
+            return books;
+        }
     }
 }
