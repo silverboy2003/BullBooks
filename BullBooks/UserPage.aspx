@@ -6,7 +6,6 @@
         <asp:Panel runat="server" ID="UserBanner" CssClass="UserBanner"></asp:Panel>
 
     <div class="UserContainer">
-        <asp:HyperLink ID="EditProfile" runat="server" CssClass="Hyperlink EditProfile">Edit Profile</asp:HyperLink>
          <div class="UinfoContainer"></div>
 
         <div class="ReadBooks">
