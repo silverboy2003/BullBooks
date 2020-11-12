@@ -16,9 +16,10 @@ namespace BullBooks.Controllers
         {
             
         }
-        public void LoadBooks(int id)
+        public int LoadBooks(int id)//loads books and return amount
         {
             List<BL.Book> books = BL.Book.GetAssociatedBooks(id, (Dictionary<int, Book>)Application["Books"]);
+            int counter = 0;
             foreach (BL.Book b in books)
             {
                 BookPreview bp = (BookPreview)Page.LoadControl("~/UserControls/BookPreview.ascx");
@@ -27,7 +28,9 @@ namespace BullBooks.Controllers
                 bp.Name = b.BookName;
                 bp.Author = b.AuthorName;
                 bp.Cover = b.BookCover;
+                counter++;
             }
+            return counter;
         }
         public void LoadBooks(string bookName, List<int> genres)
         {

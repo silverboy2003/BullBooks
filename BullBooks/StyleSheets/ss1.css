@@ -336,9 +336,25 @@ body {
     background-color: gray;
     width: 80%;
     height: 25vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-top: 20%;
+    margin-bottom: 20%;
 }
-.ReadBooks{
-    width:90%;
-    margin-top:40%;
+.ReadBooks {
+    width: 90%;
+    margin-top: 50%;
+    text-align: center;
 }
+.Header{
+    font-size: 5em;
+}
+.UinfoContainer span{
 
+}
+.ReadBooks label{
+    font-size:3em;
+    color:white;
+}

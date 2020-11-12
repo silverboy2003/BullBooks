@@ -6,9 +6,13 @@
         <asp:Panel runat="server" ID="UserBanner" CssClass="UserBanner"></asp:Panel>
 
     <div class="UserContainer">
-         <div class="UinfoContainer"></div>
+         <div class="UinfoContainer">
+             <asp:Label runat="server" ID="UsernameLabel" CssClass="Header"></asp:Label>
+             <asp:Label runat="server" ID="BooksAmount"></asp:Label>
+         </div>
 
         <div class="ReadBooks">
+            <label for="Blist">Read Books</label>
             <ASS:BookList ID="Blist" runat="server" OnLoad="Blist_Load" EnableViewState="true"/>
         </div>
     </div>

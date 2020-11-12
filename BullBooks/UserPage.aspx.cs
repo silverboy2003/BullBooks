@@ -11,6 +11,7 @@ namespace BullBooks
     public partial class UserPage : System.Web.UI.Page
     {
         User currentUser;
+        int amoutBooks;
         protected void Page_Load(object sender, EventArgs e)
         {
             string id = Request.QueryString["userId"];
@@ -30,14 +31,17 @@ namespace BullBooks
         protected void LoadProfile()
         {
             UserBanner.Style.Add("background-image", currentUser.Banner);
+            UsernameLabel.Text = currentUser.Alias + "'s" + " profile";
         }
         protected void Blist_Load(object sender, EventArgs e)
         {
             if(currentUser != null)
             {
                 int id = currentUser.Id;
-                Blist.LoadBooks(id);
+                int amount = Blist.LoadBooks(id);
+                amoutBooks = amount;
             }
+            BooksAmount.Text = amoutBooks.ToString() + " Books read";
         }
     }
 }
