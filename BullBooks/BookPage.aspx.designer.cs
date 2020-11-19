@@ -42,13 +42,13 @@ namespace BullBooks
         protected global::System.Web.UI.WebControls.Image BookImage;
 
         /// <summary>
-        /// StarPanel control.
+        /// StarsRating control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel StarPanel;
+        protected global::BullBooks.Rating StarsRating;
 
         /// <summary>
         /// BookName control.

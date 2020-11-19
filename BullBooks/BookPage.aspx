@@ -9,10 +9,8 @@
                 <div class="BookImageContainer">
                     <asp:Image runat="server" ID="BookImage" CssClass="BookImage"/>
                 </div>
-
-                <asp:Panel CssClass="Rating" runat="server" ID="StarPanel">
-
-                </asp:Panel>
+                <ASS:Rating runat="server" ID="StarsRating"/>
+                
             </div>
 
             <div class="BookInfoText" style="display:flex; flex-direction:column;">
