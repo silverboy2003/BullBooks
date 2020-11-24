@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BullBooks
+namespace BullBooks.UserControls
 {
 
 
-    public partial class Comment
+    public partial class ReviewControl
     {
 
         /// <summary>

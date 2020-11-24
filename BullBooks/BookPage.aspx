@@ -37,5 +37,8 @@
 
             
         </asp:Panel>
+        <asp:Panel runat="server" ID="Reviews_Container">
+                
+        </asp:Panel>
     </asp:Panel>
 </asp:Content>

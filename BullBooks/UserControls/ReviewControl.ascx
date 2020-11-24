@@ -1,4 +1,4 @@
-﻿    <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Review.ascx.cs" Inherits="BullBooks.Comment" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ReviewControl.ascx.cs" Inherits="BullBooks.UserControls.ReviewControl" %>
 <div class="Review">
     <asp:Image runat="server" ID="ReviewerPic"/>
     <asp:Label runat="server" ID="ReviewerName"></asp:Label>

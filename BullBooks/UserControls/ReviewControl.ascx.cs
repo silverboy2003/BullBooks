@@ -6,9 +6,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using BL;
 
-namespace BullBooks
+namespace BullBooks.UserControls
 {
-    public partial class Comment : System.Web.UI.UserControl
+    public partial class ReviewControl : System.Web.UI.UserControl
     {
         private Review currentReview;
         private User reviewer;
@@ -19,9 +19,9 @@ namespace BullBooks
         protected void SetInformation(Review review)
         {
             currentReview = review;
-            reviewer = ((Dictionary<int, User>)Application["Users"])[review.ReviewerID];
+            reviewer = ((Dictionary<int, User>)Application["Users"])[currentReview.ReviewerID];
         }
-        protected void Load_Review(Review review)
+        public void Load_Review(Review review)
         {
             SetInformation(review);
 

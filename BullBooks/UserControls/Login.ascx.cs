@@ -47,9 +47,5 @@ namespace BullBooks.UserControls
 
         }
 
-        protected void LoadRegister(object sender, EventArgs e)
-        {
-
-        }
     }
 }
