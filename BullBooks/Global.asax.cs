@@ -29,6 +29,7 @@ namespace BullBooks
 
             Dictionary<int, User> users = BL.User.GetAllUsers();
             Application["Users"] = users;
+
         }
 
         protected void Session_Start(object sender, EventArgs e)

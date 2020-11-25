@@ -7,12 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BullBooks.UserControls
+namespace BullBooks
 {
 
 
-    public partial class ReviewControl
+    public partial class BookReview
     {
+
+        /// <summary>
+        /// ReviewContainer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel ReviewContainer;
 
         /// <summary>
         /// ReviewerPic control.
@@ -33,15 +42,6 @@ namespace BullBooks.UserControls
         protected global::System.Web.UI.WebControls.Label ReviewerName;
 
         /// <summary>
-        /// Stars control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::BullBooks.Rating Stars;
-
-        /// <summary>
         /// ReviewContent control.
         /// </summary>
         /// <remarks>
@@ -49,5 +49,14 @@ namespace BullBooks.UserControls
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label ReviewContent;
+
+        /// <summary>
+        /// ReviewDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ReviewDate;
     }
 }

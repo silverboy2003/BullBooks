@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BookPage.aspx" />
+    <Content Include="UserControls\BookReview.ascx" />
     <Content Include="UserControls\Rating.ascx" />
     <Content Include="LoginPage.aspx" />
     <Content Include="MainPage.aspx" />
@@ -79,8 +80,6 @@
     <Content Include="SearchPage.aspx" />
     <Content Include="UserControls\Login.ascx" />
     <Content Include="UserControls\Register.ascx" />
-    <Content Include="UserControls\ReviewControl.ascx" />
-    <Content Include="UserControls\ReviewsList.ascx" />
     <Content Include="UserPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -91,6 +90,13 @@
     </Compile>
     <Compile Include="BookPage.aspx.designer.cs">
       <DependentUpon>BookPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\BookReview.ascx.cs">
+      <DependentUpon>BookReview.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\BookReview.ascx.designer.cs">
+      <DependentUpon>BookReview.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Rating.ascx.cs">
       <DependentUpon>Rating.ascx</DependentUpon>
@@ -165,20 +171,6 @@
     </Compile>
     <Compile Include="UserControls\Register.ascx.designer.cs">
       <DependentUpon>Register.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\ReviewControl.ascx.cs">
-      <DependentUpon>ReviewControl.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UserControls\ReviewControl.ascx.designer.cs">
-      <DependentUpon>ReviewControl.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\ReviewsList.ascx.cs">
-      <DependentUpon>ReviewsList.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UserControls\ReviewsList.ascx.designer.cs">
-      <DependentUpon>ReviewsList.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserPage.aspx.cs">
       <DependentUpon>UserPage.aspx</DependentUpon>
