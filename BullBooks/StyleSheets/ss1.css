@@ -266,7 +266,7 @@ body {
 
 .InformationContainer {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     position: absolute;
     transform: translate(-50%, 0%);
     top: 20%;
@@ -275,6 +275,7 @@ body {
     background-color: white;
     padding: 30px;
     margin-bottom: 5vh;
+    flex-flow:wrap;
 }
 .BookImageContainer{
     background-color:gray;
@@ -296,7 +297,7 @@ body {
     -webkit-text-stroke-color: black;
 }
 .Rating{
-    text-align:center;
+    align-self:center;
 }
 .BookInfoText span, .BookInfoText div{
     padding: 0.5em;
@@ -357,4 +358,31 @@ body {
 .ReadBooks label{
     font-size:3em;
     color:white;
+}
+.ReviewsContainer .Review img{
+    width: 5vw;
+    height: 5vw;
+    border: 2px black solid;
+    border-radius: 50%;
+}
+.ReviewContent {
+    width: 85%;
+    left: 50%;
+    position: relative;
+    transform: translateX(-50%);
+    background: #E3E3E3;
+    margin-top: 3vw;
+    margin-bottom: 3vw;
+}
+.ReviewsContainer{
+    width:90%;
+    margin-top: 5vw;
+    position:relative;
+    transform:translateX(-50%);
+    left:50%;
+}
+.CoverAndScore {
+    display: flex;
+    flex-direction: column;
+    width: 18vw;
 }

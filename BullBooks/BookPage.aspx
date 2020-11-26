@@ -39,10 +39,11 @@
 
                 <div><label for="Synopsis">Synopsis:</label><asp:Label ID="Synopsis" runat="server"></asp:Label></div>
             </div>
-
+            
+            
+            <asp:Panel runat="server" ID="Reviews_Container" CssClass="ReviewsContainer"></asp:Panel>
             
         </asp:Panel>
-        <asp:Panel runat="server" ID="Reviews_Container">
-        </asp:Panel>
+        
     </asp:Panel>
 </asp:Content>

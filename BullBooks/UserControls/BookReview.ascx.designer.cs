@@ -42,15 +42,6 @@ namespace BullBooks
         protected global::System.Web.UI.WebControls.Label ReviewerName;
 
         /// <summary>
-        /// ReviewContent control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ReviewContent;
-
-        /// <summary>
         /// ReviewDate control.
         /// </summary>
         /// <remarks>
@@ -58,5 +49,23 @@ namespace BullBooks
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label ReviewDate;
+
+        /// <summary>
+        /// ReviewContentContainer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel ReviewContentContainer;
+
+        /// <summary>
+        /// ReviewContent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ReviewContent;
     }
 }

@@ -31,7 +31,7 @@ namespace BullBooks
             ReviewerPic.ImageUrl = "../" + reviewer.Profile;
             Rating stars = (Rating)Page.LoadControl("~/UserControls/Rating.ascx");
             stars.ID = "Stars";
-            ReviewContainer.Controls.Add(stars);
+            ReviewContentContainer.Controls.AddAt(0, stars);
             stars.GenerateStars(currentReview.Rating);
             ReviewContent.Text = currentReview.ReviewContent;
         }
