@@ -371,18 +371,48 @@ body {
     position: relative;
     transform: translateX(-50%);
     background: #E3E3E3;
-    margin-top: 3vw;
     margin-bottom: 3vw;
+    min-height: 10vw;
+    overflow: hidden;
 }
-.ReviewsContainer{
-    width:90%;
+.ReviewsContainer {
+    width: 90%;
     margin-top: 5vw;
-    position:relative;
-    transform:translateX(-50%);
-    left:50%;
+    position: relative;
+    transform: translateX(-50%);
+    left: 50%;
 }
 .CoverAndScore {
     display: flex;
     flex-direction: column;
     width: 18vw;
+}
+.UserInfo{
+    position:relative;
+    left:5%;
+    z-index: 100;
+}
+.UserInfo span{
+    padding: 20px;
+    font-size:1.1em;
+    font-weight:bold;
+}
+.Review .Rating{
+    position:relative;
+    left:5%;
+    z-index:1;
+}
+.Review .ReviewText {
+    position: relative;
+    padding: 15px;
+    max-width: 80%;
+    text-align: center;
+    text-overflow:clip;
+}
+.ReviewTextContainer{
+    width:80%;
+    left:50%;
+    transform: translateX(-50%);
+    position:relative;
+    padding:50px;
 }
