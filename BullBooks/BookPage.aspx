@@ -1,10 +1,12 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Toolbar.Master" AutoEventWireup="true" CodeBehind="BookPage.aspx.cs" Inherits="BullBooks.BookPage" %>
+﻿<%@ Page Title="" ValidateRequest="false" Language="C#" MasterPageFile="~/Toolbar.Master" AutoEventWireup="true" CodeBehind="BookPage.aspx.cs" Inherits="BullBooks.BookPage" %>
 
 
 
-
+    
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
+     <script type='text/javascript' src="ckeditor/ckeditor.js"></script> <%--Rich text editor--%>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:Panel ID="BookPanel" runat="server" CssClass="InformationPanel">
@@ -40,7 +42,20 @@
                 <div><label for="Synopsis">Synopsis:</label><asp:Label ID="Synopsis" runat="server"></asp:Label></div>
             </div>
             
+            <div class="editorContainer">
+                 <asp:TextBox ID="editor1" runat="server" TextMode="MultiLine" CssClass="textEditor"></asp:TextBox>
+                 <script>
+                     var editor = CKEDITOR.replace('<%=editor1.ClientID%>',
+                         {
+                             width: '100%'
+                         });
+                     
+                 </script> 
+            </div>
             
+
+            
+
             <asp:Panel runat="server" ID="Reviews_Container" CssClass="ReviewsContainer"></asp:Panel>
             
         </asp:Panel>

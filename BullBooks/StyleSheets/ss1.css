@@ -416,3 +416,10 @@ body {
     position:relative;
     padding:50px;
 }
+.editorContainer{
+    left:50%;
+    transform:translateX(-50%);
+    position:relative;
+    margin-top:6vw;
+    width:80%;  
+}
