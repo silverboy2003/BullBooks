@@ -11,6 +11,7 @@ namespace BullBooks
     public partial class BookPage : System.Web.UI.Page
     {
         private Book thisBook;
+        private const string editorID = "RichText";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -19,7 +20,21 @@ namespace BullBooks
                 CreateBookPage();
                 StarsRating.GenerateStars(thisBook.BookRating);
                 Load_Reviews(thisBook.Reviews);
+
+                CreateEditor();
+                if(Session["User"] != null)
+                {
+                }
             }
+        }
+        protected void CreateEditor()
+        {
+            TextBox editor = new TextBox();
+            EditorContainer.Controls.Add(editor);
+            editor.ID = editorID;
+            string clientID = editor.ClientID;
+            editor.TextMode = TextBoxMode.MultiLine;
+            ScriptManager.RegisterStartupScript(this, GetType(), "ReplaceCKeditor", $"ReplaceCKeditor({ClientID})", true);
         }
         protected void CreateBookPage()
         {
