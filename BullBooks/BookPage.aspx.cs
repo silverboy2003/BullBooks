@@ -22,9 +22,6 @@ namespace BullBooks
                 Load_Reviews(thisBook.Reviews);
 
                 CreateEditor();
-                if(Session["User"] != null)
-                {
-                }
             }
         }
         protected void CreateEditor()
@@ -34,7 +31,7 @@ namespace BullBooks
             editor.ID = editorID;
             string clientID = editor.ClientID;
             editor.TextMode = TextBoxMode.MultiLine;
-            ScriptManager.RegisterStartupScript(this, GetType(), "ReplaceCKeditor", $"ReplaceCKeditor({ClientID})", true);
+            ScriptManager.RegisterStartupScript(EditorContainer, typeof(Page), "abc", $"ReplaceCKeditor({ clientID})", true);
         }
         protected void CreateBookPage()
         {

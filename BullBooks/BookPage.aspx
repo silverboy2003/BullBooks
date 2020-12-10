@@ -7,14 +7,18 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
      <script type='text/javascript' src="ckeditor/ckeditor.js"></script> <%--Rich text editor--%>
-     <script type='text/javascript'>
+     
+    <script type="text/javascript">
+
          function ReplaceCKeditor(clientID) {
              CKEDITOR.replace(clientID,
                  {
                      width: '100%'
                  });
          }
+
      </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:Panel ID="BookPanel" runat="server" CssClass="InformationPanel">
@@ -51,14 +55,6 @@
             </div>
             
             <asp:Panel runat="server" ID="EditorContainer" CssClass="editorContainer">
-                <%--<asp:TextBox ID="editor1" runat="server" TextMode="MultiLine" CssClass="textEditor"></asp:TextBox>
-                 <script>
-                         CKEDITOR.replace('<%=editor1.ClientID%>',
-                         {
-                             width: '100%'
-                         });
-                     
-                 </script>--%>
             </asp:Panel>          
 
             <asp:Panel runat="server" ID="Reviews_Container" CssClass="ReviewsContainer"></asp:Panel>
