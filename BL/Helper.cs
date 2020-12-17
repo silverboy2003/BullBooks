@@ -27,5 +27,16 @@ namespace BL
                 book.Reviews = bookReviews;
             }
         }
+        public static Dictionary<int, Thread> LoadThreads()
+        {
+            Dictionary<int, Thread> threads = Thread.GetAllThreads(); //gets all threads without comments loaded
+            Dictionary<int, Comment> allComments = Comment.GetBoundComments();
+            foreach(Comment currentComment in allComments.Values)
+            {
+                if (currentComment.CommentID == currentComment.ReplyTo)
+                    threads[currentComment.ThreadID].ThreadMasterComments.Add(currentComment);
+            }
+            return threads;
+        }
     }
 }

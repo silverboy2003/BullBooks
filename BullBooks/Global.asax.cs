@@ -30,6 +30,9 @@ namespace BullBooks
             Dictionary<int, User> users = BL.User.GetAllUsers();
             Application["Users"] = users;
 
+
+            Dictionary<int, Thread> threads = BL.Helper.LoadThreads();
+            Application["Threads"] = threads;
         }
 
         protected void Session_Start(object sender, EventArgs e)

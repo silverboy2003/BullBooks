@@ -11,7 +11,9 @@ namespace DAL
     {
         public static DataTable GetAllThreads()
         {
-            string sql = "SELECT * FROM "
+            string sql = "SELECT Threads.*, Books.bookName AS  threadBook, Users.alias AS threadAuthor FROM (Threads INNER JOIN Books ON Books.bookID = Threads.threadBookID) INNER JOIN Users ON Threads.threadAuthorID = Users.userID";
+            DataTable allThreads = DBHelper.GetDataTable(sql);
+            return allThreads;
         }
     }
 }
