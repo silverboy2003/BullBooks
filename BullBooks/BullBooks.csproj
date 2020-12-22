@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BookPage.aspx" />
+    <Content Include="ThreadPage.aspx" />
     <Content Include="UserControls\BookReview.ascx" />
     <Content Include="UserControls\Rating.ascx" />
     <Content Include="LoginPage.aspx" />
@@ -91,6 +92,13 @@
     </Compile>
     <Compile Include="BookPage.aspx.designer.cs">
       <DependentUpon>BookPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ThreadPage.aspx.cs">
+      <DependentUpon>ThreadPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ThreadPage.aspx.designer.cs">
+      <DependentUpon>ThreadPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\BookReview.ascx.cs">
       <DependentUpon>BookReview.ascx</DependentUpon>

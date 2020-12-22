@@ -44,6 +44,7 @@ namespace BL
             this.creationDate = (DateTime)thread["threadDate"];
             this.threadBook = (string)thread["threadBook"];
             this.threadAuthor = (string)thread["threadAuthor"];
+            threadMasterComments = new List<Comment>();
         }
 
         public int ThreadID { get => threadID; set => threadID = value; }

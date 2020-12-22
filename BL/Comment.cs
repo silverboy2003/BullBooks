@@ -38,6 +38,7 @@ namespace BL
             replyTo = (int)comment["replyTo"];
             commentDate = (DateTime)comment["commentDate"];
             commentAuthorName = (string)comment["commentAuthorName"];
+            Replies = new List<Comment>();
         }
         private static Dictionary<int, Comment> GetAllThreadComments()
         {
