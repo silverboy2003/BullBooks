@@ -81,6 +81,7 @@
     <Content Include="SearchPage.aspx" />
     <Content Include="UserControls\Login.ascx" />
     <Content Include="UserControls\Register.ascx" />
+    <Content Include="UserControls\ThreadComment.ascx" />
     <Content Include="UserControls\ThreadPreview.ascx" />
     <Content Include="UserPage.aspx" />
     <Content Include="Web.config" />
@@ -180,6 +181,13 @@
     </Compile>
     <Compile Include="UserControls\Register.ascx.designer.cs">
       <DependentUpon>Register.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ThreadComment.ascx.cs">
+      <DependentUpon>ThreadComment.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ThreadComment.ascx.designer.cs">
+      <DependentUpon>ThreadComment.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\ThreadPreview.ascx.cs">
       <DependentUpon>ThreadPreview.ascx</DependentUpon>
