@@ -12,7 +12,7 @@ namespace DAL
 
         public static DataTable GetAllComments()
         {
-            string sql = $"SELECT  ThreadComments.*, Users.alias AS commentAuthorName FROM Users INNER JOIN ThreadComments ON Users.userID = ThreadComments.commentAuthorID ORDER BY ThreadComments.threadID DESC, commentDate";
+            string sql = $"SELECT  ThreadComments.*, Users.alias AS commentAuthorName FROM Users INNER JOIN ThreadComments ON Users.userID = ThreadComments.commentAuthorID ORDER BY ThreadComments.threadID ASC, commentDate DESC";
             DataTable threadComments = DBHelper.GetDataTable(sql);
             return threadComments;
         }

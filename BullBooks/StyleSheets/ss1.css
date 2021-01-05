@@ -387,7 +387,7 @@ body {
     flex-direction: column;
     width: 18vw;
 }
-.UserInfo{
+.Review .UserInfo{
     position:relative;
     left:5%;
     z-index: 100;
@@ -422,4 +422,64 @@ body {
     position:relative;
     margin-top:6vw;
     width:80%;  
+}
+.Comment {
+    display: flex;
+    padding-bottom: 40px;
+    flex-direction: column;
+    width: 80%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #f8f8ff;
+}
+.ThreadCommentsComtainer {
+    background-color: #1A1A1B;
+    top: 50%;
+    position: relative;
+    width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.Comment .UserInfo{
+
+}
+    .Comment .UserInfo img {
+        width: 2vw;
+        height: 2vw;
+        border: 2px #f8f8ff solid;
+        border-radius: 50%;
+    }
+.ThreadlineContainer {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+}
+.LineBox {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    height: 100%;
+    margin-left: 5px;
+    vertical-align: top;
+    width: 16px;
+}
+.ThreadLine {
+    border-right: 2px solid white;
+    display: block;
+    height: 100%;
+    width: 50%;
+}
+.SmallLineBox {
+    bottom: 0;
+    height: calc(100% - 56px);
+    position: absolute;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    margin-left: 5px;
+    vertical-align: top;
+    width: 16px;
 }

@@ -24,6 +24,15 @@ namespace BullBooks.UserControls
         protected global::System.Web.UI.WebControls.Panel ThreadContainer;
 
         /// <summary>
+        /// ThreadlineContainer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel ThreadlineContainer;
+
+        /// <summary>
         /// CommenterPic control.
         /// </summary>
         /// <remarks>

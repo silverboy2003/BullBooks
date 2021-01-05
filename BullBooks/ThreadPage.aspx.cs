@@ -14,6 +14,7 @@ namespace BullBooks
         protected void Page_Load(object sender, EventArgs e)
         {
             currentThread = ((Dictionary<int, Thread>)Application["Threads"])[1];
+            LoadThreadComments();
         }
         private void LoadThreadComments()
         {
@@ -41,7 +42,8 @@ namespace BullBooks
                 LoadCommentAndReplies(comment, depth + 1);
             }
             UserControls.ThreadComment newComment = (UserControls.ThreadComment)Page.LoadControl("~/UserControls/ThreadComment.ascx");
-            newComment.createComment(commentNode, depth);
+            User commenter = ((Dictionary<int, User>)Application["Users"])[commentNode.CommentAuthorID];
+            newComment.createComment(commentNode, depth, commenter);
             CommentContainer.Controls.AddAt(0, newComment);
         }
     }
