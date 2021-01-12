@@ -423,7 +423,7 @@ body {
     margin-top:6vw;
     width:80%;  
 }
-.Comment {
+/*.Comment {
     display: flex;
     padding-bottom: 40px;
     flex-direction: column;
@@ -431,6 +431,14 @@ body {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
+    color: #f8f8ff;
+}*/
+.Comment {
+    display: block;
+    padding-bottom: 40px;
+    width: 80%;
+    position: relative;
+    left: 15%;
     color: #f8f8ff;
 }
 .ThreadCommentsComtainer {
@@ -440,9 +448,6 @@ body {
     width: 80%;
     left: 50%;
     transform: translateX(-50%);
-}
-.Comment .UserInfo{
-
 }
     .Comment .UserInfo img {
         width: 2vw;
@@ -456,6 +461,7 @@ body {
     position: absolute;
     top: 0;
     z-index: 2;
+    display:block;
 }
 .LineBox {
     box-sizing: border-box;
@@ -463,7 +469,7 @@ body {
     display: inline-block;
     height: 100%;
     margin-left: 5px;
-    vertical-align: top;
+    /*vertical-align: top;*/
     width: 16px;
 }
 .ThreadLine {
@@ -472,7 +478,7 @@ body {
     height: 100%;
     width: 50%;
 }
-.SmallLineBox {
+/*.SmallLineBox {
     bottom: 0;
     height: calc(100% - 56px);
     position: absolute;
@@ -482,4 +488,4 @@ body {
     margin-left: 5px;
     vertical-align: top;
     width: 16px;
-}
+}*/a

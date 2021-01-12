@@ -15,22 +15,13 @@ namespace BullBooks.UserControls
     {
 
         /// <summary>
-        /// ThreadContainer control.
+        /// CommentContainer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel ThreadContainer;
-
-        /// <summary>
-        /// ThreadlineContainer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel ThreadlineContainer;
+        protected global::System.Web.UI.WebControls.Panel CommentContainer;
 
         /// <summary>
         /// CommenterPic control.

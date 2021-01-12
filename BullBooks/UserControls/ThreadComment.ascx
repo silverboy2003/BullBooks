@@ -1,11 +1,8 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ThreadComment.ascx.cs" Inherits="BullBooks.UserControls.ThreadComment" %>
-<asp:Panel runat="server" CssClass="Comment" ID="ThreadContainer">
-    <asp:Panel runat="server" CssClass="ThreadlineContainer" ID="ThreadlineContainer">
-        <div class="SmallLineBox">
-            <div class="ThreadLine"></div>
-        </div>
-    </asp:Panel>
-    <div class="UserInfo">
+<asp:Panel runat="server" CssClass="Comment" ID="CommentContainer">
+   
+    <div class="CommentMargin">
+        <div class="UserInfo">
         
         <asp:Image runat="server" ID="CommenterPic"/>
         <asp:Label runat="server" ID="CommenterName"></asp:Label>
@@ -20,5 +17,8 @@
         </div>
 
     </asp:Panel>
+
+    </div>
+    
 
 </asp:Panel>

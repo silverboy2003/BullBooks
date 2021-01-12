@@ -24,16 +24,24 @@ namespace BullBooks.UserControls
         }
         private void createThreadLines(int depth)//create n thread lines where n = depth
         {
-            for(int i = 0; i < depth; i++)
+            if (depth != 0)
             {
-                Panel newLineBox = new Panel();//each div would have a small margin to the left, and inside would be another div which would be 50% wider, resulting in the right border being in the middle
-                Panel line = new Panel();
+                Panel container = new Panel();
+                container.ID = "ThreadlineContainer";
+                container.CssClass = "ThreadlineContainer";
+                CommentContainer.Controls.Add(container);
 
-                newLineBox.CssClass = "LineBox";
-                line.CssClass = "ThreadLine";
+                for (int i = 0; i < depth; i++)
+                {
+                    Panel newLineBox = new Panel();//each div would have a small margin to the left, and inside would be another div which would be 50% wider, resulting in the right border being in the middle
+                    Panel line = new Panel();
 
-                newLineBox.Controls.Add(line);
-                ThreadlineContainer.Controls.Add(newLineBox);
+                    newLineBox.CssClass = "LineBox";
+                    line.CssClass = "ThreadLine";
+
+                    newLineBox.Controls.Add(line);
+                    container.Controls.Add(newLineBox);
+                }
             }
         }
     }
