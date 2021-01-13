@@ -14,13 +14,16 @@ namespace BullBooks.UserControls
         {
 
         }
-        public void createComment(Comment comment, int depth, User commenter)
+        public void createComment(Comment comment, User commenter)
         {
             CommenterPic.ImageUrl = "../" + commenter.Profile;
             CommenterName.Text = commenter.Alias;
             CommentDate.Text = String.Format("{0:g}", comment.CommentDate);
             CommentContent.Text = comment.CommentText;
-            createThreadLines(depth);
+        }
+        public void bindReply(ThreadComment reply)
+        {
+            Replies.Controls.Add(reply);
         }
         private void createThreadLines(int depth)//create n thread lines where n = depth
         {

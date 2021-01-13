@@ -20,7 +20,7 @@ namespace BullBooks
         {
             foreach(Comment comment in currentThread.ThreadMasterComments)
             {
-                LoadCommentAndReplies(comment, 0);
+                CommentContainer.Controls.Add(LoadComments(comment));
             }
         }
         /// <summary>
@@ -43,8 +43,19 @@ namespace BullBooks
             }
             UserControls.ThreadComment newComment = (UserControls.ThreadComment)Page.LoadControl("~/UserControls/ThreadComment.ascx");
             User commenter = ((Dictionary<int, User>)Application["Users"])[commentNode.CommentAuthorID];
-            newComment.createComment(commentNode, depth, commenter);
+            newComment.createComment(commentNode, commenter);
             CommentContainer.Controls.AddAt(0, newComment);
+        }
+        private UserControls.ThreadComment LoadComments(Comment commentNode)
+        {
+            UserControls.ThreadComment newComment = (UserControls.ThreadComment)Page.LoadControl("~/UserControls/ThreadComment.ascx");
+            User commenter = ((Dictionary<int, User>)Application["Users"])[commentNode.CommentAuthorID];
+            newComment.createComment(commentNode, commenter);
+            foreach (Comment comment in commentNode.Replies)
+            {
+                newComment.bindReply(LoadComments(comment));
+            }
+            return newComment;
         }
     }
 }

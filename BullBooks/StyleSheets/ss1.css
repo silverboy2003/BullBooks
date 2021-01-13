@@ -455,7 +455,7 @@ body {
         border: 2px #f8f8ff solid;
         border-radius: 50%;
     }
-.ThreadlineContainer {
+/*.ThreadlineContainer {
     bottom: 0;
     left: 0;
     position: absolute;
@@ -468,16 +468,16 @@ body {
     cursor: pointer;
     display: inline-block;
     height: 100%;
-    margin-left: 5px;
+    margin-left: 5px;*/
     /*vertical-align: top;*/
-    width: 16px;
+    /*width: 16px;
 }
 .ThreadLine {
     border-right: 2px solid white;
     display: block;
     height: 100%;
     width: 50%;
-}
+}*/
 /*.SmallLineBox {
     bottom: 0;
     height: calc(100% - 56px);
@@ -488,4 +488,14 @@ body {
     margin-left: 5px;
     vertical-align: top;
     width: 16px;
-}*/a
+}*/
+.repliesContainer{
+    width:100%;
+    border-left: 2px solid white;
+}
+.Comment .Comment{
+    position:relative;
+    left: 5%;
+    padding-top: 20px;
+    padding-bottom:0;
+}

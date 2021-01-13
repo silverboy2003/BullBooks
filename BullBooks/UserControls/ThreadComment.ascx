@@ -20,5 +20,7 @@
 
     </div>
     
+    <asp:Panel runat="server" ID="Replies" CssClass="repliesContainer">
 
+    </asp:Panel>
 </asp:Panel>
