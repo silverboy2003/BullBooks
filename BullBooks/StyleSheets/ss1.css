@@ -436,16 +436,17 @@ body {
 .Comment {
     display: block;
     padding-bottom: 40px;
-    width: 80%;
-    position: relative;
-    left: 15%;
+    width: 90%;
+    position:relative;
+    left:20px;
     color: #f8f8ff;
 }
 .ThreadCommentsComtainer {
     background-color: #1A1A1B;
     top: 50%;
     position: relative;
-    width: 80%;
+    width: 60%;
+    padding-top: 50px;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -498,4 +499,43 @@ body {
     left: 5%;
     padding-top: 20px;
     padding-bottom:0;
+}
+.ContentDiv {
+    background-color: #1A1A1B;
+    top: 20%;
+    position: relative;
+    width: 80%;
+    color: white;
+    margin-bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding:50px;
+}
+.Thread{
+    position:absolute;
+    display:flex;
+    flex-direction:column;
+    left:50%;
+    width:80%;
+    margin-top:8%;
+    transform:translateX(-50%);
+    justify-content:center;
+}
+.HeaderContainer{
+    color:white;
+    position:relative;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    text-align:center;
+}
+.HeaderContainer span{
+    font-size: 1em;
+}
+.ThreadHeader{
+    font-size:1.5em !important;
+    font-weight: bolder;
+}
+.ThreadText{
+    /*margin-left:10%;*/
 }

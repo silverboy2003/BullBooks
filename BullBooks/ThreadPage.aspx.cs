@@ -15,6 +15,10 @@ namespace BullBooks
         {
             currentThread = ((Dictionary<int, Thread>)Application["Threads"])[1];
             LoadThreadComments();
+            ThreadHeader.Text = currentThread.ThreadTitle;
+            ThreadText.Text = currentThread.ThreadText;
+            PostingTime.Text = String.Format("{0:g}", currentThread.CreationDate);
+            AuthorAlias.Text = currentThread.ThreadAuthor;
         }
         private void LoadThreadComments()
         {

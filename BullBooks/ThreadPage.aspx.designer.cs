@@ -15,6 +15,42 @@ namespace BullBooks
     {
 
         /// <summary>
+        /// ThreadHeader control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ThreadHeader;
+
+        /// <summary>
+        /// PostingTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label PostingTime;
+
+        /// <summary>
+        /// AuthorAlias control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label AuthorAlias;
+
+        /// <summary>
+        /// ThreadText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ThreadText;
+
+        /// <summary>
         /// CommentContainer control.
         /// </summary>
         /// <remarks>
