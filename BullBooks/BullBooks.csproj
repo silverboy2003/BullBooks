@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="BookPage.aspx" />
     <Content Include="ThreadPage.aspx" />
+    <Content Include="ThreadSearchPage.aspx" />
     <Content Include="UserControls\BookReview.ascx" />
     <Content Include="UserControls\Rating.ascx" />
     <Content Include="LoginPage.aspx" />
@@ -100,6 +101,13 @@
     </Compile>
     <Compile Include="ThreadPage.aspx.designer.cs">
       <DependentUpon>ThreadPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ThreadSearchPage.aspx.cs">
+      <DependentUpon>ThreadSearchPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ThreadSearchPage.aspx.designer.cs">
+      <DependentUpon>ThreadSearchPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\BookReview.ascx.cs">
       <DependentUpon>BookReview.ascx</DependentUpon>

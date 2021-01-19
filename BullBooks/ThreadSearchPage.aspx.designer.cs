@@ -7,38 +7,29 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BullBooks.UserControls
+namespace BullBooks
 {
 
 
-    public partial class ThreadPreview
+    public partial class ThreadSearchPage
     {
 
         /// <summary>
-        /// ThreadTitle control.
+        /// Container control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ThreadTitle;
+        protected global::System.Web.UI.WebControls.Panel Container;
 
         /// <summary>
-        /// BookName control.
+        /// PreviewsContainer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label BookName;
-
-        /// <summary>
-        /// PostingDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label PostingDate;
+        protected global::System.Web.UI.WebControls.Panel PreviewsContainer;
     }
 }

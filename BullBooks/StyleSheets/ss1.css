@@ -539,3 +539,34 @@ body {
 .ThreadText{
     /*margin-left:10%;*/
 }
+.InvisibleButton{
+    background-color:transparent;
+    border: none;
+    width:100%;
+    height:100%;
+    cursor: pointer;
+}
+.ThreadPreview {
+    background-color: #CACACA;
+    width:80%;
+    position:relative;
+    left:50%;
+    transform: translate(-50%,50%);
+    margin-top: 20px;
+    height: 60px;
+}
+.PreviewInfo {
+    position: absolute;
+    left: 20%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+.PreviewTitle{
+    font-size:1.3em;
+    font-weight: bolder;
+}
+.PreviewName, .PreviewDate{
+    font-weight: bold;
+    position:relative;
+    left:50%;
+}
