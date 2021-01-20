@@ -13,12 +13,28 @@ namespace BullBooks
         private Thread currentThread;
         protected void Page_Load(object sender, EventArgs e)
         {
-            currentThread = ((Dictionary<int, Thread>)Application["Threads"])[1];
+
+            LoadThread();
             LoadThreadComments();
             ThreadHeader.Text = currentThread.ThreadTitle;
             ThreadText.Text = currentThread.ThreadText;
             PostingTime.Text = String.Format("{0:g}", currentThread.CreationDate);
             AuthorAlias.Text = currentThread.ThreadAuthor;
+        }
+        private void LoadThread()
+        {
+            string idQuery = Request.QueryString["ThreadID"];
+            if (idQuery != null)
+            {
+                int id = int.Parse(idQuery);
+                Dictionary<int, Thread> allThread = (Dictionary<int, Thread>)Application["Threads"];
+                if (allThread.ContainsKey(id))
+                    currentThread = allThread[id];
+                else
+                    Response.Redirect("MainPage.aspx");
+            }
+            else
+                Response.Redirect("MainPage.aspx");
         }
         private void LoadThreadComments()
         {

@@ -554,19 +554,26 @@ body {
     transform: translate(-50%,50%);
     margin-top: 20px;
     height: 60px;
+    display:flex;
+    flex-direction:row;
 }
-.PreviewInfo {
+
+.ThreadPreviewInfo {
     position: absolute;
-    left: 20%;
     top: 50%;
-    transform: translate(-50%,-50%);
-}
-.PreviewTitle{
-    font-size:1.3em;
     font-weight: bolder;
+    transform: translate(50%,-50%);
+    right:20%;
+    max-width:40%;
 }
-.PreviewName, .PreviewDate{
-    font-weight: bold;
-    position:relative;
-    left:50%;
+.ThreadPreviewTitle {
+    position: absolute;
+    left: 5%;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:1.3em;
+    font-weight:bolder;
+    max-width:60%;
+    overflow:hidden;
+    white-space: nowrap;
 }
