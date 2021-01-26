@@ -566,14 +566,45 @@ body {
     right:20%;
     max-width:40%;
 }
-.ThreadPreviewTitle {
+.ThreadPreviewTitle{
     position: absolute;
     left: 5%;
     top:50%;
     transform:translateY(-50%);
-    font-size:1.3em;
-    font-weight:bolder;
-    max-width:60%;
-    overflow:hidden;
     white-space: nowrap;
+    display:flex;
+    flex-direction:row;
+}
+    .ThreadPreviewTitle .PreviewTitle {
+        font-size: 1.3em;
+        font-weight: bolder;
+        max-width: 20px;
+    }
+    .ThreadPreviewTitle .PreviewName {
+        font-size: 1em;
+        font-weight: bold;
+        margin-left: 20px;
+    }
+    .ThreadPreviewTitle div {
+        max-width: 80%;
+        overflow: hidden;
+    }
+.ThreadSearchContainer {
+    margin-top: 30px;
+    width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    position: relative;
+    text-align:center;
+}
+.ThreadSearchBox{
+    width:50%;
+    height:2em;
+    border: 2px black solid;
+    margin-right:40px;
+}
+.BookThreadSearch {
+    width:15%;
+    height: 2em;
+    border: 2px black solid;
 }

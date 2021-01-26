@@ -34,7 +34,7 @@ namespace BullBooks.UserControls
         protected void RedirectSearch(object sender, EventArgs e)
         {
             string query = CreateQuery();
-            string current = "ThreadPage.aspx";
+            string current = "ThreadPage.aspx";     
             string newString = current + '?' + query;
             Response.Redirect(newString);
         }
