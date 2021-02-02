@@ -5,7 +5,7 @@
     <div id="Outer" class="OuterBox">
     <div class="Search">
     <asp:TextBox ID="TextIn" runat="server" CssClass="TextInClass" EnableViewState="true"></asp:TextBox>
-        <asp:Button ID="Submit" runat="server" Text="Search" OnClick="SendSearch"/>
+        <asp:Button ID="Submit" runat="server" Text="Search" OnClick="RedirectSearch"/>
         <asp:CheckBoxList ID="Genres" runat="server" EnableViewState="true" CssClass="Radio">
 
         </asp:CheckBoxList>

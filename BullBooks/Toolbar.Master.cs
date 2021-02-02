@@ -19,13 +19,9 @@ namespace BullBooks
             {
                 UserButton.ImageUrl = "../ControlImages/Userpage.png";
                 LogoutButton.Visible = true;
-                NameValueCollection queryString = System.Web.HttpUtility.ParseQueryString(string.Empty);
-                queryString.Add("userId", ((User)Session["User"]).Id.ToString());
-                UserButton.PostBackUrl = "UserPage.aspx" + '?' + queryString.ToString();
             }
             else
             {
-                UserButton.ImageUrl = "../ControlImages/Login.png";
                 LogoutButton.Visible = false;
             }
         }
@@ -40,7 +36,12 @@ namespace BullBooks
         protected void RedirectLogin(object sender, EventArgs e)
         {
             if (Session["User"] != null)
-            { }
+            {
+                NameValueCollection queryString = System.Web.HttpUtility.ParseQueryString(string.Empty);
+                queryString.Add("userId", ((User)Session["User"]).Id.ToString());
+                string postBackUrl = "UserPage.aspx" + '?' + queryString.ToString();
+                Response.Redirect(postBackUrl);
+            }
             Response.Redirect("LoginPage.aspx");
         }
         protected void Logout(object sender, EventArgs e)

@@ -130,7 +130,7 @@ namespace BL
             List<Book> books = new List<Book>(allBooks.Values);
 
             if(bookName != null)
-                    books.RemoveAll(i => !i.BookName.StartsWith(bookName));
+                    books.RemoveAll(i => !(i.BookName.ToLower()).StartsWith(bookName.ToLower()));
             if (genres != null)
                 books.RemoveAll(book => book.Genres != null && genres.Any(genre => !book.Genres.Contains(genre)));
             return books;

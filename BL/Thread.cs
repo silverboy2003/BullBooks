@@ -69,5 +69,19 @@ namespace BL
             }
             return ThreadList;
         }
+        public static void Search(List<Thread> allThreads, string thread, string book)
+        {
+            if (!string.IsNullOrEmpty(thread) || !string.IsNullOrEmpty(book))//at least one is not empty
+            {
+                if (!string.IsNullOrEmpty(book))//meaning the person searched by book
+                {
+                    allThreads.RemoveAll(currentThread => !currentThread.threadBook.StartsWith(book));
+                }
+                if(!string.IsNullOrEmpty(thread))//meaning the person searched by thread
+                {
+                    allThreads.RemoveAll(currentThread => !(currentThread.threadTitle.ToLower()).Contains(thread.ToLower()));
+                }
+            }
+        }
     }
 }

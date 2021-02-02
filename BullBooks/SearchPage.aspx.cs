@@ -47,7 +47,7 @@ namespace BullBooks
             }
             return gString;
         }
-        protected void RedirectSearch()
+        protected void RedirectSearch(object sender, EventArgs e)
         {
             string query = CreateQuery();
             string current = Request.Url.GetLeftPart(UriPartial.Path);
@@ -64,11 +64,6 @@ namespace BullBooks
                 genre.Value = entry.Key.ToString();
                 ((CheckBoxList)Genres).Items.Add(genre);
             }
-        }
-
-        protected void SendSearch(object sender, EventArgs e)
-        {
-            RedirectSearch();
         }
 
         protected void Blist_Load(object sender, EventArgs e)
