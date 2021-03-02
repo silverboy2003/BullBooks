@@ -609,3 +609,7 @@ body {
     border: 2px black solid;
     margin-right: 40px;
 }
+.UserTable {
+    top: 50%;
+    position:absolute;
+}

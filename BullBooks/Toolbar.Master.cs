@@ -53,5 +53,10 @@ namespace BullBooks
         {
             Response.Redirect("SearchPage.aspx");
         }
+
+        protected void RedirectThreads(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("ThreadSearchPage.aspx");
+        }
     }
 }
