@@ -15,14 +15,11 @@ namespace BullBooks
             //    Response.Redirect("mainpage.aspx");
             if (!Page.IsPostBack)
             {
+
                 Dictionary<int, User> allUsers = (Dictionary<int, User>)(Application["Users"]);
-                CreateUserTable(allUsers);
+                UserTable.DataSource = allUsers.Values;
+                UserTable.DataBind();
             }  
-        }
-        private void CreateUserTable(Dictionary<int, User> users)
-        {
-            UserTable.DataSource = users.Values;
-            UserTable.DataBind();
         }
 
         protected void RemoveColumns(object sender, GridViewRowEventArgs e)
@@ -30,6 +27,12 @@ namespace BullBooks
             e.Row.Cells[5].Visible = false;
             e.Row.Cells[6].Visible = false;
             e.Row.Cells[7].Visible = false;
+        }
+
+        protected void DeleteUser(object sender, GridViewDeleteEventArgs e)
+        {   
+            User deleted = new User(e.Keys);
+
         }
     }
 }

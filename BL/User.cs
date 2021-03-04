@@ -3,6 +3,7 @@ using System.Data;
 using DAL;
 using System.Reflection;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 
 namespace BL
 {
@@ -39,6 +40,22 @@ namespace BL
         public bool IsAuthor { get => isAuthor; set => isAuthor = value; }
 
         public User(DataRow user)
+        {
+            id = (int)user["userID"];
+            email = (string)user["email"];
+            username = (string)user["username"];
+            gender = (int)user["gender"];
+            birthDate = (DateTime)user["birthDate"];
+            banner = (string)user["bannerPic"];
+            profile = (string)user["profilePic"];
+            isAdmin = (bool)user["isAdmin"];
+            isPublisher = (bool)user["isPublisher"];
+            isAuthor = (bool)user["isAuthor"];
+            creationDate = (DateTime)user["creationDate"];
+            alias = (string)user["alias"];
+            password = (string)user["password"];
+        }
+        public User(IOrderedDictionary user)
         {
             id = (int)user["userID"];
             email = (string)user["email"];
