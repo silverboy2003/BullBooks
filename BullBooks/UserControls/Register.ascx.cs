@@ -36,7 +36,9 @@ namespace BullBooks.UserControls
                 }
                 else
                 {
+                    ((Dictionary<int, User>)Application["Users"]).Add(newID, user);
                     Response.Redirect("LoginPage.aspx");
+                    
                 }
             }
             else

@@ -11,28 +11,34 @@ namespace BullBooks
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             //if (Session["User"] == null || !((User)Session["User"]).IsAdmin)
             //    Response.Redirect("mainpage.aspx");
             if (!Page.IsPostBack)
             {
-
-                Dictionary<int, User> allUsers = (Dictionary<int, User>)(Application["Users"]);
+                Dictionary<int, User>  allUsers = (Dictionary<int, User>)(Application["Users"]);
                 UserTable.DataSource = allUsers.Values;
                 UserTable.DataBind();
-            }  
+            }
+            else
+            {
+            }
         }
 
         protected void RemoveColumns(object sender, GridViewRowEventArgs e)
         {
-            e.Row.Cells[5].Visible = false;
             e.Row.Cells[6].Visible = false;
             e.Row.Cells[7].Visible = false;
+            e.Row.Cells[8].Visible = false;
         }
 
         protected void DeleteUser(object sender, GridViewDeleteEventArgs e)
-        {   
-            User deleted = new User(e.Keys);
-
+        {
+            int userID = int.Parse(e.Values["Id"].ToString());
+            ((Dictionary<int, User>)(Application["Users"])).Remove(userID);
+            BL.User.DeleteUser(userID);
+            UserTable.DataSource = ((Dictionary<int, User>)(Application["Users"])).Values;
+            UserTable.DataBind();
         }
     }
 }

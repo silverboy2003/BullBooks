@@ -111,6 +111,7 @@ namespace BL
             inputs.Add(this.creationDate.ToString());
             inputs.Add(this.alias);
             int newID = UserHelper.DoRegister(inputs);
+            this.id = newID;
             return newID;
         }
         
@@ -130,6 +131,10 @@ namespace BL
                 users.Add(newUser.id, newUser);
             }
             return users;
+        }
+        public static bool DeleteUser(int id)
+        {
+            return UserHelper.DeleteUser(id);
         }
     }
 }

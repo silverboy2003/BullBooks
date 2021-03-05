@@ -49,5 +49,11 @@ namespace DAL
             DataTable result = DBHelper.GetDataTable(sql, input);
             return result == null;
         }
+        public static bool DeleteUser(int id)
+        {
+            string sql = $"DELETE FROM Users WHERE userID = {id}";
+
+            return DBHelper.WriteData(sql) == 1;
+        }
     }
 }
