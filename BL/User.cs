@@ -136,5 +136,27 @@ namespace BL
         {
             return UserHelper.DeleteUser(id);
         }
+        private List<object> CreateList()//returns a list containing all user details except for id
+        {
+            List<object> user = new List<object>();
+
+            user.Add(this.email);
+            user.Add(this.username);
+            user.Add(this.gender);
+            user.Add(this.birthDate);
+            user.Add(this.password);
+            user.Add(this.banner);
+            user.Add(this.profile);
+            user.Add(this.creationDate);
+            user.Add(this.alias);
+            user.Add(this.isAdmin.ToString().ToLower());
+            user.Add(this.isPublisher.ToString().ToLower());
+            user.Add(this.isAuthor.ToString().ToLower());
+            return user;
+        }
+        public bool UpdateUser()
+        {
+            return UserHelper.UpdateUser(CreateList(), this.id);
+        }
     }
 }

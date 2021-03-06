@@ -138,7 +138,7 @@ namespace DAL
                 return WRITEDATA_ERROR;
             }
         }
-        public static int WriteData(string sql, List<string> inputs)//sanitized for multiple inputs
+        public static int WriteData<T>(string sql, List<T> inputs)//sanitized for multiple inputs
         {
             try
             {
@@ -156,7 +156,7 @@ namespace DAL
                 return rd.RecordsAffected;
             }
             catch (OleDbException e)
-            {
+            {   
                 return WRITEDATA_ERROR;
             }
         }

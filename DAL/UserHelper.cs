@@ -55,5 +55,11 @@ namespace DAL
 
             return DBHelper.WriteData(sql) == 1;
         }
+        public static bool UpdateUser(List<object> user, int id)
+        {
+            string sql = $"UPDATE Users SET email = @Text1, username = @Text2, gender = {user[2]}, birthDate = #{user[3]}#, password = @Text5, bannerPic = @Text6, profilePic = @Text7, creationDate = #{user[7]}#, alias = @Text9, isAdmin = {user[9]}, isPublisher = {user[10]}, isAuthor = {user[11]} WHERE userID = {id}";
+            
+            return DBHelper.WriteData(sql, user) == 1;
+        }
     }
 }
