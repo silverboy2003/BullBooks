@@ -155,7 +155,7 @@ namespace DAL
                 OleDbDataReader rd = cmd.ExecuteReader();
                 return rd.RecordsAffected;
             }
-            catch (OleDbException e)
+                catch (OleDbException e)
             {   
                 return WRITEDATA_ERROR;
             }

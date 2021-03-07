@@ -143,15 +143,15 @@ namespace BL
             user.Add(this.email);
             user.Add(this.username);
             user.Add(this.gender);
-            user.Add(this.birthDate);
+            user.Add(this.birthDate.ToString("dd/MM/yyyy HH:mm:ss"));
             user.Add(this.password);
             user.Add(this.banner);
             user.Add(this.profile);
-            user.Add(this.creationDate);
+            user.Add(this.creationDate.ToString("dd/MM/yyyy HH:mm:ss"));
             user.Add(this.alias);
-            user.Add(this.isAdmin.ToString().ToLower());
-            user.Add(this.isPublisher.ToString().ToLower());
-            user.Add(this.isAuthor.ToString().ToLower());
+            user.Add(this.isAdmin.ToString());
+            user.Add(this.isPublisher.ToString());
+            user.Add(this.isAuthor.ToString());
             return user;
         }
         public bool UpdateUser()
