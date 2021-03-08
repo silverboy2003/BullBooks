@@ -416,13 +416,7 @@ body {
     position:relative;
     padding:50px;
 }
-.editorContainer{
-    left:50%;
-    transform:translateX(-50%);
-    position:relative;
-    margin-top:6vw;
-    width:80%;  
-}
+
 /*.Comment {
     display: flex;
     padding-bottom: 40px;
@@ -612,4 +606,31 @@ body {
 .UserTable {
     top: 50%;
     position:absolute;
+}
+.EditorButton {
+    background-image: url("../ControlImages/Comment.png");
+    position: initial;
+    width:40%;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position:center;
+    min-height:10vh;
+    border: 4px black solid;
+    outline: 4px black solid;
+    outline-offset:-4px;
+    transition: outline-offset 250ms ease;
+    cursor:pointer;
+    position:relative;
+    left:50%;
+    transform:translateX(-50%);
+}
+.EditorButton:focus, .EditorButton:hover{
+    outline-offset: 2px;
+}
+.editorContainer {
+    left: 50%;
+    transform: translateX(-50%);
+    position: relative;
+    width: 80%;
+    margin-top:3rem;
 }
