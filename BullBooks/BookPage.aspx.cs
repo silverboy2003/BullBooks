@@ -20,8 +20,8 @@ namespace BullBooks
                 CreateBookPage();
                 StarsRating.GenerateStars(thisBook.BookRating);
                 Load_Reviews(thisBook.Reviews);
-
-                CreateEditor();
+                if ((User)Session["User"] != null && !thisBook.Reviews.Any(review => review.ReviewerID == ((User)Session["User"]).Id))
+                    CreateEditor();
             }
         }
         protected void CreateEditor()

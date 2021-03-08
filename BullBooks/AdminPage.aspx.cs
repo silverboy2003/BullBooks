@@ -12,9 +12,9 @@ namespace BullBooks
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            //if (Session["User"] == null || !((User)Session["User"]).IsAdmin)
-            //    Response.Redirect("mainpage.aspx");
+
+            if (Session["User"] == null || !((User)Session["User"]).IsAdmin)
+                Response.Redirect("mainpage.aspx");
             if (!Page.IsPostBack)
             {
                 Dictionary<int, User>  allUsers = (Dictionary<int, User>)(Application["Users"]);
