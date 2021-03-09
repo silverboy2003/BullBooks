@@ -43,9 +43,9 @@
                 <div><label for="Synopsis">Synopsis:</label><asp:Label ID="Synopsis" runat="server"></asp:Label></div>
             </div>
             
-            <asp:Panel runat="server" ID="EditorContainer" CssClass="editorContainer">
-                <asp:TextBox  Visible="false" runat="server" ID="Editor" CssClass="EditorButton" onclick="ReplaceCKeditor()">
-                </asp:TextBox>
+            <asp:Panel runat="server" ID="EditorContainer" CssClass="editorContainer" onclick="ReplaceCKeditor()">
+                <asp:TextBox  Visible="false" runat="server" ID="Editor" CssClass="EditorButton"></asp:TextBox>
+                <ASS:Rating runat="server" ID="RatingSelect" onmouseover="MakeYellowStars()"/>
             </asp:Panel>          
                     <script type="text/javascript">
 
@@ -55,8 +55,11 @@
                                     width: '100%'
 
                                 })
+                            
                         }
-
+                        function MakeYellowStars() {
+                            
+                        }
                     </script>
 
             <asp:Panel  runat="server" ID="Reviews_Container" CssClass="ReviewsContainer"></asp:Panel>

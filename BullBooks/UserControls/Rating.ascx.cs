@@ -52,5 +52,17 @@ namespace BullBooks
                 starsCreated++;
             }
         }
+        public void GenerateStarsSelect()//★
+        {
+            for (int i = 1; i<=5; i++)
+            {
+                Label star = new Label();
+                star.CssClass = "Star";
+                star.ID = $"Star{i}";
+                star.Text = "★";
+                star.Style.Add("color", "gray");
+                StarPanel.Controls.Add(star);
+            }
+        }
     }
 }
