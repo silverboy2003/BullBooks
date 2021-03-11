@@ -22,13 +22,13 @@ namespace BullBooks
                 if ((User)Session["User"] != null && !thisBook.Reviews.Any(review => review.ReviewerID == ((User)Session["User"]).Id))
                 {
                     Editor.Visible = true;
-                    RatingSelect.GenerateStarsSelect();
+                    RatingSelect.Visible = true;
                 }
-            RatingSelect.SendReview += new Rating.SendReviewDelegate(CommitReview);
+            RatingSelect.SendReview += new RatingSelector.SendReviewDelegate(CommitReview);
         }
         private void CommitReview(int rating)
         {
-
+            int Rating = rating;
         }
         protected void CreateBookPage()
         {

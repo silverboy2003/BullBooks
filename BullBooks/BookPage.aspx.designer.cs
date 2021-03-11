@@ -156,7 +156,7 @@ namespace BullBooks
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::BullBooks.Rating RatingSelect;
+        protected global::BullBooks.RatingSelector RatingSelect;
 
         /// <summary>
         /// Reviews_Container control.

@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="AdminPage.aspx" />
     <Content Include="BookPage.aspx" />
+    <Content Include="UserControls\RatingSelector.ascx" />
     <Content Include="ThreadPage.aspx" />
     <Content Include="ThreadSearchPage.aspx" />
     <Content Include="UserControls\BookReview.ascx" />
@@ -102,6 +103,12 @@
     </Compile>
     <Compile Include="BookPage.aspx.designer.cs">
       <DependentUpon>BookPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RatingSelector.ascx.cs">
+      <DependentUpon>RatingSelector.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RatingSelector.ascx.designer.cs">
+      <DependentUpon>RatingSelector.ascx</DependentUpon>
     </Compile>
     <Compile Include="ThreadPage.aspx.cs">
       <DependentUpon>ThreadPage.aspx</DependentUpon>

@@ -9,8 +9,6 @@ namespace BullBooks
 {
     public partial class Rating : System.Web.UI.UserControl
     {
-        public delegate void SendReviewDelegate(int rating);
-        public event SendReviewDelegate SendReview;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -79,22 +77,6 @@ namespace BullBooks
                 starsCreated++;
                 score = 0;
             }
-        }
-        public void GenerateStarsSelect()//★
-        {
-            StarPanel.Controls.Clear();
-            for (int i = 1; i<=5; i++)
-            {
-                Button star = new Button();
-                star.ID = $"Star{i}";
-                star.Text = "★";
-                star.Click += Send;
-                StarPanel.Controls.Add(star);
-            }
-        }
-        protected void Send(object sender, EventArgs e)
-        {
-            int i = 1;
         }
     }
 }

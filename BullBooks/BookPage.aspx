@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" ValidateRequest="false" Language="C#" MasterPageFile="~/Toolbar.Master" AutoEventWireup="true" CodeBehind="BookPage.aspx.cs" Inherits="BullBooks.BookPage" %>
-
-
+<%@ Register TagPrefix="ASS" TagName="Rating" Src="~/UserControls/Rating.ascx" %>
+<%@ Register TagPrefix="ASS" TagName="RatingSelector" Src="~/UserControls/RatingSelector.ascx" %>
 
     
 
@@ -18,7 +18,6 @@
                     <asp:Image runat="server" ID="BookImage" CssClass="BookImage"/>
                 </div>
                 <ASS:Rating runat="server" ID="StarsRating"/>
-                
             </div>
 
             <div class="BookInfoText" style="display:flex; flex-direction:column;">
@@ -45,7 +44,7 @@
             
             <asp:Panel runat="server" ID="EditorContainer" CssClass="editorContainer" onclick="ReplaceCKeditor()">
                 <asp:TextBox  Visible="false" runat="server" ID="Editor" CssClass="EditorButton"></asp:TextBox>
-                <ASS:Rating ViewStateMode="Enabled" runat="server" ID="RatingSelect" onmouseover="MakeYellowStars()" onclick="SelectStars()"/>
+                <ASS:RatingSelector Visible="false" runat="server" ID="RatingSelect" />
             </asp:Panel>          
                     <script type="text/javascript">
 
