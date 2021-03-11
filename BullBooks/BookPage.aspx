@@ -45,7 +45,7 @@
             
             <asp:Panel runat="server" ID="EditorContainer" CssClass="editorContainer" onclick="ReplaceCKeditor()">
                 <asp:TextBox  Visible="false" runat="server" ID="Editor" CssClass="EditorButton"></asp:TextBox>
-                <ASS:Rating runat="server" ID="RatingSelect" onmouseover="MakeYellowStars()"/>
+                <ASS:Rating ViewStateMode="Enabled" runat="server" ID="RatingSelect" onmouseover="MakeYellowStars()" onclick="SelectStars()"/>
             </asp:Panel>          
                     <script type="text/javascript">
 
@@ -54,11 +54,7 @@
                                 {
                                     width: '100%'
 
-                                })
-                            
-                        }
-                        function MakeYellowStars() {
-                            
+                                });
                         }
                     </script>
 

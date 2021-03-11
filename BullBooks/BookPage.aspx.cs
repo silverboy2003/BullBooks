@@ -15,8 +15,6 @@ namespace BullBooks
     
     protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
                 LoadBook();
                 CreateBookPage();
                 StarsRating.GenerateStars(thisBook.BookRating);
@@ -26,7 +24,11 @@ namespace BullBooks
                     Editor.Visible = true;
                     RatingSelect.GenerateStarsSelect();
                 }
-            }
+            RatingSelect.SendReview += new Rating.SendReviewDelegate(CommitReview);
+        }
+        private void CommitReview(int rating)
+        {
+
         }
         protected void CreateBookPage()
         {

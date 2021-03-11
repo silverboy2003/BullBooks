@@ -638,11 +638,24 @@ body {
         text-align: center;
         cursor: pointer;
         direction: rtl;
-
+        width: fit-content;
+        position:relative;
+        left:50%;
+        transform:translateX(-50%);
     }
-        .editorContainer .Rating span:hover,
-        .editorContainer .Rating span:focus,
-        .editorContainer .Rating span:hover ~ span,
-        .editorContainer .Rating span:focus ~ span{
+        .editorContainer .Rating input:hover,
+        .editorContainer .Rating input:focus,
+        .editorContainer .Rating input:hover ~ input,
+        .editorContainer .Rating input:focus ~ input {
             color: yellow !important;
+        }
+        .editorContainer .Rating input {
+            font-size: 2em;
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: black;
+            color: gray;
+            background: none !important;
+            border: none;
+            padding: 0 !important;
+            cursor: pointer;
         }
