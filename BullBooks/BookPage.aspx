@@ -44,7 +44,10 @@
             
             <asp:Panel runat="server" ID="EditorContainer" CssClass="editorContainer">
                 <asp:TextBox  Visible="false" runat="server" ID="Editor" CssClass="EditorButton" onclick="ReplaceCKeditor()"></asp:TextBox>
-                <ASS:RatingSelector Visible="false" runat="server" ID="RatingSelect" />
+                <div class="SendDiv">
+                    <ASS:RatingSelector Visible="false" runat="server" ID="RatingSelect" />
+                    <asp:ImageButton Visible="false" runat="server" ID="ReviewSubmit" ImageUrl="../ControlImages/send.png" CssClass="ReviewButton"/>
+                </div>
             </asp:Panel>          
                     <script type="text/javascript">
 

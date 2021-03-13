@@ -23,6 +23,7 @@ namespace BullBooks
                 {
                     Editor.Visible = true;
                     RatingSelect.Visible = true;
+                    ReviewSubmit.Visible = true;
                 }
             //RatingSelect.SendReview += new RatingSelector.SendReviewDelegate(CommitReview);
         }

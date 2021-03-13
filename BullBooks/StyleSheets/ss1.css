@@ -638,10 +638,7 @@ body {
         text-align: center;
         cursor: pointer;
         direction: rtl;
-        width: fit-content;
-        position:relative;
-        left:50%;
-        transform:translateX(-50%);
+        justify-items:center;
     }
         .editorContainer .Rating label:hover,
         .editorContainer .Rating label:focus,
@@ -667,6 +664,9 @@ body {
         .Rating input:checked ~ label{
             color:yellow;
         }
-        .Rating input[type=radio], .Rating label, .Rating{
-            outline:none;
+        .ReviewButton{
+            height: 20px;
+        }
+        .SendDiv{
+            direction:rtl;
         }

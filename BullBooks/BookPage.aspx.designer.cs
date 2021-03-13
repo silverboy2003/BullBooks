@@ -159,6 +159,15 @@ namespace BullBooks
         protected global::BullBooks.RatingSelector RatingSelect;
 
         /// <summary>
+        /// ReviewSubmit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton ReviewSubmit;
+
+        /// <summary>
         /// Reviews_Container control.
         /// </summary>
         /// <remarks>
