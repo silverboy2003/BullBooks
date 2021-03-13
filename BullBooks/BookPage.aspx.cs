@@ -24,12 +24,12 @@ namespace BullBooks
                     Editor.Visible = true;
                     RatingSelect.Visible = true;
                 }
-            RatingSelect.SendReview += new RatingSelector.SendReviewDelegate(CommitReview);
+            //RatingSelect.SendReview += new RatingSelector.SendReviewDelegate(CommitReview);
         }
-        private void CommitReview(int rating)
-        {
-            int Rating = rating;
-        }
+        //private void CommitReview(int rating)
+        //{
+        //    int Rating = rating;
+        //}
         protected void CreateBookPage()
         {
             BookName.Text = thisBook.BookName;

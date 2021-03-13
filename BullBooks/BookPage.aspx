@@ -42,8 +42,8 @@
                 <div><label for="Synopsis">Synopsis:</label><asp:Label ID="Synopsis" runat="server"></asp:Label></div>
             </div>
             
-            <asp:Panel runat="server" ID="EditorContainer" CssClass="editorContainer" onclick="ReplaceCKeditor()">
-                <asp:TextBox  Visible="false" runat="server" ID="Editor" CssClass="EditorButton"></asp:TextBox>
+            <asp:Panel runat="server" ID="EditorContainer" CssClass="editorContainer">
+                <asp:TextBox  Visible="false" runat="server" ID="Editor" CssClass="EditorButton" onclick="ReplaceCKeditor()"></asp:TextBox>
                 <ASS:RatingSelector Visible="false" runat="server" ID="RatingSelect" />
             </asp:Panel>          
                     <script type="text/javascript">

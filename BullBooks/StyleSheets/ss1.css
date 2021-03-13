@@ -643,13 +643,13 @@ body {
         left:50%;
         transform:translateX(-50%);
     }
-        .editorContainer .Rating input:hover,
-        .editorContainer .Rating input:focus,
-        .editorContainer .Rating input:hover ~ input,
-        .editorContainer .Rating input:focus ~ input {
+        .editorContainer .Rating label:hover,
+        .editorContainer .Rating label:focus,
+        .editorContainer .Rating label:hover ~ label,
+        .editorContainer .Rating input:focus ~ label {
             color: yellow !important;
         }
-        .editorContainer .Rating input {
+        .editorContainer .Rating label {
             font-size: 2em;
             -webkit-text-stroke-width: 1px;
             -webkit-text-stroke-color: black;
@@ -658,4 +658,11 @@ body {
             border: none;
             padding: 0 !important;
             cursor: pointer;
+        }
+
+        .Rating input{
+            visibility:hidden;
+        }
+        .Rating input:checked ~ label{
+            color:yellow;
         }
