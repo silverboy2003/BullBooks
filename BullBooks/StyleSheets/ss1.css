@@ -658,6 +658,7 @@ body {
             border: none;
             padding: 0 !important;
             cursor: pointer;
+            outline: none;
         }
 
         .Rating input{
@@ -665,4 +666,7 @@ body {
         }
         .Rating input:checked ~ label{
             color:yellow;
+        }
+        .Rating input[type=radio], .Rating label, .Rating{
+            outline:none;
         }
