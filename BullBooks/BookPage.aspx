@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" ValidateRequest="false" Language="C#" MasterPageFile="~/Toolbar.Master" AutoEventWireup="true" CodeBehind="BookPage.aspx.cs" Inherits="BullBooks.BookPage" %>
 <%@ Register TagPrefix="ASS" TagName="Rating" Src="~/UserControls/Rating.ascx" %>
 <%@ Register TagPrefix="ASS" TagName="RatingSelector" Src="~/UserControls/RatingSelector.ascx" %>
-
+<%@ Register Assembly="CKEditor.NET" Namespace="CKEditor.NET" TagPrefix="CKEditor" %>
     
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -46,7 +46,7 @@
                 <asp:TextBox  Visible="false" runat="server" ID="Editor" CssClass="EditorButton" onclick="ReplaceCKeditor()"></asp:TextBox>
                 <div class="SendDiv">
                     <ASS:RatingSelector Visible="false" runat="server" ID="RatingSelect" />
-                    <asp:ImageButton Visible="false" runat="server" ID="ReviewSubmit" ImageUrl="../ControlImages/send.png" CssClass="ReviewButton"/>
+                    <asp:ImageButton OnClick="SendReview" Visible="false" runat="server" ID="ReviewSubmit" ImageUrl="../ControlImages/send.png" CssClass="ReviewButton"/>
                 </div>
             </asp:Panel>          
                     <script type="text/javascript">

@@ -85,5 +85,10 @@ namespace BullBooks
                 currentReview.Load_Review(review);
             }
         }
+
+        protected void SendReview(object sender, ImageClickEventArgs e)
+        {
+            int rating = RatingSelect.GetRating();
+        }
     }
 }
