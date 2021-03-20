@@ -46,7 +46,7 @@
                 <asp:TextBox  Visible="false" runat="server" ID="Editor" CssClass="EditorButton" onclick="ReplaceCKeditor()"></asp:TextBox>
                 <div class="SendDiv">
                     <ASS:RatingSelector Visible="false" runat="server" ID="RatingSelect" />
-                    <asp:ImageButton OnClientClick="SaveReview()" OnClick="SendReview" Visible="false" runat="server" ID="ReviewSubmit" ImageUrl="../ControlImages/send.png" CssClass="ReviewButton"/>
+                    <asp:ImageButton OnClick="SendReview" OnClientClick="return ConfirmReview()" Visible="false" runat="server" ID="ReviewSubmit" ImageUrl="../ControlImages/send.png" CssClass="ReviewButton"/>
                 </div>
             </asp:Panel>          
                     <script type="text/javascript">
@@ -61,7 +61,15 @@
             <script type="text/javascript">
                 function SaveReview() {
                     var temp = CKEDITOR.instances.ContentPlaceHolder1_Editor.getData();
-                    document.getElementById('ContentPlaceHolder1_HiddenEditor').value = temp
+                    document.getElementById('ContentPlaceHolder1_HiddenEditor').value = temp;
+                }
+                function ConfirmReview() {
+                    if (window.confirm("Select OK if you you would like to submit this review.")) {
+                        SaveReview();
+                        document.getElementById('ContentPlaceHolder1_ReviewSubmit').click;
+                    }
+                    else
+                        return false;
                 }
             </script>
 

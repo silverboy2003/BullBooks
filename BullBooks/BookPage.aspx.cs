@@ -24,7 +24,9 @@ namespace BullBooks
                     Editor.Visible = true;
                     RatingSelect.Visible = true;
                     ReviewSubmit.Visible = true;
-                }
+                    if(!string.IsNullOrEmpty(HiddenEditor.Value))
+                        ScriptManager.RegisterStartupScript(EditorContainer, typeof(Page), "abc", "ReplaceCKeditor()", true);
+            }
             //RatingSelect.SendReview += new RatingSelector.SendReviewDelegate(CommitReview);
         }
         //private void CommitReview(int rating)
@@ -89,6 +91,8 @@ namespace BullBooks
         protected void SendReview(object sender, ImageClickEventArgs e)
         {
             int rating = RatingSelect.GetRating();
-        }
+            string review = HiddenEditor.Value;
+            int i = 1;
+        }    
     }
 }
