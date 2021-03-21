@@ -60,7 +60,7 @@
                     </script>
             <script type="text/javascript">
                 function SaveReview() {
-                    var temp = CKEDITOR.instances.ContentPlaceHolder1_Editor.getData();
+                    var temp = (CKEDITOR.instances.ContentPlaceHolder1_Editor.getData()).replace(/&nbsp;/g, ' ');
                     document.getElementById('ContentPlaceHolder1_HiddenEditor').value = temp;
                 }
                 function ConfirmReview() {

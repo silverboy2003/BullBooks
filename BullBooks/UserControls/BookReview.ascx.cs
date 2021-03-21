@@ -33,7 +33,7 @@ namespace BullBooks
             stars.ID = "Stars";
             ReviewContentContainer.Controls.AddAt(0, stars);
             stars.GenerateStars(currentReview.Rating);
-            ReviewContent.Text = currentReview.ReviewContent;
+            HTMLContainer.InnerHtml = review.ReviewContent;
         }
     }
 }

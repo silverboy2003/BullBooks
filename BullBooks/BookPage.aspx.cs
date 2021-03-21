@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BL;
+using System.Text.RegularExpressions;
 
 namespace BullBooks
 {
@@ -24,8 +25,6 @@ namespace BullBooks
                     Editor.Visible = true;
                     RatingSelect.Visible = true;
                     ReviewSubmit.Visible = true;
-                    if(!string.IsNullOrEmpty(HiddenEditor.Value))
-                        ScriptManager.RegisterStartupScript(EditorContainer, typeof(Page), "abc", "ReplaceCKeditor()", true);
             }
             //RatingSelect.SendReview += new RatingSelector.SendReviewDelegate(CommitReview);
         }
@@ -92,7 +91,19 @@ namespace BullBooks
         {
             int rating = RatingSelect.GetRating();
             string review = HiddenEditor.Value;
-            int i = 1;
+            review = review.Replace("\r\n", string.Empty);
+            BL.Review newReview = new Review(review, thisBook.ID, rating, ((User)Session["User"]).Id, DateTime.Now);
+            int newID = newReview.CommitReview();
+            if (newID != -1)
+            {
+                thisBook.Reviews.Add(newReview);
+                Load_Reviews(thisBook.Reviews);
+                thisBook.CalculateReviews();
+                StarsRating.GenerateStars(thisBook.BookRating);
+            }
+            Editor.Visible = false;
+            RatingSelect.Visible = false;
+            ReviewSubmit.Visible = false;
         }    
     }
 }

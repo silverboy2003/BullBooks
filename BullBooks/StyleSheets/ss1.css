@@ -402,12 +402,11 @@ body {
     left:5%;
     z-index:1;
 }
-.Review .ReviewText {
+.ReviewContent p {
     position: relative;
     padding: 15px;
     max-width: 80%;
-    text-align: center;
-    text-overflow:clip;
+    text-overflow: clip;
 }
 .ReviewTextContainer{
     width:80%;

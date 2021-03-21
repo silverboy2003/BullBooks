@@ -151,7 +151,7 @@ namespace BL
             }
             return bookList;
         }
-        private void CalculateReviews()//only call while setting review list
+        public void CalculateReviews()//only call while setting review list
         {
             List<Review> reviews = this.reviews;
             double totalScore = 0;
@@ -159,7 +159,7 @@ namespace BL
             {
                 totalScore += bookReview.Rating;
             }
-            double calculatedScore = totalScore / NumReviews;
+            double calculatedScore = totalScore / reviews.Count;
             BookRating = calculatedScore;
         }
         public static List<Book> GetAssociatedBooks(int userID, Dictionary<int, Book> allBooks)

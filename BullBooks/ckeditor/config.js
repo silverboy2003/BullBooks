@@ -19,7 +19,7 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'colors', groups: [ 'colors' ] },
 		{ name: 'about', groups: [ 'about' ] }
 	];
-
 	config.removeButtons = 'Underline,Subscript,Superscript,Scayt,Unlink,Link,Anchor,EasyImageUpload,Table,HorizontalRule,Source,Styles,Format,About';
+	config.fillEmptyBlocks = false;
 };
 

@@ -34,7 +34,30 @@ namespace BL
             ReviewerID = (int)review["reviewerID"];
             creationDate = DateTime.Parse(review["reviewDate"].ToString());
         }
-
+        public Review(string content, int bookid, int rating, int reviewerID, DateTime creation)
+        {
+            reviewContent = content;
+            BookID = bookid;
+            Rating = rating;
+            ReviewerID = reviewerID;
+            CreationDate = creation;
+        }
+        /// <summary>
+        /// turns review data into a list and sends it to DAL in order to add to database
+        /// </summary>
+        /// <returns>new review id, if an error occurs it returns -1</returns>
+        public int CommitReview()
+        {
+            List<object> inputs = new List<object>();
+            inputs.Add(reviewContent);
+            inputs.Add(BookID);
+            inputs.Add(rating);
+            inputs.Add(reviewerID);
+            inputs.Add(creationDate);
+            int newID = ReviewHelper.SendReview(inputs);
+            reviewID = newID;
+            return newID;
+        }
         public static LinkedListNode<Review> LoadReviews()//get all reviews in the form of datatable and convert+return them in the form of nodes
         {
             DataTable reviews = ReviewHelper.GetAllReviews();

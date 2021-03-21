@@ -10,8 +10,11 @@
 
     <asp:Panel runat="server" cssClass="ReviewContent" ID="ReviewContentContainer">
 
-        <div class="ReviewTextContainer">
+        <%--<div class="ReviewTextContainer">
             <asp:Label runat="server" ID="ReviewContent" CssClass="ReviewText"></asp:Label>
+        </div>--%>
+        <div id="HTMLContainer" CssClass="ReviewTextContainer" runat="server">
+
         </div>
 
     </asp:Panel>
