@@ -97,8 +97,11 @@ namespace BullBooks
             if (newID != -1)
             {
                 thisBook.Reviews.Add(newReview);
-                Load_Reviews(thisBook.Reviews);
+                BookReview currentReview = (BookReview)Page.LoadControl("~/UserControls/BookReview.ascx");
+                Reviews_Container.Controls.Add(currentReview);
+                currentReview.Load_Review(newReview);
                 thisBook.CalculateReviews();
+                StarsRating.ResetStars();
                 StarsRating.GenerateStars(thisBook.BookRating);
             }
             Editor.Visible = false;

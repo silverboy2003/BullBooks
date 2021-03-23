@@ -52,6 +52,14 @@ namespace BullBooks
         //        starsCreated++;
         //    }
         //}
+        public void ResetStars()
+        {
+            Star1.Style.Add("background", "gray");
+            Star2.Style.Add("background", "gray");
+            Star3.Style.Add("background", "gray");
+            Star4.Style.Add("background", "gray");
+            Star5.Style.Add("background", "gray");
+        }
         public void GenerateStars(double rating)//★
         {
             double score = rating; // change this back later
@@ -61,7 +69,7 @@ namespace BullBooks
             while (score >= 1)
             {
                 Label star = (Label)FindControl($"Star{starsCreated+1}");
-                star.Style.Add("color", "yellow");
+                star.Style.Add("background", "yellow");
                 score--;
                 starsCreated++;
             }
@@ -70,9 +78,9 @@ namespace BullBooks
                 int percent = (int)Math.Floor(score * 100);
                 Label star = (Label)FindControl($"Star{starsCreated + 1}");
                 star.Style.Add("background", $"linear-gradient(to right, yellow {percent}%, gray {percent}%, gray {100 - percent}%)");
-                star.Style.Add("-webkit-text-fill-color", "transparent");
-                star.Style.Add("background-clip", "text");
-                star.Style.Add("-webkit-background-clip", "text");
+                //star.Style.Add("-webkit-text-fill-color", "transparent");
+                //star.Style.Add("background-clip", "text");
+                //star.Style.Add("-webkit-background-clip", "text");
                 //need to create star with gradient using the percentage
                 starsCreated++;
                 score = 0;

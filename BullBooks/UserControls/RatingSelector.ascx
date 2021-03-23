@@ -5,5 +5,5 @@
     <asp:RadioButton runat="server" AccessKey="4" Text="★" GroupName="Stars"/>
     <asp:RadioButton runat="server" AccessKey="3" Text="★" GroupName="Stars"/>
     <asp:RadioButton runat="server" AccessKey="2" Text="★" GroupName="Stars"/>
-    <asp:RadioButton runat="server" AccessKey="1" Text="★" GroupName="Stars"/>
+    <asp:RadioButton Checked="true" runat="server" AccessKey="1" Text="★" GroupName="Stars"/>
 </asp:Panel>
