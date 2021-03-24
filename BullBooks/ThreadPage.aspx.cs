@@ -20,6 +20,11 @@ namespace BullBooks
             ThreadText.Text = currentThread.ThreadText;
             PostingTime.Text = String.Format("{0:g}", currentThread.CreationDate);
             AuthorAlias.Text = currentThread.ThreadAuthor;
+            if ((User)Session["User"] != null)
+            {
+                Editor.Visible = true;
+                CommentSubmit.Visible = true;
+            }
         }
         private void LoadThread()
         {
@@ -76,6 +81,10 @@ namespace BullBooks
                 newComment.bindReply(LoadComments(comment));
             }
             return newComment;
+        }
+        protected void SendComment(object sender, EventArgs e)
+        {
+
         }
     }
 }

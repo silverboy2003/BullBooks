@@ -43,10 +43,10 @@
             
             <asp:Panel runat="server" ID="EditorContainer" CssClass="editorContainer">
                 <asp:HiddenField ID="HiddenEditor" EnableViewState="true" runat="server"/>
-                <asp:TextBox  Visible="false" runat="server" ID="Editor" CssClass="EditorButton" onclick="ReplaceCKeditor()"></asp:TextBox>
+                <asp:TextBox  Visible="false" runat="server" ID="Editor" CssClass="EditorButton ReviewEditorButton" onclick="ReplaceCKeditor()"></asp:TextBox>
                 <div class="SendDiv">
                     <ASS:RatingSelector Visible="false" runat="server" ID="RatingSelect" />
-                    <asp:ImageButton OnClick="SendReview" OnClientClick="return ConfirmReview()" Visible="false" runat="server" ID="ReviewSubmit" ImageUrl="../ControlImages/send.png" CssClass="ReviewButton"/>
+                    <asp:ImageButton OnClick="SendReview" OnClientClick="return ConfirmReview()" Visible="false" runat="server" ID="ReviewSubmit" ImageUrl="../ControlImages/send.png" CssClass="SendButton"/>
                 </div>
             </asp:Panel>          
                     <script type="text/javascript">

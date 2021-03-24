@@ -51,6 +51,42 @@ namespace BullBooks
         protected global::System.Web.UI.WebControls.Label ThreadText;
 
         /// <summary>
+        /// EditorContainer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel EditorContainer;
+
+        /// <summary>
+        /// HiddenEditor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenEditor;
+
+        /// <summary>
+        /// Editor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Editor;
+
+        /// <summary>
+        /// CommentSubmit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton CommentSubmit;
+
+        /// <summary>
         /// CommentContainer control.
         /// </summary>
         /// <remarks>
