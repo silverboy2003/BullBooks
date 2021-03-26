@@ -84,7 +84,12 @@ namespace BullBooks
         }
         protected void SendComment(object sender, EventArgs e)
         {
-
+            string comment = HiddenEditor.Value;
+            comment = comment.Replace("\r\n", string.Empty);
+            BL.User commenter = (BL.User)Session["User"];
+            BL.Comment newComment = new Comment(currentThread.ThreadID, comment, commenter.Id, commenter.Alias, DateTime.Now, 0);
+            Editor.Visible = false;
+            CommentSubmit.Visible = false;
         }
     }
 }

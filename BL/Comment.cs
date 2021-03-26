@@ -29,6 +29,16 @@ namespace BL
         public int ReplyTo { get => replyTo; set => replyTo = value; }
         public List<Comment> Replies { get => replies; set => replies = value; }
 
+        public Comment(int threadID, string text, int userID, string alias, DateTime date, int replyID)
+        {
+            commentID = -1;
+            ThreadID = ThreadID;
+            CommentText = text;
+            CommentAuthorID = userID;
+            CommentAuthorName = alias;
+            CommentDate = date;
+            ReplyTo = replyID;
+        }
         public Comment(DataRow comment)
         {
             commentID = (int)comment["commentID"];
