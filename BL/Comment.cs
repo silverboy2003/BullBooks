@@ -32,7 +32,7 @@ namespace BL
         public Comment(int threadID, string text, int userID, string alias, DateTime date, int replyID)
         {
             commentID = -1;
-            ThreadID = ThreadID;
+            ThreadID = threadID;
             CommentText = text;
             CommentAuthorID = userID;
             CommentAuthorName = alias;
@@ -76,5 +76,19 @@ namespace BL
             }
             return allComments;
         } 
+        public int CommitComment()
+        {
+            List<object> inputs = new List<object>();
+            inputs.Add(threadID);
+            inputs.Add(CommentText);
+            inputs.Add(commentAuthorID);
+            inputs.Add(replyTo);
+            inputs.Add(commentDate.ToString());
+            int newID = CommentHelper.SendComment(inputs);
+            this.commentID = newID;
+            if (replyTo == 0)
+                replyTo = newID;
+            return newID;
+        }
     }
 }

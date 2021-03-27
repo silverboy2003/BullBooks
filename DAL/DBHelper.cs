@@ -53,10 +53,12 @@ namespace DAL
                 }
                 OleDbCommand cmd = new OleDbCommand(sql, conn);
                 OleDbDataReader rd = cmd.ExecuteReader();
+                
                 return rd;
             }
             catch
             {
+                
                 return null;
             }
         }
@@ -72,10 +74,12 @@ namespace DAL
                 OleDbCommand cmd = new OleDbCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@Text", text);
                 OleDbDataReader rd = cmd.ExecuteReader();
+                
                 return rd;
             }
             catch
             {
+                
                 return null;
             }
         }
@@ -94,10 +98,12 @@ namespace DAL
                     cmd.Parameters.AddWithValue($"@Text{i}", text[i-1]);
                 }
                 OleDbDataReader rd = cmd.ExecuteReader();
+                
                 return rd;
             }
             catch
             {
+                
                 return null;
             }
         }
@@ -112,10 +118,12 @@ namespace DAL
                 }
                 OleDbCommand cmd = new OleDbCommand(sql, conn);
                 OleDbDataReader rd = cmd.ExecuteReader();
+                
                 return rd.RecordsAffected;
             }
             catch (OleDbException e)
             {
+                
                 return WRITEDATA_ERROR;
             }
         }
@@ -131,10 +139,12 @@ namespace DAL
                 OleDbCommand cmd = new OleDbCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@Text", input);
                 OleDbDataReader rd = cmd.ExecuteReader();
+                
                 return rd.RecordsAffected;
             }
             catch (OleDbException e)
             {
+                
                 return WRITEDATA_ERROR;
             }
         }
@@ -153,10 +163,12 @@ namespace DAL
                     cmd.Parameters.AddWithValue($"@Text{i}", inputs[i - 1]);
                 }
                 OleDbDataReader rd = cmd.ExecuteReader();
+                
                 return rd.RecordsAffected;
             }
-                catch (OleDbException e)
-            {   
+            catch (OleDbException e)
+            {
+                
                 return WRITEDATA_ERROR;
             }
         }
@@ -178,7 +190,7 @@ namespace DAL
                     //It MUST use the SAME connection!!!!
                     cmd = new OleDbCommand(@"SELECT @@Identity", conn);
                     rd = cmd.ExecuteReader();
-
+                    
                     while (rd.Read())
                     {
                         //The new ID will be on the first (and only) column
@@ -218,6 +230,7 @@ namespace DAL
                     while (rd.Read())
                     {
                         //The new ID will be on the first (and only) column
+                        
                         return (int)rd[0];
                     }
                 }
@@ -225,6 +238,7 @@ namespace DAL
             
             catch(Exception e)
             {
+                
                 return WRITEDATA_ERROR;
             }
             return WRITEDATA_ERROR;
@@ -252,12 +266,14 @@ namespace DAL
                     while (rd.Read())
                     {
                         //The new ID will be on the first (and only) column
+                        
                         return (int)rd[0];
                     }
                 }
             }
             catch
             {
+                
                 return WRITEDATA_ERROR;
             }
             return WRITEDATA_ERROR;
@@ -281,10 +297,12 @@ namespace DAL
                     return null;
                 dataTable.Load(reader);
 
+                CloseConnection();
                 return dataTable;
             }
             catch (OleDbException e)
             {
+                CloseConnection();
                 return null;
             }
         }
@@ -299,10 +317,12 @@ namespace DAL
                     return null;
                 dataTable.Load(reader);
 
+                CloseConnection();
                 return dataTable;
             }
             catch (OleDbException e)
             {
+                CloseConnection();
                 return null;
             }
         }
@@ -317,10 +337,12 @@ namespace DAL
                     return null;
                 dataTable.Load(reader);
 
+                CloseConnection();
                 return dataTable;
             }
             catch (OleDbException e)
             {
+                CloseConnection();
                 return null;
             }
         }
@@ -336,6 +358,7 @@ namespace DAL
             {
                 ds.Tables.Add(GetDataTable(sql[i]));
             }
+            
             if (ds != null)
                 return ds;
             else

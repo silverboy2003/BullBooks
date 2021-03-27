@@ -16,5 +16,15 @@ namespace DAL
             DataTable threadComments = DBHelper.GetDataTable(sql);
             return threadComments;
         }
+        public static int SendComment(List<object> inputs)
+        {
+            string sql = $"INSERT INTO ThreadComments (threadID, commentText, commentAuthorID, commentDate) VALUES ('{inputs[0]}', @Text, '{inputs[2]}', '{inputs[4]}')";
+            int newID = DBHelper.InsertWithAutoNumKey(sql, (string)inputs[1]);
+            if ((int)inputs[3] == 0) //meaning it's directed to itself
+                inputs[3] = newID;
+            string updateSql = $"UPDATE ThreadComments SET replyTo = {inputs[3]} WHERE commentID = {newID}";
+            DBHelper.WriteData(updateSql);
+            return newID;
+        }
     }
 }
