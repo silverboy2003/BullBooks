@@ -33,9 +33,17 @@
 
                         function SaveComment() {
                             var temp = (CKEDITOR.instances.ContentPlaceHolder1_Editor.getData()).replace(/&nbsp;/g, ' ');
+                            if (!temp)
+                                return false;
                             document.getElementById('ContentPlaceHolder1_HiddenEditor').value = temp;
                         }
                         function ConfirmComment() {
+                            var text = CKEDITOR.instances.ContentPlaceHolder1_Editor.document.getBody().getText();
+                            if (text == "")
+                            {
+                                window.alert('Please provide content');
+                                return false;
+                            }
                             if (window.confirm("Select OK if you you would like to submit this comment.")) {
                                 SaveReview();
                                 document.getElementById('ContentPlaceHolder1_CommentSubmit').click;
