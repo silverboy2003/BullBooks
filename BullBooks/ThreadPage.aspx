@@ -33,13 +33,12 @@
 
                         function SaveComment() {
                             var temp = (CKEDITOR.instances.ContentPlaceHolder1_Editor.getData()).replace(/&nbsp;/g, ' ');
-                            if (!temp)
-                                return false;
                             document.getElementById('ContentPlaceHolder1_HiddenEditor').value = temp;
                         }
                         function ConfirmComment() {
                             var text = CKEDITOR.instances.ContentPlaceHolder1_Editor.document.getBody().getText();
-                            if (text == "")
+                            text = text.trim();
+                            if (!text)
                             {
                                 window.alert('Please provide content');
                                 return false;
