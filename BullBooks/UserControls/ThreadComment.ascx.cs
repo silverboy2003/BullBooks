@@ -19,7 +19,8 @@ namespace BullBooks.UserControls
             CommenterPic.ImageUrl = "../" + commenter.Profile;
             CommenterName.Text = commenter.Alias;
             CommentDate.Text = String.Format("{0:g}", comment.CommentDate);
-            CommentContent.Text = comment.CommentText;
+            //CommentContent.Text = comment.CommentText;
+            CommentTextContainer.InnerHtml = comment.CommentText;
         }
         public void bindReply(ThreadComment reply)
         {

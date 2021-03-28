@@ -93,7 +93,7 @@ namespace BullBooks
             {
                 Editor.Visible = false;
                 CommentSubmit.Visible = false;
-                currentThread.ThreadMasterComments.Add(newComment);
+                currentThread.ThreadMasterComments.Insert(0, newComment);
                 currentThread.CntComments++;
                 UserControls.ThreadComment currentComment = (UserControls.ThreadComment)Page.LoadControl("~/UserControls/ThreadComment.ascx");
                 currentComment.createComment(newComment, commenter);

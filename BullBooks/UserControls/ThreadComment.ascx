@@ -12,10 +12,10 @@
 
     <asp:Panel runat="server" cssClass="CommentContent" ID="CommentContentContainer">
 
-        <div class="CommentTextContainer">
-            <asp:Label runat="server" ID="CommentContent" CssClass="CommenteText"></asp:Label>
+        <div class="CommentTextContainer" runat="server" id="CommentTextContainer">
+            <%--<asp:Label runat="server" ID="CommentContent" CssClass="CommenteText"></asp:Label>--%>
         </div>
-
+        <asp:ImageButton runat="server" ID="ReplyButton" />
     </asp:Panel>
 
     </div>
