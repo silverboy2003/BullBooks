@@ -23,6 +23,13 @@
                 </div>
             </asp:Panel>          
                     <script type="text/javascript">
+                        function ReplaceReplyEditor(id) {
+                            CKEDITOR.replace(id,
+                                {
+                                    width: '100%'
+
+                                });
+                        }
                         function ReplaceCKeditor() {
                             CKEDITOR.replace(<%= Editor.ClientID %>,
                                 {

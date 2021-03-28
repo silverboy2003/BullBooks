@@ -48,7 +48,7 @@
                     <ASS:RatingSelector Visible="false" runat="server" ID="RatingSelect" />
                     <asp:ImageButton OnClick="SendReview" OnClientClick="return ConfirmReview()" Visible="false" runat="server" ID="ReviewSubmit" ImageUrl="../ControlImages/send.png" CssClass="SendButton"/>
                 </div>
-            </asp:Panel>          
+            </asp:Panel>                
                     <script type="text/javascript">
                         function ReplaceCKeditor() {
                             CKEDITOR.replace(<%= Editor.ClientID %>,

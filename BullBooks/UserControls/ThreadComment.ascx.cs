@@ -48,5 +48,13 @@ namespace BullBooks.UserControls
                 }
             }
         }
+
+        protected void ReplyButton_Click(object sender, ImageClickEventArgs e)
+        {
+            TextBox editor = new TextBox();
+            editor.TextMode = TextBoxMode.MultiLine;
+            EditorContainer.Controls.Add(editor);
+            Page.ClientScript.RegisterStartupScript(GetType(), "Key1", $"ReplaceReplyEditor({editor.ClientID})", true);
+        }
     }
 }

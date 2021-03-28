@@ -78,6 +78,15 @@ namespace BullBooks.UserControls
         protected global::System.Web.UI.WebControls.ImageButton ReplyButton;
 
         /// <summary>
+        /// EditorContainer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel EditorContainer;
+
+        /// <summary>
         /// Replies control.
         /// </summary>
         /// <remarks>

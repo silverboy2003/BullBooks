@@ -15,11 +15,13 @@
         <div class="CommentTextContainer" runat="server" id="CommentTextContainer">
             <%--<asp:Label runat="server" ID="CommentContent" CssClass="CommenteText"></asp:Label>--%>
         </div>
-        <asp:ImageButton runat="server" ID="ReplyButton" />
+        <asp:ImageButton runat="server" ID="ReplyButton" OnClick="ReplyButton_Click"/>
     </asp:Panel>
 
     </div>
-    
+    <asp:Panel runat="server" ID="EditorContainer" CssClass="replyEditorContainer">
+
+    </asp:Panel>
     <asp:Panel runat="server" ID="Replies" CssClass="repliesContainer">
 
     </asp:Panel>
