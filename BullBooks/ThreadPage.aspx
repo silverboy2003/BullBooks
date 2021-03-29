@@ -1,4 +1,4 @@
-﻿    <%@ Page Title="" ValidateRequest="false" Language="C#" MasterPageFile="~/Toolbar.Master" AutoEventWireup="true" CodeBehind="ThreadPage.aspx.cs" Inherits="BullBooks.ThreadPage" %>
+﻿    <%@ Page MaintainScrollPositionOnPostback="true" Title="" ValidateRequest="false" Language="C#" MasterPageFile="~/Toolbar.Master" AutoEventWireup="true" CodeBehind="ThreadPage.aspx.cs" Inherits="BullBooks.ThreadPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type='text/javascript' src="ckeditor/ckeditor.js"></script>
 </asp:Content>
@@ -24,6 +24,7 @@
             </asp:Panel>          
                     <script type="text/javascript">
                         function ReplaceReplyEditor(id) {
+                            CKEDITOR.addCss('.cke_editable { background-color: black; color: white }');
                             CKEDITOR.replace(id,
                                 {
                                     width: '100%'

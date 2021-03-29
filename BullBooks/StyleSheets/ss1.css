@@ -689,3 +689,13 @@ body {
 .CommentTextContainer{
     padding-bottom:30px;
 }
+.ReplyButtons input{
+    height: 15px;
+    width: 20px;
+}
+.replyEditorContainer {
+    width: 80%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}

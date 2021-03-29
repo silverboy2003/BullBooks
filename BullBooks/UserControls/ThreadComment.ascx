@@ -15,7 +15,10 @@
         <div class="CommentTextContainer" runat="server" id="CommentTextContainer">
             <%--<asp:Label runat="server" ID="CommentContent" CssClass="CommenteText"></asp:Label>--%>
         </div>
-        <asp:ImageButton runat="server" ID="ReplyButton" OnClick="ReplyButton_Click"/>
+        <div class="ReplyButtons">
+        <asp:ImageButton OnClick="ReplyButtonPress" runat="server" ID="ReplyButton" ImageUrl="../ControlImages/reply.png"/>
+        <asp:ImageButton runat="server" ID="CancelButton" ImageUrl="../ControlImages/x.png" Visible="false"/>
+        </div>
     </asp:Panel>
 
     </div>
