@@ -10,18 +10,21 @@ namespace BullBooks.UserControls
 {
     public partial class ThreadComment : System.Web.UI.UserControl
     {
+        public Comment currentComment;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
         public void createComment(Comment comment, User commenter)
         {
+            currentComment = comment;
             CommenterPic.ImageUrl = "../" + commenter.Profile;
             CommenterName.Text = commenter.Alias;
             CommentDate.Text = String.Format("{0:g}", comment.CommentDate);
             //CommentContent.Text = comment.CommentText;
             CommentTextContainer.InnerHtml = comment.CommentText;
             ReplyButton.CommandArgument = comment.CommentID.ToString();
+            
         }
         public void bindReply(ThreadComment reply)
         {
@@ -52,13 +55,15 @@ namespace BullBooks.UserControls
 
         protected void ReplyButtonPress(object sender, ImageClickEventArgs e)
         {
-            TextBox editor = new TextBox();
-            editor.TextMode = TextBoxMode.MultiLine;
-            EditorContainer.Controls.Add(editor);
-            Page.ClientScript.RegisterStartupScript(GetType(), "Key1", $"ReplaceReplyEditor({editor.ClientID})", true);
-            ImageButton cancel = new ImageButton();
-            cancel.ImageUrl = "../ControlImages/x.png";
-            CancelButton.Visible = true;
+                TextBox editor = new TextBox();
+                editor.TextMode = TextBoxMode.MultiLine;
+                EditorContainer.Controls.Add(editor);
+                Page.ClientScript.RegisterStartupScript(GetType(), "Key1", $"ReplaceReplyEditor({editor.ClientID})", true);
+                CancelButton.Visible = true;
+        }
+        protected void CancelButtonPress(object sender, ImageClickEventArgs e)
+        {
+            CancelButton.Visible = false;
         }
     }
 }

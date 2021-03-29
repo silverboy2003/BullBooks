@@ -23,6 +23,11 @@
                 </div>
             </asp:Panel>          
                     <script type="text/javascript">
+                        function ClickReplyButton(cancelButton) {
+                            if (cancelButton.nextElementSibling == null)
+                                return true
+                            return false;
+                        }
                         function ReplaceReplyEditor(id) {
                             CKEDITOR.addCss('.cke_editable { background-color: black; color: white }');
                             CKEDITOR.replace(id,
