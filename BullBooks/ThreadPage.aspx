@@ -63,6 +63,9 @@
                             else
                                 return false;
                         }
+                        function ConfirmReply(editor) {
+                            var x = editor;
+                        }
                     </script>
         <asp:Panel ID="CommentContainer" CssClass="ThreadCommentsContainer" runat="server">
 

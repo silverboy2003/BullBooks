@@ -13,7 +13,11 @@ namespace BullBooks.UserControls
         public Comment currentComment;
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if(Session["User"] == null)
+            {
+                ReplyButton.Visible = false;
+                CancelButton.Visible = false;
+            }
         }
         public void createComment(Comment comment, User commenter)
         {
@@ -55,15 +59,21 @@ namespace BullBooks.UserControls
 
         protected void ReplyButtonPress(object sender, ImageClickEventArgs e)
         {
-                TextBox editor = new TextBox();
-                editor.TextMode = TextBoxMode.MultiLine;
-                EditorContainer.Controls.Add(editor);
-                Page.ClientScript.RegisterStartupScript(GetType(), "Key1", $"ReplaceReplyEditor({editor.ClientID})", true);
+                ReplyEditor.Visible = true;
+                Page.ClientScript.RegisterStartupScript(GetType(), "Key1", $"ReplaceReplyEditor({ReplyEditor.ClientID})", true);
                 CancelButton.Visible = true;
+                SendReplyButton.Visible = true;
         }
         protected void CancelButtonPress(object sender, ImageClickEventArgs e)
         {
             CancelButton.Visible = false;
+            SendReplyButton.Visible = false;
+        }
+
+        protected void SendReply(object sender, EventArgs e)
+        {
+            string comment = HiddenReply.Value;
+            comment = comment.Replace("\r\n", string.Empty);
         }
     }
 }

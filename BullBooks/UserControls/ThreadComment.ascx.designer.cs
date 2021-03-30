@@ -96,6 +96,33 @@ namespace BullBooks.UserControls
         protected global::System.Web.UI.WebControls.Panel EditorContainer;
 
         /// <summary>
+        /// HiddenReply control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenReply;
+
+        /// <summary>
+        /// ReplyEditor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ReplyEditor;
+
+        /// <summary>
+        /// SendReplyButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton SendReplyButton;
+
+        /// <summary>
         /// Replies control.
         /// </summary>
         /// <remarks>
