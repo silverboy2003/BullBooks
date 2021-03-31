@@ -13,6 +13,7 @@ namespace BullBooks.UserControls
         public Comment currentComment;
         protected void Page_Load(object sender, EventArgs e)
         {
+            ReplyEditor.Visible = false;
             if(Session["User"] == null)
             {
                 ReplyButton.Visible = false;
@@ -68,12 +69,27 @@ namespace BullBooks.UserControls
         {
             CancelButton.Visible = false;
             SendReplyButton.Visible = false;
+            ReplyEditor.Visible = false;
         }
 
         protected void SendReply(object sender, EventArgs e)
         {
-            string comment = HiddenReply.Value;
-            comment = comment.Replace("\r\n", string.Empty);
+            string commentText = HiddenReply.Value;
+            commentText = commentText.Replace("\r\n", string.Empty);
+            User currentUser = (User)Session["User"];
+            Comment newReply = new Comment(currentComment.ThreadID, commentText, currentUser.Id, currentUser.Alias, DateTime.Now, currentComment.CommentID);
+            int newID = newReply.CommitComment();
+            if(newID != -1)
+            {
+                currentComment.Replies.Add(newReply);
+                UserControls.ThreadComment currentReply = (UserControls.ThreadComment)Page.LoadControl("~/UserControls/ThreadComment.ascx");
+                currentReply.createComment(newReply, currentUser);
+                bindReply(currentReply);
+            }
+            CancelButton.Visible = false;
+            SendReplyButton.Visible = false;
+            ReplyEditor.Visible = false;
+            Response.Redirect(HttpContext.Current.Request.Url.AbsoluteUri);
         }
     }
 }

@@ -63,8 +63,12 @@
                             else
                                 return false;
                         }
-                        function ConfirmReply(editor) {
-                            var x = editor;
+                        function ConfirmReply(editor, hidden) {
+                            var id = editor.id;
+                            var editorID = id.substring(4);
+                            var instance = CKEDITOR.instances[editorID];
+                            var text = instance.getData().replace(/&nbsp;/g, ' ');
+                            hidden.value = text;
                         }
                     </script>
         <asp:Panel ID="CommentContainer" CssClass="ThreadCommentsContainer" runat="server">

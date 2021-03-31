@@ -24,8 +24,8 @@
     </div>
     <asp:Panel runat="server" ID="EditorContainer" CssClass="replyEditorContainer">
         <asp:HiddenField runat="server" ID="HiddenReply" EnableViewState="true"/>
-        <asp:TextBox TextMode="MultiLine" Visible="false" runat="server" ID="ReplyEditor" CssClass="EditorButton CommentEditorButton"></asp:TextBox>
-        <asp:LinkButton OnClientClick="ConfirmReply(this.previousElementSibling)" OnClick="SendReply" ID="SendReplyButton" CssClass="SendReplyButton" runat="server" Visible="false" Text="Send Reply"></asp:LinkButton>
+        <asp:TextBox TextMode="MultiLine" Visible="false" runat="server" ID="ReplyEditor" CssClass="EditorButton"></asp:TextBox>
+        <asp:LinkButton OnClientClick="ConfirmReply(this.previousElementSibling, ((this.previousElementSibling).previousElementSibling).previousElementSibling)" OnClick="SendReply" ID="SendReplyButton" CssClass="SendReplyButton" runat="server" Visible="false" Text="Send Reply"></asp:LinkButton>
     </asp:Panel>
     <asp:Panel runat="server" ID="Replies" CssClass="repliesContainer">
 

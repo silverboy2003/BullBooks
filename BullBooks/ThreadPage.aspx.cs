@@ -76,7 +76,8 @@ namespace BullBooks
             UserControls.ThreadComment newComment = (UserControls.ThreadComment)Page.LoadControl("~/UserControls/ThreadComment.ascx");
             User commenter = ((Dictionary<int, User>)Application["Users"])[commentNode.CommentAuthorID];
             newComment.createComment(commentNode, commenter);
-            foreach (Comment comment in commentNode.Replies)
+            if (commentNode.Replies != null)
+                foreach (Comment comment in commentNode.Replies)
             {
                 newComment.bindReply(LoadComments(comment));
             }
@@ -93,12 +94,13 @@ namespace BullBooks
             {
                 Editor.Visible = false;
                 CommentSubmit.Visible = false;
-                currentThread.ThreadMasterComments.Insert(0, newComment);
+                currentThread.ThreadMasterComments.Add(newComment);
                 currentThread.CntComments++;
                 UserControls.ThreadComment currentComment = (UserControls.ThreadComment)Page.LoadControl("~/UserControls/ThreadComment.ascx");
                 currentComment.createComment(newComment, commenter);
                 CommentContainer.Controls.Add(currentComment);
             }
+            Response.Redirect(HttpContext.Current.Request.Url.AbsoluteUri);
         }
     }
 }

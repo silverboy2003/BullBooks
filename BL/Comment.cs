@@ -38,6 +38,7 @@ namespace BL
             CommentAuthorName = alias;
             CommentDate = date;
             ReplyTo = replyID;
+            Replies = new List<Comment>();
         }
         public Comment(DataRow comment)
         {
