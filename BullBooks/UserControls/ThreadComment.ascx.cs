@@ -19,6 +19,13 @@ namespace BullBooks.UserControls
                 ReplyButton.Visible = false;
                 CancelButton.Visible = false;
             }
+            else
+            {
+                if(((User)Session["User"]).IsAdmin)
+                {
+                    RemoveCommentButton.Visible = true;
+                }
+            }
         }
         public void createComment(Comment comment, User commenter)
         {
@@ -90,6 +97,11 @@ namespace BullBooks.UserControls
             SendReplyButton.Visible = false;
             ReplyEditor.Visible = false;
             Response.Redirect(HttpContext.Current.Request.Url.AbsoluteUri);
+        }
+
+        protected void Unnamed_Click(object sender, ImageClickEventArgs e)
+        {
+
         }
     }
 }
