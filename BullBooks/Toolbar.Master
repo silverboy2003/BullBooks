@@ -10,7 +10,13 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>  
-    
+    <script type="text/javascript">
+        function ConfirmClick() {
+            if (window.confirm("Are you sure?"))
+                return true
+            return false;
+        }
+    </script>
     <form id="MainForm" runat="server">
 
         <div id="Bar" class="ToolBar">

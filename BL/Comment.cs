@@ -91,5 +91,34 @@ namespace BL
                 replyTo = newID;
             return newID;
         }
+        /// <summary>
+        /// Gets a comment and if any of its replies do not contain the current
+        /// comment then it returns null. otherwise (if it contains the comment)
+        /// if returns a pointer to the containing comment.
+        /// </summary>
+        /// <param name="commentNode">kind of self explanatory. the comment are arranged in some sort
+        /// of twisted tree format, where each node contains more than one child. so commentnode is each
+        /// tree node</param>
+        /// <returns>null if there is no comment in the replies containing the current comment
+        /// or a Comment object if there is (and it is the comment than contains)</returns>
+        public Comment GetContainingComment(Comment commentNode)
+        {
+            if (commentNode.CommentID == replyTo)
+                return commentNode;
+            else if (commentNode.replies.Count == 0)
+                return null;
+            foreach(Comment nextComment in commentNode.replies)
+            {
+                Comment containingComment = GetContainingComment(nextComment);
+                if (containingComment != null)
+                    return containingComment;
+            }
+            return null;
+        }
+        public bool DeleteComment()
+        {
+            bool success = CommentHelper.DeleteComment(CommentID);
+            return success;
+        }
     }
 }

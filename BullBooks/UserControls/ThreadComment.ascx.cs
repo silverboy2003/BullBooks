@@ -99,9 +99,35 @@ namespace BullBooks.UserControls
             Response.Redirect(HttpContext.Current.Request.Url.AbsoluteUri);
         }
 
-        protected void Unnamed_Click(object sender, ImageClickEventArgs e)
+        protected void RemoveComment(object sender, ImageClickEventArgs e)
         {
-
+            if(currentComment.ReplyTo == currentComment.CommentID)//it's a master comment
+            {
+                Thread ContainingThread = ((Dictionary<int, Thread>)Application["Threads"])[currentComment.ThreadID];
+                ContainingThread.ThreadMasterComments.Remove(currentComment);
+                currentComment.DeleteComment();
+            }
+            else
+            {
+                Comment ContainingComment = GetContainingComment();
+                if(ContainingComment!=null) //should always be true but it's good to be careful
+                {
+                    ContainingComment.Replies.Remove(currentComment);
+                    currentComment.DeleteComment();
+                }
+            }
+            Response.Redirect(HttpContext.Current.Request.Url.AbsoluteUri);
+        }
+        protected Comment GetContainingComment()
+        {
+            Thread ContainingThread = ((Dictionary<int, Thread>)Application["Threads"])[currentComment.ThreadID];
+            foreach(Comment masterComment in ContainingThread.ThreadMasterComments)
+            {
+                Comment ContainingComment = currentComment.GetContainingComment(masterComment);
+                if (ContainingComment != null)
+                    return ContainingComment;
+            }
+            return null;
         }
     }
 }

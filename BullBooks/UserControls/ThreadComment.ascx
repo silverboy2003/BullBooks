@@ -16,7 +16,7 @@
             <%--<asp:Label runat="server" ID="CommentContent" CssClass="CommenteText"></asp:Label>--%>
         </div>
         <div class="ReplyButtons">
-        <asp:ImageButton OnClick="Unnamed_Click" runat="server" ID="RemoveCommentButton" Visible="false" ImageUrl="../ControlImages/trash.png"/>
+        <asp:ImageButton OnClientClick="return ConfirmClick()" OnClick="RemoveComment" runat="server" ID="RemoveCommentButton" Visible="false" ImageUrl="../ControlImages/trash.png"/>
         <asp:ImageButton  OnClientClick="return ClickReplyButton(this.nextSibling)" ID="ReplyButton"  OnClick="ReplyButtonPress" runat="server" ImageUrl="../ControlImages/reply.png"/>
         <asp:ImageButton OnClick="CancelButtonPress" runat="server" ID="CancelButton" ImageUrl="../ControlImages/x.png" Visible="false"/>
         </div>

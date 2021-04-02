@@ -13,7 +13,7 @@ namespace BullBooks
         private Thread currentThread;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
             LoadThread();
             LoadThreadComments();
             ThreadHeader.Text = currentThread.ThreadTitle;
@@ -25,6 +25,10 @@ namespace BullBooks
                 Editor.Visible = true;
                 CommentSubmit.Visible = true;
             }
+        }
+        private void RemoveComment(object sender, EventArgs data)
+        {
+
         }
         private void LoadThread()
         {
