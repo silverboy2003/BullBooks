@@ -14,5 +14,10 @@ namespace BullBooks
             if (Session["User"] == null)
                 Response.Redirect("ThreadSearchPage.aspx");
         }
+
+        protected void ThreadSubmitButton_Click(object sender, ImageClickEventArgs e)
+        {
+
+        }
     }
 }

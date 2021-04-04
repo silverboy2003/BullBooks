@@ -717,11 +717,20 @@ body {
 }
 .ThreadCKeditor {
     display: block;
-    margin-top: 15vh;
     width: 80%;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
+}
+.ThreadCreationBar {
+    margin-top: 15vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-bottom:15px;
+}
+.ThreadCreationBar select{
+    width: 300px;
 }
 
 
