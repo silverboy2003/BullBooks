@@ -20,6 +20,9 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'about', groups: [ 'about' ] }
 	];
 	config.removeButtons = 'Underline,Subscript,Superscript,Scayt,Unlink,Link,Anchor,EasyImageUpload,Table,HorizontalRule,Source,Styles,Format,About';
-	config.fillEmptyBlocks = false;
+	config.fillEmptyBlocks = false;	
+	config.removePlugins = 'resize';
+	config.extraPlugins = 'autogrow';
+	config.autoGrow_maxHeight = 400;
 };
 

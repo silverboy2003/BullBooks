@@ -7,6 +7,7 @@
             <asp:TextBox runat="server" ID="ThreadSearchBox" CssClass="ThreadSearchBox" placeholder="Search for a thread..."></asp:TextBox>
             <asp:TextBox runat="server" ID="BookThreadSearch" CssClass="BookThreadSearch" placeholder="Book name..."></asp:TextBox>
             <asp:Button runat="server" ID="SearchSubmit" CssClass="ThreadSearchSubmit" OnClick="RedirectSearch" Text="Search"/>
+            <asp:ImageButton Visible="false" runat="server" ID="CreateThread" CssClass="CreateThreadButton" OnClick="CreateThreadRedirect" ImageUrl="../ControlImages/plus.png" />
         </div>
 
         <asp:Panel runat="server" CssClass="ThreadResultsContainer" ID="PreviewsContainer"></asp:Panel>

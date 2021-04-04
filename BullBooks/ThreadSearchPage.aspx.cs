@@ -20,6 +20,10 @@ namespace BullBooks
             string thread = Request.QueryString["thread"];
             Thread.Search(allThreads, thread, book);
             LoadPreviews(allThreads);
+            if(Session["User"] != null)
+            {
+                CreateThread.Visible = true;
+            }
         }
         private void LoadPreviews(List<Thread> results)
         {
@@ -29,6 +33,7 @@ namespace BullBooks
                 UserControls.ThreadPreview newPreview = (UserControls.ThreadPreview)Page.LoadControl("~/UserControls/ThreadPreview.ascx");
                 newPreview.SetThread(current);
                 PreviewsContainer.Controls.Add(newPreview);
+                //Container.Controls.Add(newPreview);
             }
 
         }
@@ -49,6 +54,11 @@ namespace BullBooks
             string current = Request.Url.GetLeftPart(UriPartial.Path);
             string newString = current + '?' + query;
             Response.Redirect(newString);
+        }
+
+        protected void CreateThreadRedirect(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("ThreadCreationPage.aspx");
         }
     }
 }
