@@ -17,7 +17,8 @@ namespace BullBooks
             LoadThread();
             LoadThreadComments();
             ThreadHeader.Text = currentThread.ThreadTitle;
-            ThreadText.Text = currentThread.ThreadText;
+            //ThreadText.Text = currentThread.ThreadText;
+            ThreadText.InnerHtml = currentThread.ThreadText;
             PostingTime.Text = String.Format("{0:g}", currentThread.CreationDate);
             AuthorAlias.Text = currentThread.ThreadAuthor;
             if ((User)Session["User"] != null)

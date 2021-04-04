@@ -15,5 +15,11 @@ namespace DAL
             DataTable allThreads = DBHelper.GetDataTable(sql);
             return allThreads;
         }
+        public static int SubmitThread(List<object> inputs, int bookID, int threadAuthorID, DateTime submissionDate)
+        {
+            string sql = $"INSERT INTO Threads (threadTitle, threadText, threadBookID, threadAuthorID, threadDate) VALUES (@Text1, @Text2, {bookID}, {threadAuthorID}, '{submissionDate}')";
+            int newID = DBHelper.InsertWithAutoNumKey(sql, inputs);
+            return newID;
+        }
     }
 }

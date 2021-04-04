@@ -716,11 +716,17 @@ body {
     text-align:left;
 }
 .ThreadCKeditor {
-    display: block;
+    display: flex;
+    flex-direction:column;
     width: 80%;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
+}
+.ThreadCKeditor input[type=text]{
+    margin-bottom:10px;
+    height: 3ch;
+    width:50%;
 }
 .ThreadCreationBar {
     margin-top: 15vh;

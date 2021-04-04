@@ -13,7 +13,8 @@
                     <asp:Label runat="server" ID="AuthorAlias" ></asp:Label>
                 </div>
             </div>
-        <asp:Label runat="server" ID="ThreadText" CssClass="ThreadText"></asp:Label>
+        <%--<asp:Label runat="server" ID="ThreadText" CssClass="ThreadText"></asp:Label>--%>
+            <div runat="server" id="ThreadText" CssClass="ThreadText"></div>
         </div>
         <asp:Panel runat="server" ID="EditorContainer" CssClass="editorContainer">
                 <asp:HiddenField ID="HiddenEditor" EnableViewState="true" runat="server"/>

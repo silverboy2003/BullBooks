@@ -48,7 +48,7 @@ namespace BullBooks
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ThreadText;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ThreadText;
 
         /// <summary>
         /// EditorContainer control.

@@ -83,5 +83,14 @@ namespace BL
                 }
             }
         }
+        public int SubmitNewThread()
+        {
+            List<object> inputs = new List<object>();
+            inputs.Add(ThreadTitle);
+            inputs.Add(threadText);
+            int newID = DAL.ThreadHelper.SubmitThread(inputs, ThreadBookID, ThreadAuthorID, CreationDate);
+            ThreadID = newID;
+            return newID;
+        }
     }
 }
