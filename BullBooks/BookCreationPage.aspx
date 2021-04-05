@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="OuterBox">
-        <asp:Panel runat="server" ID="InformationPanel" CssClass="InformationContainer">
+        <asp:Panel runat="server" ID="InformationPanel" CssClass="InformationContainer BookCreationContainer">
 
             <div class="CoverAndScore">
                 <div class="BookImageContainer">
@@ -11,7 +11,7 @@
                 </div>
             </div>
 
-            <div class="BookInfoText" style="display:flex; flex-direction:column;">
+            <div class="BookInfoCreation">
 
                 
                 <div><label for="BookName">Title: </label> <asp:TextBox TextMode="SingleLine" ID="BookName" runat="server"></asp:TextBox></div>
@@ -28,9 +28,10 @@
 
                 <div><label for="ISBN">ISBN: </label> <asp:TextBox TextMode="SingleLine" ID="ISBN" runat="server"></asp:TextBox></div>
 
-                    <select class="js-example-basic-single" runat="server" id="Genres"></select>
+                 <div><label for="Genres">Genres:</label><select class="js-example-basic-single" runat="server" id="Genres" multiple="true"></select></div>   
 
-                <div><label for="Synopsis">Synopsis:</label><asp:Label ID="Synopsis" runat="server"></asp:Label></div>
+                <div><label for="Synopsis">Synopsis:</label><asp:TextBox runat="server" TextMode="MultiLine" ID="Synopsis"></asp:TextBox></div>
+
             </div>
                      
         </asp:Panel>

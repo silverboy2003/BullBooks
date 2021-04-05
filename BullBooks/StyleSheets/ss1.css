@@ -780,4 +780,10 @@ input#ContentPlaceHolder1_AddBookRedirect:hover{
 .js-example-basic-single{
     width:50ch;
 }
-
+.BookInfoCreation div{
+    margin: 15px;
+}
+.BookCreationContainer {
+    position: relative !important;
+    margin-top: 6rem;
+}

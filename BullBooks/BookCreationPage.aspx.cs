@@ -15,6 +15,19 @@ namespace BullBooks
             User currentUser = (User)Session["User"];
             if (currentUser == null || (!currentUser.IsAdmin && !currentUser.IsPublisher))
                 Response.Redirect("SearchPage.aspx");
+            if (!IsPostBack)
+                LoadGenres();
+        }
+        protected void LoadGenres()
+        {
+            Dictionary<int, string> allGenres = (Dictionary<int, string>)Application["Genres"];
+            foreach(KeyValuePair<int, string> genre in allGenres)
+            {
+                ListItem genreItem = new ListItem();
+                genreItem.Value = genre.Key.ToString();
+                genreItem.Text = genre.Value;
+                Genres.Items.Add(genreItem);
+            }
         }
     }
 }
