@@ -25,7 +25,7 @@ namespace BullBooks
 
         protected void RemoveColumns(object sender, GridViewRowEventArgs e)
         {
-            e.Row.Cells[1].Visible = false; //id
+            //e.Row.Cells[1].Visible = false; //id
             e.Row.Cells[5].Visible = false; //birth
             e.Row.Cells[9].Visible = false; //creation
             //e.Row.Cells[8].Visible = false;
@@ -123,5 +123,39 @@ namespace BullBooks
             Bind();
         }
 
+        protected void SearchSubmit_Click(object sender, ImageClickEventArgs e)
+        {
+            bool isAdmin = false;
+            bool isPublisher = false;
+            bool isAuthor = false;
+            if (UserType.Items[0].Selected)
+                isAuthor = true;
+            if (UserType.Items[1].Selected)
+                isAdmin = true;
+            if (UserType.Items[2].Selected)
+                isPublisher = true;
+
+            string searchQuery = SearchBar.Text;
+            string searchBy = SearchBy.Value;
+
+            Dictionary<int, User> allUsers = new Dictionary<int, User>((Dictionary<int, User>)Application["Users"]);
+            List<User> usersList = allUsers.Values.ToList();
+            if (searchBy == "Id")
+            {
+                int id = 0;
+                int.TryParse(searchQuery, out id);
+                if (allUsers.ContainsKey(id))
+                {
+                    usersList.RemoveAll(user => user.Id != id);
+                }
+                UserTable.DataSource = usersList;
+            }
+            else
+            {
+                usersList.RemoveAll(user => (user.GetType().GetProperty(searchBy).GetValue(user)).ToString().StartsWith(searchQuery));
+                UserTable.DataSource = usersList;
+            }
+            UserTable.DataBind();
+        }
     }
 }

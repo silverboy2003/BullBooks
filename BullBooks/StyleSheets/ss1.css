@@ -755,5 +755,7 @@ body {
 .ThreadCreationBar select{
     width: 300px;
 }
-
+input#ContentPlaceHolder1_SearchSubmit {
+    height: 20px;
+}
 
