@@ -92,5 +92,10 @@ namespace BL
             ThreadID = newID;
             return newID;
         }
+        public bool RemoveThread()
+        {
+            return DAL.ThreadHelper.RemoveThread(ThreadID);
+
+        }
     }
 }

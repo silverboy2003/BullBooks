@@ -152,9 +152,13 @@ namespace BullBooks
             }
             else
             {
-                usersList.RemoveAll(user => (user.GetType().GetProperty(searchBy).GetValue(user)).ToString().StartsWith(searchQuery));
+                usersList.RemoveAll(user => !(user.GetType().GetProperty(searchBy).GetValue(user)).ToString().ToLower().StartsWith(searchQuery.ToLower()));
                 UserTable.DataSource = usersList;
             }
+            if (ToggleTypeSearch.Checked)
+                usersList.RemoveAll(user => !(user.IsAdmin == isAdmin && user.IsPublisher == isPublisher && user.IsAuthor == isAuthor));
+            if (usersList.Count == 0)
+                UserTable.DataSource = allUsers.Values;
             UserTable.DataBind();
         }
     }

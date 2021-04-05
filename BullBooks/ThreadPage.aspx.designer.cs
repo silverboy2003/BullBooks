@@ -24,6 +24,15 @@ namespace BullBooks
         protected global::System.Web.UI.WebControls.Label ThreadHeader;
 
         /// <summary>
+        /// DeleteThreadButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton DeleteThreadButton;
+
+        /// <summary>
         /// PostingTime control.
         /// </summary>
         /// <remarks>

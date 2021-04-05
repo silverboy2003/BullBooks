@@ -107,5 +107,13 @@ namespace BullBooks
             }
             Response.Redirect(HttpContext.Current.Request.Url.AbsoluteUri);
         }
+
+        protected void DeleteThreadButton_Click(object sender, ImageClickEventArgs e)
+        {
+            Dictionary<int, Thread> allThreads = (Dictionary<int, Thread>)(Application["Threads"]);
+            allThreads.Remove(currentThread.ThreadID);
+            currentThread.RemoveThread();
+            Response.Redirect("Threadsearchpage.aspx");
+        }
     }
 }

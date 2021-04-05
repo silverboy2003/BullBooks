@@ -13,7 +13,7 @@ namespace BullBooks
         protected void Page_Load(object sender, EventArgs e)
         {
             User currentUser = (User)Session["User"];
-            if (currentUser == null || (!currentUser.IsAdmin || !currentUser.IsPublisher))
+            if (currentUser == null || (!currentUser.IsAdmin && !currentUser.IsPublisher))
                 Response.Redirect("SearchPage.aspx");
         }
     }

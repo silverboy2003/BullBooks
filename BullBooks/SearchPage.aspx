@@ -6,8 +6,8 @@
     <div class="Search">
     <asp:TextBox ID="TextIn" runat="server" CssClass="TextInClass" EnableViewState="true"></asp:TextBox>
         <asp:Button ID="Submit" runat="server" Text="Search" OnClick="RedirectSearch"/>
-        <asp:CheckBoxList ID="Genres" runat="server" EnableViewState="true" CssClass="Radio"></asp:CheckBoxList>
         <asp:ImageButton OnClick="AddBookRedirectClick" ID="AddBookRedirect" runat="server" ImageUrl="../ControlImages/plus.png" Visible="false"/>
+        <asp:CheckBoxList ID="Genres" runat="server" EnableViewState="true" CssClass="Radio"></asp:CheckBoxList>
     </div>
     <ASS:BookList ID="Blist" runat="server" OnLoad="Blist_Load"/>
         </div>

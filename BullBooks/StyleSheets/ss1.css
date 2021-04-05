@@ -71,14 +71,24 @@ body {
 .AdminOuterBox {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    flex-direction:column;
 }
-.ListClass{
-    display:flex;
+.AdminOuterBox h1{
+    margin-bottom: 10rem;
+}
+.AdminUserSearch{
+    margin-bottom: 20px;
+}
+input#ContentPlaceHolder1_SearchBar{
+    width:40ch;
+    height: 3ch;
+}
+.ListClass {
+    display: flex;
     background-color: white;
-    margin: 20px;   
+    margin: 20px;
     padding-bottom: 80px;
-    flex-flow:wrap;
+    flex-flow: wrap;
 }
 .DetailClass {
     position: relative;
@@ -755,7 +765,19 @@ body {
 .ThreadCreationBar select{
     width: 300px;
 }
-input#ContentPlaceHolder1_SearchSubmit {
+input#ContentPlaceHolder1_SearchSubmit, input#ContentPlaceHolder1_DeleteThreadButton, input#ContentPlaceHolder1_AddBookRedirect {
     height: 20px;
+}
+input#ContentPlaceHolder1_AddBookRedirect {
+    float: right;
+    margin: 20px;
+    height: 40px;
+    transition: ease .25s height;
+}
+input#ContentPlaceHolder1_AddBookRedirect:hover{
+    height: 50px;
+}
+.js-example-basic-single{
+    width:50ch;
 }
 

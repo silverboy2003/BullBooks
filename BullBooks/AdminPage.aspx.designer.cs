@@ -33,6 +33,15 @@ namespace BullBooks
         protected global::System.Web.UI.HtmlControls.HtmlSelect SearchBy;
 
         /// <summary>
+        /// SearchSubmit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton SearchSubmit;
+
+        /// <summary>
         /// UserType control.
         /// </summary>
         /// <remarks>
@@ -42,13 +51,13 @@ namespace BullBooks
         protected global::System.Web.UI.WebControls.CheckBoxList UserType;
 
         /// <summary>
-        /// SearchSubmit control.
+        /// ToggleTypeSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton SearchSubmit;
+        protected global::System.Web.UI.WebControls.CheckBox ToggleTypeSearch;
 
         /// <summary>
         /// UserTable control.
