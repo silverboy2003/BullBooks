@@ -19,6 +19,8 @@ namespace BullBooks
             {
                 UserButton.ImageUrl = "../ControlImages/Userpage.png";
                 LogoutButton.Visible = true;
+                if (((User)Session["User"]).IsAdmin)
+                    AdminButton.Visible = true;
             }
             else
             {
@@ -57,6 +59,11 @@ namespace BullBooks
         protected void RedirectThreads(object sender, ImageClickEventArgs e)
         {
             Response.Redirect("ThreadSearchPage.aspx");
+        }
+
+        protected void AdminButtonRedirect(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("AdminPage.aspx");
         }
     }
 }

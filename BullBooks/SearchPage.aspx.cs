@@ -24,6 +24,9 @@ namespace BullBooks
             {
                 Load_Radio();
             }
+            User currentUser = (User)Session["User"];
+            if (currentUser != null && (currentUser.IsAdmin || currentUser.IsPublisher))
+                AddBookRedirect.Visible = true;
         }
         protected string CreateQuery()//generates query string
         {
@@ -71,6 +74,11 @@ namespace BullBooks
             name = Request.QueryString["input"];
             genreIDs = Request.QueryString["genres"];
             Blist.LoadBooks(name, Genre.ConvertStringToList(genreIDs));
+        }
+
+        protected void AddBookRedirectClick(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("BookCreationPage.aspx");
         }
     }
 }

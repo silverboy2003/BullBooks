@@ -25,13 +25,13 @@
             <asp:ImageButton ID="ThreadsButton" runat="server" CssClass="ToolbarButton" OnClick="RedirectThreads" ImageUrl="../ControlImages/Threads.png"/>
                 <asp:ImageButton ID="SearchButton" runat="server" CssClass="ToolbarButton" OnClick="RedirectSearch" ImageUrl="../ControlImages/search.png" />
                 <asp:ImageButton ID="UserButton" runat="server" CssClass="ToolbarButton" OnClick="RedirectLogin" ImageUrl="../ControlImages/Login.png"/> <%--will be used for either login, or redirecting to user page--%>
-                
+                <asp:ImageButton ID="AdminButton" runat="server" CssClass="ToolbarButton" OnClick="AdminButtonRedirect" Visible="false" ImageUrl="../ControlImages/adminPage.png" />
         </div>
 
         
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
-        </div>
+        
 
 
     </form>

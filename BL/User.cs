@@ -90,6 +90,10 @@ namespace BL
             banner = "default";
             profile = "default";
         }
+        public static string Encrypt(string password)
+        {
+            return BCrypt.Net.BCrypt.HashPassword(password);
+        }
         public static User Login(string username, string password)
         {
             DataRow result = UserHelper.DoLogin(username, password);
@@ -140,23 +144,17 @@ namespace BL
         {
             List<object> user = new List<object>();
 
+            user.Add(this.alias);
             user.Add(this.email);
             user.Add(this.username);
-            user.Add(this.gender);
-            user.Add(this.birthDate.ToString("dd/MM/yyyy HH:mm:ss"));
             user.Add(this.password);
             user.Add(this.banner);
             user.Add(this.profile);
-            user.Add(this.creationDate.ToString("dd/MM/yyyy HH:mm:ss"));
-            user.Add(this.alias);
-            user.Add(this.isAdmin.ToString());
-            user.Add(this.isPublisher.ToString());
-            user.Add(this.isAuthor.ToString());
             return user;
         }
         public bool UpdateUser()
         {
-            return UserHelper.UpdateUser(CreateList(), this.id);
+            return UserHelper.UpdateUser(CreateList(), this.id, Gender, BirthDate, CreationDate, IsAdmin, IsPublisher, IsAuthor);
         }
     }
 }

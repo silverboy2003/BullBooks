@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminPage.aspx" />
+    <Content Include="BookCreationPage.aspx" />
     <Content Include="BookPage.aspx" />
     <Content Include="ckeditor\adapters\jquery.js" />
     <Content Include="ckeditor\build-config.js" />
@@ -500,6 +501,13 @@
     </Compile>
     <Compile Include="AdminPage.aspx.designer.cs">
       <DependentUpon>AdminPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BookCreationPage.aspx.cs">
+      <DependentUpon>BookCreationPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BookCreationPage.aspx.designer.cs">
+      <DependentUpon>BookCreationPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="BookPage.aspx.cs">
       <DependentUpon>BookPage.aspx</DependentUpon>

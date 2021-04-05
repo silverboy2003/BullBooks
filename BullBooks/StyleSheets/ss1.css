@@ -65,6 +65,13 @@ body {
     left: 50%;
     position: absolute;
     transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.AdminOuterBox {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 .ListClass{
     display:flex;
@@ -614,9 +621,19 @@ body {
     margin-right: 40px;
 }
 .UserTable {
-    top: 50%;
-    position:absolute;
+    background-color: antiquewhite;
+    border: 2px black solid;
+    font-size: 0.9rem;
 }
+    .UserTable tr th, .UserTable tr td {
+        border: 2px black solid;    
+        max-width: 20ch;
+        overflow: hidden;
+        padding: 2px;
+    }
+    .UserTable tr th{
+        background-color: burlywood;
+    }
 .EditorButton {
     position: initial;
     width:40%;

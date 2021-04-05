@@ -25,11 +25,11 @@ namespace BullBooks
 
         protected void RemoveColumns(object sender, GridViewRowEventArgs e)
         {
-            e.Row.Cells[1].Visible = false;
-            e.Row.Cells[6].Visible = false;
-            e.Row.Cells[7].Visible = false;
-            e.Row.Cells[8].Visible = false;
-
+            e.Row.Cells[1].Visible = false; //id
+            e.Row.Cells[5].Visible = false; //birth
+            e.Row.Cells[9].Visible = false; //creation
+            //e.Row.Cells[8].Visible = false;
+            //e.Row.Cells[6] password
         }
         private void Bind()
         {
@@ -75,6 +75,12 @@ namespace BullBooks
             int userID = -1;
             parseSuccess = parseSuccess && int.TryParse(e.NewValues["Id"].ToString(), out userID);
 
+            User user = (User)((Dictionary<int, User>)(Application["Users"]))[userID];
+
+            string password = e.NewValues["Password"].ToString();
+            if (!password.Equals(user.Password))
+                password = BL.User.Encrypt(password);
+
             string email = e.NewValues["Email"].ToString();
             Regex emailCheck = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}");
             parseSuccess = parseSuccess && emailCheck.IsMatch(email);
@@ -86,15 +92,13 @@ namespace BullBooks
             int gender = -1;
             parseSuccess = parseSuccess && int.TryParse(e.NewValues["Gender"].ToString(), out gender) && gender <2 && gender > -1 ;
 
-            DateTime birthDate = new DateTime();
-            parseSuccess = parseSuccess && DateTime.TryParse(e.NewValues["BirthDate"].ToString(), out birthDate);
-
-            DateTime CreationDate = new DateTime();
-            parseSuccess = parseSuccess && DateTime.TryParse(e.NewValues["CreationDate"].ToString(), out CreationDate);
-
             string alias = e.NewValues["Alias"].ToString();
             Regex aliasCheck = new Regex(@"^[A-Za-z0-9]+([ _-][A-Za-z0-9]+)*$");
             aliasCheck.IsMatch(alias);
+
+            string banner = e.NewValues["Banner"].ToString();
+
+            string profile = e.NewValues["Profile"].ToString();
 
             bool isAdmin = (bool)e.NewValues["IsAdmin"];
             bool isPublisher = (bool)e.NewValues["IsPublisher"];
@@ -102,12 +106,13 @@ namespace BullBooks
 
             if (parseSuccess)
             {
-                User user = (User)((Dictionary<int, User>)(Application["Users"]))[userID];
+                if (!password.Equals(user.Password))
+                    user.Password = password;
+                user.Banner = banner;
+                user.Profile = profile;
                 user.Email = email;
                 user.Username = username;
                 user.Gender = gender;
-                user.BirthDate = birthDate;
-                user.CreationDate = CreationDate;
                 user.Alias = alias;
                 user.IsAdmin = isAdmin;
                 user.IsPublisher = isPublisher;

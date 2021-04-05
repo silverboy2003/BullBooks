@@ -55,9 +55,10 @@ namespace DAL
 
             return DBHelper.WriteData(sql) == 1;
         }
-        public static bool UpdateUser(List<object> user, int id)
+        public static bool UpdateUser(List<object> user, int id, int gender, DateTime birthDate, DateTime creationDate, bool isAdmin, bool isPublisher, bool isAuthor)
         {
-            string sql = $"UPDATE Users SET email = @Text1, username = @Text2, gender = {user[2]}, birthDate = '{user[3]}', [password] = @Text5, bannerPic = @Text6, profilePic = @Text7, creationDate = '{user[7]}', alias = @Text9, isAdmin = {user[9]}, isPublisher = {user[10]}, isAuthor = {user[11]} WHERE userID = {id}";
+            //string sqdl = $"UPDATE Users SET email = @Text1, username = @Text2, gender = {user[2]}, birthDate = '{user[3]}', [password] = @Text5, bannerPic = @Text6, profilePic = @Text7, creationDate = '{user[7]}', alias = @Text9, isAdmin = {user[9]}, isPublisher = {user[10]}, isAuthor = {user[11]} WHERE userID = {id}";
+            string sql = $"UPDATE Users SET alias = @Text1, email = @Text2, username = @Text3, gender = {gender}, birthDate = '{birthDate}', [password] = @Text4, bannerPic = @Text5, profilePic = @Text6, creationDate = '{creationDate}',isAdmin = {isAdmin}, isPublisher = {isPublisher}, isAuthor = {isAuthor} WHERE userID = {id}";
             //string sql = $"UPDATE Users SET email = 'meow', username = 'meow', gender = 0, birthDate = @Text4, [password] = 'meow', bannerPic = 'meow', profilePic = 'meow', creationDate = @Text8, alias = 'meow', isAdmin = True, isPublisher = True, isAuthor = True WHERE userID = 88";
 
             return DBHelper.WriteData(sql, user) == 1;
