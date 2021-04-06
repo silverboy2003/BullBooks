@@ -24,13 +24,31 @@ namespace BullBooks
         protected global::System.Web.UI.WebControls.Panel InformationPanel;
 
         /// <summary>
-        /// BookImage control.
+        /// BookCoverUpload control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image BookImage;
+        protected global::System.Web.UI.WebControls.FileUpload BookCoverUpload;
+
+        /// <summary>
+        /// UploadFile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button UploadFile;
+
+        /// <summary>
+        /// BookUploadContainer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl BookUploadContainer;
 
         /// <summary>
         /// BookName control.
@@ -48,7 +66,7 @@ namespace BullBooks
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox AuthorName;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect AuthorName;
 
         /// <summary>
         /// PublisherName control.
@@ -57,7 +75,7 @@ namespace BullBooks
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox PublisherName;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect PublisherName;
 
         /// <summary>
         /// NumPages control.
@@ -105,12 +123,12 @@ namespace BullBooks
         protected global::System.Web.UI.HtmlControls.HtmlSelect Genres;
 
         /// <summary>
-        /// Synopsis control.
+        /// SendBook control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Synopsis;
+        protected global::System.Web.UI.WebControls.ImageButton SendBook;
     }
 }

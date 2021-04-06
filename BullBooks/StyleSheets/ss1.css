@@ -2,6 +2,7 @@
 :root {
     --LoginButton: url(".. / ControlImages / Login.png");
     --UserpageButton: url(".. / ControlImages / Userpage.png");
+    --PlusButton: url("../ControlImages/plus.png");
 }
 *{
     font-family: Roboto;
@@ -765,7 +766,7 @@ input#ContentPlaceHolder1_SearchBar{
 .ThreadCreationBar select{
     width: 300px;
 }
-input#ContentPlaceHolder1_SearchSubmit, input#ContentPlaceHolder1_DeleteThreadButton, input#ContentPlaceHolder1_AddBookRedirect {
+input#ContentPlaceHolder1_SearchSubmit, input#ContentPlaceHolder1_DeleteThreadButton, input#ContentPlaceHolder1_AddBookRedirect, .SiteButton{
     height: 20px;
 }
 input#ContentPlaceHolder1_AddBookRedirect {
@@ -780,10 +781,53 @@ input#ContentPlaceHolder1_AddBookRedirect:hover{
 .js-example-basic-single{
     width:50ch;
 }
-.BookInfoCreation div{
-    margin: 15px;
+.BookInfoCreation div, .BookInfoCreation label{
+    margin: 2ch;
+}
+.BookInfoCreation label{
+    vertical-align:top;
 }
 .BookCreationContainer {
     position: relative !important;
     margin-top: 6rem;
+}
+.SynopsisTextbox {
+    width: 80ch;
+    min-height: 20ch;
+    display: inline-block;
+    border: solid 1px #000;
+}
+.BookInfoCreation .SiteButton{
+    float:right;
+    transition: height ease 0.5s;
+}
+.BookInfoCreation .SiteButton:hover{
+    height: 30px;
+}
+.CoverUpload {
+    margin-bottom:10px;
+}
+.BookUploadContainer {
+    height: 32vw;
+    width: 18vw;
+    overflow: hidden;
+    justify-content: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    outline: 4px black solid;
+}
+.BookUploadContainer:hover{
+    animation-name: expandOutline;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-direction:alternate;
+}
+@keyframes expandOutline{
+    from{
+        outline-offset: 2px;
+    }
+    to{
+        outline-offset:5px;
+    }
 }

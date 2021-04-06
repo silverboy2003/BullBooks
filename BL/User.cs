@@ -152,9 +152,22 @@ namespace BL
             user.Add(this.profile);
             return user;
         }
+        
         public bool UpdateUser()
         {
             return UserHelper.UpdateUser(CreateList(), this.id, Gender, BirthDate, CreationDate, IsAdmin, IsPublisher, IsAuthor);
+        }
+        public static List<User> GetAuthors(List<User> allUsers)
+        {
+            List<User> newUsersList = new List<User>(allUsers);
+            newUsersList.RemoveAll(user => !user.isAuthor);
+            return newUsersList;
+        }
+        public static List<User> GetPublishers(List<User> allUsers)
+        {
+            List<User> newUsersList = new List<User>(allUsers);
+            newUsersList.RemoveAll(user => !user.isPublisher);
+            return newUsersList;
         }
     }
 }

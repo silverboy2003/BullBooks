@@ -25,7 +25,7 @@ namespace BullBooks
                 Load_Radio();
             }
             User currentUser = (User)Session["User"];
-            if (currentUser != null && (currentUser.IsAdmin || currentUser.IsPublisher))
+            if (currentUser != null && (currentUser.IsAdmin || currentUser.IsPublisher || currentUser.IsAuthor))
                 AddBookRedirect.Visible = true;
         }
         protected string CreateQuery()//generates query string

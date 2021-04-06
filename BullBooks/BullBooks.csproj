@@ -473,6 +473,8 @@
     <Content Include="ckeditor\skins\moono-lisa\images\spinner.gif" />
     <Content Include="ckeditor\styles.js" />
     <Content Include="ckeditor\vendor\promise.js" />
+    <Content Include="CoverPics\00.png" />
+    <Content Include="CoverPics\01.jpg" />
     <Content Include="ThreadCreationPage.aspx" />
     <Content Include="UserControls\RatingSelector.ascx" />
     <Content Include="ThreadPage.aspx" />

@@ -6,8 +6,11 @@
         <asp:Panel runat="server" ID="InformationPanel" CssClass="InformationContainer BookCreationContainer">
 
             <div class="CoverAndScore">
-                <div class="BookImageContainer">
-                    <asp:Image runat="server" ID="BookImage" CssClass="BookImage"/>
+                <div>
+                    <asp:FileUpload runat="server" ID="BookCoverUpload" CssClass="CoverUpload" />
+                    <asp:Button ID="UploadFile" runat="server" OnClick="UploadFile_Click" Text="Upload" />
+                </div> 
+                <div runat="server" id="BookUploadContainer" class="BookUploadContainer">
                 </div>
             </div>
 
@@ -16,9 +19,9 @@
                 
                 <div><label for="BookName">Title: </label> <asp:TextBox TextMode="SingleLine" ID="BookName" runat="server"></asp:TextBox></div>
 
-                <div><label for="AuthorName">Author: </label> <asp:TextBox TextMode="SingleLine" ID="AuthorName" runat="server"></asp:TextBox></div>
+                <div><label for="AuthorName">Author: </label> <select class="js-example-basic-single" runat="server" id="AuthorName"></select></div>
 
-                <div><label for="PublisherName">Publisher: </label> <asp:TextBox TextMode="SingleLine" ID="PublisherName" runat="server"></asp:TextBox></div>
+                <div><label for="PublisherName">Publisher: </label> <select class="js-example-basic-single" runat="server" id="PublisherName"></select></div>
 
                 <div><label for="NumPages">No. of pages: </label> <asp:TextBox TextMode="SingleLine" ID="NumPages" runat="server"></asp:TextBox></div>
 
@@ -30,10 +33,10 @@
 
                  <div><label for="Genres">Genres:</label><select class="js-example-basic-single" runat="server" id="Genres" multiple="true"></select></div>   
 
-                <div><label for="Synopsis">Synopsis:</label><asp:TextBox runat="server" TextMode="MultiLine" ID="Synopsis"></asp:TextBox></div>
-
+                <div><label for="Synopsis">Synopsis:</label><div class="SynopsisTextbox" id="Synopsis" contenteditable="true"></div></div>
+                
+                <asp:ImageButton runat="server" ID="SendBook" ImageUrl="../ControlImages/send.png" OnClick="SendBook_Click" CssClass="SiteButton"/>
             </div>
-                     
         </asp:Panel>
         
     </div>
@@ -44,5 +47,8 @@
         $(document).ready(function () {
             $(".js-example-basic-single").select2();
         });
+        function FileUploadTrigger() {
+            $("#BookCoverUpload").click();
+        }
     </script>
 </asp:Content>
