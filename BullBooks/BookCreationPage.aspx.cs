@@ -6,14 +6,16 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using BL;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace BullBooks
 {
     public partial class BookCreationPage : System.Web.UI.Page
     {
-        private string ImageDirectory;
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             User currentUser = (User)Session["User"];
             if (currentUser == null || (!currentUser.IsAdmin && !currentUser.IsPublisher && !currentUser.IsAuthor))
                 Response.Redirect("SearchPage.aspx");
@@ -80,7 +82,10 @@ namespace BullBooks
                 string publisherName = allUsers[publisherID].Alias;
                 string authorName = allUsers[authorID].Alias;
                 string synopsis = Synopsis.Text;
-                string bookCover = ImageDirectory;
+                synopsis = synopsis.Replace("\r\n", "<br>");
+                string bookCover = string.Empty;
+                if (ViewState["CoverPath"] != null)
+                    bookCover = ViewState["CoverPath"].ToString(); 
                 int numPages = int.Parse(NumPages.Text);
                 int numChapters = int.Parse(NumChapters.Text);
                 DateTime releaseDate = DateTime.Parse(ReleaseDate.Value);
@@ -92,7 +97,7 @@ namespace BullBooks
                     if (genre.Selected)
                         genres.Add(int.Parse(genre.Value));
                 }
-                Book newBook = new Book(-1, bookName, authorName, publisherName, publisherID, authorID, synopsis, bookCover, 0, 0, numPages, numChapters, releaseDate, isbn, genres);
+                Book newBook = new Book(-1, bookName, authorName, publisherName, publisherID, authorID, synopsis, bookCover, 0, 0, numPages, numChapters, releaseDate, isbn, genres, new List<Review>());
                 
                 int newID = newBook.CommitBook();
                 if (newID != -1)
@@ -115,12 +120,12 @@ namespace BullBooks
             if(BookCoverUpload.HasFile)
             {
                 string[] names = Directory.GetFiles(@"CoverPics");
-                string fileName = Path.GetFileNameWithoutExtension(names[names.Length - 1]);
-                string newName = (int.Parse(fileName) + 1).ToString() + ".png";
+                //string fileName = Path.GetFileNameWithoutExtension(names[names.Length-1]);
+                string newName = names.Length + ".png";
                 string newPath = @"CoverPics/" + newName;
                 BookCoverUpload.SaveAs(Server.MapPath("~/" + newPath));
                 BookUploadContainer.Style.Add("background-image", "../" + newPath);
-                ImageDirectory = newPath;
+                ViewState["CoverPath"] = newPath;
                 //string[] names = Directory.GetFiles(@"CoverPics");
                 //string fileName = Path.GetFileNameWithoutExtension(names[names.Length - 1]);
                 //int newName = int.Parse(fileName) + 1;

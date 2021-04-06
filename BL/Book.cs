@@ -126,7 +126,7 @@ namespace BL
             this.PublisherName = (string)book["publisherName"];
         }
 
-        public Book(int iD, string bookName, string authorName, string publisherName, int publisherID, int authorID, string bookSynopsis, string bookCover, double bookRating, int numReviews, int numPages, int numChapters, DateTime bookRelease, string iSBN, List<int> genres)
+        public Book(int iD, string bookName, string authorName, string publisherName, int publisherID, int authorID, string bookSynopsis, string bookCover, double bookRating, int numReviews, int numPages, int numChapters, DateTime bookRelease, string iSBN, List<int> genres, List<Review> reviews)
         {
             ID = iD;
             BookName = bookName;
@@ -142,6 +142,7 @@ namespace BL
             BookRelease = bookRelease;
             ISBN = iSBN;
             this.genres = genres;
+            this.reviews = reviews;
             if (string.IsNullOrEmpty(bookCover))
                 bookCover = "CoverPics/00.png";
             BookCover = bookCover;
@@ -198,6 +199,10 @@ namespace BL
             int newID = DAL.BookHelper.InsertBook(inputs, AuthorID, PublisherID, NumPages, NumChapters, BookRelease, ISBN, BookCover);
             this.ID = newID;
             return newID;
+        }
+        public bool CommitGenres()
+        {
+
         }
     }
 }

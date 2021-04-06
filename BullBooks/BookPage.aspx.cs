@@ -41,7 +41,7 @@ namespace BullBooks
             NumChapters.Text = thisBook.NumChapters.ToString();
             ReleaseDate.Text = thisBook.BookRelease.ToString("dd/MM/yyyy");
             ISBN.Text = thisBook.ISBN.ToString();
-            Synopsis.Text = thisBook.BookSynopsis;
+            Synopsis.InnerHtml = thisBook.BookSynopsis;
 
             //now to load genres
             List<int> genres = thisBook.Genres;

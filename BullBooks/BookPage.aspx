@@ -38,7 +38,8 @@
 
                 <div><label for="Genres">Genres: </label> <asp:Label ID="Genres" runat="server"></asp:Label></div>
 
-                <div><label for="Synopsis">Synopsis:</label><asp:Label ID="Synopsis" runat="server"></asp:Label></div>
+                <%--<div><label for="Synopsis">Synopsis:</label><asp:Label ID="Synopsis" runat="server"></asp:Label></div>--%>
+                <div><label for="Synopsis">Synopsis:</label><div ID="Synopsis" runat="server"></div></div>
             </div>
             
             <asp:Panel runat="server" ID="EditorContainer" CssClass="editorContainer">

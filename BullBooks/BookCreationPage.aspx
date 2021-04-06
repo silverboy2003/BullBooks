@@ -62,6 +62,7 @@
                 <div><label for="Synopsis">Synopsis:</label><asp:TextBox runat="server" ID="Synopsis" TextMode="MultiLine"></asp:TextBox>
                 <asp:RequiredFieldValidator runat="server" ID="RequiredSynopsis" ControlToValidate="Synopsis" cssclass="BookValidator" ValidationGroup="CreateBook" ErrorMessage="*"></asp:RequiredFieldValidator></div>
 
+
                 <asp:ImageButton runat="server" ID="SendBook" ImageUrl="../ControlImages/send.png" OnClick="SendBook_Click" CssClass="SiteButton"/>
             </div>
         </asp:Panel>
