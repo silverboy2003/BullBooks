@@ -125,6 +125,26 @@ namespace BL
             this.AuthorName = (string)book["authorName"];
             this.PublisherName = (string)book["publisherName"];
         }
+
+        public Book(int iD, string bookName, string authorName, string publisherName, int publisherID, int authorID, string bookSynopsis, string bookCover, double bookRating, int numReviews, int numPages, int numChapters, DateTime bookRelease, string iSBN, List<int> genres)
+        {
+            ID = iD;
+            BookName = bookName;
+            AuthorName = authorName;
+            PublisherName = publisherName;
+            PublisherID = publisherID;
+            AuthorID = authorID;
+            BookSynopsis = bookSynopsis;
+            BookCover = bookCover;
+            BookRating = bookRating;
+            NumReviews = numReviews;
+            NumPages = numPages;
+            NumChapters = numChapters;
+            BookRelease = bookRelease;
+            ISBN = iSBN;
+            this.genres = genres;
+        }
+
         public static List<Book> GetBooksBySearch(string bookName, List<int> genres, Dictionary<int, Book> allBooks)//function that gets a search term and a list of genres that were picked and returns a list of books containing their id, name, author and cover photo path
         {
             List<Book> books = new List<Book>(allBooks.Values);

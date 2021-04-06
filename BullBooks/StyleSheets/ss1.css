@@ -410,6 +410,11 @@ input#ContentPlaceHolder1_SearchBar{
     flex-direction: column;
     width: 18vw;
 }
+.CoverAndScore div{
+    display:flex;
+    flex-direction:row;
+    margin: 5px;
+}
 .Review .UserInfo{
     position:relative;
     left:5%;
@@ -790,9 +795,12 @@ input#ContentPlaceHolder1_AddBookRedirect:hover{
 .BookCreationContainer {
     position: relative !important;
     margin-top: 6rem;
+    display:flex;
+    flex-direction:row;
+    flex-flow: row;
 }
 .SynopsisTextbox {
-    width: 80ch;
+    width: 60ch;
     min-height: 20ch;
     display: inline-block;
     border: solid 1px #000;

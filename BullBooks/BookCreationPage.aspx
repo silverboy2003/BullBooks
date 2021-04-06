@@ -27,13 +27,13 @@
 
                 <div><label for="NumChapters">No. of chapters: </label> <asp:TextBox TextMode="SingleLine" ID="NumChapters" runat="server"></asp:TextBox></div>
 
-                <div><label for="ReleaseDate">Release Date: </label> <asp:TextBox TextMode="SingleLine" ID="ReleaseDate" runat="server"></asp:TextBox></div>
+                <div><label for="ReleaseDate">Release Date: </label><input runat="server" type="date" id="ReleaseDate" /></div>
 
                 <div><label for="ISBN">ISBN: </label> <asp:TextBox TextMode="SingleLine" ID="ISBN" runat="server"></asp:TextBox></div>
 
                  <div><label for="Genres">Genres:</label><select class="js-example-basic-single" runat="server" id="Genres" multiple="true"></select></div>   
 
-                <div><label for="Synopsis">Synopsis:</label><div class="SynopsisTextbox" id="Synopsis" contenteditable="true"></div></div>
+                <div><label for="Synopsis">Synopsis:</label><div runat="server" class="SynopsisTextbox" id="Synopsis" contenteditable="true"></div></div>
                 
                 <asp:ImageButton runat="server" ID="SendBook" ImageUrl="../ControlImages/send.png" OnClick="SendBook_Click" CssClass="SiteButton"/>
             </div>

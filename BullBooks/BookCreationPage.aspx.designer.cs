@@ -102,7 +102,7 @@ namespace BullBooks
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ReleaseDate;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl ReleaseDate;
 
         /// <summary>
         /// ISBN control.
@@ -121,6 +121,15 @@ namespace BullBooks
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlSelect Genres;
+
+        /// <summary>
+        /// Synopsis control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Synopsis;
 
         /// <summary>
         /// SendBook control.
