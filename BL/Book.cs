@@ -135,7 +135,6 @@ namespace BL
             PublisherID = publisherID;
             AuthorID = authorID;
             BookSynopsis = bookSynopsis;
-            BookCover = bookCover;
             BookRating = bookRating;
             NumReviews = numReviews;
             NumPages = numPages;
@@ -143,6 +142,9 @@ namespace BL
             BookRelease = bookRelease;
             ISBN = iSBN;
             this.genres = genres;
+            if (string.IsNullOrEmpty(bookCover))
+                bookCover = "CoverPics/00.png";
+            BookCover = bookCover;
         }
 
         public static List<Book> GetBooksBySearch(string bookName, List<int> genres, Dictionary<int, Book> allBooks)//function that gets a search term and a list of genres that were picked and returns a list of books containing their id, name, author and cover photo path
@@ -187,6 +189,15 @@ namespace BL
             List<Book> books = new List<Book>(allBooks.Values.ToList());
             books.RemoveAll(book => book.reviews != null && !book.reviews.Exists(review => review.ReviewerID == userID));
             return books;
+        }
+        public int CommitBook()
+        {
+            List<object> inputs = new List<object>();
+            inputs.Add(BookName);
+            inputs.Add(BookSynopsis);
+            int newID = DAL.BookHelper.InsertBook(inputs, AuthorID, PublisherID, NumPages, NumChapters, BookRelease, ISBN, BookCover);
+            this.ID = newID;
+            return newID;
         }
     }
 }

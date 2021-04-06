@@ -20,7 +20,7 @@ namespace BullBooks
                 CreateBookPage();
                 StarsRating.GenerateStars(thisBook.BookRating);
                 Load_Reviews(thisBook.Reviews);
-                if ((User)Session["User"] != null && !thisBook.Reviews.Any(review => review.ReviewerID == ((User)Session["User"]).Id))
+                if ((User)Session["User"] != null && (thisBook.Reviews == null || !thisBook.Reviews.Any(review => review.ReviewerID == ((User)Session["User"]).Id)))
                 {
                     Editor.Visible = true;
                     RatingSelect.Visible = true;
@@ -78,6 +78,7 @@ namespace BullBooks
 
         public void Load_Reviews(List<Review> reviews)
         {
+            if(reviews != null)
             foreach (Review item in reviews)
             {
                 Review review = item;

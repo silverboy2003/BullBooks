@@ -60,6 +60,15 @@ namespace BullBooks
         protected global::System.Web.UI.WebControls.TextBox BookName;
 
         /// <summary>
+        /// RequiredTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredTitle;
+
+        /// <summary>
         /// AuthorName control.
         /// </summary>
         /// <remarks>
@@ -67,6 +76,15 @@ namespace BullBooks
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlSelect AuthorName;
+
+        /// <summary>
+        /// RequiredAuthor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredAuthor;
 
         /// <summary>
         /// PublisherName control.
@@ -78,6 +96,15 @@ namespace BullBooks
         protected global::System.Web.UI.HtmlControls.HtmlSelect PublisherName;
 
         /// <summary>
+        /// RequiredPublisher control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredPublisher;
+
+        /// <summary>
         /// NumPages control.
         /// </summary>
         /// <remarks>
@@ -85,6 +112,24 @@ namespace BullBooks
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox NumPages;
+
+        /// <summary>
+        /// RequiredPages control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredPages;
+
+        /// <summary>
+        /// RegexPages control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegexPages;
 
         /// <summary>
         /// NumChapters control.
@@ -96,6 +141,24 @@ namespace BullBooks
         protected global::System.Web.UI.WebControls.TextBox NumChapters;
 
         /// <summary>
+        /// RequiredChapters control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredChapters;
+
+        /// <summary>
+        /// RegexChapters control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegexChapters;
+
+        /// <summary>
         /// ReleaseDate control.
         /// </summary>
         /// <remarks>
@@ -103,6 +166,15 @@ namespace BullBooks
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl ReleaseDate;
+
+        /// <summary>
+        /// RequiredRelease control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredRelease;
 
         /// <summary>
         /// ISBN control.
@@ -114,6 +186,42 @@ namespace BullBooks
         protected global::System.Web.UI.WebControls.TextBox ISBN;
 
         /// <summary>
+        /// ISBNService control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ISBNService;
+
+        /// <summary>
+        /// RequiredISBN control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredISBN;
+
+        /// <summary>
+        /// RegexISBN control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegexISBN;
+
+        /// <summary>
+        /// CustomISBN control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator CustomISBN;
+
+        /// <summary>
         /// Genres control.
         /// </summary>
         /// <remarks>
@@ -123,13 +231,31 @@ namespace BullBooks
         protected global::System.Web.UI.HtmlControls.HtmlSelect Genres;
 
         /// <summary>
+        /// RequiredGenres control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredGenres;
+
+        /// <summary>
         /// Synopsis control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Synopsis;
+        protected global::System.Web.UI.WebControls.TextBox Synopsis;
+
+        /// <summary>
+        /// RequiredSynopsis control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredSynopsis;
 
         /// <summary>
         /// SendBook control.

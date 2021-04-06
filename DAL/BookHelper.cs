@@ -53,5 +53,11 @@ namespace DAL
             DataTable genres = DBHelper.GetDataTable(sql);
             return genres;
         }
+        public static int InsertBook(List<object> inputs, int author, int publisher, int numPages, int numChapters, DateTime releaseDate, string isbn, string bookCover)
+        {
+            string sql = $@"INSERT INTO Books (bookName, authorID, publisherID, bookSynopsis, bookCoverPic, numPages, numChapters, bookReleaseDate, ISBN) VALUES (@Text1, {author}, {publisher}, @Text2, '{bookCover}', {numPages}, {numChapters}, '{releaseDate}', {isbn})";
+            int newID = DBHelper.InsertWithAutoNumKey(sql, inputs);
+            return newID;
+        }
     }
 }

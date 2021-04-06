@@ -70,32 +70,44 @@ namespace BullBooks
 
         protected void SendBook_Click(object sender, ImageClickEventArgs e)
         {
-            Dictionary<int, User> allUsers = (Dictionary<int, User>)Application["Users"];
-            string bookName = BookName.Text;
-            int publisherID = int.Parse(PublisherName.Value);
-            int authorID = int.Parse(AuthorName.Value);
-            string publisherName = allUsers[publisherID].Alias;
-            string authorName = allUsers[authorID].Alias;
-            string synopsis = Synopsis.InnerText;
-            string bookCover = ImageDirectory;
-            int numPages = int.Parse(NumPages.Text);
-            int numChapters = int.Parse(NumChapters.Text);
-            DateTime releaseDate = DateTime.Parse(ReleaseDate.Value);
-            string isbn = ISBN.Text;
-
-            List<int> genres = new List<int>();
-            foreach(ListItem genre in Genres.Items)
+            Page.Validate("CreateBook");
+            if (Page.IsValid)
             {
-                if (genre.Selected)
-                    genres.Add(int.Parse(genre.Value));
+                Dictionary<int, User> allUsers = (Dictionary<int, User>)Application["Users"];
+                string bookName = BookName.Text;
+                int publisherID = int.Parse(PublisherName.Value);
+                int authorID = int.Parse(AuthorName.Value);
+                string publisherName = allUsers[publisherID].Alias;
+                string authorName = allUsers[authorID].Alias;
+                string synopsis = Synopsis.Text;
+                string bookCover = ImageDirectory;
+                int numPages = int.Parse(NumPages.Text);
+                int numChapters = int.Parse(NumChapters.Text);
+                DateTime releaseDate = DateTime.Parse(ReleaseDate.Value);
+                string isbn = ISBN.Text;
+
+                List<int> genres = new List<int>();
+                foreach (ListItem genre in Genres.Items)
+                {
+                    if (genre.Selected)
+                        genres.Add(int.Parse(genre.Value));
+                }
+                Book newBook = new Book(-1, bookName, authorName, publisherName, publisherID, authorID, synopsis, bookCover, 0, 0, numPages, numChapters, releaseDate, isbn, genres);
+                
+                int newID = newBook.CommitBook();
+                if (newID != -1)
+                {
+                    Dictionary<int, Book> allBooks = (Dictionary<int, Book>)Application["Books"];
+                    allBooks.Add(newID, newBook);
+                    Response.Redirect($"BookPage.aspx?id={newID}");
+                }
+
+
             }
-            Book newBook = new Book(-1, bookName, authorName, publisherName, publisherID, authorID, synopsis, bookCover, 0, 0, numPages, numChapters, releaseDate, isbn, genres);
-            List<Book> allBooks = (List<Book>)Application["Books"];
-            if (!allBooks.Any(book => book.ISBN == isbn))
+            else
             {
-
+                
             }
-
         }
 
         protected void UploadFile_Click(object sender, EventArgs e)
@@ -105,9 +117,9 @@ namespace BullBooks
                 string[] names = Directory.GetFiles(@"CoverPics");
                 string fileName = Path.GetFileNameWithoutExtension(names[names.Length - 1]);
                 string newName = (int.Parse(fileName) + 1).ToString() + ".png";
-                string newPath = @"../CoverPics/" + newName;
-                BookCoverUpload.SaveAs(Server.MapPath(newPath));
-                BookUploadContainer.Style.Add("background-image", newPath);
+                string newPath = @"CoverPics/" + newName;
+                BookCoverUpload.SaveAs(Server.MapPath("~/" + newPath));
+                BookUploadContainer.Style.Add("background-image", "../" + newPath);
                 ImageDirectory = newPath;
                 //string[] names = Directory.GetFiles(@"CoverPics");
                 //string fileName = Path.GetFileNameWithoutExtension(names[names.Length - 1]);
@@ -115,5 +127,20 @@ namespace BullBooks
                 //BookCoverUpload.SaveAs(@"CoverPics\" + BookCoverUpload.FileName);
             }
         }
+
+        protected void ISBNService_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void CustomISBN_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            List<Book> allBooks = ((Dictionary<int, Book>)Application["Books"]).Values.ToList();
+            if (allBooks.Any(book => book.ISBN == ISBN.Text))
+            {
+                args.IsValid = false;
+            }
+        }
+
     }
 }

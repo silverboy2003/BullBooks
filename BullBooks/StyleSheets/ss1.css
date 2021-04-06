@@ -839,3 +839,7 @@ input#ContentPlaceHolder1_AddBookRedirect:hover{
         outline-offset:5px;
     }
 }
+.BookValidator{
+    color:red;
+    float:right;
+}
