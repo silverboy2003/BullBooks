@@ -94,7 +94,7 @@ namespace BL
         }
         public bool RemoveThread()
         {
-            return DAL.ThreadHelper.RemoveThread(ThreadID);
+            return DAL.AdminHelper.RemoveThread(ThreadID);
 
         }
     }

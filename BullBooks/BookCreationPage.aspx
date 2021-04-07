@@ -47,7 +47,7 @@
 
                 </div>
 
-                <div><label for="ISBN">ISBN: </label> <asp:TextBox TextMode="SingleLine" ID="ISBN" runat="server"></asp:TextBox><asp:Button runat="server" ID="ISBNService" OnClick="ISBNService_Click"/>
+                <div><label for="ISBN">ISBN: </label> <asp:TextBox TextMode="SingleLine" ID="ISBN" runat="server"></asp:TextBox><asp:Button Text="Fill information by ISBN" runat="server" ID="ISBNService" OnClick="ISBNService_Click"/>
                 <asp:RequiredFieldValidator runat="server" ID="RequiredISBN" ControlToValidate="ISBN" cssclass="BookValidator" ValidationGroup="CreateBook" ErrorMessage="*"></asp:RequiredFieldValidator>
                 <asp:RegularExpressionValidator ID="RegexISBN" runat="server" ControlToValidate="ISBN" cssclass="BookValidator" ValidationGroup="CreateBook" ErrorMessage="Invalid Number" ValidationExpression="^[0-9]+$"></asp:RegularExpressionValidator>
                 <asp:CustomValidator runat="server" ID="CustomISBN" ControlToValidate="ISBN" ValidationGroup="CreateBook" cssclass="BookValidator" ErrorMessage="ISBN taken" OnServerValidate="CustomISBN_ServerValidate"></asp:CustomValidator>

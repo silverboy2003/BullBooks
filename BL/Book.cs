@@ -202,7 +202,9 @@ namespace BL
         }
         public bool CommitGenres()
         {
-
+            List<int> bookGenres = new List<int>(this.genres); //so i dont remove from original list
+            bool success = BookHelper.InsertGenres(ID, bookGenres);
+            return success;
         }
     }
 }

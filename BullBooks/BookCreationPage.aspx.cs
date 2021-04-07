@@ -102,6 +102,7 @@ namespace BullBooks
                 int newID = newBook.CommitBook();
                 if (newID != -1)
                 {
+                    newBook.CommitGenres();
                     Dictionary<int, Book> allBooks = (Dictionary<int, Book>)Application["Books"];
                     allBooks.Add(newID, newBook);
                     Response.Redirect($"BookPage.aspx?id={newID}");

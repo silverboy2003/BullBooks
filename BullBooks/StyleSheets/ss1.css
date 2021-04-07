@@ -613,7 +613,6 @@ input#ContentPlaceHolder1_SearchBar{
         margin-left: 20px;
     }
     .ThreadPreviewTitle div {
-        max-width: 80%;
         overflow: hidden;
     }
 .ThreadSearchContainer {

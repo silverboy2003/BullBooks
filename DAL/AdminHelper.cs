@@ -7,7 +7,19 @@ using System.Data;
 
 namespace DAL
 {
-    class AdminHelper
+    public class AdminHelper
     {
+        public static bool DeleteComment(int CommentID)
+        {
+            string sql = $"DELETE FROM ThreadComments WHERE commentID = {CommentID}";
+            int success = DBHelper.WriteData(sql);
+            return success == 1;
+        }
+        public static bool RemoveThread(int id)
+        {
+            string sql = $"DELETE FROM Threads WHERE threadID = {id}";
+            bool success = DBHelper.WriteData(sql) == 1;
+            return success;
+        }
     }
 }

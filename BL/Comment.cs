@@ -117,7 +117,7 @@ namespace BL
         }
         public bool DeleteComment()
         {
-            bool success = CommentHelper.DeleteComment(CommentID);
+            bool success = AdminHelper.DeleteComment(CommentID);
             return success;
         }
     }

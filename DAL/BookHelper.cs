@@ -59,5 +59,20 @@ namespace DAL
             int newID = DBHelper.InsertWithAutoNumKey(sql, inputs);
             return newID;
         }
+        /// <summary>
+        /// a recursive function that returns true if at least on genre was inserted successfully
+        /// </summary>
+        /// <param name="bookID">id correlating to the book</param>
+        /// <param name="genres">list of genres identified by an int id</param>
+        /// <returns></returns>
+        public static bool InsertGenres(int bookID, List<int> genres)
+        {
+            if (genres.Count == 0)
+                return false;
+            string sql = $"INSERT INTO GenresToBooks (bookID, genreID) VALUES ({bookID}, {genres[0]})";
+            bool success = DBHelper.WriteData(sql) == 1;
+            genres.RemoveAt(0);
+            return InsertGenres(bookID, genres) || success ;
+        }
     }
 }
