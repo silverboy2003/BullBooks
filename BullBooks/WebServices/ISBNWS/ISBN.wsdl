@@ -35,6 +35,27 @@
           <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
         </s:sequence>
       </s:complexType>
+      <s:element name="GetGenresTable">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetGenresTableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGenresTableResult" type="tns:ArrayOfWSGenre" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfWSGenre">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WSGenre" nillable="true" type="tns:WSGenre" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WSGenre">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="GenreID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="GenreName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="GetBookByISBNSoapIn">
@@ -43,10 +64,20 @@
   <wsdl:message name="GetBookByISBNSoapOut">
     <wsdl:part name="parameters" element="tns:GetBookByISBNResponse" />
   </wsdl:message>
+  <wsdl:message name="GetGenresTableSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGenresTable" />
+  </wsdl:message>
+  <wsdl:message name="GetGenresTableSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGenresTableResponse" />
+  </wsdl:message>
   <wsdl:portType name="ISBNSoap">
     <wsdl:operation name="GetBookByISBN">
       <wsdl:input message="tns:GetBookByISBNSoapIn" />
       <wsdl:output message="tns:GetBookByISBNSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGenresTable">
+      <wsdl:input message="tns:GetGenresTableSoapIn" />
+      <wsdl:output message="tns:GetGenresTableSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="ISBNSoap" type="tns:ISBNSoap">
@@ -60,11 +91,29 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetGenresTable">
+      <soap:operation soapAction="http://BullBooksWS.net/GetGenresTable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="ISBNSoap12" type="tns:ISBNSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetBookByISBN">
       <soap12:operation soapAction="http://BullBooksWS.net/GetBookByISBN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGenresTable">
+      <soap12:operation soapAction="http://BullBooksWS.net/GetGenresTable" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

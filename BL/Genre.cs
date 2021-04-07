@@ -63,5 +63,9 @@ namespace BL
                 return null;
             return gList;
         }
+        public static bool UpdateGenreTable(Dictionary<int, string> allGenres)
+        {
+            return DALHelper.UpdateDatabaseGenresTable(allGenres);
+        }
     }
 }

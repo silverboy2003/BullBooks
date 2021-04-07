@@ -503,6 +503,9 @@
     <Content Include="WebServices\ISBNWS\WSBook.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
+    <Content Include="WebServices\ISBNWS\WSGenre.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminPage.aspx.cs">

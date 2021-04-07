@@ -17,6 +17,10 @@ body {
 }
 .Search .Radio{
     margin-left: 20px;
+    width: 80%;
+    position:relative;
+    left:50%;
+    transform:translateX(-50%);
 }
 .CenterBox{
     position: relative;

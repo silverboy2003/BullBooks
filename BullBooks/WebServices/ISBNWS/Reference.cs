@@ -31,6 +31,8 @@ namespace BullBooks.ISBNWS {
         
         private System.Threading.SendOrPostCallback GetBookByISBNOperationCompleted;
         
+        private System.Threading.SendOrPostCallback GetGenresTableOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -73,6 +75,9 @@ namespace BullBooks.ISBNWS {
         public event GetBookByISBNCompletedEventHandler GetBookByISBNCompleted;
         
         /// <remarks/>
+        public event GetGenresTableCompletedEventHandler GetGenresTableCompleted;
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://BullBooksWS.net/GetBookByISBN", RequestNamespace="http://BullBooksWS.net/", ResponseNamespace="http://BullBooksWS.net/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public WSBook GetBookByISBN(string isbn) {
             object[] results = this.Invoke("GetBookByISBN", new object[] {
@@ -98,6 +103,33 @@ namespace BullBooks.ISBNWS {
             if ((this.GetBookByISBNCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.GetBookByISBNCompleted(this, new GetBookByISBNCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://BullBooksWS.net/GetGenresTable", RequestNamespace="http://BullBooksWS.net/", ResponseNamespace="http://BullBooksWS.net/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public WSGenre[] GetGenresTable() {
+            object[] results = this.Invoke("GetGenresTable", new object[0]);
+            return ((WSGenre[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetGenresTableAsync() {
+            this.GetGenresTableAsync(null);
+        }
+        
+        /// <remarks/>
+        public void GetGenresTableAsync(object userState) {
+            if ((this.GetGenresTableOperationCompleted == null)) {
+                this.GetGenresTableOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetGenresTableOperationCompleted);
+            }
+            this.InvokeAsync("GetGenresTable", new object[0], this.GetGenresTableOperationCompleted, userState);
+        }
+        
+        private void OnGetGenresTableOperationCompleted(object arg) {
+            if ((this.GetGenresTableCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetGenresTableCompleted(this, new GetGenresTableCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -250,6 +282,39 @@ namespace BullBooks.ISBNWS {
     }
     
     /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://BullBooksWS.net/")]
+    public partial class WSGenre {
+        
+        private int genreIDField;
+        
+        private string genreNameField;
+        
+        /// <remarks/>
+        public int GenreID {
+            get {
+                return this.genreIDField;
+            }
+            set {
+                this.genreIDField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string GenreName {
+            get {
+                return this.genreNameField;
+            }
+            set {
+                this.genreNameField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     public delegate void GetBookByISBNCompletedEventHandler(object sender, GetBookByISBNCompletedEventArgs e);
     
@@ -271,6 +336,32 @@ namespace BullBooks.ISBNWS {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((WSBook)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void GetGenresTableCompletedEventHandler(object sender, GetGenresTableCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetGenresTableCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetGenresTableCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public WSGenre[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((WSGenre[])(this.results[0]));
             }
         }
     }

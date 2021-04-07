@@ -141,7 +141,7 @@ namespace BullBooks
             Synopsis.Text = wSBook.Synopsis;
             NumPages.Text = wSBook.NumPages.ToString();
             NumChapters.Text = wSBook.NumChapters.ToString();
-            ReleaseDate.Value = wSBook.BookRelease.ToString();
+            ReleaseDate.Value = wSBook.BookRelease.ToString("yyyy-MM-dd");
 
             string authorAlias = wSBook.Author.ToLower();
             string publisherAlias = wSBook.Author.ToLower();
@@ -151,6 +151,14 @@ namespace BullBooks
             List<User> publishers = allUsers.Values.Where(user => user.Alias.ToLower().Equals(authorAlias)).ToList();
             LoadAuthors(authors);
             LoadPublishers(publishers);
+
+            int[] bookGenres = wSBook.Genres;
+            foreach(int genre in bookGenres)
+            {
+                ListItem genreItem = Genres.Items.FindByValue(genre.ToString());
+                if (genreItem != null)
+                    genreItem.Selected = true;
+            }
         }
 
         protected void CustomISBN_ServerValidate(object source, ServerValidateEventArgs args)
