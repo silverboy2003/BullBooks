@@ -24,7 +24,7 @@ namespace BullBooks.Controllers
             {
                 BookPreview bp = (BookPreview)Page.LoadControl("~/UserControls/BookPreview.ascx");
                 listBox.Controls.Add(bp);
-                bp.BookID = b.ID;
+                bp.BookID = b.Id;
                 bp.Name = b.BookName;
                 bp.Author = b.AuthorName;
                 bp.Cover = b.BookCover;
@@ -40,7 +40,7 @@ namespace BullBooks.Controllers
             {
                 BookPreview bp = (BookPreview)Page.LoadControl("~/UserControls/BookPreview.ascx");
                 listBox.Controls.Add(bp);
-                bp.BookID = b.ID;
+                bp.BookID = b.Id;
                 bp.Name = b.BookName;
                 bp.Author = b.AuthorName;
                 bp.Cover = b.BookCover;

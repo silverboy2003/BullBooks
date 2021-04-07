@@ -11,7 +11,8 @@ namespace BL
 {
     public class Book
     {
-        public int ID
+        private List<int> genres;
+        public int Id
         {
             get; set;
         }
@@ -67,7 +68,6 @@ namespace BL
         {
             get; set;
         }
-        private List<int> genres;
         public List<int> Genres
         {
 
@@ -94,7 +94,7 @@ namespace BL
         
         private List<int> GetGenres()
         {
-            DataTable genres = BookHelper.GetBookGenres(this.ID);
+            DataTable genres = BookHelper.GetBookGenres(this.Id);
             List<int> genresList = new List<int>();
             foreach (DataRow genre in genres.Rows)
             {
@@ -105,14 +105,14 @@ namespace BL
         }
         public Book(int id, string name, string author, string cover)
         {
-            this.ID = id;
+            this.Id = id;
             this.BookName = name;
             this.AuthorName = author;
             this.BookCover = cover;
         }
         public Book(DataRow book)
         {
-            this.ID = (int)book["bookID"];
+            this.Id = (int)book["bookID"];
             this.BookName = (string)book["bookName"];
             this.AuthorID = (int)book["authorID"];
             this.PublisherID = (int)book["publisherID"];
@@ -128,7 +128,7 @@ namespace BL
 
         public Book(int iD, string bookName, string authorName, string publisherName, int publisherID, int authorID, string bookSynopsis, string bookCover, double bookRating, int numReviews, int numPages, int numChapters, DateTime bookRelease, string iSBN, List<int> genres, List<Review> reviews)
         {
-            ID = iD;
+            Id = iD;
             BookName = bookName;
             AuthorName = authorName;
             PublisherName = publisherName;
@@ -169,7 +169,7 @@ namespace BL
                 {
                     Book book = new Book(bookRow); //save these in Application
                     book.GetGenres();
-                    bookList.Add(book.ID, book);
+                    bookList.Add(book.Id, book);
                 }
             }
             return bookList;
@@ -197,13 +197,13 @@ namespace BL
             inputs.Add(BookName);
             inputs.Add(BookSynopsis);
             int newID = DAL.BookHelper.InsertBook(inputs, AuthorID, PublisherID, NumPages, NumChapters, BookRelease, ISBN, BookCover);
-            this.ID = newID;
+            this.Id = newID;
             return newID;
         }
         public bool CommitGenres()
         {
             List<int> bookGenres = new List<int>(this.genres); //so i dont remove from original list
-            bool success = BookHelper.InsertGenres(ID, bookGenres);
+            bool success = BookHelper.InsertGenres(Id, bookGenres);
             return success;
         }
     }

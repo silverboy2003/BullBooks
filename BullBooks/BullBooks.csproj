@@ -494,7 +494,15 @@
     <Content Include="UserControls\ThreadComment.ascx" />
     <Content Include="UserControls\ThreadPreview.ascx" />
     <Content Include="UserPage.aspx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="WebServices\ISBNWS\ISBN.disco" />
     <Content Include="Web.config" />
+    <Content Include="WebServices\ISBNWS\WSBook.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminPage.aspx.cs">
@@ -517,6 +525,11 @@
     </Compile>
     <Compile Include="BookPage.aspx.designer.cs">
       <DependentUpon>BookPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="ThreadCreationPage.aspx.cs">
       <DependentUpon>ThreadCreationPage.aspx</DependentUpon>
@@ -647,6 +660,11 @@
     <Compile Include="UserPage.aspx.designer.cs">
       <DependentUpon>UserPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="WebServices\ISBNWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="ckeditor\CHANGES.md" />
@@ -666,6 +684,11 @@
     <Content Include="ckeditor\skins\moono-lisa\readme.md" />
     <None Include="packages.config" />
     <Content Include="Toolbar.Master" />
+    <None Include="WebServices\ISBNWS\ISBN.wsdl" />
+    <None Include="WebServices\ISBNWS\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -681,6 +704,22 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="WebServices\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="https://localhost:44303/ISBN.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>WebServices\ISBNWS\</RelPath>
+      <UpdateFromURL>https://localhost:44303/ISBN.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>BullBooks_ISBNWS_ISBN</CachedSettingsPropName>
+    </WebReferenceUrl>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

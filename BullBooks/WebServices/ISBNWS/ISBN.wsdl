@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://BullBooksWS.net/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://BullBooksWS.net/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://BullBooksWS.net/">
+      <s:element name="GetBookByISBN">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="isbn" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBookByISBNResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBookByISBNResult" type="tns:WSBook" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="WSBook">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Isbn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Author" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Publisher" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Synopsis" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumPages" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumChapters" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookRelease" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Genres" type="tns:ArrayOfInt" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetBookByISBNSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBookByISBN" />
+  </wsdl:message>
+  <wsdl:message name="GetBookByISBNSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBookByISBNResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ISBNSoap">
+    <wsdl:operation name="GetBookByISBN">
+      <wsdl:input message="tns:GetBookByISBNSoapIn" />
+      <wsdl:output message="tns:GetBookByISBNSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ISBNSoap" type="tns:ISBNSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetBookByISBN">
+      <soap:operation soapAction="http://BullBooksWS.net/GetBookByISBN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ISBNSoap12" type="tns:ISBNSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetBookByISBN">
+      <soap12:operation soapAction="http://BullBooksWS.net/GetBookByISBN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ISBN">
+    <wsdl:port name="ISBNSoap" binding="tns:ISBNSoap">
+      <soap:address location="https://localhost:44303/ISBN.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ISBNSoap12" binding="tns:ISBNSoap12">
+      <soap12:address location="https://localhost:44303/ISBN.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

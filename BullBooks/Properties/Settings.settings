@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="BullBooks.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="BullBooks_ISBNWS_ISBN" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://localhost:44303/ISBN.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

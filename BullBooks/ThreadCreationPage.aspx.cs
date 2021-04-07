@@ -42,7 +42,7 @@ namespace BullBooks
             foreach (Book book in allBooks.Values)
             {
                 ListItem bookItem = new ListItem();
-                bookItem.Value = book.ID.ToString();
+                bookItem.Value = book.Id.ToString();
                 bookItem.Text = book.BookName + '-' + book.AuthorName;
                 SelectBook.Items.Add(bookItem);
             }

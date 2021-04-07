@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="https://localhost:44303/ISBN.asmx?wsdl" docRef="https://localhost:44303/ISBN.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="https://localhost:44303/ISBN.asmx" xmlns:q1="http://BullBooksWS.net/" binding="q1:ISBNSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="https://localhost:44303/ISBN.asmx" xmlns:q2="http://BullBooksWS.net/" binding="q2:ISBNSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

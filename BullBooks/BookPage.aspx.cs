@@ -93,7 +93,7 @@ namespace BullBooks
             int rating = RatingSelect.GetRating();
             string review = HiddenEditor.Value;
             review = review.Replace("\r\n", string.Empty);
-            BL.Review newReview = new Review(review, thisBook.ID, rating, ((User)Session["User"]).Id, DateTime.Now);
+            BL.Review newReview = new Review(review, thisBook.Id, rating, ((User)Session["User"]).Id, DateTime.Now);
             int newID = newReview.CommitReview();
             if (newID != -1)
             {

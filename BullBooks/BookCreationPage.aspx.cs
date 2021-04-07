@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using BL;
 using System.IO;
 using System.Text.RegularExpressions;
+using BullBooks.ISBNWS;
 
 namespace BullBooks
 {
@@ -15,7 +16,7 @@ namespace BullBooks
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            Dictionary<int, User> allUsers = (Dictionary<int, User>)Application["Users"];   
             User currentUser = (User)Session["User"];
             if (currentUser == null || (!currentUser.IsAdmin && !currentUser.IsPublisher && !currentUser.IsAuthor))
                 Response.Redirect("SearchPage.aspx");
@@ -24,18 +25,18 @@ namespace BullBooks
                 LoadGenres();
                 if (currentUser.IsAdmin || (currentUser.IsAuthor && currentUser.IsPublisher))
                 {
-                    LoadAuthors();
-                    LoadPublishers();
+                    LoadAuthors(allUsers.Values.ToList()) ;
+                    LoadPublishers(allUsers.Values.ToList());
                 }
                 else if (currentUser.IsAuthor)
                 {
                     AuthorName.Items.Add(new ListItem(currentUser.Alias + '-' + currentUser.Username, currentUser.Id.ToString()));
-                    LoadPublishers();
+                    LoadPublishers(allUsers.Values.ToList());
                 }
                 else if(currentUser.IsPublisher)
                 {
                     PublisherName.Items.Add(new ListItem(currentUser.Alias + '-' + currentUser.Username, currentUser.Id.ToString()));
-                    LoadAuthors();
+                    LoadAuthors(allUsers.Values.ToList());
                 }
             }
         }
@@ -50,20 +51,18 @@ namespace BullBooks
                 Genres.Items.Add(genreItem);
             }
         }
-        protected void LoadPublishers()
+        protected void LoadPublishers(List<User> publishers)
         {
-            Dictionary<int, User> allUsers = (Dictionary<int, User>)Application["Users"];
-            List<User> publishers = BL.User.GetPublishers(allUsers.Values.ToList());
+            PublisherName.Items.Clear();
             foreach(User publisher in publishers)
             {
                 PublisherName.Items.Add(new ListItem(publisher.Alias + '-' + publisher.Username, publisher.Id.ToString()));
             }
             
         }
-        protected void LoadAuthors()
+        protected void LoadAuthors(List<User> authors)
         {
-            Dictionary<int, User> allUsers = (Dictionary<int, User>) Application["Users"];
-            List<User> authors = BL.User.GetAuthors(allUsers.Values.ToList());
+            AuthorName.Items.Clear();
             foreach (User author in authors)
             {
                 AuthorName.Items.Add(new ListItem(author.Alias + '-' + author.Username, author.Id.ToString()));
@@ -136,7 +135,22 @@ namespace BullBooks
 
         protected void ISBNService_Click(object sender, EventArgs e)
         {
+            ISBNWS.ISBN ws = new ISBN();
+            ISBNWS.WSBook wSBook = ws.GetBookByISBN(ISBN.Text);
+            BookName.Text = wSBook.BookName;
+            Synopsis.Text = wSBook.Synopsis;
+            NumPages.Text = wSBook.NumPages.ToString();
+            NumChapters.Text = wSBook.NumChapters.ToString();
+            ReleaseDate.Value = wSBook.BookRelease.ToString();
 
+            string authorAlias = wSBook.Author.ToLower();
+            string publisherAlias = wSBook.Author.ToLower();
+
+            Dictionary<int, User> allUsers = (Dictionary<int, User>)Application["Users"];
+            List<User> authors = allUsers.Values.Where(user => user.Alias.ToLower().Equals(authorAlias)).ToList();
+            List<User> publishers = allUsers.Values.Where(user => user.Alias.ToLower().Equals(authorAlias)).ToList();
+            LoadAuthors(authors);
+            LoadPublishers(publishers);
         }
 
         protected void CustomISBN_ServerValidate(object source, ServerValidateEventArgs args)

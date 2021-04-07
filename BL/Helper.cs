@@ -19,7 +19,7 @@ namespace BL
             foreach(Book book in books.Values)
             {
                 List<Review> bookReviews = new List<Review>();
-                while(reviewNode != null && reviewNode.Value.BookID == book.ID)
+                while(reviewNode != null && reviewNode.Value.BookID == book.Id)
                 {
                     bookReviews.Add(reviewNode.Value);
                     reviewNode = reviewNode.Next;
