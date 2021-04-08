@@ -340,6 +340,7 @@ input#ContentPlaceHolder1_SearchBar{
         font-weight: bolder;
     }
     .UserBanner{
+        background-color: white;
         position:absolute;
         height: 25vh;
         width: 80vw;
@@ -371,13 +372,33 @@ input#ContentPlaceHolder1_SearchBar{
     margin-top: 20%;
     margin-bottom: 20%;
 }
+.UinfoContainer input {
+    width: 10ch;
+    font-size: 5em;
+    border: none;
+    border-bottom: 2px black solid;
+    background: none;
+    cursor: pointer;
+    text-align: right;
+}
+.UinfoContainer label{
+    font-size: 5em;
+    align-self: center;
+}
 .ReadBooks {
     width: 90%;
     margin-top: 50%;
     text-align: center;
 }
-.Header{
+.EditAlias{
+    align-content:center;
+    position:absolute;
+    align-self: center;
+}
+.Header {
     font-size: 5em;
+    position: absolute;
+    align-self: center;
 }
 .UinfoContainer span{
 
@@ -408,6 +429,15 @@ input#ContentPlaceHolder1_SearchBar{
     position: relative;
     transform: translateX(-50%);
     left: 50%;
+}
+div#ContentPlaceHolder1_ProfileImage {
+    width: 8vw;
+    height: 8vw;
+    border: 4px black solid;
+    border-radius: 50%;
+    align-self: flex-end;
+    transform: translate(-50%,-50%);
+
 }
 .CoverAndScore {
     display: flex;
@@ -845,4 +875,13 @@ input#ContentPlaceHolder1_AddBookRedirect:hover{
 .BookValidator{
     color:red;
     float:right;
+}
+.UinfoContainer img {
+    width: 8vw;
+    height: 8vw;
+    border: 4px black solid;
+    border-radius: 50%;
+    align-self: flex-end;
+    background-color:white;
+    transform:translate(-50%,-50%);
 }

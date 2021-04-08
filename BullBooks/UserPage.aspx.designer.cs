@@ -15,6 +15,15 @@ namespace BullBooks
     {
 
         /// <summary>
+        /// EditProfileButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton EditProfileButton;
+
+        /// <summary>
         /// UserBanner control.
         /// </summary>
         /// <remarks>
@@ -22,6 +31,15 @@ namespace BullBooks
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel UserBanner;
+
+        /// <summary>
+        /// ProfileImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image ProfileImage;
 
         /// <summary>
         /// UsernameLabel control.

@@ -475,6 +475,7 @@
     <Content Include="ckeditor\vendor\promise.js" />
     <Content Include="CoverPics\00.png" />
     <Content Include="CoverPics\01.jpg" />
+    <Content Include="EditProfilePage.aspx" />
     <Content Include="ThreadCreationPage.aspx" />
     <Content Include="UserControls\RatingSelector.ascx" />
     <Content Include="ThreadPage.aspx" />
@@ -528,6 +529,13 @@
     </Compile>
     <Compile Include="BookPage.aspx.designer.cs">
       <DependentUpon>BookPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditProfilePage.aspx.cs">
+      <DependentUpon>EditProfilePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditProfilePage.aspx.designer.cs">
+      <DependentUpon>EditProfilePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>

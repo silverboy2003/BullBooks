@@ -32,6 +32,7 @@ namespace BullBooks
         {
             UserBanner.Style.Add("background-image", currentUser.Banner);
             UsernameLabel.Text = currentUser.Alias + "'s" + " profile";
+            ProfileImage.ImageUrl = "../" + currentUser.Profile;
         }
         protected void Blist_Load(object sender, EventArgs e)
         {
@@ -42,6 +43,11 @@ namespace BullBooks
                 amoutBooks = amount;
             }
             BooksAmount.Text = amoutBooks.ToString() + " Books read";
+        }
+
+        protected void EditProfileButton_Click(object sender, ImageClickEventArgs e)
+        {
+
         }
     }
 }
