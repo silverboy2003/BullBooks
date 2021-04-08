@@ -315,6 +315,11 @@ input#ContentPlaceHolder1_SearchBar{
     top:50%;
     transform:translateY(-50%);
 }
+.UinfoContainer .Validator{
+    bottom:0;
+    left: 0 !important;
+    margin: 3vh;
+}
 .Rating span {
     font-size: 2em;
     -webkit-text-stroke-width: 1px;
@@ -357,6 +362,9 @@ input#ContentPlaceHolder1_SearchBar{
     display:flex;
     justify-content:center;
 }
+.EditAlias .Validator{
+    float:left;
+}
 .UinfoContainer {
     position: absolute;
     transform: translateX(-50%);
@@ -372,17 +380,17 @@ input#ContentPlaceHolder1_SearchBar{
     margin-top: 20%;
     margin-bottom: 20%;
 }
-.UinfoContainer input {
+.UinfoContainer input[type=text] {
     width: 10ch;
-    font-size: 5em;
+    font-size: 8vh;
     border: none;
     border-bottom: 2px black solid;
     background: none;
     cursor: pointer;
     text-align: right;
 }
-.UinfoContainer label{
-    font-size: 5em;
+.UinfoContainer .AliasLabel {
+    font-size: 8vh;
     align-self: center;
 }
 .ReadBooks {
@@ -397,7 +405,6 @@ input#ContentPlaceHolder1_SearchBar{
 }
 .Header {
     font-size: 5em;
-    position: absolute;
     align-self: center;
 }
 .UinfoContainer span{
@@ -876,12 +883,44 @@ input#ContentPlaceHolder1_AddBookRedirect:hover{
     color:red;
     float:right;
 }
-.UinfoContainer img {
+.OuterBox div input[type=file], .OuterBox div input[type=submit]{
+    font-size: 2vh;
+    float:left;
+    margin: 2vh;
+}
+.UserProfile {
     width: 8vw;
     height: 8vw;
     border: 4px black solid;
     border-radius: 50%;
     align-self: flex-end;
-    background-color:white;
-    transform:translate(-50%,-50%);
+    background-color: white;
+    transform: translate(50%,-50%);
+    position:absolute;
+}
+.UploadProfileDiv{
+    position:absolute;
+    top:0;
+}
+.PasswordContainer {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    margin: 2vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+    .PasswordContainer input {
+        width: 100%;
+        font-size: 5vh;
+        margin: 1vh;
+    }
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s;
+    -webkit-text-fill-color: black !important;
 }

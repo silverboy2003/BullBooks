@@ -10,16 +10,28 @@
         </div>
 
     <div class="UserContainer">
+        
          <div class="UinfoContainer">
-             <asp:FileUpload runat="server" ID="ProfileFile" ForeColor="White" />
-             <asp:Button runat="server" ID="UploadProfile" OnClick="UploadProfile_Click" Text="Upload"/>
-             <asp:Image runat="server" ID="ProfileImage" />
+             <div class="UploadProfileDiv">
+                <asp:FileUpload runat="server" ID="ProfileFile" ForeColor="White" />
+                <asp:Button runat="server" ID="UploadProfile" OnClick="UploadProfile_Click" Text="Upload"/>
+             </div>
+
+             <asp:Image CssClass="UserProfile" runat="server" ID="ProfileImage" />
+             <asp:RegularExpressionValidator ID="RegexAlias" runat="server" ControlToValidate="AliasEdit" CssClass="Validator" ValidationGroup="Alias" ErrorMessage="Alias invalid" ValidationExpression="^[A-Za-z0-9]+([ _-][A-Za-z0-9]+)*$"></asp:RegularExpressionValidator>
              <div class="EditAlias">
                  <asp:TextBox TextMode="SingleLine" runat="server" ID="AliasEdit"></asp:TextBox>
-                 <label for="AliasEdit">'s profile</label>
+                 <label class="AliasLabel" for="AliasEdit">'s profile</label>
              </div>
          </div>
 
     </div>
+
+        <div class="PasswordContainer">
+            <asp:TextBox TextMode="Password" runat="server" ID="NewPassword" placeholder="New password..."></asp:TextBox>
+            <asp:CompareValidator runat="server" ControlToValidate="NewPassword" ControlToCompare="ConfirmPassword" ErrorMessage="No match" CssClass="Validator" ValidationGroup="Password"></asp:CompareValidator>
+            <asp:TextBox TextMode="Password" runat="server" ID="ConfirmPassword" placeholder="Confirm password..."></asp:TextBox>
         </div>
+
+    </div>
 </asp:Content>

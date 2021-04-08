@@ -8,7 +8,7 @@
 
     <div class="UserContainer">
          <div class="UinfoContainer">
-             <asp:Image runat="server" ID="ProfileImage" />
+             <asp:Image runat="server" ID="ProfileImage" CssClass="UserProfile"/>
              <asp:Label runat="server" ID="UsernameLabel" CssClass="Header"></asp:Label>
              <asp:Label runat="server" ID="BooksAmount"></asp:Label>
          </div>
