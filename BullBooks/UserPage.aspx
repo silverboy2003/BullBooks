@@ -3,8 +3,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="Outer" class="OuterBox">
-        <asp:ImageButton runat="server" ID="EditProfileButton" Visible="false" OnClick="EditProfileButton_Click" />
-        <asp:Panel runat="server" ID="UserBanner" CssClass="UserBanner"></asp:Panel>
+        <asp:ImageButton runat="server" ID="EditProfileButton" Visible="false" OnClick="EditProfileButton_Click" ImageUrl="../ControlImages/pencil.png"/>
+        <asp:Image runat="server" ID="UserBanner" CssClass="UserBanner"></asp:Image>
 
     <div class="UserContainer">
          <div class="UinfoContainer">

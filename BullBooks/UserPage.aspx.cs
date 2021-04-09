@@ -24,13 +24,14 @@ namespace BullBooks
             currentUser = allUsers[userID];
             if (!IsPostBack)
             {
-                
+                if (currentUser.Id == userID)
+                    EditProfileButton.Visible = true;
                 LoadProfile();
             }
         }
         protected void LoadProfile()
         {
-            UserBanner.Style.Add("background-image", currentUser.Banner);
+            UserBanner.ImageUrl = "../" + currentUser.Banner;
             UsernameLabel.Text = currentUser.Alias + "'s" + " profile";
             ProfileImage.ImageUrl = "../" + currentUser.Profile;
         }
@@ -47,7 +48,7 @@ namespace BullBooks
 
         protected void EditProfileButton_Click(object sender, ImageClickEventArgs e)
         {
-
+            Response.Redirect("EditProfilePage.aspx");
         }
     }
 }

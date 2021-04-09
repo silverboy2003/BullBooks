@@ -30,7 +30,7 @@ namespace BL
         public string Username { get => username; set => username = value; }
         public int Gender { get => gender; set => gender = value; }
         public DateTime BirthDate { get => birthDate; set => birthDate = value; }
-        public string Password { get => password; set => password = value; }
+        public string Password { get => password; set => password = Encrypt(value); }
         public string Banner { get => banner; set => banner = value; }
         public string Profile { get => profile; set => profile = value; }
         public DateTime CreationDate { get => creationDate; set => creationDate = value; }
@@ -87,8 +87,8 @@ namespace BL
             isAdmin = false;
             isAuthor = false;
             isPublisher = false;
-            banner = "default";
-            profile = "default";
+            banner = "UserImages/Banners/default.png";
+            profile = "UserImages/Profile/default.png";
         }
         public static string Encrypt(string password)
         {

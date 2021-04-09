@@ -3,7 +3,13 @@
 </asp:Content>
 <asp:Content  ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="Outer" class="OuterBox">
-        <div>
+
+
+        <div class="BannerUploadContainer">
+
+        <asp:ImageButton runat="server" ID="UpdateProfileButton" ImageUrl="../ControlImages/send.png" OnClick="UpdateProfileButton_Click"/>
+
+
             <asp:FileUpload runat="server" ID="BannerFile" ForeColor="White"/>
             <asp:Button runat="server" ID="UploadBanner" OnClick="UploadBanner_Click" Text="Upload"/>
             <asp:Image runat="server" ID="BannerImage" CssClass="UserBanner"/>

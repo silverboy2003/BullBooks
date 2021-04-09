@@ -20,6 +20,7 @@ namespace BullBooks
             User currentUser = (User)Session["User"];
             if (currentUser == null || (!currentUser.IsAdmin && !currentUser.IsPublisher && !currentUser.IsAuthor))
                 Response.Redirect("SearchPage.aspx");
+
             if (!IsPostBack)
             {
                 LoadGenres();

@@ -407,8 +407,15 @@ input#ContentPlaceHolder1_SearchBar{
     font-size: 5em;
     align-self: center;
 }
-.UinfoContainer span{
-
+.BannerUploadContainer input[type=image]{
+    float: right;
+    margin: 2vh;
+}
+input#ContentPlaceHolder1_EditProfileButton{
+    height: 8vh;
+    margin: 2vh;
+}
+.UinfoContainer span {
 }
 .ReadBooks label{
     font-size:3em;
@@ -923,4 +930,7 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
     transition: background-color 5000s;
     -webkit-text-fill-color: black !important;
+}
+input#ContentPlaceHolder1_UpdateProfileButton{
+    height:20px;
 }
