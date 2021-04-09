@@ -415,6 +415,16 @@ input#ContentPlaceHolder1_EditProfileButton{
     height: 8vh;
     margin: 2vh;
 }
+input#ContentPlaceHolder1_ISBNService{
+    float: none;
+}
+input#ContentPlaceHolder1_RedirectEdit{
+    height:8vh;
+    margin:2vh;
+    position:absolute;
+    right:0;
+    top:0;
+}
 .UinfoContainer span {
 }
 .ReadBooks label{

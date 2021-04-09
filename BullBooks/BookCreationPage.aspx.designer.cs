@@ -48,7 +48,7 @@ namespace BullBooks
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl BookUploadContainer;
+        protected global::System.Web.UI.WebControls.Image BookUploadContainer;
 
         /// <summary>
         /// BookName control.
@@ -175,6 +175,15 @@ namespace BullBooks
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredRelease;
+
+        /// <summary>
+        /// ISBNContainer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel ISBNContainer;
 
         /// <summary>
         /// ISBN control.

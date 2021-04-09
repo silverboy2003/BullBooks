@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using BL;
 using System.Text.RegularExpressions;
+using System.Collections.Specialized;
 
 namespace BullBooks
 {
@@ -25,7 +26,10 @@ namespace BullBooks
                     Editor.Visible = true;
                     RatingSelect.Visible = true;
                     ReviewSubmit.Visible = true;
-            }
+                }
+            User currentUser = (User)Session["User"];
+            if (currentUser != null && (currentUser.IsAdmin || currentUser.IsAuthor || currentUser.IsPublisher))
+                RedirectEdit.Visible = true;
             //RatingSelect.SendReview += new RatingSelector.SendReviewDelegate(CommitReview);
         }
         //private void CommitReview(int rating)
@@ -108,6 +112,15 @@ namespace BullBooks
             Editor.Visible = false;
             RatingSelect.Visible = false;
             ReviewSubmit.Visible = false;
-        }    
+        }
+
+        protected void RedirectEdit_Click(object sender, ImageClickEventArgs e)
+        {
+            NameValueCollection queryString = System.Web.HttpUtility.ParseQueryString(string.Empty);
+            queryString.Add("id", thisBook.Id.ToString());
+            string query = queryString.ToString();
+            string newString = "BookCreationPage.aspx" + '?' + query;
+            Response.Redirect(newString);
+        }
     }
 }

@@ -8,6 +8,7 @@ using BL;
 using System.IO;
 using System.Text.RegularExpressions;
 using BullBooks.ISBNWS;
+using System.Collections.Specialized;
 
 namespace BullBooks
 {
@@ -20,11 +21,49 @@ namespace BullBooks
             User currentUser = (User)Session["User"];
             if (currentUser == null || (!currentUser.IsAdmin && !currentUser.IsPublisher && !currentUser.IsAuthor))
                 Response.Redirect("SearchPage.aspx");
-
+            
             if (!IsPostBack)
             {
                 LoadGenres();
-                if (currentUser.IsAdmin || (currentUser.IsAuthor && currentUser.IsPublisher))
+
+                string currentBookID = Request.QueryString["id"];
+                if (!string.IsNullOrEmpty(currentBookID) && int.TryParse(currentBookID, out _))
+                {
+                    Dictionary<int, Book> allBooks = (Dictionary<int, Book>)Application["Books"];
+                    Book currentBook = allBooks[int.Parse(currentBookID)];
+                    if (currentUser.Id != currentBook.AuthorID && currentUser.Id != currentBook.PublisherID)
+                    {
+                        NameValueCollection queryString = System.Web.HttpUtility.ParseQueryString(string.Empty);
+                        queryString.Add("id", currentBookID.ToString());
+                        string query = queryString.ToString();
+                        string newString = "BookPage.aspx" + '?' + query;
+                        Response.Redirect(newString);
+                    }
+                    ISBN.Text = currentBook.ISBN;
+                    ISBNContainer.Visible = false;
+                    BookName.Text = currentBook.BookName;
+                    ViewState["CoverPath"] = currentBook.BookCover;
+
+                    AuthorName.Items.Add(new ListItem(currentBook.AuthorName.ToString(), currentBook.AuthorID.ToString()));
+                    AuthorName.SelectedIndex = AuthorName.Items.IndexOf(AuthorName.Items.FindByValue(currentBook.AuthorID.ToString()));
+
+                    PublisherName.Items.Add(new ListItem(currentBook.PublisherName.ToString(), currentBook.PublisherID.ToString()));
+                    PublisherName.SelectedIndex = PublisherName.Items.IndexOf(PublisherName.Items.FindByValue(currentBook.PublisherID.ToString()));
+
+                    foreach (int genre in currentBook.Genres)
+                    {
+                        ListItem genreItem = Genres.Items.FindByValue(genre.ToString());
+                        if (genreItem != null)
+                            genreItem.Selected = true;
+                    }
+
+                    Synopsis.Text = currentBook.BookSynopsis.Replace("<br>", "\r\n");
+                    NumPages.Text = currentBook.NumPages.ToString();
+                    NumChapters.Text = currentBook.NumChapters.ToString();
+                    ReleaseDate.Value = currentBook.BookRelease.ToString("yyyy-MM-dd");
+                    BookUploadContainer.ImageUrl = "../" + currentBook.BookCover;
+                }
+                else if (currentUser.IsAdmin || (currentUser.IsAuthor && currentUser.IsPublisher))
                 {
                     LoadAuthors(allUsers.Values.ToList()) ;
                     LoadPublishers(allUsers.Values.ToList());
@@ -97,15 +136,37 @@ namespace BullBooks
                     if (genre.Selected)
                         genres.Add(int.Parse(genre.Value));
                 }
-                Book newBook = new Book(-1, bookName, authorName, publisherName, publisherID, authorID, synopsis, bookCover, 0, 0, numPages, numChapters, releaseDate, isbn, genres, new List<Review>());
-                
-                int newID = newBook.CommitBook();
-                if (newID != -1)
+
+                if(ISBNContainer.Visible == false)
                 {
-                    newBook.CommitGenres();
                     Dictionary<int, Book> allBooks = (Dictionary<int, Book>)Application["Books"];
-                    allBooks.Add(newID, newBook);
-                    Response.Redirect($"BookPage.aspx?id={newID}");
+                    Book currentBook = allBooks[int.Parse(Request.QueryString["id"])];
+                    currentBook.BookName = bookName;
+                    currentBook.PublisherID = publisherID;
+                    currentBook.AuthorID = authorID;
+                    currentBook.PublisherName = publisherName;
+                    currentBook.AuthorName = authorName;
+                    currentBook.BookSynopsis = synopsis;
+                    currentBook.BookCover = bookCover;
+                    currentBook.NumPages = numPages;
+                    currentBook.NumChapters = numChapters;
+                    currentBook.BookRelease = releaseDate;
+                    currentBook.Genres = genres;
+                    if(currentBook.UpdateBook())
+                        Response.Redirect($"BookPage.aspx?id={currentBook.Id}");
+                }
+                else
+                {
+                    Book newBook = new Book(-1, bookName, authorName, publisherName, publisherID, authorID, synopsis, bookCover, 0, 0, numPages, numChapters, releaseDate, isbn, genres, new List<Review>());
+
+                    int newID = newBook.CommitBook();
+                    if (newID != -1)
+                    {
+                        newBook.CommitGenres();
+                        Dictionary<int, Book> allBooks = (Dictionary<int, Book>)Application["Books"];
+                        allBooks.Add(newID, newBook);
+                        Response.Redirect($"BookPage.aspx?id={newID}");
+                    }
                 }
 
 
@@ -125,7 +186,8 @@ namespace BullBooks
                 string newName = names.Length + ".png";
                 string newPath = @"CoverPics/" + newName;
                 BookCoverUpload.SaveAs(Server.MapPath("~/" + newPath));
-                BookUploadContainer.Style.Add("background-image", "../" + newPath);
+                //BookUploadContainer.Style.Add("background-image", "../" + newPath);
+                BookUploadContainer.ImageUrl = "../" + newPath;
                 ViewState["CoverPath"] = newPath;
                 //string[] names = Directory.GetFiles(@"CoverPics");
                 //string fileName = Path.GetFileNameWithoutExtension(names[names.Length - 1]);

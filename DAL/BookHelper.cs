@@ -74,5 +74,11 @@ namespace DAL
             genres.RemoveAt(0);
             return InsertGenres(bookID, genres) || success ;
         }
+        public static bool UpdateBook(List<object> inputs, int author, int publisher, int numPages, int numChapters, DateTime releaseDate, string bookCover, int bookID)
+        {
+            string sql = $@"UPDATE Books SET bookName = @Text1, authorID = {author}, publisherID = {publisher}, bookSynopsis = @Text2, bookCoverPic = '{bookCover}', numPages = {numPages}, numChapters = {numChapters}, bookReleaseDate = '{releaseDate}' WHERE bookID = {bookID}";
+            bool success = DBHelper.WriteData(sql, inputs) == 1;
+            return success;
+        }
     }
 }

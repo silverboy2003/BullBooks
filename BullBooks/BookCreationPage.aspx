@@ -10,8 +10,8 @@
                     <asp:FileUpload runat="server" ID="BookCoverUpload" CssClass="CoverUpload" />
                     <asp:Button ID="UploadFile" runat="server" OnClick="UploadFile_Click" Text="Upload" />
                 </div> 
-                <div runat="server" id="BookUploadContainer" class="BookUploadContainer">
-                </div>
+                <asp:Image runat="server" ID="BookUploadContainer" cssClass="BookUploadContainer">
+                </asp:Image>
             </div>
 
             <div class="BookInfoCreation">
@@ -47,12 +47,12 @@
 
                 </div>
 
-                <div><label for="ISBN">ISBN: </label> <asp:TextBox TextMode="SingleLine" ID="ISBN" runat="server"></asp:TextBox><asp:Button Text="Fill information by ISBN" runat="server" ID="ISBNService" OnClick="ISBNService_Click"/>
+                <asp:Panel runat="server" id="ISBNContainer" ><label for="ISBN">ISBN: </label> <asp:TextBox TextMode="SingleLine" ID="ISBN" runat="server"></asp:TextBox><asp:Button Text="Fill information by ISBN" runat="server" ID="ISBNService" OnClick="ISBNService_Click"/>
                 <asp:RequiredFieldValidator runat="server" ID="RequiredISBN" ControlToValidate="ISBN" cssclass="BookValidator" ValidationGroup="CreateBook" ErrorMessage="*"></asp:RequiredFieldValidator>
                 <asp:RegularExpressionValidator ID="RegexISBN" runat="server" ControlToValidate="ISBN" cssclass="BookValidator" ValidationGroup="CreateBook" ErrorMessage="Invalid Number" ValidationExpression="^[0-9]+$"></asp:RegularExpressionValidator>
                 <asp:CustomValidator runat="server" ID="CustomISBN" ControlToValidate="ISBN" ValidationGroup="CreateBook" cssclass="BookValidator" ErrorMessage="ISBN taken" OnServerValidate="CustomISBN_ServerValidate"></asp:CustomValidator>
 
-                </div>
+                </asp:Panel>
 
                 <div><label for="Genres">Genres:</label><select class="js-example-basic-single" runat="server" id="Genres" multiple="true"></select>
                 <asp:RequiredFieldValidator runat="server" ID="RequiredGenres" ControlToValidate="Genres" cssclass="BookValidator" ValidationGroup="CreateBook" ErrorMessage="*"></asp:RequiredFieldValidator>

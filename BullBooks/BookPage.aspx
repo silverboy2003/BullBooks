@@ -11,14 +11,14 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:Panel ID="BookPanel" runat="server" CssClass="InformationPanel">
         <asp:Panel runat="server" ID="InformationPanel" CssClass="InformationContainer">
-
+            <asp:ImageButton runat="server" ID="RedirectEdit" OnClick="RedirectEdit_Click" ImageUrl="../ControlImages/pencil.png" />
             <div class="CoverAndScore">
                 <div class="BookImageContainer">
                     <asp:Image runat="server" ID="BookImage" CssClass="BookImage"/>
                 </div>
                 <ASS:Rating runat="server" ID="StarsRating"/>
             </div>
-
+            
             <div class="BookInfoText" style="display:flex; flex-direction:column;">
 
                 
@@ -40,6 +40,7 @@
 
                 <%--<div><label for="Synopsis">Synopsis:</label><asp:Label ID="Synopsis" runat="server"></asp:Label></div>--%>
                 <div><label for="Synopsis">Synopsis:</label><div ID="Synopsis" runat="server"></div></div>
+
             </div>
             
             <asp:Panel runat="server" ID="EditorContainer" CssClass="editorContainer">

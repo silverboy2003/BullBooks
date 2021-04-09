@@ -77,6 +77,10 @@ namespace BL
                     genres = GetGenres();
                 return genres;
             }
+            set
+            {
+                genres = value;
+            }
         }
 
         public List<Review> Reviews
@@ -199,6 +203,14 @@ namespace BL
             int newID = DAL.BookHelper.InsertBook(inputs, AuthorID, PublisherID, NumPages, NumChapters, BookRelease, ISBN, BookCover);
             this.Id = newID;
             return newID;
+        }
+        public bool UpdateBook()
+        {
+            List<object> inputs = new List<object>();
+            inputs.Add(BookName);
+            inputs.Add(BookSynopsis);
+            bool success = DAL.BookHelper.UpdateBook(inputs, AuthorID, PublisherID, NumPages, NumChapters, BookRelease, BookCover, Id);
+            return success;
         }
         public bool CommitGenres()
         {
