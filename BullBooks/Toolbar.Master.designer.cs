@@ -78,6 +78,15 @@ namespace BullBooks
         protected global::System.Web.UI.WebControls.ImageButton AdminButton;
 
         /// <summary>
+        /// LogoButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton LogoButton;
+
+        /// <summary>
         /// ContentPlaceHolder1 control.
         /// </summary>
         /// <remarks>

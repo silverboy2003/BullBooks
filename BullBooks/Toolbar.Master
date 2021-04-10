@@ -18,7 +18,7 @@
         }
     </script>
     <form id="MainForm" runat="server">
-
+        <div>
         <div id="Bar" class="ToolBar">
 
                 <asp:ImageButton ID="LogoutButton" runat="server" CssClass="LogoutButton" OnClick="Logout" ImageUrl="../ControlImages/Logout.png"/>
@@ -27,8 +27,9 @@
                 <asp:ImageButton ID="UserButton" runat="server" CssClass="ToolbarButton" OnClick="RedirectLogin" ImageUrl="../ControlImages/Login.png"/> <%--will be used for either login, or redirecting to user page--%>
                 <asp:ImageButton ID="AdminButton" runat="server" CssClass="ToolbarButton" OnClick="AdminButtonRedirect" Visible="false" ImageUrl="../ControlImages/adminPage.png" />
         </div>
+            <asp:ImageButton ID="LogoButton" runat="server" CssClass="LogoButton" OnClick="MainpageButton_Click" ImageUrl="../ControlImages/logo.png" />
+        </div>
 
-        
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         
