@@ -51,13 +51,13 @@ namespace BullBooks
         protected global::System.Web.UI.WebControls.Label UsernameLabel;
 
         /// <summary>
-        /// BooksAmount control.
+        /// BlistLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label BooksAmount;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl BlistLabel;
 
         /// <summary>
         /// Blist control.
@@ -67,5 +67,41 @@ namespace BullBooks
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::BullBooks.Controllers.BookList Blist;
+
+        /// <summary>
+        /// PublishedLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl PublishedLabel;
+
+        /// <summary>
+        /// PublishedBooks control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::BullBooks.Controllers.BookList PublishedBooks;
+
+        /// <summary>
+        /// WrittenLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl WrittenLabel;
+
+        /// <summary>
+        /// WrittenBooks control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::BullBooks.Controllers.BookList WrittenBooks;
     }
 }

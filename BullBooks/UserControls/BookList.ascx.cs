@@ -16,9 +16,8 @@ namespace BullBooks.Controllers
         {
             
         }
-        public int LoadBooks(int id)//loads books and return amount
+        public int LoadBooks(List<Book> books)//loads books and return amount
         {
-            List<BL.Book> books = BL.Book.GetAssociatedBooks(id, (Dictionary<int, Book>)Application["Books"]);
             int counter = 0;
             foreach (BL.Book b in books)
             {

@@ -10,21 +10,6 @@ namespace DAL
 {
     public class UserHelper
     {
-        public static DataRow GetUser(int id)
-        {
-            string sql = $"SELECT * FROM Users WHERE userID = '{id}'";
-            DataTable user = DBHelper.GetDataTable(sql);
-            if (user != null)
-                return user.Rows[0];
-            return null;
-        }
-        public static DataTable GetReadBooksList(int id)
-        {
-            string sql = $"SELECT Books.bookID, Books.bookName, Books.bookCoverPic FROM Books INNER JOIN BooksRead ON BooksRead.bookID = Books.bookID WHERE BooksRead.userID = '{id}'";
-            //get all books from booksread table where the user id is the parameter
-            DataTable books = DBHelper.GetDataTable(sql);
-            return books;
-        }
         public static DataRow DoLogin(string username, string password)
         {
             string sql = "SELECT * FROM Users WHERE UCASE(username) = UCASE(@Text)";
@@ -36,25 +21,25 @@ namespace DAL
             if (BCrypt.Net.BCrypt.Verify(password, hashed))
                 return user;
             return null;
-        }
+        }//compares password in database to password sent and logs and returns user
         public static int DoRegister<T>(List<T> inputs)
         {
             string sql = "INSERT INTO Users ( email, username, gender, birthDate, [password], creationDate, alias) VALUES(@Text1, @Text2, @Text3, @Text4, @Text5, @Text6, @Text7)";
             int newID = DBHelper.InsertWithAutoNumKey(sql, inputs);
             return newID;
-        }
+        }//inserts new user to database
         public static bool ChcekAvailability(string input, string type)
         {
             string sql = $"SELECT {type} FROM Users WHERE {type} = @Text";
             DataTable result = DBHelper.GetDataTable(sql, input);
             return result == null;
-        }
+        }//chceks if field is already taken in database (field is parameter 'type')
         public static bool DeleteUser(int id)
         {
             string sql = $"DELETE FROM Users WHERE userID = {id}";
 
             return DBHelper.WriteData(sql) == 1;
-        }
+        }//deletes user from database
         public static bool UpdateUser(List<object> user, int id, int gender, DateTime birthDate, DateTime creationDate, bool isAdmin, bool isPublisher, bool isAuthor)
         {
             //string sqdl = $"UPDATE Users SET email = @Text1, username = @Text2, gender = {user[2]}, birthDate = '{user[3]}', [password] = @Text5, bannerPic = @Text6, profilePic = @Text7, creationDate = '{user[7]}', alias = @Text9, isAdmin = {user[9]}, isPublisher = {user[10]}, isAuthor = {user[11]} WHERE userID = {id}";
@@ -63,6 +48,6 @@ namespace DAL
 
             return DBHelper.WriteData(sql, user) == 1;
             //return DBHelper.WriteData(sql) == 1;
-        }
+        }//updates user details
     }
 }

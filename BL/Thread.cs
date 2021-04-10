@@ -21,6 +21,29 @@ namespace BL
         private int cntComments;
         private DateTime creationDate;
         private List<Comment> threadMasterComments; //every comment contains it's replies, so this list only contains the comments that reply directly to the thread 
+        //////////////////////////////////// Getters/Setters
+        public int ThreadID { get => threadID; set => threadID = value; }
+        public string ThreadTitle { get => threadTitle; set => threadTitle = value; }
+        public string ThreadText { get => threadText; set => threadText = value; }
+        public int ThreadBookID { get => threadBookID; set => threadBookID = value; }
+        public string ThreadBook { get => threadBook; set => threadBook = value; }
+        public int ThreadAuthorID { get => threadAuthorID; set => threadAuthorID = value; }
+        public string ThreadAuthor { get => threadAuthor; set => threadAuthor = value; }
+        public int CntComments { get => cntComments; set => cntComments = value; }
+        public DateTime CreationDate { get => creationDate; set => creationDate = value; }
+        public List<Comment> ThreadMasterComments { get => threadMasterComments; set => threadMasterComments = value; }
+        public static Dictionary<int, Thread> GetAllThreads()
+        {
+            DataTable threads = DAL.ThreadHelper.GetAllThreads();
+            Dictionary<int, Thread> ThreadList = new Dictionary<int, Thread>();
+            foreach (DataRow thread in threads.Rows)
+            {
+                Thread newThread = new Thread(thread);
+                ThreadList.Add(newThread.threadID, newThread);
+            }
+            return ThreadList;
+        }//returns all threads in database
+        //////////////////////////////////// Constructors
         public Thread(int threadID, string threadTitle, string threadText, int threadBookID, string threadBook, int threadAuthorID, string threadAuthor, int cntComments, DateTime creationDate, List<Comment> threadComments)
         {
             this.threadID = threadID;
@@ -46,29 +69,7 @@ namespace BL
             this.threadAuthor = (string)thread["threadAuthor"];
             threadMasterComments = new List<Comment>();
         }
-
-        public int ThreadID { get => threadID; set => threadID = value; }
-        public string ThreadTitle { get => threadTitle; set => threadTitle = value; }
-        public string ThreadText { get => threadText; set => threadText = value; }
-        public int ThreadBookID { get => threadBookID; set => threadBookID = value; }
-        public string ThreadBook { get => threadBook; set => threadBook = value; }
-        public int ThreadAuthorID { get => threadAuthorID; set => threadAuthorID = value; }
-        public string ThreadAuthor { get => threadAuthor; set => threadAuthor = value; }
-        public int CntComments { get => cntComments; set => cntComments = value; }
-        public DateTime CreationDate { get => creationDate; set => creationDate = value; }
-        public List<Comment> ThreadMasterComments { get => threadMasterComments; set => threadMasterComments = value; }
-
-        public static Dictionary<int, Thread> GetAllThreads()
-        {
-            DataTable threads = DAL.ThreadHelper.GetAllThreads();
-            Dictionary<int, Thread> ThreadList = new Dictionary<int, Thread>();
-            foreach(DataRow thread in threads.Rows)
-            {
-                Thread newThread = new Thread(thread);
-                ThreadList.Add(newThread.threadID, newThread);
-            }
-            return ThreadList;
-        }
+        ////////////////////////////////////
         public static void Search(List<Thread> allThreads, string thread, string book)
         {
             if (!string.IsNullOrEmpty(thread) || !string.IsNullOrEmpty(book))//at least one is not empty
@@ -82,7 +83,7 @@ namespace BL
                     allThreads.RemoveAll(currentThread => !(currentThread.threadTitle.ToLower()).Contains(thread.ToLower()));
                 }
             }
-        }
+        }//filters thread list by thread title and/or book
         public int SubmitNewThread()
         {
             List<object> inputs = new List<object>();
@@ -91,11 +92,11 @@ namespace BL
             int newID = DAL.ThreadHelper.SubmitThread(inputs, ThreadBookID, ThreadAuthorID, CreationDate);
             ThreadID = newID;
             return newID;
-        }
+        }//inserts a new thread
         public bool RemoveThread()
         {
             return DAL.AdminHelper.RemoveThread(ThreadID);
 
-        }
+        }//removes thread from database
     }
 }

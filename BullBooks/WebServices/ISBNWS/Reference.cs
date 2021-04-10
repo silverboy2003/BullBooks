@@ -33,6 +33,10 @@ namespace BullBooks.ISBNWS {
         
         private System.Threading.SendOrPostCallback GetGenresTableOperationCompleted;
         
+        private System.Threading.SendOrPostCallback UpdateRatingOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback AddNewBookOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -76,6 +80,12 @@ namespace BullBooks.ISBNWS {
         
         /// <remarks/>
         public event GetGenresTableCompletedEventHandler GetGenresTableCompleted;
+        
+        /// <remarks/>
+        public event UpdateRatingCompletedEventHandler UpdateRatingCompleted;
+        
+        /// <remarks/>
+        public event AddNewBookCompletedEventHandler AddNewBookCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://BullBooksWS.net/GetBookByISBN", RequestNamespace="http://BullBooksWS.net/", ResponseNamespace="http://BullBooksWS.net/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -134,6 +144,84 @@ namespace BullBooks.ISBNWS {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://BullBooksWS.net/UpdateRating", RequestNamespace="http://BullBooksWS.net/", ResponseNamespace="http://BullBooksWS.net/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool UpdateRating(string isbn, double newRating) {
+            object[] results = this.Invoke("UpdateRating", new object[] {
+                        isbn,
+                        newRating});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void UpdateRatingAsync(string isbn, double newRating) {
+            this.UpdateRatingAsync(isbn, newRating, null);
+        }
+        
+        /// <remarks/>
+        public void UpdateRatingAsync(string isbn, double newRating, object userState) {
+            if ((this.UpdateRatingOperationCompleted == null)) {
+                this.UpdateRatingOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUpdateRatingOperationCompleted);
+            }
+            this.InvokeAsync("UpdateRating", new object[] {
+                        isbn,
+                        newRating}, this.UpdateRatingOperationCompleted, userState);
+        }
+        
+        private void OnUpdateRatingOperationCompleted(object arg) {
+            if ((this.UpdateRatingCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.UpdateRatingCompleted(this, new UpdateRatingCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://BullBooksWS.net/AddNewBook", RequestNamespace="http://BullBooksWS.net/", ResponseNamespace="http://BullBooksWS.net/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool AddNewBook(string isbn, string bookName, string author, string publisher, string synopsis, int numPages, int numChapters, double rating, System.DateTime bookRelease, int[] genres) {
+            object[] results = this.Invoke("AddNewBook", new object[] {
+                        isbn,
+                        bookName,
+                        author,
+                        publisher,
+                        synopsis,
+                        numPages,
+                        numChapters,
+                        rating,
+                        bookRelease,
+                        genres});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void AddNewBookAsync(string isbn, string bookName, string author, string publisher, string synopsis, int numPages, int numChapters, double rating, System.DateTime bookRelease, int[] genres) {
+            this.AddNewBookAsync(isbn, bookName, author, publisher, synopsis, numPages, numChapters, rating, bookRelease, genres, null);
+        }
+        
+        /// <remarks/>
+        public void AddNewBookAsync(string isbn, string bookName, string author, string publisher, string synopsis, int numPages, int numChapters, double rating, System.DateTime bookRelease, int[] genres, object userState) {
+            if ((this.AddNewBookOperationCompleted == null)) {
+                this.AddNewBookOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAddNewBookOperationCompleted);
+            }
+            this.InvokeAsync("AddNewBook", new object[] {
+                        isbn,
+                        bookName,
+                        author,
+                        publisher,
+                        synopsis,
+                        numPages,
+                        numChapters,
+                        rating,
+                        bookRelease,
+                        genres}, this.AddNewBookOperationCompleted, userState);
+        }
+        
+        private void OnAddNewBookOperationCompleted(object arg) {
+            if ((this.AddNewBookCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AddNewBookCompleted(this, new AddNewBookCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -179,6 +267,8 @@ namespace BullBooks.ISBNWS {
         private System.DateTime bookReleaseField;
         
         private int[] genresField;
+        
+        private double ratingField;
         
         /// <remarks/>
         public int Id {
@@ -279,6 +369,16 @@ namespace BullBooks.ISBNWS {
                 this.genresField = value;
             }
         }
+        
+        /// <remarks/>
+        public double Rating {
+            get {
+                return this.ratingField;
+            }
+            set {
+                this.ratingField = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -362,6 +462,58 @@ namespace BullBooks.ISBNWS {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((WSGenre[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void UpdateRatingCompletedEventHandler(object sender, UpdateRatingCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class UpdateRatingCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal UpdateRatingCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void AddNewBookCompletedEventHandler(object sender, AddNewBookCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class AddNewBookCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal AddNewBookCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
             }
         }
     }

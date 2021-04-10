@@ -28,8 +28,11 @@ namespace BullBooks
                     ReviewSubmit.Visible = true;
                 }
             User currentUser = (User)Session["User"];
-            if (currentUser != null && (currentUser.IsAdmin || currentUser.IsAuthor || currentUser.IsPublisher))
+            if (currentUser != null && (currentUser.IsAdmin || (currentUser.Id == thisBook.AuthorID || currentUser.Id == thisBook.PublisherID)))
+            {
                 RedirectEdit.Visible = true;
+                DeleteBook.Visible = true;
+            }
             //RatingSelect.SendReview += new RatingSelector.SendReviewDelegate(CommitReview);
         }
         //private void CommitReview(int rating)
@@ -106,6 +109,8 @@ namespace BullBooks
                 Reviews_Container.Controls.Add(currentReview);
                 currentReview.Load_Review(newReview);
                 thisBook.CalculateReviews();
+                ISBNWS.ISBN ws = new ISBNWS.ISBN();
+                ws.UpdateRating(thisBook.ISBN, thisBook.BookRating);
                 StarsRating.ResetStars();
                 StarsRating.GenerateStars(thisBook.BookRating);
             }
@@ -121,6 +126,13 @@ namespace BullBooks
             string query = queryString.ToString();
             string newString = "BookCreationPage.aspx" + '?' + query;
             Response.Redirect(newString);
+        }
+        protected void DeleteBook_Click(object sender, ImageClickEventArgs e)
+        {
+            Dictionary<int, Book> allBooks = (Dictionary<int, Book>)Application["Books"];
+            allBooks.Remove(thisBook.Id);
+            thisBook.DeleteSelf();
+            Response.Redirect("SearchPage.aspx");
         }
     }
 }

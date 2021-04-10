@@ -11,7 +11,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:Panel ID="BookPanel" runat="server" CssClass="InformationPanel">
         <asp:Panel runat="server" ID="InformationPanel" CssClass="InformationContainer">
-            <asp:ImageButton runat="server" ID="RedirectEdit" OnClick="RedirectEdit_Click" ImageUrl="../ControlImages/pencil.png" />
+            <div class="EditAndDeleteBook">
+                <asp:ImageButton Visible="false" runat="server" ID="RedirectEdit" OnClick="RedirectEdit_Click" ImageUrl="../ControlImages/pencil.png" />
+                <asp:ImageButton Visible="false" runat="server" ID="DeleteBook" OnClick="DeleteBook_Click" ImageUrl="../ControlImages/trash.png" />
+            </div>
             <div class="CoverAndScore">
                 <div class="BookImageContainer">
                     <asp:Image runat="server" ID="BookImage" CssClass="BookImage"/>

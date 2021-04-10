@@ -15,7 +15,7 @@ namespace DAL
             string sql = $"SELECT  ThreadComments.*, Users.alias AS commentAuthorName FROM Users INNER JOIN ThreadComments ON Users.userID = ThreadComments.commentAuthorID ORDER BY ThreadComments.threadID ASC, commentDate ASC";
             DataTable threadComments = DBHelper.GetDataTable(sql);
             return threadComments;
-        }
+        }//returns all thread comments 
         public static int SendComment(List<object> inputs)
         {
             string sql = $"INSERT INTO ThreadComments (threadID, commentText, commentAuthorID, commentDate) VALUES ('{inputs[0]}', @Text, '{inputs[2]}', '{inputs[4]}')";
@@ -25,6 +25,6 @@ namespace DAL
             string updateSql = $"UPDATE ThreadComments SET replyTo = {inputs[3]} WHERE commentID = {newID}";
             DBHelper.WriteData(updateSql);
             return newID;
-        }
+        }//inserts new comment to database
     }
 }

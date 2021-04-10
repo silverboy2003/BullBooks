@@ -35,7 +35,7 @@ namespace BullBooks
                 string newName = names.Length + ".png";
                 string newPath = @"UserImages/Banners/" + newName;
                 BannerFile.SaveAs(Server.MapPath("~/" + newPath));
-                BannerImage.ImageUrl = "../" + currentUser.Banner;
+                BannerImage.ImageUrl = "../" + newPath;
                 ViewState["BannerPath"] = newPath;
                 //string[] names = Directory.GetFiles(@"CoverPics");
                 //string fileName = Path.GetFileNameWithoutExtension(names[names.Length - 1]);
@@ -53,7 +53,7 @@ namespace BullBooks
                 string newName = names.Length + ".png";
                 string newPath = @"UserImages/Profile/" + newName;
                 ProfileFile.SaveAs(Server.MapPath("~/" + newPath));
-                ProfileImage.ImageUrl = "../" + currentUser.Profile;
+                ProfileImage.ImageUrl = "../" + newPath;
                 ViewState["ProfilePath"] = newPath;
                 //string[] names = Directory.GetFiles(@"CoverPics");
                 //string fileName = Path.GetFileNameWithoutExtension(names[names.Length - 1]);

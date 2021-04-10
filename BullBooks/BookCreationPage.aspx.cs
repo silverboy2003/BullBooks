@@ -63,10 +63,15 @@ namespace BullBooks
                     ReleaseDate.Value = currentBook.BookRelease.ToString("yyyy-MM-dd");
                     BookUploadContainer.ImageUrl = "../" + currentBook.BookCover;
                 }
-                else if (currentUser.IsAdmin || (currentUser.IsAuthor && currentUser.IsPublisher))
+                else if (currentUser.IsAdmin)
                 {
                     LoadAuthors(allUsers.Values.ToList()) ;
                     LoadPublishers(allUsers.Values.ToList());
+                }
+                else if(currentUser.IsAuthor && currentUser.IsPublisher)
+                {
+                    AuthorName.Items.Add(new ListItem(currentUser.Alias + '-' + currentUser.Username, currentUser.Id.ToString()));
+                    PublisherName.Items.Add(new ListItem(currentUser.Alias + '-' + currentUser.Username, currentUser.Id.ToString()));
                 }
                 else if (currentUser.IsAuthor)
                 {
@@ -158,7 +163,7 @@ namespace BullBooks
                 else
                 {
                     Book newBook = new Book(-1, bookName, authorName, publisherName, publisherID, authorID, synopsis, bookCover, 0, 0, numPages, numChapters, releaseDate, isbn, genres, new List<Review>());
-
+                    bool success = new ISBNWS.ISBN().AddNewBook(isbn, bookName, authorName, publisherName, synopsis, numPages, numChapters, 0, releaseDate, genres.ToArray());
                     int newID = newBook.CommitBook();
                     if (newID != -1)
                     {
@@ -207,11 +212,11 @@ namespace BullBooks
             ReleaseDate.Value = wSBook.BookRelease.ToString("yyyy-MM-dd");
 
             string authorAlias = wSBook.Author.ToLower();
-            string publisherAlias = wSBook.Author.ToLower();
+            string publisherAlias = wSBook.Publisher.ToLower();
 
             Dictionary<int, User> allUsers = (Dictionary<int, User>)Application["Users"];
             List<User> authors = allUsers.Values.Where(user => user.Alias.ToLower().Equals(authorAlias)).ToList();
-            List<User> publishers = allUsers.Values.Where(user => user.Alias.ToLower().Equals(authorAlias)).ToList();
+            List<User> publishers = allUsers.Values.Where(user => user.Alias.ToLower().Equals(publisherAlias)).ToList();
             LoadAuthors(authors);
             LoadPublishers(publishers);
 
@@ -231,6 +236,12 @@ namespace BullBooks
             {
                 args.IsValid = false;
             }
+        }
+        protected void ValidateDate_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            DateTime inputDate = DateTime.Parse(ReleaseDate.Value);
+            if (DateTime.Compare(inputDate, DateTime.Today) >= 0)
+                args.IsValid = false;
         }
 
     }

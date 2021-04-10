@@ -42,6 +42,7 @@
             <div class="InputBox">
                 <label for="CalendarIn">Birth Date</label>
                 <input type="date" id="CalendarIn" name="CalendarIn" runat="server"/>
+                <asp:CustomValidator ID="ValidateDate" runat="server" ControlToValidate="CalendarIn" CssClass="Validator" ValidationGroup="Register" ErrorMessage="Please enter a valid date" OnServerValidate="ValidateDate_ServerValidate"></asp:CustomValidator>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="CalendarIn" CssClass="Validator" ValidationGroup="Register" ErrorMessage="*"></asp:RequiredFieldValidator>
             </div>
             <div class="InputBox">

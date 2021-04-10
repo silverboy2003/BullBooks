@@ -3,19 +3,24 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="Outer" class="OuterBox">
-        <asp:ImageButton runat="server" ID="EditProfileButton" Visible="false" OnClick="EditProfileButton_Click" ImageUrl="../ControlImages/pencil.png"/>
-        <asp:Image runat="server" ID="UserBanner" CssClass="UserBanner"></asp:Image>
+        <div class="UserpageBanner">
+            <asp:ImageButton runat="server" ID="EditProfileButton" Visible="false" OnClick="EditProfileButton_Click" ImageUrl="../ControlImages/pencil.png"/>
+            <asp:Image runat="server" ID="UserBanner" CssClass="UserBanner"></asp:Image>
+        </div>
 
     <div class="UserContainer">
          <div class="UinfoContainer">
              <asp:Image runat="server" ID="ProfileImage" CssClass="UserProfile"/>
              <asp:Label runat="server" ID="UsernameLabel" CssClass="Header"></asp:Label>
-             <asp:Label runat="server" ID="BooksAmount"></asp:Label>
          </div>
 
         <div class="ReadBooks">
-            <label for="Blist">Read Books</label>
-            <ASS:BookList ID="Blist" runat="server" OnLoad="Blist_Load" EnableViewState="true"/>
+            <label runat="server" id="BlistLabel" for="Blist" visible="false">Read Books</label>
+            <ASS:BookList ID="Blist" runat="server" EnableViewState="true"/>
+            <label runat="server" id="PublishedLabel" for="PublishedBooks" visible="false">Published Books</label>
+            <ASS:BookList ID="PublishedBooks" runat="server" EnableViewState="true" Visible="false" />
+            <label runat="server" id="WrittenLabel" for="WrittenBooks" visible="false">Written Books</label>
+            <ASS:BookList ID="WrittenBooks" runat="server" EnableViewState="true" Visible="false" />
         </div>
     </div>
         </div>

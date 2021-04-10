@@ -44,7 +44,7 @@
 
                 <div><label for="ReleaseDate">Release Date: </label><input runat="server" type="date" id="ReleaseDate" />
                 <asp:RequiredFieldValidator runat="server" ID="RequiredRelease" ControlToValidate="ReleaseDate" cssclass="BookValidator" ValidationGroup="CreateBook" ErrorMessage="*"></asp:RequiredFieldValidator>
-
+                <asp:CustomValidator ID="ValidateDate" runat="server" ControlToValidate="ReleaseDate" CssClass="BookValidator" ValidationGroup="CreateBook" ErrorMessage="Please enter a valid date" OnServerValidate="ValidateDate_ServerValidate"></asp:CustomValidator>
                 </div>
 
                 <asp:Panel runat="server" id="ISBNContainer" ><label for="ISBN">ISBN: </label> <asp:TextBox TextMode="SingleLine" ID="ISBN" runat="server"></asp:TextBox><asp:Button Text="Fill information by ISBN" runat="server" ID="ISBNService" OnClick="ISBNService_Click"/>

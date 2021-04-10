@@ -9,7 +9,8 @@
 }
 body {
     background-color: #B4A06E;
-}
+    height:100%;
+}   
 .Search .TextInClass{
     width: 70%;
     margin: 10px;
@@ -64,9 +65,10 @@ body {
     background: #2C433B;
     border-radius: 10px;
     width: 90vw;
-    display:block;
-    overflow:auto;
-    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    min-height: 88.9%;
     left: 50%;
     position: absolute;
     transform: translateX(-50%);
@@ -79,7 +81,7 @@ body {
     flex-direction:column;
 }
 .AdminOuterBox h1{
-    margin-bottom: 10rem;
+    margin-bottom: 2rem;
 }
 .AdminUserSearch{
     margin-bottom: 20px;
@@ -349,7 +351,7 @@ input#ContentPlaceHolder1_SearchBar{
         position:absolute;
         height: 25vh;
         width: 80vw;
-        top: 8%;
+        top: 8vh;
         left:50%;
         transform: translateX(-50%);
         border: 2px black solid;
@@ -368,7 +370,6 @@ input#ContentPlaceHolder1_SearchBar{
 .UinfoContainer {
     position: absolute;
     transform: translateX(-50%);
-    top: 10%;
     left: 50%;
     background-color: gray;
     width: 80%;
@@ -377,8 +378,7 @@ input#ContentPlaceHolder1_SearchBar{
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    margin-top: 20%;
-    margin-bottom: 20%;
+    margin-top: 19%;
 }
 .UinfoContainer input[type=text] {
     width: 10ch;
@@ -421,10 +421,111 @@ input#ContentPlaceHolder1_ISBNService{
 input#ContentPlaceHolder1_RedirectEdit{
     height:8vh;
     margin:2vh;
-    position:absolute;
-    right:0;
-    top:0;
 }
+.MainpageContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    top: 50%;
+    position: absolute;
+    transform: translateY(-50%);
+    justify-content: space-around;
+}
+.MainpageLogin {
+    /*background: radial-gradient(90.49% 90.49% at 50% 50%, rgba(95, 95, 95, 0.55) 0%, #5F5F5F 0.01%, #000000 100%);*/
+    width: 60%;
+    align-self: center;
+    position: relative;
+    border-radius: 25px;
+    height: 15%;
+    margin-top: 2%;
+    display: block;
+}
+.EditAndDeleteBook {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+input#ContentPlaceHolder1_DeleteBook {
+    height: 8vh;
+    margin: 2vh;
+}
+.MainpageInnerDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 60%;
+    margin: 2vh;
+}
+.MainpageLink {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;    
+}
+.MainpageHeader {
+    font-size: 3em;
+    margin: 0;
+    letter-spacing: 1ch;
+    background: radial-gradient(90.49% 90.49% at 50% 50%, rgba(255, 255, 255, 0.55) 0%, #5F5F5F 0.01%, #FFFFFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bolder;
+}
+.MainpageThreads {
+    background: radial-gradient(90.49% 90.49% at 50% 50%, rgba(95, 95, 95, 0.55) 0%, #5F5F5F 0.01%, #000000 100%);
+    border-radius: 25px;
+    width: 40%;
+    text-align: center;
+    height: 100%;
+    display: block;
+    position: relative;
+}
+.MainpageLogin p {
+    letter-spacing: 0.85em;
+    font-size: 3em;
+    padding: 0;
+    margin: 0;
+    color: rgba(159, 159, 159, 0.49);
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 14px rgba(0, 0, 0, 0.19);
+}
+.MainpageLogin h5 {
+    margin: 0;
+    margin-top: 1ch;
+    letter-spacing: 1.5ch;
+}
+    .MainpageThreads h4 {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 200;
+        font-size: 36px;
+        line-height: 42px;
+        letter-spacing: 0.7em;
+        color: rgba(185, 131, 186, 0.74);
+    }
+.MainpageBooks {
+    background: radial-gradient(90.49% 90.49% at 50% 50%, rgba(95, 95, 95, 0.55) 0%, #5F5F5F 0.01%, #000000 100%);
+    border-radius: 25px;
+    width: 40%;
+    height: 100%;
+    display: block;
+    text-align: center;
+    position:relative;
+}
+    .MainpageBooks h4 {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 200;
+        font-size: 36px;
+        line-height: 42px;
+        opacity: 0.6;
+        letter-spacing: 0.7em;
+        color: rgba(82, 224, 190, 0.74);
+    }
 .UinfoContainer span {
 }
 .ReadBooks label{
@@ -697,6 +798,7 @@ div#ContentPlaceHolder1_ProfileImage {
     background-color: antiquewhite;
     border: 2px black solid;
     font-size: 0.9rem;
+    margin-bottom: 10%;
 }
     .UserTable tr th, .UserTable tr td {
         border: 2px black solid;    
@@ -900,11 +1002,11 @@ input#ContentPlaceHolder1_AddBookRedirect:hover{
     color:red;
     float:right;
 }
-.OuterBox div input[type=file], .OuterBox div input[type=submit]{
+/*.OuterBox div input[type=file], .OuterBox div input[type=submit]{
     font-size: 2vh;
     float:left;
     margin: 2vh;
-}
+}*/
 .UserProfile {
     width: 8vw;
     height: 8vw;

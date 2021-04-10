@@ -19,6 +19,6 @@ namespace DAL
         {
             string sql = $"INSERT INTO Reviews (review, bookID, bookRating, reviewerID, reviewDate) VALUES (@Text1, {inputs[1]}, {inputs[2]}, {inputs[3]}, '{inputs[4]}')";
             return DBHelper.InsertWithAutoNumKey(sql, inputs);
-        }
+        }//inserts new review
     }
 }

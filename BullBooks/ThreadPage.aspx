@@ -8,7 +8,7 @@
         <div class="ContentDiv">
             <div class="HeaderContainer">
                 <asp:Label runat="server" ID="ThreadHeader" CssClass="ThreadHeader"></asp:Label>
-                    <asp:ImageButton runat="server" ID="DeleteThreadButton" OnClick="DeleteThreadButton_Click" ImageUrl="../ControlImages/trash.png" OnClientClick="return ConfirmClick()"/>
+                    <asp:ImageButton Visible="false" runat="server" ID="DeleteThreadButton" OnClick="DeleteThreadButton_Click" ImageUrl="../ControlImages/trash.png" OnClientClick="return ConfirmClick()"/>
                 <div class="PostInformation">
                     <asp:Label runat="server" ID="PostingTime" ></asp:Label>
                     <asp:Label runat="server" ID="AuthorAlias" ></asp:Label>

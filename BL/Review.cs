@@ -33,7 +33,7 @@ namespace BL
             Rating = (int)review["bookRating"];
             ReviewerID = (int)review["reviewerID"];
             creationDate = DateTime.Parse(review["reviewDate"].ToString());
-        }
+        }//Review constructor accepting datarow as paraemeter
         public Review(string content, int bookid, int rating, int reviewerID, DateTime creation)
         {
             reviewContent = content;
@@ -41,11 +41,7 @@ namespace BL
             Rating = rating;
             ReviewerID = reviewerID;
             CreationDate = creation;
-        }
-        /// <summary>
-        /// turns review data into a list and sends it to DAL in order to add to database
-        /// </summary>
-        /// <returns>new review id, if an error occurs it returns -1</returns>
+        }//review constructor
         public int CommitReview()
         {
             List<object> inputs = new List<object>();
@@ -57,7 +53,7 @@ namespace BL
             int newID = ReviewHelper.SendReview(inputs);
             reviewID = newID;
             return newID;
-        }
+        }//inserts a new review
         public static LinkedListNode<Review> LoadReviews()//get all reviews in the form of datatable and convert+return them in the form of nodes
         {
             DataTable reviews = ReviewHelper.GetAllReviews();
@@ -74,13 +70,6 @@ namespace BL
                 ReviewNode = ReviewNode.Next;
             }
             return ReviewDummyNode;
-        }
-        public static List<Review> GetAssociatedReviews(int id, Dictionary<int, Review> allReviews)
-        {
-            Dictionary<int, Review> copyReviews = new Dictionary<int, Review>(allReviews);
-            List<Review> reviews = copyReviews.Values.ToList();
-            reviews.RemoveAll(review => review.ReviewerID != id);
-            return reviews;
         }
     }
 }

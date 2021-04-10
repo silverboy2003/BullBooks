@@ -11,8 +11,8 @@ namespace BL
         public static void SetDBConnString(string conn)
         {
             DAL.DBHelper.SetConnString(conn);
-        }
-        public static void SetAllReviews(Dictionary<int, Book> books)
+        }//sets the connection string in the DB class
+        public static void SetAllReviews(Dictionary<int, Book> books)//gets a list of reviews sorted by bookID and bind them to corresponding book
         {
             
             LinkedListNode<Review> reviewNode = Review.LoadReviews().Next;
@@ -26,7 +26,7 @@ namespace BL
                 }
                 book.Reviews = bookReviews;
             }
-        }
+        }//
         public static Dictionary<int, Thread> LoadThreads()
         {
             Dictionary<int, Thread> threads = Thread.GetAllThreads(); //gets all threads without comments loaded
@@ -37,6 +37,6 @@ namespace BL
                     threads[currentComment.ThreadID].ThreadMasterComments.Add(currentComment);
             }
             return threads;
-        }
+        }//gets all threads in a list and binds all comments to them
     }
 }

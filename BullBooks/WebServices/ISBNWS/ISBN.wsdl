@@ -28,6 +28,7 @@
           <s:element minOccurs="1" maxOccurs="1" name="NumChapters" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="BookRelease" type="s:dateTime" />
           <s:element minOccurs="0" maxOccurs="1" name="Genres" type="tns:ArrayOfInt" />
+          <s:element minOccurs="1" maxOccurs="1" name="Rating" type="s:double" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="ArrayOfInt">
@@ -56,6 +57,44 @@
           <s:element minOccurs="0" maxOccurs="1" name="GenreName" type="s:string" />
         </s:sequence>
       </s:complexType>
+      <s:element name="UpdateRating">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="isbn" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="newRating" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateRatingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateRatingResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddNewBook">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="isbn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="bookName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="author" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="publisher" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="synopsis" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="numPages" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="numChapters" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="rating" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="bookRelease" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="genres" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddNewBookResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddNewBookResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="GetBookByISBNSoapIn">
@@ -70,6 +109,18 @@
   <wsdl:message name="GetGenresTableSoapOut">
     <wsdl:part name="parameters" element="tns:GetGenresTableResponse" />
   </wsdl:message>
+  <wsdl:message name="UpdateRatingSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateRating" />
+  </wsdl:message>
+  <wsdl:message name="UpdateRatingSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateRatingResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddNewBookSoapIn">
+    <wsdl:part name="parameters" element="tns:AddNewBook" />
+  </wsdl:message>
+  <wsdl:message name="AddNewBookSoapOut">
+    <wsdl:part name="parameters" element="tns:AddNewBookResponse" />
+  </wsdl:message>
   <wsdl:portType name="ISBNSoap">
     <wsdl:operation name="GetBookByISBN">
       <wsdl:input message="tns:GetBookByISBNSoapIn" />
@@ -78,6 +129,14 @@
     <wsdl:operation name="GetGenresTable">
       <wsdl:input message="tns:GetGenresTableSoapIn" />
       <wsdl:output message="tns:GetGenresTableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRating">
+      <wsdl:input message="tns:UpdateRatingSoapIn" />
+      <wsdl:output message="tns:UpdateRatingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewBook">
+      <wsdl:input message="tns:AddNewBookSoapIn" />
+      <wsdl:output message="tns:AddNewBookSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="ISBNSoap" type="tns:ISBNSoap">
@@ -100,6 +159,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UpdateRating">
+      <soap:operation soapAction="http://BullBooksWS.net/UpdateRating" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewBook">
+      <soap:operation soapAction="http://BullBooksWS.net/AddNewBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="ISBNSoap12" type="tns:ISBNSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -114,6 +191,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetGenresTable">
       <soap12:operation soapAction="http://BullBooksWS.net/GetGenresTable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRating">
+      <soap12:operation soapAction="http://BullBooksWS.net/UpdateRating" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewBook">
+      <soap12:operation soapAction="http://BullBooksWS.net/AddNewBook" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

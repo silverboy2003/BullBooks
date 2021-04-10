@@ -25,6 +25,10 @@ namespace BullBooks
             {
                 Editor.Visible = true;
                 CommentSubmit.Visible = true;
+                if(((User)Session["User"]).IsAdmin || ((User)Session["User"]).Id == currentThread.ThreadAuthorID)
+                {
+                    DeleteThreadButton.Visible = true;
+                }
             }
         }
         private void RemoveComment(object sender, EventArgs data)

@@ -61,5 +61,12 @@ namespace BullBooks.UserControls
             if (!isAvailable)
                 args.IsValid = false;
         }
+
+        protected void ValidateDate_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            DateTime inputDate = DateTime.Parse(CalendarIn.Value);
+            if (DateTime.Compare(inputDate, DateTime.Today) >= 0)
+                args.IsValid = false;
+        }
     }
 }

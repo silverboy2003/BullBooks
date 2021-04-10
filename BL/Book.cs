@@ -12,6 +12,9 @@ namespace BL
     public class Book
     {
         private List<int> genres;
+
+        private List<Review> reviews;
+        ////////////////////////////////////Getters and Setters
         public int Id
         {
             get; set;
@@ -19,7 +22,7 @@ namespace BL
         public string BookName
         {
             get; set;
-        }
+        }//num of pages in book
         public string AuthorName
         {
             get; set;
@@ -93,8 +96,6 @@ namespace BL
                 CalculateReviews();
             }
         }
-
-        private List<Review> reviews;
         
         private List<int> GetGenres()
         {
@@ -106,14 +107,47 @@ namespace BL
                 genresList.Add(genreID);
             }
             return genresList;
-        }
-        public Book(int id, string name, string author, string cover)
+        }//returns all genres corresponding to this book
+        public static List<Book> GetBooksBySearch(string bookName, List<int> genres, Dictionary<int, Book> allBooks)//function that gets a search term and a list of genres that were picked and returns a list of books containing their id, name, author and cover photo path
         {
-            this.Id = id;
-            this.BookName = name;
-            this.AuthorName = author;
-            this.BookCover = cover;
+            List<Book> books = new List<Book>(allBooks.Values);
+
+            if(bookName != null)
+                    books.RemoveAll(i => !(i.BookName.ToLower()).StartsWith(bookName.ToLower()));
+            if (genres != null)
+                books.RemoveAll(book => book.Genres != null && genres.Any(genre => !book.Genres.Contains(genre)));
+            return books;
         }
+        public static List<Book> GetReadBooks(int userID, Dictionary<int, Book> allBooks)
+        {
+            List<Book> books = new List<Book>(allBooks.Values.ToList());
+            books.RemoveAll(book => book.reviews != null && !book.reviews.Exists(review => review.ReviewerID == userID));
+            return books;
+        }//gets all books containing a review belonging to the id provided
+        public static List<Book> GetPublishedBook(int userID, Dictionary<int, Book> allBooks)
+        {
+            List<Book> books = new List<Book>(allBooks.Values.ToList());
+            books.RemoveAll(book => book.PublisherID != userID);
+            return books;
+        }//gets all books with a publisher id identical to one provided
+        public static List<Book> GetWrittenBooks(int userID, Dictionary<int, Book> allBooks)//gets all books with an author id identical to one provided
+        {
+            List<Book> books = new List<Book>(allBooks.Values.ToList());
+            books.RemoveAll(book => book.AuthorID != userID);
+            return books;
+        }
+        public void CalculateReviews()//calculated book rating score based on reviews list
+        {
+            List<Review> reviews = this.reviews;
+            double totalScore = 0;
+            foreach (Review bookReview in reviews)
+            {
+                totalScore += bookReview.Rating;
+            }
+            double calculatedScore = totalScore / reviews.Count;
+            BookRating = calculatedScore;
+        }
+        //////////////////////////////////// Constructors
         public Book(DataRow book)
         {
             this.Id = (int)book["bookID"];
@@ -128,8 +162,7 @@ namespace BL
             this.ISBN = (string)book["ISBN"];
             this.AuthorName = (string)book["authorName"];
             this.PublisherName = (string)book["publisherName"];
-        }
-
+        }//constructor with a datarow as a parameter
         public Book(int iD, string bookName, string authorName, string publisherName, int publisherID, int authorID, string bookSynopsis, string bookCover, double bookRating, int numReviews, int numPages, int numChapters, DateTime bookRelease, string iSBN, List<int> genres, List<Review> reviews)
         {
             Id = iD;
@@ -150,18 +183,8 @@ namespace BL
             if (string.IsNullOrEmpty(bookCover))
                 bookCover = "CoverPics/00.png";
             BookCover = bookCover;
-        }
-
-        public static List<Book> GetBooksBySearch(string bookName, List<int> genres, Dictionary<int, Book> allBooks)//function that gets a search term and a list of genres that were picked and returns a list of books containing their id, name, author and cover photo path
-        {
-            List<Book> books = new List<Book>(allBooks.Values);
-
-            if(bookName != null)
-                    books.RemoveAll(i => !(i.BookName.ToLower()).StartsWith(bookName.ToLower()));
-            if (genres != null)
-                books.RemoveAll(book => book.Genres != null && genres.Any(genre => !book.Genres.Contains(genre)));
-            return books;
-        }
+        }//a constuctor with all of Book's properties as parameters
+        //////////////////////////////////// Read Data
         public static Dictionary<int, Book> LoadBooks()
         {
             DataTable books = BookHelper.GetAllBooks();
@@ -177,24 +200,8 @@ namespace BL
                 }
             }
             return bookList;
-        }
-        public void CalculateReviews()//only call while setting review list
-        {
-            List<Review> reviews = this.reviews;
-            double totalScore = 0;
-            foreach(Review bookReview in reviews)
-            {
-                totalScore += bookReview.Rating;
-            }
-            double calculatedScore = totalScore / reviews.Count;
-            BookRating = calculatedScore;
-        }
-        public static List<Book> GetAssociatedBooks(int userID, Dictionary<int, Book> allBooks)
-        {
-            List<Book> books = new List<Book>(allBooks.Values.ToList());
-            books.RemoveAll(book => book.reviews != null && !book.reviews.Exists(review => review.ReviewerID == userID));
-            return books;
-        }
+        }//returns all books in database
+        //////////////////////////////////// Insert
         public int CommitBook()
         {
             List<object> inputs = new List<object>();
@@ -203,7 +210,7 @@ namespace BL
             int newID = DAL.BookHelper.InsertBook(inputs, AuthorID, PublisherID, NumPages, NumChapters, BookRelease, ISBN, BookCover);
             this.Id = newID;
             return newID;
-        }
+        }//inserts a new book into the table
         public bool UpdateBook()
         {
             List<object> inputs = new List<object>();
@@ -211,12 +218,17 @@ namespace BL
             inputs.Add(BookSynopsis);
             bool success = DAL.BookHelper.UpdateBook(inputs, AuthorID, PublisherID, NumPages, NumChapters, BookRelease, BookCover, Id);
             return success;
-        }
+        }//Update all of the book's fields
         public bool CommitGenres()
         {
             List<int> bookGenres = new List<int>(this.genres); //so i dont remove from original list
             bool success = BookHelper.InsertGenres(Id, bookGenres);
             return success;
-        }
+        }//sends the list of genres the book contains and inserts them into GenresToBooks table
+        //////////////////////////////////// Delete
+        public bool DeleteSelf()
+        {
+            return BookHelper.DeleteBook(Id);
+        }//removes book from database
     }
 }

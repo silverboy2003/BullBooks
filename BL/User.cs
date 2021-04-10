@@ -54,23 +54,7 @@ namespace BL
             creationDate = (DateTime)user["creationDate"];
             alias = (string)user["alias"];
             password = (string)user["password"];
-        }
-        public User(IOrderedDictionary user)
-        {
-            id = (int)user["userID"];
-            email = (string)user["email"];
-            username = (string)user["username"];
-            gender = (int)user["gender"];
-            birthDate = (DateTime)user["birthDate"];
-            banner = (string)user["bannerPic"];
-            profile = (string)user["profilePic"];
-            isAdmin = (bool)user["isAdmin"];
-            isPublisher = (bool)user["isPublisher"];
-            isAuthor = (bool)user["isAuthor"];
-            creationDate = (DateTime)user["creationDate"];
-            alias = (string)user["alias"];
-            password = (string)user["password"];
-        }
+        }//user constructor accepting datarow as input
         public User(string email, string username, int gender, DateTime birthDate, string password, DateTime creationDate, string alias)
         {
             this.email = email;
@@ -89,11 +73,11 @@ namespace BL
             isPublisher = false;
             banner = "UserImages/Banners/default.png";
             profile = "UserImages/Profile/default.png";
-        }
+        }//constructor
         public static string Encrypt(string password)
         {
             return BCrypt.Net.BCrypt.HashPassword(password);
-        }
+        }//encrypts user password using bcrypt library
         public static User Login(string username, string password)
         {
             DataRow result = UserHelper.DoLogin(username, password);
@@ -101,7 +85,7 @@ namespace BL
                 return null;
             User user = new User(result);
             return user;
-        } 
+        } //compares username and password input to known user with same username, login
         public int Register()
         {
             if (this.id != Unregistered)
@@ -117,12 +101,11 @@ namespace BL
             int newID = UserHelper.DoRegister(inputs);
             this.id = newID;
             return newID;
-        }
-        
+        }//Inserts new user
         public static bool IsAvailable(string input, string type)
         {
             return UserHelper.ChcekAvailability(input, type);
-        }
+        }//returns whether username is occupied
         public static Dictionary<int, User> GetAllUsers()
         {
             DataTable UsersTable = DALHelper.GetTable("Users");
@@ -135,12 +118,12 @@ namespace BL
                 users.Add(newUser.id, newUser);
             }
             return users;
-        }
+        }//returns a list of all users
         public static bool DeleteUser(int id)
         {
             return UserHelper.DeleteUser(id);
-        }
-        private List<object> CreateList()//returns a list containing all user details except for id
+        }//deletes user from database
+        private List<object> CreateList()
         {
             List<object> user = new List<object>();
 
@@ -151,23 +134,10 @@ namespace BL
             user.Add(this.banner);
             user.Add(this.profile);
             return user;
-        }
-        
+        }//returns a list containing all user details except for id
         public bool UpdateUser()
         {
             return UserHelper.UpdateUser(CreateList(), this.id, Gender, BirthDate, CreationDate, IsAdmin, IsPublisher, IsAuthor);
-        }
-        public static List<User> GetAuthors(List<User> allUsers)
-        {
-            List<User> newUsersList = new List<User>(allUsers);
-            newUsersList.RemoveAll(user => !user.isAuthor);
-            return newUsersList;
-        }
-        public static List<User> GetPublishers(List<User> allUsers)
-        {
-            List<User> newUsersList = new List<User>(allUsers);
-            newUsersList.RemoveAll(user => !user.isPublisher);
-            return newUsersList;
-        }
+        }//updates user details in database
     }
 }

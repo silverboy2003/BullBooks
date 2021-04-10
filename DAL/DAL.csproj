@@ -63,7 +63,6 @@
     <Compile Include="DALHelper.cs" />
     <Compile Include="DBHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PublisherHelper.cs" />
     <Compile Include="ReviewHelper.cs" />
     <Compile Include="ThreadHelper.cs" />
     <Compile Include="UserHelper.cs" />
