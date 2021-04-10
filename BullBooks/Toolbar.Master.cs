@@ -66,5 +66,9 @@ namespace BullBooks
             Response.Redirect("AdminPage.aspx");
         }
 
+        protected void MainpageButton_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("mainpage.aspx");
+        }
     }
 }
