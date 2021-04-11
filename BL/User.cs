@@ -30,7 +30,7 @@ namespace BL
         public string Username { get => username; set => username = value; }
         public int Gender { get => gender; set => gender = value; }
         public DateTime BirthDate { get => birthDate; set => birthDate = value; }
-        public string Password { get => password; set => password = Encrypt(value); }
+        public string Password { get => password; set => password = Encrypt(value); }//encrypts on set
         public string Banner { get => banner; set => banner = value; }
         public string Profile { get => profile; set => profile = value; }
         public DateTime CreationDate { get => creationDate; set => creationDate = value; }

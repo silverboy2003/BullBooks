@@ -16,7 +16,7 @@
 
         <div class="ReadBooks">
             <label runat="server" id="BlistLabel" for="Blist" visible="false">Read Books</label>
-            <ASS:BookList ID="Blist" runat="server" EnableViewState="true"/>
+            <ASS:BookList ID="Blist" runat="server" EnableViewState="true" Visible="false"/>
             <label runat="server" id="PublishedLabel" for="PublishedBooks" visible="false">Published Books</label>
             <ASS:BookList ID="PublishedBooks" runat="server" EnableViewState="true" Visible="false" />
             <label runat="server" id="WrittenLabel" for="WrittenBooks" visible="false">Written Books</label>

@@ -78,8 +78,6 @@ namespace BullBooks
             User user = (User)((Dictionary<int, User>)(Application["Users"]))[userID];
 
             string password = e.NewValues["Password"].ToString();
-            if (!password.Equals(user.Password))
-                password = BL.User.Encrypt(password);
 
             string email = e.NewValues["Email"].ToString();
             Regex emailCheck = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}");

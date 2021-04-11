@@ -203,29 +203,36 @@ namespace BullBooks
 
         protected void ISBNService_Click(object sender, EventArgs e)
         {
-            ISBNWS.ISBN ws = new ISBN();
-            ISBNWS.WSBook wSBook = ws.GetBookByISBN(ISBN.Text);
-            BookName.Text = wSBook.BookName;
-            Synopsis.Text = wSBook.Synopsis;
-            NumPages.Text = wSBook.NumPages.ToString();
-            NumChapters.Text = wSBook.NumChapters.ToString();
-            ReleaseDate.Value = wSBook.BookRelease.ToString("yyyy-MM-dd");
-
-            string authorAlias = wSBook.Author.ToLower();
-            string publisherAlias = wSBook.Publisher.ToLower();
-
-            Dictionary<int, User> allUsers = (Dictionary<int, User>)Application["Users"];
-            List<User> authors = allUsers.Values.Where(user => user.Alias.ToLower().Equals(authorAlias)).ToList();
-            List<User> publishers = allUsers.Values.Where(user => user.Alias.ToLower().Equals(publisherAlias)).ToList();
-            LoadAuthors(authors);
-            LoadPublishers(publishers);
-
-            int[] bookGenres = wSBook.Genres;
-            foreach(int genre in bookGenres)
+            if (!string.IsNullOrEmpty(ISBN.Text))
             {
-                ListItem genreItem = Genres.Items.FindByValue(genre.ToString());
-                if (genreItem != null)
-                    genreItem.Selected = true;
+                ISBNWS.ISBN ws = new ISBN();
+                ISBNWS.WSBook wSBook = ws.GetBookByISBN(ISBN.Text);
+                if(wSBook != null)
+                {
+                    BookName.Text = wSBook.BookName;
+                    Synopsis.Text = wSBook.Synopsis;
+                    NumPages.Text = wSBook.NumPages.ToString();
+                    NumChapters.Text = wSBook.NumChapters.ToString();
+                    ReleaseDate.Value = wSBook.BookRelease.ToString("yyyy-MM-dd");
+
+                    string authorAlias = wSBook.Author.ToLower();
+                    string publisherAlias = wSBook.Publisher.ToLower();
+
+                    Dictionary<int, User> allUsers = (Dictionary<int, User>)Application["Users"];
+                    List<User> authors = allUsers.Values.Where(user => user.Alias.ToLower().Equals(authorAlias)).ToList();
+                    List<User> publishers = allUsers.Values.Where(user => user.Alias.ToLower().Equals(publisherAlias)).ToList();
+                    LoadAuthors(authors);
+                    LoadPublishers(publishers);
+
+                    int[] bookGenres = wSBook.Genres;
+                    foreach (int genre in bookGenres)
+                    {
+                        ListItem genreItem = Genres.Items.FindByValue(genre.ToString());
+                        if (genreItem != null)
+                            genreItem.Selected = true;
+                    }
+                }
+                
             }
         }
 
