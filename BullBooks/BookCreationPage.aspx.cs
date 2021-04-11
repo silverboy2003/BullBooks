@@ -21,17 +21,19 @@ namespace BullBooks
             User currentUser = (User)Session["User"];
             if (currentUser == null || (!currentUser.IsAdmin && !currentUser.IsPublisher && !currentUser.IsAuthor))
                 Response.Redirect("SearchPage.aspx");
-            
+
             if (!IsPostBack)
             {
                 LoadGenres();
-
+            }
+            PublisherName.Items.Clear();
+            AuthorName.Items.Clear();
                 string currentBookID = Request.QueryString["id"];
                 if (!string.IsNullOrEmpty(currentBookID) && int.TryParse(currentBookID, out _))
                 {
                     Dictionary<int, Book> allBooks = (Dictionary<int, Book>)Application["Books"];
                     Book currentBook = allBooks[int.Parse(currentBookID)];
-                    if (currentUser.Id != currentBook.AuthorID && currentUser.Id != currentBook.PublisherID)
+                    if (!currentUser.IsAdmin && currentUser.Id != currentBook.AuthorID && currentUser.Id != currentBook.PublisherID)
                     {
                         NameValueCollection queryString = System.Web.HttpUtility.ParseQueryString(string.Empty);
                         queryString.Add("id", currentBookID.ToString());
@@ -75,7 +77,7 @@ namespace BullBooks
                 }
                 else if (currentUser.IsAuthor)
                 {
-                    AuthorName.Items.Add(new ListItem(currentUser.Alias + '-' + currentUser.Username, currentUser.Id.ToString()));
+                AuthorName.Items.Add(new ListItem(currentUser.Alias + '-' + currentUser.Username, currentUser.Id.ToString()));
                     LoadPublishers(allUsers.Values.ToList());
                 }
                 else if(currentUser.IsPublisher)
@@ -83,7 +85,7 @@ namespace BullBooks
                     PublisherName.Items.Add(new ListItem(currentUser.Alias + '-' + currentUser.Username, currentUser.Id.ToString()));
                     LoadAuthors(allUsers.Values.ToList());
                 }
-            }
+                
         }
         protected void LoadGenres()
         {
@@ -96,8 +98,10 @@ namespace BullBooks
                 Genres.Items.Add(genreItem);
             }
         }
-        protected void LoadPublishers(List<User> publishers)
+        protected void LoadPublishers(List<User> allUsers)
         {
+            List<User> publishers = new List<User>(allUsers);
+            publishers.RemoveAll(user => !user.IsAuthor);
             PublisherName.Items.Clear();
             foreach(User publisher in publishers)
             {
@@ -105,8 +109,10 @@ namespace BullBooks
             }
             
         }
-        protected void LoadAuthors(List<User> authors)
+        protected void LoadAuthors(List<User> allUsers)
         {
+            List<User> authors = new List<User>(allUsers);
+            authors.RemoveAll(user => !user.IsAuthor);
             AuthorName.Items.Clear();
             foreach (User author in authors)
             {

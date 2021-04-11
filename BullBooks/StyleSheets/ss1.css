@@ -808,7 +808,7 @@ div#ContentPlaceHolder1_ProfileImage {
 }
     .UserTable tr th, .UserTable tr td {
         border: 2px black solid;    
-        max-width: 20ch;
+        max-width: 15ch;
         overflow: hidden;
         padding: 2px;
     }
