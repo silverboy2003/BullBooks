@@ -26,5 +26,11 @@ namespace DAL
             DBHelper.WriteData(updateSql);
             return newID;
         }//inserts new comment to database
+        public static bool DeleteComment(int CommentID)
+        {
+            string sql = $"DELETE FROM ThreadComments WHERE commentID = {CommentID}";
+            int success = DBHelper.WriteData(sql);
+            return success == 1;
+        }//deletes comment
     }
 }

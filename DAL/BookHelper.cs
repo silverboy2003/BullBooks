@@ -7,7 +7,7 @@ using System.Data;
 
 namespace DAL
 {
-    public static class BookHelper
+    public class BookHelper
     {
         public static DataTable GetAllBooks()
         {

@@ -119,7 +119,7 @@ namespace BL
         //////////////////////////////////// Delete
         public bool DeleteComment()
         {
-            bool success = AdminHelper.DeleteComment(CommentID);
+            bool success = CommentHelper.DeleteComment(CommentID);
             return success;
         }//deletes comment and subsequently all it's replies
     }

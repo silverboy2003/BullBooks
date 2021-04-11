@@ -316,7 +316,7 @@ namespace DAL
                 if (reader == null || !reader.HasRows)
                     return null;
                 dataTable.Load(reader);
-
+                dataTable.AcceptChanges();
                 CloseConnection();
                 return dataTable;
             }

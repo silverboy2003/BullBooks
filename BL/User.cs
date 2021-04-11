@@ -24,7 +24,7 @@ namespace BL
         private bool isAuthor;
         private string alias;
         private string password;
-
+        //Getters and Setters
         public int Id { get => id; set => id = value; }
         public string Email { get => email; set => email = value; }
         public string Username { get => username; set => username = value; }
@@ -38,7 +38,7 @@ namespace BL
         public bool IsAdmin { get => isAdmin; set => isAdmin = value; }
         public bool IsPublisher { get => isPublisher; set => isPublisher = value; }
         public bool IsAuthor { get => isAuthor; set => isAuthor = value; }
-
+        //constructors
         public User(DataRow user)
         {
             id = (int)user["userID"];
@@ -74,12 +74,13 @@ namespace BL
             banner = "UserImages/Banners/default.png";
             profile = "UserImages/Profile/default.png";
         }//constructor
+        //assisting functions
         public static string Encrypt(string password)
         {
             return BCrypt.Net.BCrypt.HashPassword(password);
         }//encrypts user password using bcrypt library
         public static User Login(string username, string password)
-        {
+         {
             DataRow result = UserHelper.DoLogin(username, password);
             if (result == null)
                 return null;

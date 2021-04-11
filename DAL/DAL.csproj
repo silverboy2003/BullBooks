@@ -57,7 +57,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminHelper.cs" />
     <Compile Include="BookHelper.cs" />
     <Compile Include="CommentHelper.cs" />
     <Compile Include="DALHelper.cs" />
@@ -68,6 +67,7 @@
     <Compile Include="UserHelper.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

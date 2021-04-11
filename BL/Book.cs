@@ -108,7 +108,7 @@ namespace BL
             }
             return genresList;
         }//returns all genres corresponding to this book
-        public static List<Book> GetBooksBySearch(string bookName, List<int> genres, Dictionary<int, Book> allBooks)//function that gets a search term and a list of genres that were picked and returns a list of books containing their id, name, author and cover photo path
+        public static List<Book> GetBooksBySearch(string bookName, List<int> genres, Dictionary<int, Book> allBooks)//function that gets a search term and a list of genres and returns a list of books containing their id, name, author and cover photo path
         {
             List<Book> books = new List<Book>(allBooks.Values);
 
@@ -163,7 +163,8 @@ namespace BL
             this.AuthorName = (string)book["authorName"];
             this.PublisherName = (string)book["publisherName"];
         }//constructor with a datarow as a parameter
-        public Book(int iD, string bookName, string authorName, string publisherName, int publisherID, int authorID, string bookSynopsis, string bookCover, double bookRating, int numReviews, int numPages, int numChapters, DateTime bookRelease, string iSBN, List<int> genres, List<Review> reviews)
+        public Book(int iD, string bookName, string authorName, string publisherName, int publisherID, int authorID, string bookSynopsis,
+        string bookCover, double bookRating, int numReviews, int numPages, int numChapters, DateTime bookRelease, string iSBN, List<int> genres, List<Review> reviews)
         {
             Id = iD;
             BookName = bookName;

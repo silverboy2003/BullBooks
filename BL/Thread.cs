@@ -44,7 +44,8 @@ namespace BL
             return ThreadList;
         }//returns all threads in database
         //////////////////////////////////// Constructors
-        public Thread(int threadID, string threadTitle, string threadText, int threadBookID, string threadBook, int threadAuthorID, string threadAuthor, int cntComments, DateTime creationDate, List<Comment> threadComments)
+        public Thread(int threadID, string threadTitle, string threadText, int threadBookID, string threadBook, int threadAuthorID, string threadAuthor,
+        int cntComments, DateTime creationDate, List<Comment> threadComments)
         {
             this.threadID = threadID;
             this.threadTitle = threadTitle;
@@ -56,7 +57,7 @@ namespace BL
             this.cntComments = cntComments;
             this.creationDate = creationDate;
             this.threadMasterComments = threadComments;
-        }
+        }//constructor
         public Thread(DataRow thread)//need to load seperately cntcomments and threadcomments
         {
             this.threadID = (int)thread["threadID"];
@@ -95,7 +96,7 @@ namespace BL
         }//inserts a new thread
         public bool RemoveThread()
         {
-            return DAL.AdminHelper.RemoveThread(ThreadID);
+            return DAL.ThreadHelper.RemoveThread(ThreadID);
 
         }//removes thread from database
     }

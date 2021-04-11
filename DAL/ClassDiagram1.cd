@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DAL.BookHelper">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BBAAAEAAAAEAQAAAgAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BookHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.CommentHelper">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>CommentHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.DALHelper">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>DALHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.DBHelper">
+    <Position X="5.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAIAAAAAAABAAAABAAAABAAARRwAAAAAAAAAAACAAA=</HashCode>
+      <FileName>DBHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.ReviewHelper">
+    <Position X="7" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEgAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ReviewHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.ThreadHelper">
+    <Position X="3.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAEAAAAAAAAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ThreadHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.UserHelper">
+    <Position X="7" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAEAAAAAEAAAAAAAAAQAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>UserHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
