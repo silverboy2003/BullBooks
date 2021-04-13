@@ -28,9 +28,6 @@
             <p>Don't have an account yet?</p>
             <a Class="RegisterHref" href="../RegisterPage.aspx">Register</a>
         </div>
-        
-
-            <a Class="PasswordHref" href="PasswordChange.aspx">Forgot your password?</a>
     </div>
 
 

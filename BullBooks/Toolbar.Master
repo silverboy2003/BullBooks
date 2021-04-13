@@ -21,13 +21,13 @@
         <div>
         <div id="Bar" class="ToolBar">
 
-                <asp:ImageButton ID="LogoutButton" runat="server" CssClass="LogoutButton" OnClick="Logout" ImageUrl="../ControlImages/Logout.png"/>
-            <asp:ImageButton ID="ThreadsButton" runat="server" CssClass="ToolbarButton" OnClick="RedirectThreads" ImageUrl="../ControlImages/Threads.png"/>
-                <asp:ImageButton ID="SearchButton" runat="server" CssClass="ToolbarButton" OnClick="RedirectSearch" ImageUrl="../ControlImages/search.png" />
-                <asp:ImageButton ID="UserButton" runat="server" CssClass="ToolbarButton" OnClick="RedirectLogin" ImageUrl="../ControlImages/Login.png"/> <%--will be used for either login, or redirecting to user page--%>
-                <asp:ImageButton ID="AdminButton" runat="server" CssClass="ToolbarButton" OnClick="AdminButtonRedirect" Visible="false" ImageUrl="../ControlImages/adminPage.png" />
+                <asp:ImageButton CausesValidation="false" ID="LogoutButton" runat="server" CssClass="LogoutButton" OnClick="Logout" ImageUrl="../ControlImages/Logout.png"/>
+            <asp:ImageButton CausesValidation="false" ID="ThreadsButton" runat="server" CssClass="ToolbarButton" OnClick="RedirectThreads" ImageUrl="../ControlImages/Threads.png"/>
+                <asp:ImageButton CausesValidation="false" ID="SearchButton" runat="server" CssClass="ToolbarButton" OnClick="RedirectSearch" ImageUrl="../ControlImages/search.png" />
+                <asp:ImageButton CausesValidation="false" ID="UserButton" runat="server" CssClass="ToolbarButton" OnClick="RedirectLogin" ImageUrl="../ControlImages/Login.png"/> <%--will be used for either login, or redirecting to user page--%>
+                <asp:ImageButton CausesValidation="false" ID="AdminButton" runat="server" CssClass="ToolbarButton" OnClick="AdminButtonRedirect" Visible="false" ImageUrl="../ControlImages/adminPage.png" />
         </div>
-            <asp:ImageButton ID="LogoButton" runat="server" CssClass="LogoButton" OnClick="MainpageButton_Click" ImageUrl="../ControlImages/logo.png" />
+            <asp:ImageButton CausesValidation="false"  ID="LogoButton" runat="server" CssClass="LogoButton" OnClick="MainpageButton_Click" ImageUrl="../ControlImages/logo.png" />
         </div>
 
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

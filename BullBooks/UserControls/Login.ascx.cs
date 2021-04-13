@@ -38,11 +38,6 @@ namespace BullBooks.UserControls
                     try
                     {
                         Session["User"] = user;
-                        HttpCookie hc = new HttpCookie("nigga");
-                        hc["name"] = user.Username;
-                        hc.Expires.Add(new TimeSpan(0, 1, 0));
-                        Response.Cookies.Add(hc);
-
                         Response.Redirect("MainPage.aspx");
                     }
                     catch

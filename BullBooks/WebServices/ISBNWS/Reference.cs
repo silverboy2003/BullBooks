@@ -23,7 +23,7 @@ namespace BullBooks.ISBNWS {
     
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name="ISBNSoap", Namespace="http://BullBooksWS.net/")]
@@ -176,42 +176,24 @@ namespace BullBooks.ISBNWS {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://BullBooksWS.net/AddNewBook", RequestNamespace="http://BullBooksWS.net/", ResponseNamespace="http://BullBooksWS.net/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public bool AddNewBook(string isbn, string bookName, string author, string publisher, string synopsis, int numPages, int numChapters, double rating, System.DateTime bookRelease, int[] genres) {
+        public bool AddNewBook(WSBook newBook) {
             object[] results = this.Invoke("AddNewBook", new object[] {
-                        isbn,
-                        bookName,
-                        author,
-                        publisher,
-                        synopsis,
-                        numPages,
-                        numChapters,
-                        rating,
-                        bookRelease,
-                        genres});
+                        newBook});
             return ((bool)(results[0]));
         }
         
         /// <remarks/>
-        public void AddNewBookAsync(string isbn, string bookName, string author, string publisher, string synopsis, int numPages, int numChapters, double rating, System.DateTime bookRelease, int[] genres) {
-            this.AddNewBookAsync(isbn, bookName, author, publisher, synopsis, numPages, numChapters, rating, bookRelease, genres, null);
+        public void AddNewBookAsync(WSBook newBook) {
+            this.AddNewBookAsync(newBook, null);
         }
         
         /// <remarks/>
-        public void AddNewBookAsync(string isbn, string bookName, string author, string publisher, string synopsis, int numPages, int numChapters, double rating, System.DateTime bookRelease, int[] genres, object userState) {
+        public void AddNewBookAsync(WSBook newBook, object userState) {
             if ((this.AddNewBookOperationCompleted == null)) {
                 this.AddNewBookOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAddNewBookOperationCompleted);
             }
             this.InvokeAsync("AddNewBook", new object[] {
-                        isbn,
-                        bookName,
-                        author,
-                        publisher,
-                        synopsis,
-                        numPages,
-                        numChapters,
-                        rating,
-                        bookRelease,
-                        genres}, this.AddNewBookOperationCompleted, userState);
+                        newBook}, this.AddNewBookOperationCompleted, userState);
         }
         
         private void OnAddNewBookOperationCompleted(object arg) {
@@ -241,7 +223,7 @@ namespace BullBooks.ISBNWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -382,7 +364,7 @@ namespace BullBooks.ISBNWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -415,11 +397,11 @@ namespace BullBooks.ISBNWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
     public delegate void GetBookByISBNCompletedEventHandler(object sender, GetBookByISBNCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class GetBookByISBNCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -441,11 +423,11 @@ namespace BullBooks.ISBNWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
     public delegate void GetGenresTableCompletedEventHandler(object sender, GetGenresTableCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class GetGenresTableCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -467,11 +449,11 @@ namespace BullBooks.ISBNWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
     public delegate void UpdateRatingCompletedEventHandler(object sender, UpdateRatingCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class UpdateRatingCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -493,11 +475,11 @@ namespace BullBooks.ISBNWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
     public delegate void AddNewBookCompletedEventHandler(object sender, AddNewBookCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class AddNewBookCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {

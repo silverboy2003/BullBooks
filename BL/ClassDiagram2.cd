@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BL.Book">
+    <Position X="3.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>RACqCEAQCwQEEAAACAIAAAAKEAgAABgAAAoBAEAEAAE=</HashCode>
+      <FileName>Book.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Reviews" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="BL.Comment">
+    <Position X="10.75" Y="0.5" Width="1.5" />
+    <AssociationLine Name="Replies" Type="BL.Comment" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="12.125" Y="5.968" />
+        <Point X="12.125" Y="6.218" />
+        <Point X="11" Y="6.218" />
+        <Point X="11" Y="5.968" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.911" Y="0.352" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>ABggAAAABAAwAAQAFAAAAACAACAggAEgABACAAAIIoA=</HashCode>
+      <FileName>Comment.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Replies" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="BL.Genre">
+    <Position X="9" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAAAAIAAAAAAACAAAA=</HashCode>
+      <FileName>Genre.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BL.Helper">
+    <Position X="9" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAAKAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BL.Review">
+    <Position X="5.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QABACEAAABgAAQAAAAAAAAAAARAAAQEAAAAEAAIABAA=</HashCode>
+      <FileName>Review.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BL.Thread">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <AssociationLine Name="ThreadMasterComments" Type="BL.Comment" FixedFromPoint="true">
+      <Path>
+        <Point X="8.75" Y="2.688" />
+        <Point X="10.75" Y="2.688" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>QIAAAEAQIIQgABAAEMAAAABQCAAgAEAAABBggAAgEAA=</HashCode>
+      <FileName>Thread.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="ThreadMasterComments" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="BL.User">
+    <Position X="12.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QQACRkAABCYAAASkBQAAgAWACQAhEAgCABAQAoEAAkA=</HashCode>
+      <FileName>User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

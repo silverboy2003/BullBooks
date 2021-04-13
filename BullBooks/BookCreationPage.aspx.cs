@@ -169,7 +169,20 @@ namespace BullBooks
                 else
                 {
                     Book newBook = new Book(-1, bookName, authorName, publisherName, publisherID, authorID, synopsis, bookCover, 0, 0, numPages, numChapters, releaseDate, isbn, genres, new List<Review>());
-                    bool success = new ISBNWS.ISBN().AddNewBook(isbn, bookName, authorName, publisherName, synopsis, numPages, numChapters, 0, releaseDate, genres.ToArray());
+                    ISBNWS.WSBook yam = new WSBook
+                    {
+                        Isbn = isbn,
+                        BookName = bookName,
+                        Author = authorName,
+                        Publisher = publisherName,
+                        Synopsis = synopsis,
+                        NumPages = numPages,
+                        NumChapters = numChapters,
+                        BookRelease = releaseDate,
+                        Genres = genres.ToArray(),
+                        Rating = 0
+                    };
+                    bool success = new ISBNWS.ISBN().AddNewBook(yam);
                     int newID = newBook.CommitBook();
                     if (newID != -1)
                     {
