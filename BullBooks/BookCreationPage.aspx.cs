@@ -29,7 +29,8 @@ namespace BullBooks
             PublisherName.Items.Clear();
             AuthorName.Items.Clear();
                 string currentBookID = Request.QueryString["id"];
-                if (!string.IsNullOrEmpty(currentBookID) && int.TryParse(currentBookID, out _))
+                int tempInt;
+                if (!string.IsNullOrEmpty(currentBookID) && int.TryParse(currentBookID, out tempInt))
                 {
                     Dictionary<int, Book> allBooks = (Dictionary<int, Book>)Application["Books"];
                     Book currentBook = allBooks[int.Parse(currentBookID)];
