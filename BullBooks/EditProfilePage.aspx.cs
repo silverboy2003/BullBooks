@@ -28,37 +28,65 @@ namespace BullBooks
 
         protected void UploadBanner_Click(object sender, EventArgs e)
         {
+            bool fileOK = false;
             if (BannerFile.HasFile)
             {
-                string[] names = Directory.GetFiles(@"UserImages/Banners");
-                //string fileName = Path.GetFileNameWithoutExtension(names[names.Length-1]);
-                string newName = names.Length + ".png";
-                string newPath = @"UserImages/Banners/" + newName;
-                BannerFile.SaveAs(Server.MapPath("~/" + newPath));
-                BannerImage.ImageUrl = "../" + newPath;
-                ViewState["BannerPath"] = newPath;
-                //string[] names = Directory.GetFiles(@"CoverPics");
-                //string fileName = Path.GetFileNameWithoutExtension(names[names.Length - 1]);
-                //int newName = int.Parse(fileName) + 1;
-                //BookCoverUpload.SaveAs(@"CoverPics\" + BookCoverUpload.FileName);
+                String fileExtension = System.IO.Path.GetExtension(BookCoverUpload.FileName).ToLower();
+                String[] allowedExtensions = { ".jpg", ".gif", ".png" };
+                for (int i = 0; i < allowedExtensions.Length; i++)
+                {
+                    if (fileExtension == allowedExtensions[i])
+                    {
+                        fileOK = true;
+                    }
+                }
+
+                if (fileOK)
+                {
+                    string[] names = Directory.GetFiles(@"UserImages/Banners");
+                    //string fileName = Path.GetFileNameWithoutExtension(names[names.Length-1]);
+                    string newName = names.Length + ".png";
+                    string newPath = @"UserImages/Banners/" + newName;
+                    BannerFile.SaveAs(Server.MapPath("~/" + newPath));
+                    BannerImage.ImageUrl = "../" + newPath;
+                    ViewState["BannerPath"] = newPath;
+                    //string[] names = Directory.GetFiles(@"CoverPics");
+                    //string fileName = Path.GetFileNameWithoutExtension(names[names.Length - 1]);
+                    //int newName = int.Parse(fileName) + 1;
+                    //BookCoverUpload.SaveAs(@"CoverPics\" + BookCoverUpload.FileName);
+                }
             }
         }
 
         protected void UploadProfile_Click(object sender, EventArgs e)
         {
+            bool fileOK = false;
             if (ProfileFile.HasFile)
             {
-                string[] names = Directory.GetFiles(@"UserImages/Profile");
-                //string fileName = Path.GetFileNameWithoutExtension(names[names.Length-1]);
-                string newName = names.Length + ".png";
-                string newPath = @"UserImages/Profile/" + newName;
-                ProfileFile.SaveAs(Server.MapPath("~/" + newPath));
-                ProfileImage.ImageUrl = "../" + newPath;
-                ViewState["ProfilePath"] = newPath;
-                //string[] names = Directory.GetFiles(@"CoverPics");
-                //string fileName = Path.GetFileNameWithoutExtension(names[names.Length - 1]);
-                //int newName = int.Parse(fileName) + 1;
-                //BookCoverUpload.SaveAs(@"CoverPics\" + BookCoverUpload.FileName);
+                String fileExtension = System.IO.Path.GetExtension(BookCoverUpload.FileName).ToLower();
+                String[] allowedExtensions = { ".jpg", ".gif", ".png" };
+                for (int i = 0; i < allowedExtensions.Length; i++)
+                {
+                    if (fileExtension == allowedExtensions[i])
+                    {
+                        fileOK = true;
+                    }
+                }
+
+                if (fileOK)
+                {
+                    string[] names = Directory.GetFiles(@"UserImages/Profile");
+                    //string fileName = Path.GetFileNameWithoutExtension(names[names.Length-1]);
+                    string newName = names.Length + ".png";
+                    string newPath = @"UserImages/Profile/" + newName;
+                    ProfileFile.SaveAs(Server.MapPath("~/" + newPath));
+                    ProfileImage.ImageUrl = "../" + newPath;
+                    ViewState["ProfilePath"] = newPath;
+                    //string[] names = Directory.GetFiles(@"CoverPics");
+                    //string fileName = Path.GetFileNameWithoutExtension(names[names.Length - 1]);
+                    //int newName = int.Parse(fileName) + 1;
+                    //BookCoverUpload.SaveAs(@"CoverPics\" + BookCoverUpload.FileName);
+                }
             }
         }
 
