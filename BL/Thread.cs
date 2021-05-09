@@ -77,7 +77,7 @@ namespace BL
             {
                 if (!string.IsNullOrEmpty(book))//meaning the person searched by book
                 {
-                    allThreads.RemoveAll(currentThread => !currentThread.threadBook.StartsWith(book));
+                    allThreads.RemoveAll(currentThread => !currentThread.threadBook.ToLower().StartsWith(book.ToLower()));
                 }
                 if(!string.IsNullOrEmpty(thread))//meaning the person searched by thread
                 {

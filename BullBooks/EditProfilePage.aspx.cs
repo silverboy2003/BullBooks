@@ -31,7 +31,7 @@ namespace BullBooks
             bool fileOK = false;
             if (BannerFile.HasFile)
             {
-                String fileExtension = System.IO.Path.GetExtension(BookCoverUpload.FileName).ToLower();
+                String fileExtension = System.IO.Path.GetExtension(BannerFile.FileName).ToLower();
                 String[] allowedExtensions = { ".jpg", ".gif", ".png" };
                 for (int i = 0; i < allowedExtensions.Length; i++)
                 {
@@ -63,7 +63,7 @@ namespace BullBooks
             bool fileOK = false;
             if (ProfileFile.HasFile)
             {
-                String fileExtension = System.IO.Path.GetExtension(BookCoverUpload.FileName).ToLower();
+                String fileExtension = System.IO.Path.GetExtension(ProfileFile.FileName).ToLower();
                 String[] allowedExtensions = { ".jpg", ".gif", ".png" };
                 for (int i = 0; i < allowedExtensions.Length; i++)
                 {

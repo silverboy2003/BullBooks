@@ -21,7 +21,7 @@
                 <asp:RequiredFieldValidator runat="server" ID="RequiredTitle" ControlToValidate="BookName" cssclass="BookValidator" ValidationGroup="CreateBook" ErrorMessage="*"></asp:RequiredFieldValidator>
                 </div>
 
-                <div><label for="AuthorName">Author: </label> <select class="js-example-basic-single" runat="server" id="AuthorName"></select>
+                <div><label for="AuthorName">Author: </label> <select class="js-example-basic-single" runat="server" id="AuthorName" enableviewstate="true"></select>
                 <asp:RequiredFieldValidator runat="server" ID="RequiredAuthor" ControlToValidate="AuthorName" cssclass="BookValidator" ValidationGroup="CreateBook" ErrorMessage="*"></asp:RequiredFieldValidator>
 
                 </div>

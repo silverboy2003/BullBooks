@@ -25,9 +25,9 @@ namespace BullBooks
             if (!IsPostBack)
             {
                 LoadGenres();
-            }
-            PublisherName.Items.Clear();
-            AuthorName.Items.Clear();
+                //}
+                PublisherName.Items.Clear();
+                AuthorName.Items.Clear();
                 string currentBookID = Request.QueryString["id"];
                 int tempInt;
                 if (!string.IsNullOrEmpty(currentBookID) && int.TryParse(currentBookID, out tempInt))
@@ -68,25 +68,25 @@ namespace BullBooks
                 }
                 else if (currentUser.IsAdmin)
                 {
-                    LoadAuthors(allUsers.Values.ToList()) ;
+                    LoadAuthors(allUsers.Values.ToList());
                     LoadPublishers(allUsers.Values.ToList());
                 }
-                else if(currentUser.IsAuthor && currentUser.IsPublisher)
+                else if (currentUser.IsAuthor && currentUser.IsPublisher)
                 {
                     AuthorName.Items.Add(new ListItem(currentUser.Alias + '-' + currentUser.Username, currentUser.Id.ToString()));
                     PublisherName.Items.Add(new ListItem(currentUser.Alias + '-' + currentUser.Username, currentUser.Id.ToString()));
                 }
                 else if (currentUser.IsAuthor)
                 {
-                AuthorName.Items.Add(new ListItem(currentUser.Alias + '-' + currentUser.Username, currentUser.Id.ToString()));
+                    AuthorName.Items.Add(new ListItem(currentUser.Alias + '-' + currentUser.Username, currentUser.Id.ToString()));
                     LoadPublishers(allUsers.Values.ToList());
                 }
-                else if(currentUser.IsPublisher)
+                else if (currentUser.IsPublisher)
                 {
                     PublisherName.Items.Add(new ListItem(currentUser.Alias + '-' + currentUser.Username, currentUser.Id.ToString()));
                     LoadAuthors(allUsers.Values.ToList());
                 }
-                
+            }
         }
         protected void LoadGenres()
         {
@@ -102,7 +102,7 @@ namespace BullBooks
         protected void LoadPublishers(List<User> allUsers)
         {
             List<User> publishers = new List<User>(allUsers);
-            publishers.RemoveAll(user => !user.IsAuthor);
+            publishers.RemoveAll(user => !user.IsPublisher);
             PublisherName.Items.Clear();
             foreach(User publisher in publishers)
             {
@@ -120,7 +120,6 @@ namespace BullBooks
                 AuthorName.Items.Add(new ListItem(author.Alias + '-' + author.Username, author.Id.ToString()));
             }
         }
-
         protected void SendBook_Click(object sender, ImageClickEventArgs e)
         {
             Page.Validate("CreateBook");
@@ -128,8 +127,8 @@ namespace BullBooks
             {
                 Dictionary<int, User> allUsers = (Dictionary<int, User>)Application["Users"];
                 string bookName = BookName.Text;
-                int publisherID = int.Parse(PublisherName.Value);
-                int authorID = int.Parse(AuthorName.Value);
+                int publisherID = int.Parse(PublisherName.Items[PublisherName.SelectedIndex].Value);
+                int authorID = int.Parse(AuthorName.Items[AuthorName.SelectedIndex].Value);
                 string publisherName = allUsers[publisherID].Alias;
                 string authorName = allUsers[authorID].Alias;
                 string synopsis = Synopsis.Text;
